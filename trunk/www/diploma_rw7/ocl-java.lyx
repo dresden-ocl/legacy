@@ -1,4 +1,4 @@
-#This file was created by <wiera> Fri Jul 21 10:28:22 2000
+#This file was created by <wiera> Mon Jul 24 10:00:57 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -308,6 +308,20 @@ wann welche Constraints checken
 \layout Itemize
 
 wie weit bei @pre kopieren
+\layout Itemize
+
+scope of invariants:
+\begin_deeper 
+\layout Itemize
+
+all methods
+\layout Itemize
+
+public methods
+\layout Itemize
+
+transactions
+\end_deeper 
 \layout Chapter
 
 Code Injection
@@ -431,7 +445,7 @@ int result=someMethod_wrappedbyocl(x);
 \protected_separator 
 
 \protected_separator 
-// some code checking postconditions/invariants.
+// some code checking invariants/postconditions.
 \newline 
 
 \protected_separator 
@@ -491,7 +505,7 @@ this(x, new Void());
 \protected_separator 
 
 \protected_separator 
-// some code checking postconditions/invariants.
+// some code checking invariants.
 \newline 
 }
 \layout Section
@@ -568,33 +582,74 @@ An interactive tool for injecting
  code or dynamicly on run time.
 \layout Section
 
-Static
+Static Information
 \layout Standard
 
-Given 
-\family typewriter 
-Collection employees
-\family default 
- look for 
-\family typewriter 
-void addEmployee(Person)
-\family default 
- or 
-\family typewriter 
-boolean isEmployee(Person)
-\family default 
-.
+Information about element types may be derived from static properties of
+ the class, such as parameter types of methods and tags in doccomments.
+ The following example suggests some of these properties.
  
+\layout LyX-Code
+
+/**
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+All employees of this company.
+\newline 
+
+\protected_separator 
+ 
+\protected_separator 
+@see 
+\bar under 
+Person
+\bar default 
+
+\newline 
+*/
+\newline 
+Collection employees;
+\newline 
+
+\protected_separator 
+
+\newline 
+boolean isEmployee(
+\bar under 
+Person
+\bar default 
+);
+\newline 
+void addEmployee(
+\bar under 
+Person
+\bar default 
+);
+\newline 
+void removeEmployee(
+\bar under 
+Person
+\bar default 
+);
 \layout Standard
 
-Or look for a 
-\family typewriter 
-@see
-\family default 
- tag in the corresponding doc comment.
+An interactive tool should support the developer by presenting these properties
+ in a comfortable way.
+ There should be a special indication, if several properties suggest different
+ element types.
+\layout Standard
+
+Note, that the example above requires linguistic knowledge about plural
+ and singular form of nouns (employee here).
+ This gets far more difficult, if identifiers are not English.
 \layout Section
 
-Dynamic
+Tracing Dynamic Type Information
 \layout Itemize
 
 Enriche the code with tracing the object types inside collections.
@@ -606,7 +661,7 @@ compile and run the program (regression tests if available)
 Maintaining the OCL Compiler
 \layout Standard
 
-This chapter decribes all major change to Frank Fingers OCL compiler.
+This chapter describes all major changes to Frank Fingers OCL compiler.
  This includes bugfixes too, if they caused changes of internal or external
  interfaces.
 \layout Enumerate
