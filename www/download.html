@@ -44,25 +44,51 @@ To keep yourself informed about new versions, please subscribe to our <a href="h
 
 <h2><code>...snapshots</code></h2>
 <p>July 3, 2000</p>
-<ul>
+<dl>
+<dt><b>Standalone</b></dt>
+<dd>
+If you want to use the ocl compiler standalone, do the following:
+<ol>
 <li>
-<a href="download/dresden-ocl.jar">dresden-ocl.jar</a> contains everything needed to run the ocl compiler, excepting <a href="download/xml4j.jar">xml4j.jar</a>.
-Start with <pre>java -cp dresden-ocl.jar:xml4j.jar tudresden.ocl.ConstraintEvaluation</pre>
+Download <a href="download/dresden-ocl.jar">dresden-ocl.jar</a> and <a href="download/xml4j.jar">xml4j.jar</a> into a directory.
+<br>
+<font color="red"><b>Problems</b> when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.</font>
 </li>
+<li>Change into that directory.</li>
+<li>Type <pre>java -cp dresden-ocl.jar:xml4j.jar tudresden.ocl.ConstraintEvaluation</pre> at the command prompt.</li>
+<li>A window pops up. There you can enter constraints, check them against a model and generate java code.</li>
+</ol>
+</dd>
+<dt><b>Argo/UML</b></dt>
+<dd>
+If you want to use the ocl compiler as part of <a href="http://argouml.tigris.org/">Argo/UML</a> do the following:
+<ol>
 <li>
-<a href="download/ocl-argo.jar">ocl-argo.jar</a> is to be used with <a href="http://argouml.tigris.org/">Argo/UML</a>.
-Is a subset of dresden-ocl.jar.
-Include it into your Argo/UML installation.
+Download <a href="download/ocl-argo.jar">ocl-argo.jar</a> (a subset of dresden-ocl.jar).
+<br>
+<font color="red"><b>Problems</b> when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.</font>
 </li>
-<li><a href="download/dresden-ocl-src.tar.gz">dresden-ocl-src.tar.gz</a>: the complete source including test suites.</li>
-<li><a href="download/dresden-ocl-api.tar.gz">dresden-ocl-api.tar.gz</a>: the javadoc api
-documentation, also available <a href="download/api/index.html">online</a>.</li>
-<li><a href="ff3/jocl.jar">jocl.jar</a>: the prototype tool JOcl is available in a separate package.</li>
-</ul>
+<li>Replace the current ocl-argo.jar in your Argo/UML installation with this file.</li>
+<li>Restart Argo/UML.</li>
+<li>Use the tab &quot;Constraints&quot;</li> in the lower section of the Argo/UML main window.</li>
+</ol>
+You do not need xml4j.jar, since this is already part of Argo/UML.
+</dd>
+<dt><b>Sources</b></dt>
+<dd>
+The complete source including test suites is available in <a href="download/dresden-ocl-src.tar.gz">dresden-ocl-src.tar.gz</a>.
+For compiling, you need <a href="download/xml4j.jar">xml4j.jar</a> and <a href="download/test.jar">test.jar</a>.
+Note, that the ultimate source of the current verion is the <a href="http://sourceforge.net/cvs/?group_id=5840">cvs repository</a> at sourceforge.
+</dd>
+<dt><b>Documentation</b></dt>
+<dd>
+The javadoc api documentation is available for <a href="download/dresden-ocl-api.tar.gz">download</a>
+or for reading <a href="download/api/index.html">online</a>.
+You may also generate this from the sources.
+</dd>
+</dl>
 
-<p><font color="red"><b>"Corrupt JAR file"</b> when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.</font></p>
 
-<p>The ultimate source is the <a href="http://sourceforge.net/cvs/?group_id=5840">cvs repository</a> at sourceforge.</p>
 
 
 <h2><code>...dependencies</code></h2>
@@ -85,7 +111,9 @@ The test suite is available in the source package only.
 </li>
 </ul>
 
-<p><font color="red"><b>"Corrupt JAR file"</b> when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.</font></p>
+<p>
+<font color="red"><b>Problems</b> when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.</font>
+</p>
 
 <h2><code>...documentation</code></h2>
 
@@ -125,6 +153,8 @@ The test suite is available in the source package only.
     <td><a href="presentations/generatedcode/sld001.htm">X</a></td>
   </tr>
 </table>
+
+<p><a href="ff3/jocl.jar">jocl.jar</a>: the prototype tool JOcl is available in a separate package.</p>
 
 <h1><code>...related stuff</code></h1>
 
