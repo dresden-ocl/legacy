@@ -1,4 +1,4 @@
-#This file was created by <wiera> Tue Dec  5 14:27:47 2000
+#This file was created by <wiera> Wed Dec  6 16:27:11 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -116,36 +116,6 @@ dresden-ocl.
 
 \family default 
 sourceforge.net/.
-\layout Section*
-
-New
-\layout Enumerate
-
-Section 
-\begin_inset LatexCommand \ref{Sec:detectingCollectionChanges}
-
-\end_inset 
-
-.
-\layout Enumerate
-
-Appendix 
-\begin_inset LatexCommand \ref{sec: VersantProblem}
-
-\end_inset 
-
-.
-\layout Enumerate
-
-completed chapter 2 Related Work.
-\layout Enumerate
-
-section 
-\begin_inset LatexCommand \ref{Sec:maintainJavaCodeGenerator}
-
-\end_inset 
-
-.
 \layout Standard
 
 
@@ -159,12 +129,22 @@ section
 Introduction
 \layout Standard
 
-Wishlist in 
+This work descibes the design and implementation of a tool providing runtime
+ verification of OCL (Object Contraint Language) constraints in java programs.
+ Therefore, the OCL compiler developed by Frank Finger 
 \begin_inset LatexCommand \cite{ff3}
 
 \end_inset 
 
- section 3.6.
+ was extended by java source code instrumentation.
+ This tool is able to 
+\layout Standard
+
+support the principals of Design by Contract in java.
+\layout Standard
+
+Wishlist in section 3.6.
+ 
 \layout Chapter
 
 Related Work
@@ -4234,6 +4214,9 @@ All approaches have one thing in common: they are not perfect.
 
 OCL on an Industrial Example
 \layout Chapter
+
+Summary
+\layout Chapter
 \start_of_appendix 
 Maintance of the OCL Toolkit
 \layout Standard
@@ -5960,6 +5943,17 @@ Frank Finger.
  TU-Dresden, 2000.
  http://dresden-ocl.\SpecialChar \-
 sourceforge.net/.
+\layout Bibliography
+\bibitem [TP98]{DcC}
+
+Todd Plessel.
+ Design By Contract: A Missing Link In The Quest For Quality Software.
+ Lockheed Martin / US EPA, August 1998.
+ http://www.\SpecialChar \-
+elj.\SpecialChar \-
+com/\SpecialChar \-
+eiffel/\SpecialChar \-
+dbc/.
 \layout Bibliography
 \bibitem [WK99]{Warmer}
 
