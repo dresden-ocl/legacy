@@ -1,4 +1,4 @@
-#This file was created by <wiera> Mon Dec 11 13:27:34 2000
+#This file was created by <wiera> Mon Dec 11 13:42:55 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -101,7 +101,7 @@ diploma_rw7/ in several electronic forms including
 \backslash 
 LaTeX{}
 \latex default 
-, Postscript, PDF, HTML and the original kLyx version.
+, Postscript, PDF, HTML and the original kLyX version.
  
 \layout Standard
 
@@ -3783,7 +3783,7 @@ A really comfortable implementation would let the java compiler do the parsing,
  standard runtime library to be modified.
  Apart from the effort of making these modifications, most java developers
  probably have a profound aversion against using a dedicated java environment
- just for checking ocl constraints.
+ just for checking OCL constraints.
 \layout Standard
 
 The implementation developed with this paper extends
@@ -5376,7 +5376,7 @@ For the old behavior compare to
  Below, there is a detailed comparison on the example used there.
 \layout Standard
 
-The ocl expression is
+The OCL expression is
 \layout LyX-Code
 
 context Person::getIncomeAfterTax(tax:Real):Real post:
@@ -5804,7 +5804,7 @@ jar -xf royloy.jar
 \layout Standard
 
 You may now have a look at the example code, its in tudresden/ocl/test/royloy/.
- The java code already contains ocl expressions in javadoc comments, for
+ The java code already contains OCL expressions in javadoc comments, for
  an easy start see 
 \family typewriter 
 Person.java
@@ -5814,7 +5814,7 @@ Person.java
 Company.java
 \family default 
 .
- Additional ocl is in the file 
+ Additional OCL is in the file 
 \family typewriter 
 oclexpressions
 \family default 
@@ -5824,7 +5824,7 @@ oclexpressions
 Step 2:
 \layout Standard
 
-Now it's time to start the ocl tool.
+Now it's time to start the OCL tool.
  Type the following command on a single line.
  Note, that the wildcards require a Unix shell to be expanded.
 \layout LyX-Code
@@ -5850,7 +5850,7 @@ java -jar dresden-ocl-injector.jar
 
 The example java code has now been modified.
  The modified code will have the same behavior as the original code, but
- will additionally check the ocl constraints embedded in the javadoc comments.
+ will additionally check the OCL constraints embedded in the javadoc comments.
 \layout Paragraph
 
 Step 3:
@@ -5907,7 +5907,7 @@ java
 tudresden.ocl.test.TestInjectionRoyloy 
 \layout Standard
 
-Enjoy the messages about violated ocl constraints running down the screen.
+Enjoy the messages about violated OCL constraints running down the screen.
  Messages contain information about the violated constraint and the object
  involved.
 \layout Paragraph
@@ -5915,7 +5915,7 @@ Enjoy the messages about violated ocl constraints running down the screen.
 Step 5:
 \layout Standard
 
-Clean the code from the modifications the ocl tool made.
+Clean the code from the modifications the OCL tool made.
 \layout LyX-Code
 
 java -jar dresden-ocl-injector.jar 
@@ -5996,7 +5996,7 @@ file.java.injected
 \emph on 
 really
 \emph toggle 
- want to replace your source code with the output of the ocl tool.
+ want to replace your source code with the output of the OCL tool.
 \layout LyX-Code
 
 -c --clean
@@ -6004,7 +6004,7 @@ really
 
 Performs cleaning of source files instead of instrumentation.
  After cleaning, the source code should show no differences to the version
- before running the ocl tool.
+ before running the OCL tool.
 \layout LyX-Code
 
 -f --constraint-file constraints.txt
@@ -6127,7 +6127,7 @@ all
 
 Specifies what to do, if a constraint fails.
  This string is inserted verbatim into the code.
- The ocl tool appends a pair of parents enclosing a suitable message string.
+ The OCL tool appends a pair of parents enclosing a suitable message string.
  Good candidates are 
 \family typewriter 
 System.\SpecialChar \-
@@ -6182,7 +6182,7 @@ TypeTracer.log
 \layout Quotation
 
 Note, that the log file must be specified when running the user program,
- not the ocl tool! For example use 
+ not the OCL tool! For example use 
 \family typewriter 
 -Dtudresden.\SpecialChar \-
 ocl.\SpecialChar \-
