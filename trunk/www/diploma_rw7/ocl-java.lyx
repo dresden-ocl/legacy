@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Dec 13 14:22:20 2000
+#This file was created by <wiera> Wed Dec 13 14:27:21 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -80,22 +80,8 @@ copyright
 Availability
 \layout Standard
 
-This document is available at http://dresden-ocl.
-\family typewriter 
-\SpecialChar \-
-
-\family default 
-sourceforge.
-\family typewriter 
-\SpecialChar \-
-
-\family default 
-net/
-\family typewriter 
-\SpecialChar \-
-
-\family default 
-diploma_rw7/ in several electronic forms including 
+This document is available at http://dresden-ocl.sourceforge.net/diploma_rw7/
+ in several electronic forms including 
 \latex latex 
 
 \backslash 
@@ -106,16 +92,7 @@ LaTeX{}
 \layout Standard
 
 The source code developed together with this paper is available at http://
-\family typewriter 
-\SpecialChar \-
-
-\family default 
-dresden-ocl.
-\family typewriter 
-\SpecialChar \-
-
-\family default 
-sourceforge.net/.
+ dresden-ocl.sourceforge.net/.
 \layout Standard
 
 
