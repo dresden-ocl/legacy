@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Dec 13 11:10:01 2000
+#This file was created by <wiera> Wed Dec 13 11:38:02 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -4700,39 +4700,26 @@ The results of this paper leave various directions for future work on the
  This chapter outlines the (in the author's opinion) most interesting ideas.
 \layout Section
 
-Design by Contract Taken Seriously
+Inheriting Constraints
 \layout Standard
 
-Obviously, the OCL toolkit can be used to support Design by Contract (DbC)
- 
-\begin_inset LatexCommand \cite{DbC}
-
-\end_inset 
-
-.
- This paradigm has been extensively researched in the past and its principals
- are thoroughly understood.
- Still, it remains to be shown, that the OCL toolkit actually conforms to
- these principels.
+Inheriting constraints is completely neglected in the current version.
+ This means, that a subclass does not inherit the constraints of its ancestors.
+ At a glance this is an implementation problem only.
+ But it is not that easy.
 \layout Standard
 
-There is at least one issue to be worked on: inheriting constraints.
- In the current version this is completely neglected.
- This means, that a subclass does not inherit the constraints of it's ancestors.
-\layout Standard
-
-But simply promoting constraints of a class to all its descendants is not
- sufficient.
+Simply promoting constraints of a class to all its descendants is not sufficient.
  This downward promotion implies a conjunction (logical AND) of inherited
  and own constraints.
  This is suitable for invariants and postconditions, but not for preconditions.
- DbC requires inheritance of 
+ Design by Contract (DbC) requires inheritance of 
 \emph on 
 contracts
 \emph toggle 
 , not just constraints, thus preconditions cannot be strengthened.
  To make this sure, DbC suggests a disjunction (logical OR) of inherited
- and own constraints.
+ and own preconditions.
 \layout Standard
 
 This causes some uncomfortable effects.
@@ -4742,9 +4729,10 @@ This causes some uncomfortable effects.
 balance
 \family default 
  and a method for drawing money.
- For some technical reason the amount to be drawn cannot exceed 10000 per
- transaction.
- This could be expressed like this:
+ There is no debit allowed, and for some technical reason the amount to
+ be drawn cannot exceed 10000 per transaction.
+ This could be expressed like this: (Postconditions have been ommited for
+ brevity).
 \layout LyX-Code
 
 context Account::drawMoney(amount:integer)
@@ -4782,8 +4770,14 @@ ORing
  of the developer.
 \layout Standard
 
-A sensible solution should allow to inherit the upper limit for amount as
- such without repeating it in the subclass.
+A work-around is to repeat the upper limit for amount in the subclass.
+ But this is not convinient, particularly when considering 10 such technical
+ preconditions instead of just one.
+ 
+\layout Standard
+
+A sensible solution should allow to inherit a precondition as such without
+ repeating it in the subclass.
  A suitable solution could feature named preconditions and a 
 \begin_inset Quotes eld
 \end_inset 
@@ -4826,13 +4820,6 @@ context DebitableAccount::drawMoney(amount:integer)
 These considerations suggest, that there is still some investigation and
  development needed to make the OCL toolkit usable for supporting Design
  by Contract.
-\layout Standard
-
-Anyway, the ultimate solution to bring DbC into java would be an extension
- of the java language.
- Only then it will be easy and stable enough for a wide spread use in industry.
- Such an extention should be possible without breaking byte code compatibility,
- as shown with the addition of inner classes in JDK 1.1.
 \layout Section
 
 Integration with CASE Tools
