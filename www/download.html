@@ -1,297 +1,161 @@
 <html>
 <head>
-<title>OCL Compiler</title>
-<style>
-H1,H2,H3,H4
-{
-  width:100%;
-  padding:2pt;
-  font-family:Helvetica,Helv,Arial;
-  font-weight:bold;
-  border-width:1px; border-color:#FFF;
+	<title>Dresden OCL Toolkit</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 
-}
-H1 { font-size:24pt; padding:5pt; background:#CCF; color:#006; background:#EEF; }
-H2 { font-size:18pt; background:#EEF; }
-H3 { font-size:14pt; background:#EEE; }
-H4 { font-size:12pt; }
-</style>
+	<style>
+		H1 {
+		 BORDER-TOP-WIDTH: 1px; PADDING-RIGHT: 2pt; PADDING-LEFT: 2pt; FONT-WEIGHT: bold; BORDER-LEFT-WIDTH: 1px; BORDER-LEFT-COLOR: #fff; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #fff; PADDING-BOTTOM: 2pt; WIDTH: 100%; BORDER-TOP-COLOR: #fff; PADDING-TOP: 2pt; FONT-FAMILY: Helvetica,Helv,Arial; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #fff
+		}
+		H2 {
+		 BORDER-TOP-WIDTH: 1px; PADDING-RIGHT: 2pt; PADDING-LEFT: 2pt; FONT-WEIGHT: bold; BORDER-LEFT-WIDTH: 1px; BORDER-LEFT-COLOR: #fff; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #fff; PADDING-BOTTOM: 2pt; WIDTH: 100%; BORDER-TOP-COLOR: #fff; PADDING-TOP: 2pt; FONT-FAMILY: Helvetica,Helv,Arial; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #fff
+		}
+		H3 {
+		 BORDER-TOP-WIDTH: 1px; PADDING-RIGHT: 2pt; PADDING-LEFT: 2pt; FONT-WEIGHT: bold; BORDER-LEFT-WIDTH: 1px; BORDER-LEFT-COLOR: #fff; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #fff; PADDING-BOTTOM: 2pt; WIDTH: 100%; BORDER-TOP-COLOR: #fff; PADDING-TOP: 2pt; FONT-FAMILY: Helvetica,Helv,Arial; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #fff
+		}
+		H4 {
+		 BORDER-TOP-WIDTH: 1px; PADDING-RIGHT: 2pt; PADDING-LEFT: 2pt; FONT-WEIGHT: bold; BORDER-LEFT-WIDTH: 1px; BORDER-LEFT-COLOR: #fff; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #fff; PADDING-BOTTOM: 2pt; WIDTH: 100%; BORDER-TOP-COLOR: #fff; PADDING-TOP: 2pt; FONT-FAMILY: Helvetica,Helv,Arial; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #fff
+		}
+		H1 {
+		 PADDING-RIGHT: 5pt; PADDING-LEFT: 5pt; FONT-SIZE: 24pt; BACKGROUND: #eef; PADDING-BOTTOM: 5pt; COLOR: #006; PADDING-TOP: 5pt
+		}
+		H2 {
+		 FONT-SIZE: 18pt; BACKGROUND: #eef
+		}
+		H3 {
+		 FONT-SIZE: 14pt; BACKGROUND: #eee
+		}
+		H4 {
+		 FONT-SIZE: 12pt
+		}
+		</style>
+
 </head>
-<body bgcolor=#FFFFFF>
 
-<table summary="">
-  <tr>
-    <td width=10%>
-      <a href="http://www.tu-dresden.de"><img height=114 width=219 border=0 src="images/tulogo.gif" alt="Dresden University Of Technology"></a>
-    </td>
-      <td width=10%>
-        <a href="http://www-st.inf.tu-dresden.de"><img height=119 width=119 border=0 src="images/st.gif" alt="Chair for Software Technology"></a>
-      </td>
-      <td width=55%></td>
-      <td width=25%><img height=100 width=280 src="images/logo.gif" alt="oclcompiler"></td>
-  </tr>
-</table>
+<body bgcolor="white">
 
+<h1>download</h1>
 
+<P>
+If you find this software useful or develop any extensions, please inform us by
+<A href="mailto:ocl@mail-st.inf.tu-dresden.de">mail</A>.
+To keep yourself informed about new versions, please subscribe to our
+<A href="http://lists.sourceforge.net/mailman/listinfo/dresden-ocl-announce">mailing list</A>.
+This software is published under the
+<A href="http://www.gnu.org/copyleft/lesser.html" target="blank">LGPL</A> (GNU Lesser General Public License).
+</P>
 
-<p>
-[<a href="index.html">&lt;&lt; main page</a>]
--
-[<a href="#ocl4java">ocl4java</a>]
--
-[<a href="#demo">demo applet</a>]
--
-[<a href="#argo">argo/uml</a>]
--
-[<a href="#sources">sources</a>]
--
-[<a href="#history">history</a>]
--
-[<a href="#docs">documentation</a>]
--
-[<a href="#links">links</a>]
-</p>
-
-<h1>Download</h1>
-
-<p>
-If you find this software useful or develop any extensions, please inform us by <a href="mailto:ocl@mail-st.inf.tu-dresden.de">mail</a>.
-To keep yourself informed about new versions, please subscribe to our <a href="http://lists.sourceforge.net/mailman/listinfo/dresden-ocl-announce">mailing list</a>.
-This software is published under the <a href="http://www.gnu.org/copyleft/lesser.html">LGPL</a> (GNU Lesser General Public License).
-</p>
-
-<h2><a name="ocl4java">Ocl for Java</a></h2>
-
+<H2><A name=ocl4java>OCL for Java</A></H2>
 If you want to try OCL on real java code, do the following:
+<OL>
+  <LI>Download <A
+  href="http://dresden-ocl.sourceforge.net/download/dresden-ocl-injector.jar">dresden-ocl-injector.jar</A>
+  and <A
+  href="http://dresden-ocl.sourceforge.net/download/royloy.jar">royloy.jar</A>
+  into a directory. <BR>
+  <TABLE>
+    <TBODY>
+    <TR>
+      <TD bgColor=#ffdddd>Problems when downloading with netscape? Select
+        "Save Link As.." in the context menu, instead of just clicking the link.
+      </TD></TR></TBODY></TABLE>
+  <LI>Change into that directory.
+  <LI>Unzip the example java code in royloy.jar: <PRE>jar -xf royloy.jar
+</PRE>
+  <LI>Compile the example: <PRE>javac -classpath dresden-ocl-injector.jar tudresden/ocl/test/royloy/*.java
+</PRE>
+  <LI>Run the example: <PRE>java -cp .:dresden-ocl-injector.jar tudresden.ocl.test.TestInjectionRoyloy
+</PRE>Nothing happens. The example code runs through without complaining.
+  <LI>Compile the example ocl expressions and put them into the java code: <PRE>java -jar dresden-ocl-injector.jar -r tudresden.ocl.test.royloy --modify tudresden/ocl/test/royloy/*.java
+</PRE>The example java code has now been modified.
+  <LI>Compile the example again: <PRE>javac -classpath dresden-ocl-injector.jar tudresden/ocl/test/royloy/*.java
+</PRE>
+  <LI>Run the example again: <PRE>java -cp .:dresden-ocl-injector.jar tudresden.ocl.test.TestInjectionRoyloy
+</PRE>This time something happens. Enjoy the messages about violated ocl
+  constraints.
+  <LI>Clean the code: <PRE>java -jar dresden-ocl-injector.jar --clean --modify tudresden/ocl/test/royloy/*.java
+</PRE>The example code is now exactly the same as you downloaded it.
+</LI></OL>Of course you may try this on your own java code.
+
+<H2><A name=demo>compiler demo application</A></H2>If you want to use the ocl
+compiler demo application, do the following:
+<OL>
+  <LI>Download <A
+  href="http://dresden-ocl.sourceforge.net/download/dresden-ocl-demo.jar">dresden-ocl-demo.jar</A>
+  and <A
+  href="http://dresden-ocl.sourceforge.net/download/xerces.jar">xerces.jar</A>
+  into a directory. <BR>
+  <TABLE>
+    <TBODY>
+    <TR>
+      <TD bgColor=#ffdddd>Problems when downloading with netscape? Select
+        "Save Link As.." in the context menu, instead of just clicking the link.
+      </TD></TR></TBODY></TABLE>
+  <LI>Change into that directory.
+  <LI>Type <PRE>java -jar dresden-ocl-demo.jar</PRE>at the command prompt.
+  <LI>A window pops up. There you can enter constraints, check them against a
+  model and generate java code. </LI></OL>
+
+<H2><A name=argo>Argo/UML</A></H2>
+If you want to use the ocl compiler as part of <A href="http://argouml.tigris.org/" target="blank">Argo/UML</A> version 0.8 do the following:
+<OL>
+  <LI>Download <A
+  href="http://dresden-ocl.sourceforge.net/download/ocl-argo.jar">ocl-argo.jar</A>
+  (a subset of dresden-ocl.jar).
+  <TABLE>
+    <TBODY>
+    <TR>
+      <TD bgColor=#ffdddd>Problems when downloading with netscape? Select
+        "Save Link As.." in the context menu, instead of just clicking the link.
+      </TD></TR></TBODY></TABLE>
+  <LI>Replace the current ocl-argo.jar in your Argo/UML installation with this
+  file.
+  <LI>Restart Argo/UML. </LI></OL>
+<P>Use the tab "Constraints" in the lower section of the Argo/UML main
+window.</P>
+
+<H2><A name=ocl2sql>OCL for SQL</A></H2>
+If you want to use the OCL2SQL tool prototype, do the following:
 <ol>
-<li>
-Download <a href="download/dresden-ocl-injector.jar">dresden-ocl-injector.jar</a> and <a href="download/royloy.jar">royloy.jar</a> into a directory.
-<br>
-<table><tr><td bgcolor="#FFDDDD">
-Problems when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.
-</td></tr></table>
-</li>
-<li>Change into that directory.</li>
-<li>
-Unzip the example java code in royloy.jar:
-<pre>
-jar -xf royloy.jar
-</pre>
-</li>
-<li>
-Compile the example:
-<pre>
-javac -classpath dresden-ocl-injector.jar tudresden/ocl/test/royloy/*.java
-</pre>
-</li>
-<li>
-Run the example:
-<pre>
-java -cp .:dresden-ocl-injector.jar tudresden.ocl.test.TestInjectionRoyloy
-</pre>
-Nothing happens. The example code runs through without complaining.
-</li>
-<li>
-Compile the example ocl expressions and put them into the java code:
-<pre>
-java -jar dresden-ocl-injector.jar -r tudresden.ocl.test.royloy --modify tudresden/ocl/test/royloy/*.java
-</pre>
-The example java code has now been modified.
-</li>
-<li>
-Compile the example again:
-<pre>
-javac -classpath dresden-ocl-injector.jar tudresden/ocl/test/royloy/*.java
-</pre>
-</li>
-<li>
-Run the example again:
-<pre>
-java -cp .:dresden-ocl-injector.jar tudresden.ocl.test.TestInjectionRoyloy
-</pre>
-This time something happens. Enjoy the messages about violated ocl constraints.
-</li>
-<li>
-Clean the code:
-<pre>
-java -jar dresden-ocl-injector.jar --clean --modify tudresden/ocl/test/royloy/*.java
-</pre>
-The example code is now exactly the same as you downloaded it.
-</li>
+	<li>Download <A href="http://dresden-ocl.sourceforge.net/download/dresden-ocl-sql.jar">dresden-ocl-sql.jar</A> and
+		<A href="http://dresden-ocl.sourceforge.net/download/xerces.jar">xerces.jar</A>
+  		into a directory.
+ 		<TABLE><TBODY><TR><TD bgColor=#ffdddd>
+ 		Problems when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.
+      	</TD></TR></TBODY></TABLE></li>
+	<li>Change into that directory.</li>
+	<li>Type <PRE>java -jar dresden-ocl-sql.jar</PRE>at the command prompt.</li>
+	<li>A window pops up. There you can load an XMI source file with model information, enter OCL constraints and
+		generate according table schemas, object views, integrity views (SQL) and trigger templates as specified.
+	</li>
 </ol>
-Of course you may try this on your own java code.
-
-<h2><a name="demo">Compiler Demo Applet</a></h2>
-If you want to use the ocl compiler demo applet, do the following:
-<ol>
-<li>
-Download <a href="download/dresden-ocl-demo.jar">dresden-ocl-demo.jar</a> and <a href="download/xerces.jar">xerces.jar</a> into a directory.
-<br>
-<table><tr><td bgcolor="#FFDDDD">
-Problems when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.
-</td></tr></table>
-</li>
-<li>Change into that directory.</li>
-<li>Type <pre>java -jar dresden-ocl-demo.jar</pre> at the command prompt.</li>
-<li>A window pops up. There you can enter constraints, check them against a model and generate java code.</li>
-</ol>
-
-<h2><a name="argo">Argo/UML</a></h2>
-If you want to use the ocl compiler as part of <a href="http://argouml.tigris.org/">Argo/UML</a> version 0.8 do the following:
-<ol>
-<li>
-Download <a href="download/ocl-argo.jar">ocl-argo.jar</a> (a subset of dresden-ocl.jar).
-<table><tr><td bgcolor="#FFDDDD">
-Problems when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.
-</td></tr></table>
-</li>
-<li>Replace the current ocl-argo.jar in your Argo/UML installation with this file.</li>
-<li>Restart Argo/UML.</li>
-</ol>
-<p>Use the tab &quot;Constraints&quot; in the lower section of the Argo/UML main window.</p>
-
-<h2><a name="sources">Sources</a></h2>
-The complete source including test suites is available in <a href="download/dresden-ocl-src.tar.gz">dresden-ocl-src.tar.gz</a>.
-<br>
-For compiling, you need:
-<ul>
-<li><a href="download/xerces.jar">xerces.jar</a>: Xerces version 1.4.3 by Apache [<a href="http://xml.apache.org/xerces-j/index.html">link</a>].</li>
-<li>junit.jar: JUnit version 3.7 by Kent Beck and Erich Gamma [<a href="http://www.junit.org/">link</a>] is already in the source package.</li>
-</ul>
-The ultimate source of the newest version is the <a href="http://sourceforge.net/cvs/?group_id=5840">cvs</a> repository at sourceforge.
-<br>
-The API documentation is available for <a href="download/dresden-ocl-api.tar.gz">download</a> or for reading <a href="download/api/index.html">online</a>.
-
-<h2><a name="history">History</a></h2>
-
-<ul>
-<li>2001/12/17: issue #223583 fixed.</li>
-<li>2001/10/17: some more improvements for Argo/UML, but also general freshening up of downloadable files.</li>
-<li>2000/10/16: some improvements for Argo/UML.</li>
-<li>2000/09/29: added self starting jar files, included xerces into distribution.</li>
-<li>2000/09/25: added inline ocl expressions (in java doccomments), numerous bugfixes, moved from xml4j to xerces.</li>
-<li>2000/08/31: added support for java arrays to be treated as ocl sequences.</li>
-</ul>
-
-<h2><a name="docs">Documentation</a></h2>
-
-<h3>Papers</h3>
-
-<p><b>
-Using Previous Property Values in OCL Postconditions - An Implementation Perspective:
-</b>
-Heinrich Hussmann,
-Frank Finger,
-Ralf Wiebicke,
-accepted for the international Workshop "UML 2.0 - The Future of the UML Constraint Language OCL",
-October 2, 2000,
-York, UK.
-<a href="http://www.inf.tu-dresden.de/TU/Informatik/ST2/ST/papers/uml2000_oclws.pdf">pdf</a>
-</p>
-
-<p><b>
-Modular Architecture for a Toolset Supporting OCL:
-</b>
-Heinrich Hussmann; Birgit Demuth, Frank Finger,
-draft,
-to appear in Proceedings &lt;&lt;UML&gt;&gt;2000, Conference,
-October 3-6, 2000,
-York, UK.
-<a href="http://www.inf.tu-dresden.de/TU/Informatik/ST2/ST/papers/uml2000.pdf">pdf</a>
-</p>
-
-<h3>Reports</h3>
-
-<p><b>
-Design and Implementation of a Modular OCL Compiler:
-</b>
-Frank Finger,
-Diploma Thesis,
-March 2000.
-<a href="http://www-st.inf.tu-dresden.de/ocl/ff3/diplom.pdf">pdf</a>
-</p>
-
-<p><b>
-Java-Implementierung der OCL-Basisbibliothek
-</b>
-(in German):
-Frank Finger,
-Research Report,
-July 1999.
-<a href="http://www-st.inf.tu-dresden.de/ocl/ff3/beleg.pdf">pdf</a>
-</p>
-
-<p><b>
-Utility Support for Checking OCL Business Rules in Java Programs:
-</b>
-Ralf Wiebicke,
-Diploma Thesis,
-December 2000.
-<a href="http://rw7.de/ralf/diplom00/intro.html">link</a>.
-</p>
-
-<p><b>
-A Type Information Component for OCL:
-</b>
-Chapter 3 in XML Query Languages for Repositories Based on XML Documents,
-Ralf Wiebicke,
-Research Report,
-April 2000.
-<a href="http://rw7.de/ralf/gbeleg99/intro.html">link</a>
-</p>
-
-<h3>Slides</h3>
-
-<ul>
-<li>
-Presentation at Software Engineering Group Seminar;
-42 pages, in German; on design of OCL compiler.
-<a href="http://www-st.inf.tu-dresden.de/ocl/presentations/zwischenstand.ppt">zwischenstand.ppt</a>,
-<a href="http://www-st.inf.tu-dresden.de/ocl/presentations/zwischenstand/sld001.htm">html</a>
-</li>
-<li>
-Presentation at OCL Workshop in Canterbury;
-18 pages; overview,
-<a href="http://www-st.inf.tu-dresden.de/ocl/presentations/canterbury.ppt">canterbury.ppt</a>,
-<a href="http://www-st.inf.tu-dresden.de/ocl/presentations/canterbury/sld001.htm">html</a>
-</li>
-<li>
-Presentation on Generated Code; 22 pages
-<a href="http://www-st.inf.tu-dresden.de/ocl/presentations/generatedcode.ppt">generatedcode.ppt</a>
-<a href="http://www-st.inf.tu-dresden.de/ocl/presentations/generatedcode/sld001.htm">html</a>
-</li>
-</ul>
+The OCL2SQL has been developed by <a href="mailto:sl13@inf.tu-dresden.de">Sten Loecher</a>. Contact him to ask tool specific questions.
+You can find more information about the purpose of the tool in the paper "OCL as a Specification Language for Business Rules in Data Base Applications"
+(see <a href="documentation.html#papers">papers</a>).
+<p>
+Alternativly to the OCL2SQL tool, the jar also contains a SQL test application which was used during
+the development of the SQL code generator. The test application makes use of the <a href="#demo">compiler demo
+application</a>. You can run the SQL test application by typing at the command prompt:
+<PRE>java -classpath .:dresden-ocl-sql.jar tudresden/ocl/SQLTestApp</PRE>
 
 
-<h2><a name="links">Links</a></h2>
-
-<ul>
-
-<li><a href="http://www.klasse.nl/ocl/ocl-tools.htm">Klasse Objecten</a>:
-provides a list of OCL tools.
-</li>
-
-<li><a href="http://argouml.tigris.org/">Argo/UML</a>:
-a UML CASE tool. The OCL toolkit has been integrated with Argo/UML.
-</li>
-
-<li><a href="http://pwan.sourceforge.net/index.html">PWAN</a>:
-a free OCL library.
-</li>
-
-<li><a href="http://www.faw.uni-ulm.de/kbeans/">KBeans</a>:
-constraints in java.
-</li>
-
-<li><a href="http://www.sable.mcgill.ca/sablecc/">SableCC</a>:
-this parser generator used in this toolkit.
-</li>
-
-<li><a href="http://www-st.inf.tu-dresden.de/ocl/ff3/jocl.jar">JOcl</a>:
-The prototype tool JOcl is available in a separate package.
-</li>
-
-</ul>
+<H2><A name=sources>sources</A></H2>The complete source including test suites is
+available in <A
+href="http://dresden-ocl.sourceforge.net/download/dresden-ocl-src.tar.gz">dresden-ocl-src.tar.gz</A>.
+<BR>For compiling, you need:
+<UL>
+  <LI><A
+  href="http://dresden-ocl.sourceforge.net/download/xerces.jar">xerces.jar</A>:
+  Xerces version 1.4.3 by Apache [<A
+  href="http://xml.apache.org/xerces-j/index.html" target="blank">link</A>].
+  <LI>junit.jar: JUnit version 3.7 by Kent Beck and Erich Gamma [<A
+  href="http://www.junit.org/" target="blank">link</A>] is already in the source package.
+</LI></UL>The ultimate source of the newest version is the <A
+href="http://sourceforge.net/cvs/?group_id=5840" target="blank">cvs</A> repository at
+sourceforge. <BR>The API documentation is available for <A
+href="http://dresden-ocl.sourceforge.net/download/dresden-ocl-api.tar.gz">download</A>
+or for reading <A
+href="http://dresden-ocl.sourceforge.net/download/api/index.html" target="blank">online</A>.
 
 </body>
 </html>
