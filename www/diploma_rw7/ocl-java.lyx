@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Oct  4 18:27:10 2000
+#This file was created by <wiera> Thu Oct  5 14:42:37 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -110,6 +110,14 @@ Related Work
 \end_inset 
 
 
+\layout Enumerate
+
+Sections 
+\begin_inset LatexCommand \ref{sec: ReverseEngineeringWomble}
+
+\end_inset 
+
+ and following.
 \layout Standard
 
 
@@ -157,7 +165,7 @@ A powerful approach to reverse engineering has been developed at the MIT
  and object associations.
  The main challenge for the analysis is the detection of element types of
  container attributes.
- The tool performes this very efficiently, without requiring any additional
+ The tool performs this very efficiently, without requiring any additional
  help from the user.
  Thus, it complements the two approaches presented in chapter 
 \begin_inset LatexCommand \ref{Sec:ReverseEngineering}
@@ -677,7 +685,7 @@ It is necessary to put the constraints directly under the nose of the developer.
 \layout Standard
 
 Invariants may also placed on an attribute or method of their context class.
- This is for convinience, since most invariants are clearly related to one
+ This is for convenience, since most invariants are clearly related to one
  specific attribute or method.
 \layout Subsection
 
@@ -1688,7 +1696,7 @@ One possible source of model information may be a UML model exported from
  a CASE tool.
  This is probably the most elegant way.
  But since most real-world projects don't have a (up to date) UML representation
- of their business model, this isn't feasable in practice.
+ of their business model, this isn't feasible in practice.
 \layout Standard
 
 Another source is the java code itself, accessed through reflection API
@@ -1727,7 +1735,7 @@ This chapter present a solution to the first two items above.
 
 \end_inset 
 
- explaines, how this information is stored, while section 
+ explains, how this information is stored, while section 
 \begin_inset LatexCommand \ref{Sec:ReverseEngineering}
 
 \end_inset 
@@ -2006,22 +2014,39 @@ e editing facilities.
 \layout Enumerate
 
 Decision Support: Giving hints to the developer.
- These hints are either derived statically from the java source code (section
- 
+ These hints are either derived statically (section 
 \begin_inset LatexCommand \ref{Sec:ReverseEngineeringStatic}
 
 \end_inset 
 
-) or gathered dynamically on run time (section 
+ and 
+\begin_inset LatexCommand \ref{sec: ReverseEngineeringWomble}
+
+\end_inset 
+
+) or gathered dynamically on runtime (section 
 \begin_inset LatexCommand \ref{Sec:ReverseEngineeringDynamic}
 
 \end_inset 
 
 ).
  There is a special indication, if several hints suggest different types.
+\layout Standard
+
+A prototype of this tool has been developed by Steffen Zschaler
+\begin_float footnote 
+\layout Standard
+
+run class 
+\family typewriter 
+tudresden.ocl.injection.reverseeng.RevengGUI
+\family default 
+.
+\end_float 
+.
 \layout Subsection
 
-Static Information
+Source Code Analysis
 \begin_inset LatexCommand \label{Sec:ReverseEngineeringStatic}
 
 \end_inset 
@@ -2104,7 +2129,7 @@ Note, that the example above requires linguistic knowledge about plural
  This gets far more difficult, if identifiers are not English.
 \layout Subsection
 
-Runtime Type Tracing
+Runtime Analysis
 \begin_inset LatexCommand \label{Sec:ReverseEngineeringDynamic}
 
 \end_inset 
@@ -2163,7 +2188,404 @@ TypeTracer
  The interactive tool reads this log file on startup.
 \layout Subsection
 
-Byte Code Analysis Using Womble
+Byte Code Analysis 
+\begin_inset LatexCommand \label{sec: ReverseEngineeringWomble}
+
+\end_inset 
+
+
+\layout Standard
+
+This section describes how type information can be extracted from java byte
+ code.
+ This technology and it's implementation (called Superwomble) was developed
+ by Daniel Jackson and Allison Waingold at the MIT.
+ This section outlines the parts of their paper (
+\begin_inset LatexCommand \cite{womble}
+
+\end_inset 
+
+) related to type information together with my experiences with the tool.
+\layout Standard
+
+Superwomble is a powerful reverse engineering solution.
+ It generates object graphs from nothing but java byte code.
+ Object graphs are roughly speaking a subset of UML class diagrams.
+ They feature classes with generalizationships and associations beetween
+ them.
+ The graph is finally fed into a tool named dot, which does a nice layout
+ for the graph.
+\layout Standard
+
+One of the tricky parts of this tool is the detection of element types for
+ object containers, which is exactly what this whole chapter is about.
+ How this works, is explained on the Company-Person example from section
+ 
+\begin_inset LatexCommand \ref{Sec:element_type_tag}
+
+\end_inset 
+
+ (page 
+\begin_inset LatexCommand \pageref{Sec:element_type_tag}
+
+\end_inset 
+
+).
+ 
+\layout Standard
+
+Suppose 
+\family typewriter 
+company
+\family default 
+ is an variable of type 
+\family typewriter 
+Company
+\family default 
+ and 
+\family typewriter 
+person
+\family default 
+ of type 
+\family typewriter 
+Person
+\family default 
+.
+ A typical program around this example would probably contain a statement
+ like this:
+\layout LyX-Code
+
+company.employees.add(person);
+\layout Standard
+
+The operation 
+\family typewriter 
+add
+\family default 
+ takes an argument of type 
+\family typewriter 
+Object
+\family default 
+, but is called with a variable of type 
+\family typewriter 
+Person
+\family default 
+.
+ This is a good hint, that the element type of employees is 
+\family typewriter 
+Person
+\family default 
+.
+\layout Standard
+
+The same works for objects returned from the container.
+ The expression
+\layout LyX-Code
+
+person=(Person)(company.employees.iterator().next());
+\layout Standard
+
+strongly suggests the element type 
+\family typewriter 
+Person
+\family default 
+.
+\layout Standard
+
+Another highlight of superwomble is, that container classes are detected
+ even if they don't implement 
+\family typewriter 
+java.util.Collection
+\family default 
+.
+ In fact the type is not cared at all.
+ Instead there are some heuristics applied to decide, whether a class is
+ an object container or not.
+\layout Standard
+
+I used the tool on several parts of both the ocl toolkit and the net-linx
+ code, and it produced good and reliable results.
+\layout Standard
+
+Integration of superwomble results into the interactive tool should be possible.
+ The object graph is exported to a human readable text file.
+ However, this task is outside the scope of this paper.
+\layout Subsection
+
+Comparison
+\layout Standard
+
+This section provides a comparison beetween the three approaches presented
+ in the section above.
+ 
+\layout Standard
+\added_space_top 0.3cm \added_space_bottom 0.3cm \align center \LyXTable
+multicol5
+11 4 0 0 -1 -1 -1 -1
+1 0 0 0
+0 1 0 0
+1 0 0 0
+1 0 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 0 0 0
+0 1 0 0
+0 1 0 0
+2 1 1 "" ""
+8 1 0 "" ""
+8 1 0 "" ""
+8 1 1 "" ""
+0 2 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+
+
+\newline 
+Source Code
+\newline 
+Byte Code
+\newline 
+Runtime
+\newline 
+
+\newline 
+
+\newline 
+(Superwomble)
+\newline 
+
+\newline 
+Source Code required
+\newline 
+yes
+\newline 
+no
+\newline 
+yes
+\newline 
+Required Code Quality
+\newline 
+fairly 
+\newline 
+fully 
+\newline 
+up and 
+\newline 
+
+\newline 
+parseable
+\newline 
+compileable
+\newline 
+running
+\newline 
+Availability of Results
+\newline 
+intermediate
+\newline 
+good 
+\newline 
+good
+\newline 
+Reliability of Results
+\newline 
+good
+\newline 
+very good
+\newline 
+intermediate
+\newline 
+Application Effort
+\newline 
+low
+\newline 
+low
+\newline 
+high
+\newline 
+Implementation Effort 
+\newline 
+low
+\newline 
+high
+\newline 
+very low
+\newline 
+(starkly subjective)
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+License
+\newline 
+LGPL
+\newline 
+Binary at no cost
+\newline 
+LGPL
+\layout Standard
+
+Only byte code analysis requires no source code.
+ This argument is weakened by the fact, that the type information is to
+ be inserted into source code anyway.
+ However, byte code analysis may cover libraries, which aren't available
+ in source code, but provide useful type information about other parts of
+ the program.
+\layout Standard
+
+Anyway, byte code analysis requires, that there is a fully compilable source
+ code somewhere, even if it's not available to the user.
+ Source code analysis even makes do with incorrect source code, as long
+ as meta data is parsable (method headers etc.) and method bodies hold the
+ bracket balance.
+ Most demanding on source code quality is runtime analysis, which requires
+ a running system, with complete test cases.
+\layout Standard
+
+Source code analysis is most demanding on the 
+\begin_inset Quotes eld
+\end_inset 
+
+beauty
+\begin_inset Quotes erd
+\end_inset 
+
+ of implementation.
+ To deliver results, it requires some kind of getter/setter methods for
+ the container attributes.
+ In contrary, byte code and runtime analysis even work for public container
+ attributes manipulated from outside of the class.
+\layout Standard
+
+For runtime analysis 
+\emph on 
+reliability of results 
+\emph toggle 
+depends heavily on completeness of test cases.
+ If the test cases are insufficient, results may be wrong.
+ Byte code analysis provides best reliability, it's more difficult for a
+ poor quality code to fool the analysis.
+\layout Standard
+
+Runtime analysis also requires most 
+\emph on 
+application effort
+\emph toggle 
+ for the user.
+ The system must be actually run.
+ Particularilly all requirements for runtime (libraries, database, configuration
+ etc.) must be available.
+\layout Standard
+
+The 
+\emph on 
+implementation effort
+\emph toggle 
+ is very subjective for this paper.
+ Both source code and runtime analysis require a java parser and injector,
+ which was already built for code injection.
+ Thus the implementation effort for me was low.
+ Byte code analysis is something completely different.
+\layout Standard
+
+Finally, 
+\emph on 
+license
+\emph toggle 
+ is about whether it is allowed to use, review and adapt the implementation.
+ Roughly speaking, the difference beetween 
+\emph on 
+LGPL
+\emph toggle 
+ and 
+\emph on 
+Binary at no cost
+\emph toggle 
+ is same as beetween free speech and free beer (
+\begin_inset LatexCommand \cite{freesw}
+
+\end_inset 
+
+).
+\layout Subsection
+
+Summary
+\layout Standard
+
+There have been three approaches presented for acquiring type information.
+ Source code and runtime analysis are implemented and fully integrated into
+ the project.
+ Experiences with byte code analysis where drawn from the tool superwomble
+ (
+\begin_inset LatexCommand \cite{womble}
+
+\end_inset 
+
+).
+ This is fully implemented but not integrated into the ocl toolkit, thus
+ not ready to use.
+\layout Standard
+
+Adding up the scores, byte code analysis is probably the best.
+ However, most of the criteria listed above are some kind of orthogonal,
+ so adding up scores might not be sufficient for a decision.
+ Each application may emphasize different criteria, so a universal solution
+ is not available.
+\layout Standard
+
+All approaches have one thing in common: they are not perfect.
+ Thus, they cannot be used directly in the type checker of the ocl compiler.
+ The intermediate step of the 
+\family typewriter 
+@element-type
+\family default 
+ tags is necessary to allow correcting user intervention.
 \layout Chapter
 
 Maintaining the OCL Compiler
@@ -2533,7 +2955,7 @@ Performs cleaning of source files instead of injection.
 \layout Quotation
 
 Specifies the text file containing the constraints.
- Usually not needed, since constraints may and should be inlined into java
+ Usually not needed, since constraints may and should be placed into java
  doc comments.
  See section 
 \begin_inset LatexCommand \ref{Sec:embedConstraints}
@@ -2726,7 +3148,7 @@ HashExact
 .
  Simple hash functions just return the size of the collection, so they will
  detect insertions/deletion only.
- Reduces cpu load for big models.
+ Reduces CPU load for big models.
 \layout Standard
 
 
@@ -2802,4 +3224,10 @@ Ralf Wiebicke.
  Groﬂer Beleg.
  TU-Dresden 2000.
  http://dresden-ocl.sourceforge.net/
+\layout Bibliography
+\bibitem [FSF00]{freesw}
+
+Free Software Foundation.
+ What is Free Software? 1996-2000.
+ http://www.gnu.org/philosophy/free-sw.html
 \the_end
