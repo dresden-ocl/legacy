@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Jul 26 17:15:22 2000
+#This file was created by <wiera> Thu Jul 27 12:59:25 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -641,6 +641,11 @@ This section analyzes the requirements for the injector tool and derives
 \layout Subsection
 
 Reversable Modification
+\begin_inset LatexCommand \label{Sec:injection_requirements_reversable}
+
+\end_inset 
+
+
 \layout Standard
 
 The most important feature is the reversability of the code injection.
@@ -806,20 +811,53 @@ Methods Wrappers
 
 \layout Standard
 
-Touching the code of each method is needed, because the generated code must
- be run on each call to the method.
-\layout Standard
-
-Using wrapper methods avoids many problems which arise if there are several
- return statements in a method or a complex expression in the return statement.
- Also, there are no name conflicts anymore beetween the original and the
- generated code.
+The main task of code injection is to have some code executed immediatly
+ before and after all methods (and after all constructors too).
+ This section describes, how this is done by the ocl injector.
 \layout Paragraph
 
-Example.
+Simple Approach.
 \layout Standard
 
-This is, how it works: A method
+The simple approach of adding the code directly into the method raises some
+ severe problems.
+ 
+\layout Enumerate
+
+The postcondition code to be executed after the method has to be inserted
+ at any return statement.
+\layout Enumerate
+
+A return expression has to be computed in advance, if the post condition
+ code refers to the return value and/or the the return expression produces
+ side effects.
+\layout Enumerate
+
+There may be name conflicts beetween the original and the generated code.
+\layout Enumerate
+
+A complete java parser is needed.
+\layout Enumerate
+
+The original code has to be touched at many different places and in a complicate
+d way.
+ This runs contrary to the strategy of minimally invasive modification as
+ decided in section 
+\begin_inset LatexCommand \ref{Sec:injection_requirements_reversable}
+
+\end_inset 
+
+.
+\layout Standard
+
+Method wrappers solve all these problems in a nifty but simple way.
+\layout Paragraph
+
+Wrapping Methods.
+\layout Standard
+
+Some code tells more than thousand words, so I use an example to explain.
+ Consider the following method.
 \layout LyX-Code
 
 int someMethod(double x)
@@ -835,7 +873,7 @@ int someMethod(double x)
 } 
 \layout Standard
 
-is transformed into two methods:
+The code injector transformes this into two methods.
 \layout LyX-Code
 
 int someMethod_wrappedbyocl(double x)
@@ -885,7 +923,17 @@ return result;
 }
 \layout Standard
 
-Slightly different and a bit tricky for constructors:
+The reader may have a look back at the problems encountered for the simple
+ approach.
+ Non of them exists anymore.
+ Especcially, a very inchoate java parser is sufficient, which understands
+ anything outside of method bodies and attribute initializers only.
+\layout Paragraph
+
+Wrapping Constructors (not yet implemented).
+\layout Standard
+
+Another transformation is used for constructors, since they cannot be renamed.
 \layout LyX-Code
 
 SomeClass(String x)
@@ -901,10 +949,10 @@ SomeClass(String x)
 }
 \layout Standard
 
-gets to
+Instead of renaming, the original constructor gets an additional dummy argument.
 \layout LyX-Code
 
-SomeClass(String x, Void void)
+SomeClass(String x, Void dummy)
 \newline 
 {
 \newline 
@@ -937,6 +985,17 @@ this(x, new Void());
 // some code checking invariants.
 \newline 
 }
+\layout Standard
+
+If a class provides no explicit constructor, then there is the default construct
+or as specified in 
+\begin_inset LatexCommand \cite{JAVA}
+
+\end_inset 
+
+ section 8.6.7.
+ This default constructor is not wrapped, but replaced by an explicit constructo
+r with the same access modifier.
 \layout Section
 
 Cleaning the Code
@@ -1339,4 +1398,11 @@ Object Constraint Language Specification.
 \end_inset 
 
 .
+\layout Bibliography
+\bibitem [JAVA]{JAVA}
+
+James Gosling, Bill Joy, Guy Steele.
+ The Java Language Specification.
+ Edition 1.0.
+ August 1996.
 \the_end
