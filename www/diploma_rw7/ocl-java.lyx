@@ -1,4 +1,4 @@
-#This file was created by <wiera> Mon Sep 25 17:49:51 2000
+#This file was created by <wiera> Mon Sep 25 19:04:02 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -848,6 +848,11 @@ Explicit package qualifiers for the ocl library in the generated code.
 \layout Subsection
 
 Embedding Constraints in Java Source Code.
+\begin_inset LatexCommand \label{Sec:embedConstraints}
+
+\end_inset 
+
+
 \layout Standard
 
 It should be possible to embed constraints in the java documentation comments.
@@ -2284,6 +2289,12 @@ Performs cleaning of source files instead of injection.
 Specifies the text file containing the constraints.
  Usually not needed, since constraints may and should be inlined into java
  doc comments.
+ See section 
+\begin_inset LatexCommand \ref{Sec:embedConstraints}
+
+\end_inset 
+
+.
 \layout LyX-Code
 
 -x --xmi-model model.xmi
@@ -2453,6 +2464,23 @@ Triggers immediate insertion of wrapper methods.
 
 Adds code logging each constraint checked on an object to standard out.
  Useful for debugging.
+\layout LyX-Code
+
+--simple-hash
+\layout Quotation
+
+Uses simple hash functions in 
+\family typewriter 
+HashSimple
+\family default 
+, instead of the sophisticated hash functions in 
+\family typewriter 
+HashExact
+\family default 
+.
+ Simple hash functions just return the size of the collection, so they will
+ detect insertions/deletion only.
+ Reduces cpu load for big models.
 \layout Standard
 
 
