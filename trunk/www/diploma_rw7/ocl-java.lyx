@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Aug  9 12:41:30 2000
+#This file was created by <wiera> Thu Aug 10 15:22:28 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -709,7 +709,11 @@ node1=this.age;
 \protected_separator 
 
 \family typewriter 
-node1=this.age;
+node
+\family default 
+2
+\family typewriter 
+=this.age;
 \family default 
 
 \newline 
@@ -829,7 +833,7 @@ Method wrappers, explained detailed in section
 
 Explicit package qualifiers for the ocl library in the generated code.
  Otherwise, an import statement for the ocl library would be necessary.
- This would be just another spot, were the original source code has to be
+ This would be just another spot, were the original source code had to be
  touched.
  Additionally, this may introduce name conflicts beetween ocl library and
  user code.
@@ -1148,17 +1152,20 @@ Cleaning the Code
 
 \layout Standard
 
-One of the requirements was, that the injector is able clean the modified
+Reversable modification means, that the injector is able clean the modified
  code without leaving any traces.
  This section explains, how this requirement is met.
- The user code is touched in two different ways only:
+ 
+\layout Standard
+
+The user code is modifies in two different ways only:
 \layout Enumerate
 
-Renaming the wrapped methods.
+Renaming the wrapped methods/constructors.
 \layout Enumerate
 
 Adding new object features, i.e.
- wrapper methods, a method for checking invariants and a semaphore attribute.
+ wrapper methods, methods for checking invariants and observing attributes.
 \layout Paragraph
 
 Renaming Wrapped Methods.
@@ -1172,6 +1179,8 @@ _wrappedbyocl
  This transformation is done on the unparsed method header, so all typographical
  extras (line breaks, comments etc.) are preserved.
  This transformation is easily reversed, when the code has to be cleaned.
+ For constructors, this works similarly with appending the dummy parameter
+ to the parameter list.
 \layout Paragraph
 
 Removing Generated Features.
@@ -1196,7 +1205,13 @@ Removing generated class features relies on the fact, that the injector
 void checkOclInvariants();
 \layout Standard
 
-This is quite simple and functional.
+When cleaning the code, the injector simply removes all object features
+ carrying such an 
+\family typewriter 
+@author
+\family default 
+ tag.
+ This is quite simple and functional.
 \layout Section
 
 Scope of Invariants
@@ -1414,7 +1429,7 @@ Smith
 \newline 
 Feature
 \newline 
-An feature (attribute or query method) of an object.
+A feature (attribute or query method) of an object.
 \newline 
 
 \family typewriter 
@@ -1623,8 +1638,8 @@ age_oclbackup=age;
 
 \layout Standard
 
-This method is called immediatly before and after each method of the class.
- If the attribute contains an object reference, the comparision tests object
+This method is called immediately before and after each method of the class.
+ If the attribute contains an object reference, the comparison tests object
  identity, not object equality.
  This means, the 
 \family typewriter 
