@@ -1,4 +1,4 @@
-#This file was created by <wiera> Mon Jul 24 10:00:57 2000
+#This file was created by <wiera> Wed Jul 26 16:59:29 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -81,7 +81,7 @@ This document is available at http://dresden-ocl.sourceforge.net/diploma_rw7/
 \backslash 
 LaTeX{}
 \latex default 
-, PostScript, PDF, Html and the original kLyx version.
+, Postscript, PDF, Html and the original kLyx version.
  
 \layout Standard
 
@@ -128,6 +128,11 @@ Anpassbarkeit an vorhandenen Quellcode.
 \layout Section
 
 Model Information
+\begin_inset LatexCommand \label{Sec:element_type_tag}
+
+\end_inset 
+
+
 \layout Standard
 
 Needed for Type Checking.
@@ -272,7 +277,7 @@ their account number.
 }
 \layout Standard
 
-Cool implementation: an extension of the reflection api and the java compiler.
+Cool implementation: an extension of the reflection API and the java compiler.
 \layout Standard
 
 My implementation: An extension of the reflection facade scanning the source
@@ -290,91 +295,515 @@ handmade: good-practice of programming.
  Should be there already in the comments, the tag makes it available formally.
 \layout Itemize
 
-reverse enginieering.
- see chapter [reverse enginieering]
+reverse engineering.
+ see chapter 
+\begin_inset LatexCommand \ref{Sec:ReverseEngineering}
+
+\end_inset 
+
+.
 \layout Standard
 
 Will be tested automatically by the injected code.
 \layout Standard
 
-Is a good help for further reengineering from Java to UML (Diplomarbeit
+Is a good help for further reverse engineering from Java to UML (diploma
  Stefan Frisch?)
 \layout Section
 
-Major shortcomes
-\layout Itemize
+Looking at @pre-vious States
+\layout Standard
 
-wann welche Constraints checken
-\layout Itemize
-
-wie weit bei @pre kopieren
-\layout Itemize
-
-scope of invariants:
-\begin_deeper 
-\layout Itemize
-
-all methods
-\layout Itemize
-
-public methods
-\layout Itemize
-
-transactions
-\end_deeper 
+only 1 @pre pro navigation, may be proposal
 \layout Chapter
 
 Code Injection
+\layout Standard
+
+Injection of generated code into java programs is the main subject of this
+ paper.
+ It covers anything beyond code generation, to get a java model checking
+ it's own constraints.
+ For an idea, where code generation ends and injection starts, see section
+ 
+\begin_inset LatexCommand \ref{Sec:codegeneration_result}
+
+\end_inset 
+
+.
+ 
+\layout Standard
+
+This is followed by an analysis of requirements for the code injection and
+ resulting design decisions in section 
+\begin_inset LatexCommand \ref{Sec:injection_requirements}
+
+\end_inset 
+
+.
+ Sections 
+\begin_inset LatexCommand \ref{Sec:wrappingMethods}
+
+\end_inset 
+
+ and 
+\begin_inset LatexCommand \ref{Sec:cleaningCode}
+
+\end_inset 
+
+ describe the solution in detail.
+\layout Standard
+
+Finally sections 
+\begin_inset LatexCommand \ref{Sec:structuralScope}
+
+\end_inset 
+
+ and 
+\begin_inset LatexCommand \ref{Sec:temporalScope}
+
+\end_inset 
+
+ discuss the more fundamental issue, when and how often invariants have
+ to be checked.
 \layout Section
 
-Major Decisions
-\layout Itemize
+Results of Code Generation
+\begin_inset LatexCommand \label{Sec:codegeneration_result}
 
-Reversable Transformation: 
-\begin_deeper 
-\layout Itemize
+\end_inset 
 
-Must be possible to clean the code from all injected fragments.
-\layout Itemize
 
-Must be possible to edit the transformed source code without losing all
- changes at the next injection.
-\layout Itemize
+\layout Standard
 
-Major reasons: 
-\begin_deeper 
-\layout Itemize
+The java code generator developed in 
+\begin_inset LatexCommand \cite{ff3}
 
-the error messages pointing to the source code.
-\layout Itemize
+\end_inset 
 
-injection must be done only when the contraints heve been changed, not if
- the java source has been changed.
-\end_deeper 
-\end_deeper 
-\layout Itemize
+ produces a set of code fragments (
+\family typewriter 
+tudresden.ocl.codegen.CodeFragment
+\family default 
+).
+ These code fragment have the following properties:
+\layout Description
 
-Method Wrapper
-\layout Itemize
+Constrained
+\protected_separator 
+type is the default navigation context of this constraint.
+\layout Description
 
-no import statements, explicit package qualifying in the generated code
- instead.
-\layout Itemize
+Kind specifies, whether this constraint is an invariant, a pre- or a postconditi
+on.
+ For each postcondition containing a @pre expression there are two additional
+ codefragments called preparation and transfer.
+ See below.
+\layout Description
 
-checking the @element-type
-\layout Itemize
+Constrained
+\protected_separator 
+operation is the operation, this constraint applies to (valid for pre- and
+ postconditions only).
+\layout Description
 
-able to read arbitrary java files, which have passed sucessfully a the java
- compiler.
-\layout Itemize
+Code contains the actual java code to be executed.
+\layout Description
 
-may be: Auslagerung von möglichst viel code auf eine Extraklasse pro Klasse
- oder pro Package.
- Entlastung des CVS.
- Das hat niedrige Priorität.
+Result
+\protected_separator 
+variable specifies the boolean value, which contains the result of the ocl
+ expression after code execution.
+\layout Subsection
+
+Preparation and Transfer Fragments
+\layout Standard
+
+The meaning of preparation and transfer fragments is explained on a dramatically
+ simplified example.
+ 
+\layout Standard
+
+Suppose a post condition for operation 
+\family typewriter 
+employ()
+\family default 
+, that leaves the attribute 
+\family typewriter 
+age
+\family default 
+ unchanged:
+\layout LyX-Code
+
+context Person::employ() 
+\newline 
+post: age=age@pre
+\layout Standard
+
+the following codefragments will be produced:
+\layout Standard
+\added_space_top 0.3cm \added_space_bottom 0.3cm \align center \LyXTable
+multicol5
+5 2 0 0 -1 -1 -1 -1
+1 1 0 0
+1 0 0 0
+1 1 0 0
+0 0 0 0
+0 1 0 0
+2 0 0 "" ""
+2 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+
+Kind
+\newline 
+ Code
+\newline 
+Transfer
+\newline 
+
+\family typewriter 
+int node1;
+\family default 
+ 
+\newline 
+Preparation
+\newline 
+
+\family typewriter 
+node1=this.age;
+\family default 
+
+\newline 
+Post Condition
+\newline 
+
+\family typewriter 
+int node2=this.age;
+\family default 
+
+\newline 
+
+\newline 
+
+\family typewriter 
+boolean result=(node1==node2)
+\layout Standard
+
+Typically these fragments would be injected as follows:
+\layout LyX-Code
+
+class Person
+\newline 
+{
+\newline 
+
+\protected_separator 
+ void employ()
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\family typewriter 
+int node1;
+\family default 
+ 
+\protected_separator 
+ 
+\protected_separator 
+ 
+\protected_separator 
+ // transfer fragment
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\family typewriter 
+node1=this.age;
+\family default 
+ 
+\protected_separator 
+// preparation fragment
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+// original code of employ()
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+// post condition fragment
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\family typewriter 
+node1=this.age;
+\family default 
+
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\family typewriter 
+boolean result=(node1==node2)
+\family default 
+
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+}
+\newline 
+}
+\layout Standard
+
+Note, that precise semantics of codefragments involving the @pre expression
+ has been changed, so that the original meaning described in 
+\begin_inset LatexCommand \cite{ff3}
+
+\end_inset 
+
+ section 7.1.2 is no longer fully correct.
+ For a detailed comparison see section 
+\begin_inset LatexCommand \ref{Sec:maintainJavaCodeGenerator}
+
+\end_inset 
+
+.
+\layout LyX-Code
+
+
+\protected_separator 
+
 \layout Section
 
-Wrapping Methods
+Requirements and Design Decisions
+\begin_inset LatexCommand \label{Sec:injection_requirements}
+
+\end_inset 
+
+
+\layout Standard
+
+This section analyzes the requirements for the injector tool and derives
+ some fundamental design decisions.
+\layout Subsection
+
+Reversable Modification
+\layout Standard
+
+The most important feature is the reversability of the code injection.
+ It must be possible
+\layout Itemize
+
+to clean the code tracelessly from all injected fragments.
+\layout Itemize
+
+to redo the injection on source code that has already been modified (i.e.
+ when constraints have been changed).
+\layout Itemize
+
+to edit the modified source code without losing all changes at the next
+ injection.
+ 
+\layout Standard
+
+This requirement makes things quite a bit more difficult, but there are
+ serious reasons for this.
+ Otherwise there would be two versions of source code: the original and
+ the modified version.
+ This raises some unpleasant problems:
+\layout Enumerate
+
+Configuration management must handle two source code trees.
+\layout Enumerate
+
+Developers must be careful to edit the original version only.
+\layout Enumerate
+
+Running the ocl injector is required after every change of the java source
+ code, not only when the constraints have been changed.
+ 
+\layout Enumerate
+
+Stack traces of runtime exceptions point to the modified source code.
+ Developers must look for the corresponding place in the original version.
+\layout Standard
+
+The implementation of reversable modification requires a strategy of minimally
+ invasive modification.
+ This is realized by two design decisions:
+\layout Enumerate
+
+Method wrappers, explained detailed in section 
+\begin_inset LatexCommand \ref{Sec:wrappingMethods}
+
+\end_inset 
+
+.
+\layout Enumerate
+
+Explicit package qualifiers for the ocl library in the generated code.
+ Otherwise, an import statement for the ocl library would be necessary.
+ This would be just another spot, were the original source code has to be
+ touched.
+ Additionally, this may introduce name conflicts beetween ocl library and
+ user code.
+\layout Subsection
+
+Embedding Constraints in Java Source Code.
+\layout Standard
+
+It should be possible to embed constraints in the java documentation comments.
+ The placement of embedded constraints implicates (and replaces) the context
+ of the constraint.
+ See the example below.
+\layout LyX-Code
+
+/**
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+@invariant age>0
+\newline 
+*/
+\newline 
+class Person
+\newline 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+int age;
+\newline 
+
+\protected_separator 
+
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+/**
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+@postcondition age=age@pre
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+*/
+\newline 
+ 
+\protected_separator 
+void employ();
+\newline 
+}
+\layout Standard
+
+It is necessary to put the constraints directly under the nose of the developer.
+ The author is strongly convinced, that constraints stored in an extra text
+ file are too far away from attention.
+\layout Subsection
+
+Checking the Element Type.
+\layout Standard
+
+The injected code must check, that collection attributes comply to the 
+\family typewriter 
+@element-type
+\family default 
+ and 
+\family typewriter 
+@key-type
+\family default 
+ tags introduced in section 
+\begin_inset LatexCommand \ref{Sec:element_type_tag}
+
+\end_inset 
+
+.
+ This is quite easily done just before checking invariants.
+\layout Standard
+
+Note, that this feature may be be used standalone, without ocl expressions
+ at all.
+ Then it provides a runtime check for typed collections.
+\layout Section
+
+Methods Wrappers
+\begin_inset LatexCommand \label{Sec:wrappingMethods}
+
+\end_inset 
+
+
 \layout Standard
 
 Touching the code of each method is needed, because the generated code must
@@ -511,6 +940,11 @@ this(x, new Void());
 \layout Section
 
 Cleaning the Code
+\begin_inset LatexCommand \label{Sec:cleaningCode}
+
+\end_inset 
+
+
 \layout Standard
 
 One of my goals for the injector tool is the following:
@@ -566,9 +1000,45 @@ Cleaning Generated Class Features
 int someMethod(double x);
 \newline 
 
+\layout Section
+
+Structural Scope of Invariants
+\begin_inset LatexCommand \label{Sec:structuralScope}
+
+\end_inset 
+
+
+\layout Standard
+
+hen to check which invariants
+\layout Section
+
+Temporal Scope of Invariants
+\begin_inset LatexCommand \label{Sec:temporalScope}
+
+\end_inset 
+
+
+\layout Enumerate
+
+all methods
+\layout Enumerate
+
+public methods
+\layout Enumerate
+
+transactions
+\layout Standard
+
+refere to tutorial parameters of injector
 \layout Chapter
 
 Reverse Engineering
+\begin_inset LatexCommand \label{Sec:ReverseEngineering}
+
+\end_inset 
+
+
 \layout Standard
 
 Avoid the UML model for type checking.
@@ -578,8 +1048,8 @@ An interactive tool for injecting
 \family typewriter 
 @element-type
 \family default 
- tags into the code using information obtained staticly from the source
- code or dynamicly on run time.
+ tags into the code using information obtained from the source code or dynamical
+ly on run time.
 \layout Section
 
 Static Information
@@ -652,7 +1122,7 @@ Note, that the example above requires linguistic knowledge about plural
 Tracing Dynamic Type Information
 \layout Itemize
 
-Enriche the code with tracing the object types inside collections.
+Enrich the code with tracing the object types inside collections.
 \layout Itemize
 
 compile and run the program (regression tests if available)
@@ -664,16 +1134,15 @@ Maintaining the OCL Compiler
 This chapter describes all major changes to Frank Fingers OCL compiler.
  This includes bugfixes too, if they caused changes of internal or external
  interfaces.
-\layout Enumerate
+\layout Section
 
 Using reflection in ReflectionFacade and ocl library
-\begin_deeper 
 \layout Enumerate
 
 Added polymorphism of operation parameters (ReflectionFacade.\SpecialChar \-
 navigateParameterize
 d and OclAnyImpl.getFeature).
- This made ReflectionAdapter.getClassForType superflucous, so removed.
+ This made ReflectionAdapter.getClassForType superfluous, so removed.
 \layout Enumerate
 
 Now its mandatory to provide a NameAdapter to the ocl library.
@@ -692,9 +1161,10 @@ Added a simplified form of qualified associations to ReflectionFacade and
 \layout Enumerate
 
 New mapping beetween collections in OCL and Java conforming to JDK1.2.
- The special handling of Vector is used for older CodeGenerators.
+ The special handling of Vector is used for older code generators.
  (DefaultOclFactory.getOclRepresentationFor(Object) and DefaultReflectionAdapter.g
 etClassForType)
+\begin_deeper 
 \layout Standard
 \added_space_top 0.3cm \added_space_bottom 0.3cm \align center \LyXTable
 multicol5
@@ -763,10 +1233,9 @@ Map
 \newline 
 Set (qualified)
 \end_deeper 
-\layout Enumerate
+\layout Section
 
 ocl lib
-\begin_deeper 
 \layout Enumerate
 
 removed 
@@ -782,48 +1251,56 @@ Ocl.Collection.setToRange makes an undefined collection (instead of throwing
 \layout Enumerate
 
 Ocl.to<OclType>(OclRoot) methods check for undefined arguments.
-\end_deeper 
-\layout Enumerate
+\layout Section
 
 Typechecker
-\begin_deeper 
 \layout Enumerate
 
 added OclAny to TypeChecker (DefaultTypeFactory).
  
 \layout Enumerate
 
-Bugfix, removed TypeFactory.getClassifier - replaced all calls by TypeFactor.get
-\end_deeper 
-\layout Enumerate
+Bugfix, removed TypeFactory.getClassifier - replaced all calls by TypeFactory.get
+\layout Section
 
-JavaCodegenerator: 
-\begin_deeper 
+JavaCodeGenerator: 
+\begin_inset LatexCommand \label{Sec:maintainJavaCodeGenerator}
+
+\end_inset 
+
+
 \layout Enumerate
 
 different meaning of Codefragments created for @pre expressions (TRANSFER,
  PREPARATION, CODE), makes it easier and more flexible for different code
- injector tools
+ injector tools.
+ compare to 
+\begin_inset LatexCommand \cite{ff3}
+
+\end_inset 
+
+ section 7.1.2, description of new behavior in section 
+\begin_inset LatexCommand \ref{Sec:codegeneration_result}
+
+\end_inset 
+
+, TODO comparison to Franks example
 \layout Enumerate
 
-explicit package qualifier for ocl library is optionally prepended, replaces
- the import statement.
- Why?
-\begin_deeper 
-\layout Enumerate
+explicit package qualifier for ocl library is optionally prepended.
+ Replaces the import statement and therefore fulfills the corresponding
+ requirement in section 
+\begin_inset LatexCommand \ref{Sec:injection_requirements}
 
-Fewer spots were the code has to be touched
-\layout Enumerate
+\end_inset 
 
-Avoid name confict beetween ocl library and user code.
-\end_deeper 
-\end_deeper 
+.
 \layout Section
 
 Silly Bugfixes
 \layout Enumerate
 
-JavaCodeGenerator: Reihenfolge bei arrow
+JavaCodeGenerator: order on arrow
 \layout Enumerate
 
 Basic.navigate: max[1]
@@ -834,6 +1311,12 @@ DefaultOclFactory.getOclRepresentationFor(Object): dealing with Float and
 \layout Enumerate
 
 OclCollection.setToRange: exchanged bounds in error condition
+\layout Chapter
+\start_of_appendix 
+Injector Tutorial
+\layout Standard
+
+This chapter describes, how to use the injector tool.
 \layout Bibliography
 \bibitem [FF00]{ff3}
 
