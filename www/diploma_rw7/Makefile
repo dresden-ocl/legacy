@@ -1,15 +1,15 @@
 
 .PHONY:	all txt tex html dvi ps pdf
 
-all:	html dvi
+all:	html dvi ps pdf
 		rm -f ocl-java.lyx~
 
 txt:	ocl-java.txt
 tex:	ocl-java.tex
 html:	ocl-java.html
 dvi:	ocl-java.dvi
-ps:	ocl-java.ps.gz
-pdf:	ocl-java.pdf.gz
+ps:	ocl-java.ps
+pdf:	ocl-java.pdf
 
 
 # running twice because labels may have changed
@@ -17,18 +17,11 @@ pdf:	ocl-java.pdf.gz
 		latex --interaction errorstopmode $<
 		latex --interaction errorstopmode $<
 
-
 %.ps:	%.dvi
 		dvips -q -o $@ $<
 
 %.pdf:	%.ps
 		ps2pdf $< $@
-
-%.gz:	%
-		gzip --best < $< > $@
-
-%.bz2:	%
-		bzip2 < $< > $@
 
 %.html:	%.tex makehtml
 		./makehtml $< $@
