@@ -1,4 +1,4 @@
-#This file was created by <rw7> Tue Feb 27 20:41:06 2001
+#This file was created by <rw7> Sat Apr 28 21:05:42 2001
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -89,7 +89,6 @@ This document is available at http://rw7.de/ralf/diplom00/intro.html in several
 LaTeX{}
 \latex default 
 , Postscript, PDF, HTML and the original kLyX version.
- 
 \layout Standard
 
 The source code developed together with this paper is available at http://
@@ -101,23 +100,34 @@ Modifications
 
 This version includes several post-submission updates as listed below.
  For the submission version see the CVS repository.
- 
 \layout Itemize
 
 The paper moved to http://rw7.de/ralf/diplom00/intro.html.
 \layout Itemize
 
-Versant provided a fix for the bug mentioned in chapter 
+Versant provided a fix for the bug mentioned in chapter
 \begin_inset LatexCommand \ref{Sec:chapterIndustrial}
 
 \end_inset 
 
- and appendix 
+ and appendix
 \begin_inset LatexCommand \ref{sec: VersantProblem}
 
 \end_inset 
 
 .
+\layout Itemize
+
+Removed
+\family typewriter 
+--xmi-model
+\family default 
+ in
+\begin_inset LatexCommand \ref{Sec:UsageReference}
+
+\end_inset 
+
+, was superfluous and caused some trouble.
 \layout LaTeX
 
 
@@ -6228,18 +6238,6 @@ Specifies the text file containing the constraints.
 
 \end_inset 
 
-.
-\layout LyX-Code
-
--x --xmi-model model.xmi
-\layout Quotation
-
-Specifies the XMI file containing the model covered.
- Is used for type checking only.
- Use this only, if you cannot use 
-\family typewriter 
---reflection-model
-\family default 
 .
 \layout LyX-Code
 

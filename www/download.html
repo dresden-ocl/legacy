@@ -60,16 +60,12 @@ To keep yourself informed about new versions, please subscribe to our <a href="h
 This software is published under the <a href="http://www.gnu.org/copyleft/lesser.html">LGPL</a> (GNU Lesser General Public License).
 </p>
 
-<p>
-Snapshot 2000/10/16: some improvements for Argo/UML.
-</p>
-
 <h2><a name="ocl4java">Ocl for Java</a></h2>
 
 If you want to try OCL on real java code, do the following:
 <ol>
 <li>
-Download <a href="download/dresden-ocl-injector.jar">dresden-ocl-injector.jar</a>, <a href="download/xerces.jar">xerces.jar</a> and <a href="download/royloy.jar">royloy.jar</a> into a directory.
+Download <a href="download/dresden-ocl-injector.jar">dresden-ocl-injector.jar</a> and <a href="download/royloy.jar">royloy.jar</a> into a directory.
 <br>
 <table><tr><td bgcolor="#FFDDDD">
 Problems when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.
@@ -101,13 +97,6 @@ Compile the example ocl expressions and put them into the java code:
 java -jar dresden-ocl-injector.jar -r tudresden.ocl.test.royloy --modify tudresden/ocl/test/royloy/*.java
 </pre>
 The example java code has now been modified.
-<table><tr><td bgcolor="#FFDDDD">
-Note for JDK1.3 Hotspots VM for Windows NT:
-The ocl toolkit throws an AbstractMethodError with this VM.
-Probably this is not NT specific, but specific to Hotspots.
-Probably this is due to bug #4248990.
-To fix, recompile the <a href="#sources">sources</a> with JDK1.3
-</td></tr></table>
 </li>
 <li>
 Compile the example again:
@@ -146,13 +135,6 @@ Problems when downloading with netscape? Select "Save Link As.." in the context 
 <li>Type <pre>java -jar dresden-ocl-demo.jar</pre> at the command prompt.</li>
 <li>A window pops up. There you can enter constraints, check them against a model and generate java code.</li>
 </ol>
-<table><tr><td bgcolor="#FFDDDD">
-Note for JDK1.3 Hotspots VM for Windows NT:
-The ocl toolkit throws an AbstractMethodError with this VM.
-Probably this is not NT specific, but specific to Hotspots.
-Probably this is due to bug #4248990.
-To fix, recompile the <a href="#sources">sources</a> with JDK1.3
-</td></tr></table>
 
 <h2><a name="argo">Argo/UML</a></h2>
 If you want to use the ocl compiler as part of <a href="http://argouml.tigris.org/">Argo/UML</a> version 0.8 do the following:
@@ -183,9 +165,10 @@ The API documentation is available for <a href="download/dresden-ocl-api.tar.gz"
 <h2><a name="history">History</a></h2>
 
 <ul>
-<li>09/29 2000: added self starting jar files, included xerces into distribution.</li>
-<li>09/25 2000: added inline ocl expressions (in java doccomments), numerous bugfixes, moved from xml4j to xerces.</li>
-<li>08/31 2000: added support for java arrays to be treated as ocl sequences.</li>
+<li>2000/10/16: some improvements for Argo/UML.</li>
+<li>2000/09/29: added self starting jar files, included xerces into distribution.</li>
+<li>2000/09/25: added inline ocl expressions (in java doccomments), numerous bugfixes, moved from xml4j to xerces.</li>
+<li>2000/08/31: added support for java arrays to be treated as ocl sequences.</li>
 </ul>
 
 <h2><a name="docs">Documentation</a></h2>
