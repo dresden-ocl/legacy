@@ -1,4 +1,4 @@
-#This file was created by <wiera> Thu Sep 28 17:55:12 2000
+#This file was created by <wiera> Wed Oct  4 18:27:10 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -99,6 +99,17 @@ Section
 
 .
  Avoiding the Wrapper Loop
+\layout Enumerate
+
+Chapter 2 
+\begin_inset Quotes eld
+\end_inset 
+
+Related Work
+\begin_inset Quotes erd
+\end_inset 
+
+
 \layout Standard
 
 
@@ -118,6 +129,9 @@ Wishlist in
 \end_inset 
 
  section 3.6.
+\layout Chapter
+
+Related Work
 \layout Standard
 
 Simpler approach in 
@@ -126,6 +140,31 @@ Simpler approach in
 \end_inset 
 
 , easier to write, less complex, but less flexible.
+\layout Section
+
+Reverse Engineering
+\layout Standard
+
+A powerful approach to reverse engineering has been developed at the MIT
+ 
+\begin_inset LatexCommand \cite{womble}
+
+\end_inset 
+
+.
+ The tool superwomble extracts an object model from java byte code.
+ Object models are roughly a subset of UML class diagrams, featuring inheritance
+ and object associations.
+ The main challenge for the analysis is the detection of element types of
+ container attributes.
+ The tool performes this very efficiently, without requiring any additional
+ help from the user.
+ Thus, it complements the two approaches presented in chapter 
+\begin_inset LatexCommand \ref{Sec:ReverseEngineering}
+
+\end_inset 
+
+.
 \layout Chapter
 
 Code Injection
@@ -1176,7 +1215,8 @@ Scope of Invariants
 \layout Standard
 
 This section discusses the issue, when an constraint is required to be fulfilled.
- Obviously this affects invariants only, but not pre/post conditions.
+ This is trivially for pre/post conditions, but for invariants it's not
+ so easy.
 \layout Standard
 
 
@@ -1185,7 +1225,18 @@ This section discusses the issue, when an constraint is required to be fulfilled
 \end_inset 
 
  section 5.4.2 suggests to check invariants immediately after an object has
- changed.
+ changed
+\begin_float footnote 
+\layout Standard
+
+This is partially corrected in the errata 
+\begin_inset LatexCommand \cite{WarmerErrata}
+
+\end_inset 
+
+.
+\end_float 
+.
  This is not workable, even if runtime efficiency is ignored.
  Modifications on the model often produce intermediate states, which are
  not consistent according to the constraints.
@@ -1612,7 +1663,7 @@ equals()
 
 see 
 \family typewriter 
-tudresden.ocl.injection.Invariant.identityHashCode
+tudresden.ocl.injection.HashExact.identityHashCode
 \family default 
 .
 \end_float 
@@ -1621,14 +1672,6 @@ tudresden.ocl.injection.Invariant.identityHashCode
 \layout Chapter
 
 Model Information
-\layout Section
-
-Storing Doc Comment Tags
-\begin_inset LatexCommand \label{Sec:element_type_tag}
-
-\end_inset 
-
-
 \layout Standard
 
 The OCL compiler needs model information for type checking.
@@ -1638,8 +1681,17 @@ The OCL compiler needs model information for type checking.
 \end_inset 
 
  section 5.3.3.
- The sources for model information may be a UML model exported from a CASE
- tool, or the java source code, which is accessed through reflection API
+ 
+\layout Standard
+
+One possible source of model information may be a UML model exported from
+ a CASE tool.
+ This is probably the most elegant way.
+ But since most real-world projects don't have a (up to date) UML representation
+ of their business model, this isn't feasable in practice.
+\layout Standard
+
+Another source is the java code itself, accessed through reflection API
 \begin_float footnote 
 \layout Standard
 
@@ -1650,17 +1702,14 @@ tudresden.ocl.check.types.ReflectionFacade
 .
 \end_float 
 .
- The latter approach is very convenient, since most java projects don't
- have a (up to date) UML representation of their business model.
- 
-\layout Standard
-
-However, java reflection lacks some model properties which are important
+ This very convenient, since no additional model is needed.
+ However, java reflection lacks some model properties which are important
  for type checking.
 \layout Enumerate
 
 Element types of collections, particularly collections representing associations.
- 
+ From a C++ perspective, java lacks templates implementing parameterized
+ container classes.
 \layout Enumerate
 
 Qualifier types of maps, representing qualified associations.
@@ -1671,8 +1720,31 @@ The isQuery tag of operations.
  only.
 \layout Standard
 
-The solution is to put the additional information needed into java documentation
- comments.
+This chapter present a solution to the first two items above.
+ The information needed is put into the source code.
+ Section 
+\begin_inset LatexCommand \ref{Sec:element_type_tag}
+
+\end_inset 
+
+ explaines, how this information is stored, while section 
+\begin_inset LatexCommand \ref{Sec:ReverseEngineering}
+
+\end_inset 
+
+ presents several approaches, how this information is generated.
+\layout Section
+
+Representing Element Types
+\begin_inset LatexCommand \label{Sec:element_type_tag}
+
+\end_inset 
+
+
+\layout Standard
+
+Element types and qualifier types are specified special tags in java documentati
+on comments.
  See the example below.
  
 \layout LyX-Code
@@ -1724,7 +1796,7 @@ by this company.
 }
 \layout Standard
 
-The new 
+The 
 \family typewriter 
 @element-type
 \family default 
@@ -1882,12 +1954,12 @@ Maintained by hand.
 \layout Itemize
 
 Reverse Engineering.
- This is discussed in detail in chapter 
+ This is discussed in detail in section 
 \begin_inset LatexCommand \ref{Sec:ReverseEngineering}
 
 \end_inset 
 
-.
+ below.
 \layout Standard
 
 Collection attributes with type tags are verified on runtime by the injected
@@ -1947,7 +2019,7 @@ Decision Support: Giving hints to the developer.
 
 ).
  There is a special indication, if several hints suggest different types.
-\layout Section
+\layout Subsection
 
 Static Information
 \begin_inset LatexCommand \label{Sec:ReverseEngineeringStatic}
@@ -2030,7 +2102,7 @@ Person
 Note, that the example above requires linguistic knowledge about plural
  and singular form of nouns (employee here).
  This gets far more difficult, if identifiers are not English.
-\layout Section
+\layout Subsection
 
 Runtime Type Tracing
 \begin_inset LatexCommand \label{Sec:ReverseEngineeringDynamic}
@@ -2089,6 +2161,9 @@ TypeTracer
  types for all attributes, as well as the minima of these type sets.
  This information is continuesly written to a log file.
  The interactive tool reads this log file on startup.
+\layout Subsection
+
+Byte Code Analysis Using Womble
 \layout Chapter
 
 Maintaining the OCL Compiler
@@ -2675,6 +2750,15 @@ Jos Warmer, Anneke Kleppe.
  The Object Constraint Language: Precise Modeling with UML.
  Addison-Wesley, 1999.
 \layout Bibliography
+\bibitem [WK99e]{WarmerErrata}
+
+Errata for 
+\begin_inset LatexCommand \cite{Warmer}
+
+\end_inset 
+
+: http://www.klasse.nl/ocl-boek/errata.htm
+\layout Bibliography
 \bibitem [UML]{UML}
 
 OMG Unified Modeling Language Specification, Version 1.3, June 1999.
@@ -2695,6 +2779,15 @@ James Gosling, Bill Joy, Guy Steele.
  The Java Language Specification.
  Edition 1.0.
  August 1996.
+\layout Bibliography
+\bibitem [JW99]{womble}
+
+Daniel Jackson, Allison Waingold.
+ Lightweight Extraction of Object Models from Bytecode.
+ Proc.
+ International Conference on Software Engineering.
+ May 1999.
+ http://sdg.lcs.mit.edu/womble/
 \layout Bibliography
 \bibitem [KSR00]{kbeans}
 
