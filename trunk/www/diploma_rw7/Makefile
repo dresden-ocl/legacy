@@ -8,8 +8,8 @@ txt:	ocl-java.txt
 tex:	ocl-java.tex zwischenbericht.tex verteidigung.tex
 html:	ocl-java.html
 dvi:	ocl-java.dvi zwischenbericht.dvi verteidigung.dvi legal.dvi
-ps:	ocl-java.ps legal.ps
-pdf:	ocl-java.pdf
+ps:	ocl-java.ps  zwischenbericht.ps  verteidigung.ps  legal.ps
+pdf:	ocl-java.pdf zwischenbericht.pdf verteidigung.pdf
 
 DOCEPS=\
         JavaParser.eps \
@@ -35,7 +35,7 @@ DOCEPS=\
 
 %.html:	%.tex $(DOCEPS) makehtml
 		./makehtml $< $@
-		
+
 %.txt:	%.lyx
 		echo $@ "is older than" $<
 
