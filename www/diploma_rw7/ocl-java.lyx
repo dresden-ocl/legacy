@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Dec 13 11:53:56 2000
+#This file was created by <wiera> Wed Dec 13 12:05:02 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -4495,7 +4495,7 @@ The experiments where limited to the business logic module.
 \end_inset 
 
 .
- For the test a special developer configuration was used, which employes
+ For the test a special developer configuration was used, which employs
  a XML file for realizing persistence.
 \layout Standard
 
@@ -4627,10 +4627,10 @@ Lines of Code
 \layout Standard
 
 Running the instrumented code revealed a number of constraint violations.
- Some of them have been recronstructed by hand, and turned out to be inconsisten
-cys in the test data.
- Due to the amount it was not possible to correct these inconsistencys within
- this work.
+ Some of them have been reconstructed by hand, and turned out to be inconsistenc
+ies in the test data.
+ Due to the amount it was not possible to correct these inconsistencies
+ within this work.
 \layout Chapter
 
 Summary 
@@ -4731,7 +4731,7 @@ balance
  and a method for drawing money.
  There is no debit allowed, and for some technical reason the amount to
  be drawn cannot exceed 10000 per transaction.
- This could be expressed like this: (Postconditions have been ommited for
+ This could be expressed like this: (Postconditions have been omitted for
  brevity).
 \layout LyX-Code
 
@@ -4771,7 +4771,7 @@ ORing
 \layout Standard
 
 A work-around is to repeat the upper limit for amount in the subclass.
- But this is not convinient, particularly when considering 10 such technical
+ But this is not convenient, particularly when considering 10 such technical
  preconditions instead of just one.
  
 \layout Standard
