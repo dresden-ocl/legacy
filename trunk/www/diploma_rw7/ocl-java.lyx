@@ -1,4 +1,4 @@
-#This file was created by <wiera> Mon Dec  4 16:25:55 2000
+#This file was created by <wiera> Mon Dec  4 17:36:22 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -307,14 +307,12 @@ Jass (
  check statements (like assert() in C++) and loop invariants and variants.
  Assertions are expressed in java, extended by universal and existential
  quantifiers.
- Jass approaches a task similarly to code injection presented in this paper
- with different means.
  Section 
 \begin_inset LatexCommand \ref{sec: compareJass}
 
 \end_inset 
 
- provides a detailed comparison.
+ analyses the code instrumentation of Jass in detail.
  Jass is available under GPL.
 \layout Standard
 
@@ -603,15 +601,15 @@ There is a universal code instrumentation toolkit (
  The parse tree can be modified and written back into the file.
  There are various applications for this, including tracing/profiling of
  program execution.
- The code injection presented in this paper could probably be realized using
- this tool.
+ The code instrumentation developed in this paper could probably be realized
+ using this toolkit.
  However, the parser analyses the complete java file, thus is much more
  heavy-weight than the parser developed with this paper.
  There is a test version available at no cost, limited in the size of source
  programs it can handle.
 \layout Chapter
 
-Code Injection
+Code Instrumentation
 \begin_inset LatexCommand \label{Sec:chapterCodeInjection}
 
 \end_inset 
@@ -619,12 +617,14 @@ Code Injection
 
 \layout Standard
 
-Injection of generated code into java programs is the main subject of this
+Insertion of generated code into java programs is the main subject of this
  paper.
- It covers anything beyond code generation, to get a java model checking
- its own constraints.
- For an idea, where code generation ends and injection starts, see section
- 
+ Such an automatic source code transformation is commonly referred to as
+ code instrumentation.
+ In this paper it covers anything beyond code generation, to get a java
+ program checking its own constraints.
+ For an idea, where code generation ends and instrumentation starts, see
+ section 
 \begin_inset LatexCommand \ref{Sec:codegeneration_result}
 
 \end_inset 
@@ -633,8 +633,8 @@ Injection of generated code into java programs is the main subject of this
  
 \layout Standard
 
-This is followed by an analysis of requirements for the code injection and
- resulting design decisions in section 
+This is followed by an analysis of requirements for the code instrumentation
+ and resulting design decisions in section 
 \begin_inset LatexCommand \ref{Sec:injection_requirements}
 
 \end_inset 
@@ -832,7 +832,7 @@ int node2=this.age;
 boolean result=(node1==node2)
 \layout Standard
 
-Typically these fragments would be injected as follows:
+Typically these fragments would be inserted as follows:
 \layout LyX-Code
 
 class Person
@@ -974,8 +974,8 @@ Requirements and Design Decisions
 
 \layout Standard
 
-This section analyzes the requirements for the injector tool and derives
- some fundamental design decisions.
+This section analyzes the requirements for the code instrumentation and
+ derives some fundamental design decisions.
 \layout Subsection
 
 Reversable Modification
@@ -986,19 +986,20 @@ Reversable Modification
 
 \layout Standard
 
-The most important feature is the reversability of code injection.
+The most important feature is the reversability of code instrumentation.
  It must be possible to
 \layout Itemize
 
-Clean the code tracelessly from all injected fragments.
+Clean the code tracelessly from all inserted fragments.
 \layout Itemize
 
-Redo the injection on source code that has already been modified, for instance
- when constraints have been changed.
+Redo the instrumentation on source code that has already been modified,
+ for instance when constraints have been changed.
  
 \layout Itemize
 
-Edit the modified source code without losing all changes at the next injection.
+Edit the modified source code without losing all changes at the next instrumenta
+tion.
  
 \layout Standard
 
@@ -1015,7 +1016,7 @@ Configuration management must handle two source code trees.
 Developers must be careful to edit the original version only.
 \layout Enumerate
 
-Running the OCL injector is required after every change of the java source
+Running the instrumentation is required after every change of the java source
  code, not only when the constraints have been changed.
  
 \layout Enumerate
@@ -1129,7 +1130,8 @@ Invariants may also placed on an attribute or method of their context class.
 Checking the Element Type.
 \layout Standard
 
-The injected code must check, that collection attributes comply to the 
+The instrumented code must check, that collection attributes comply to the
+ 
 \family typewriter 
 @element-type
 \family default 
@@ -1159,9 +1161,10 @@ Code Insertion
 
 \layout Standard
 
-The main task of code injection is to have some code executed immediately
+The main task of code instrumentation is to have some code executed immediately
  before and after all methods (and after all constructors too).
- This section describes, how this is done by the OCL injector.
+ This section describes, how this is done by the tool developed with this
+ paper.
 \layout Standard
 
 At first, section 
@@ -1192,7 +1195,7 @@ At first, section
 
 \end_inset 
 
- shows, how the injector manages to undo all modifications it made.
+ shows, how it is managed to undo all modifications of the instrumentation.
  The java parser used to do all this is outlined in 
 \begin_inset LatexCommand \ref{sec: JavaParser}
 
@@ -1321,7 +1324,7 @@ int someMethod(double x)
 } 
 \layout Standard
 
-The code injector transforms this into two methods.
+This is transformed into two methods.
 \layout LyX-Code
 
 int someMethod_wrappedbyocl
@@ -1532,8 +1535,7 @@ Wrapping methods as described in section
 \end_inset 
 
  causes a problem for a special situation.
- This sections describes this situation and the solution provided by the
- OCL injector.
+ This sections describes this situation and provides a solution.
 \layout Standard
 
 The critical situation is shown in the figure below:
@@ -1561,7 +1563,7 @@ super.method();
  somewhere.
 \layout Standard
 
-The OCL injector changes the structure as shown below:
+The code instrumentation changes the structure as shown below:
 \layout Standard
 \added_space_top 0.3cm \added_space_bottom 0.3cm \align center 
 
@@ -1706,8 +1708,8 @@ Cleaning the Code
 
 \layout Standard
 
-Reversable modification means, that the injector is able clean the modified
- code without leaving any traces.
+Reversable modification means, that the instrumented code can be cleaned
+ from any modifications without leaving any traces.
  This section explains, how this requirement is met.
  
 \layout Standard
@@ -1734,8 +1736,8 @@ _wrappedbyocl
  to the parameter list.
 \layout Standard
 
-Removing generated class features relies on the fact, that the injector
- tags all generated features as shown below.
+Removing generated class features relies on the fact, that all generated
+ features get a special tag as shown below.
 \layout LyX-Code
 
 /**
@@ -1753,12 +1755,11 @@ Removing generated class features relies on the fact, that the injector
 void checkOclInvariants();
 \layout Standard
 
-When cleaning the code, the injector simply removes all object features
- carrying such an 
+When cleaning the code, all object features carrying such an 
 \family typewriter 
 @author
 \family default 
- tag.
+ tag are removed.
  This is quite simple and functional.
 \layout Subsection
 
@@ -1802,7 +1803,7 @@ flags 15
 
 \layout Caption
 
-Design of the Java Parser used by the OCL Injector
+Design of the Java Parser used by the OCL Instrumentation
 \begin_inset LatexCommand \label{fig: JavaParser}
 
 \end_inset 
@@ -1835,8 +1836,8 @@ Jass (
  It translates jass files into java.
  Jass files are valid java source code with assertions specified in comments.
  The generated java file contains additional code checking these assertions.
- Thus, jass performs something similar to code injection presented in the
- sections above.
+ Thus, jass performs something similar to the code instrumentation presented
+ in the sections above.
  
 \layout Standard
 
@@ -1916,7 +1917,7 @@ Jass performs a complex modification of the java source code.
 Jass cannot use wrapper methods, since this would not allow loop invariants
  and check statements to be implemented.
  But without these features as in OCL, method wrappers are much better than
- direct injection.
+ direct insertion of code.
 \layout Subsection
 
 Comparison to iContract
@@ -2214,8 +2215,8 @@ This is partially corrected in the errata
 
 When using databases the answer is simple: invariants must be valid outside
  of transactions.
- Since the java system does not provide transactions, the code injector
- offers several strategies for various user requirements.
+ Since the java system does not provide transactions there are several strategie
+s offered for various user requirements.
 \layout Standard
 
 Invariants may be required to be fulfilled on:
@@ -2558,7 +2559,7 @@ tudresden.ocl.injection.lib.Invariant
 \family default 
 .
 \end_float 
- of the injection library.
+ of the instrumentation runtime library.
  Finally 
 \emph on 
 Feature
@@ -2578,7 +2579,7 @@ Field
 \layout Standard
 
 Changes of object features are detected with polling.
- For each feature the OCL injector adds a backup to the class.
+ For each feature a backup attribute is added to the class.
  
 \layout LyX-Code
 
@@ -2725,8 +2726,7 @@ Thus, the backup for collection attributes stores a single integer value
  
 \layout Standard
 
-However, the injector doesn't require these hash values to be uniformly
- distributed.
+However, these hash values are not required to be uniformly distributed.
  Also, the hash value is required to be constant for unmodified collections
  only, not generally for equal collections.
  This means: if an element is added to the collection and removed immediately
@@ -3463,7 +3463,7 @@ Reverse Engineering.
  below.
 \layout Standard
 
-Collection attributes with type tags are verified on runtime by the injected
+Collection attributes with type tags are verified on runtime by the instrumented
  code.
  Note, that this kind of type information is useful for reverse engineering
  a UML model from given java code.
@@ -3489,7 +3489,7 @@ Section
 
 Actually, these type tags have to be created manually.
  This chapter tries to support the developer with an interactive tool for
- injecting 
+ inserting 
 \family typewriter 
 @element-type
 \family default 
@@ -3660,7 +3660,7 @@ The interactive tool presents the set of object types for every collection
 Implementation.
 \layout Standard
 
-The OCL injector makes a static method 
+The instrumented code makes a static method 
 \family typewriter 
 traceTypes
 \begin_float footnote 
@@ -4023,8 +4023,9 @@ The
 implementation effort
 \emph toggle 
  is very subjective for this paper.
- Both source code and runtime analysis require a java parser and injector,
- which was already built for code injection.
+ Both source code and runtime analysis require parsing and instrumenting
+ java source code, which was already built for runtime verification of OCL
+ constraints.
  Thus the implementation effort for me was low.
  Byte code analysis is something completely different.
 \layout Standard
@@ -4084,10 +4085,10 @@ All approaches have one thing in common: they are not perfect.
  tags is necessary to allow correcting user intervention.
 \layout Chapter
 
-Application of the OCL Injector on an Industrial Example
+OCL on an Industrial Example
 \layout Chapter
 
-Maintance of the OCL Compiler
+Maintance of the OCL Toolkit
 \layout Standard
 
 This chapter describes all major changes to Frank Fingers OCL compiler.
@@ -4470,7 +4471,7 @@ Code Fragments for @pre
 
 Meaning of code fragments created for @pre expressions (TRANSFER, PREPARATION,
  CODE) has been changed.
- The new behavior is easier and more flexible for different code injector
+ The new behavior is easier and more flexible for different code instrumentation
  tools.
  For a description of the new behavior see section 
 \begin_inset LatexCommand \ref{Sec:codegeneration_result}
@@ -4759,8 +4760,8 @@ TRANSFER
 }
 \layout Standard
 
-The injector developed with this paper uses the second insertion scheme
- only.
+The code instrumentation developed with this paper uses the second insertion
+ scheme only.
 \layout Subsection
 
 Explicit Package Qualifiers.
@@ -4782,23 +4783,22 @@ tudresden.ocl.lib.
 .
 \layout Chapter
 \start_of_appendix 
-Usage of Injector 
+Usage of the OCL Tool
 \layout Standard
 
-This chapter describes, how to use the injector tool.
+This chapter describes, how to use the instrumentation tool.
  Section 
 \begin_inset LatexCommand \ref{Sec:UsageExample}
 
 \end_inset 
 
- contains an example quickly demonstrating the main features of the ocl
- injector.
+ contains an example quickly demonstrating the main features.
  Section 
 \begin_inset LatexCommand \ref{Sec:UsageReference}
 
 \end_inset 
 
- provides a complete reference of the injectors command line options.
+ provides a complete reference of the command line options.
 \layout Section
 
 Example
@@ -4850,7 +4850,7 @@ oclexpressions
 Step 2:
 \layout Standard
 
-Now it's time to start the ocl injector.
+Now it's time to start the ocl tool.
  Type the following command on a single line.
  Note, that the wildcards require a Unix shell to be expanded.
 \layout LyX-Code
@@ -4941,7 +4941,7 @@ Enjoy the messages about violated ocl constraints running down the screen.
 Step 5:
 \layout Standard
 
-Clean the code from the modifications the injector made.
+Clean the code from the modifications the ocl tool made.
 \layout LyX-Code
 
 java -jar dresden-ocl-injector.jar 
@@ -4963,15 +4963,20 @@ Note, that the code actually was cleaned.
  To check this, try the following:
 \layout Enumerate
 
-Make a backup of one or more java files just before injection (step 2).
+Make a backup of one or more java files just before running the OCL tool
+ (step
+\protected_separator 
+2).
 \layout Enumerate
 
-After injection make some small modifications to the files, you made a backup
- for.
+After running the tool make some small modifications to the files, you made
+ a backup for.
  For example just add a single System.out.println to a method body.
 \layout Enumerate
 
-Proceed until step 5.
+Proceed until step
+\protected_separator 
+5.
 \layout Enumerate
 
 Compare the cleaned code to your backup.
@@ -5017,15 +5022,15 @@ file.java.injected
 \emph on 
 really
 \emph toggle 
- want to replace your source code with the output of the injector.
+ want to replace your source code with the output of the ocl tool.
 \layout LyX-Code
 
 -c --clean
 \layout Quotation
 
-Performs cleaning of source files instead of injection.
+Performs cleaning of source files instead of instrumentation.
  After cleaning, the source code should show no differences to the version
- before injecting.
+ before running the ocl tool.
 \layout LyX-Code
 
 -f --constraint-file constraints.txt
@@ -5148,7 +5153,7 @@ all
 
 Specifies what to do, if a constraint fails.
  This string is inserted verbatim into the code.
- The injector appends a pair of parents enclosing a suitable message string.
+ The ocl tool appends a pair of parents enclosing a suitable message string.
  Good candidates are 
 \family typewriter 
 System.\SpecialChar \-
@@ -5203,7 +5208,7 @@ TypeTracer.log
 \layout Quotation
 
 Note, that the log file must be specified when running the user program,
- not the injector! For example use 
+ not the ocl tool! For example use 
 \family typewriter 
 -Dtudresden.\SpecialChar \-
 ocl.\SpecialChar \-
@@ -5557,7 +5562,7 @@ This appendix lists the example used to verify the statement of section
 
 \end_inset 
 
-, that byte code instrumention does not need control flow analysis when
+, that byte code instrumentation does not need control flow analysis when
  inserting post method code.
 \layout Standard
 
@@ -5763,17 +5768,17 @@ startOnline
 This bug prevents any code from accessing object fields via reflection,
  if the objects class inherits this field from a super class.
  This affects the runtime libraries of both the OCL code generator and the
- code injector.
+ code instrumentation.
 \layout Standard
 
 A possible work-around is to wrap all field accesses with corresponding
  methods.
  These methods would access their field without reflection, thus would not
  be affected by the bug.
- These methods could be created automatically by the OCL injector.
+ These methods could be created automatically by the OCL code instrumentation.
  This would require a moderate implementation effort.
  However, the design of the OCL toolkit would suffer a much tighter dependency
- between the OCL library the injector.
+ between the OCL library and the code instrumentation.
  The author does not plan to implement this work-around.
 \layout Standard
 
