@@ -1,6 +1,6 @@
 
 rm -rf download/*
-cp -a ../src/*.jar ../src/api download
+cp -a ../src/*.jar ../src/build/*.jar ../src/api download
 
 tar c \
   -C ../src/api \
@@ -10,9 +10,9 @@ tar c \
   -C  ../src \
   --exclude=CVS \
   --exclude=api \
+  --exclude=build \
   "--exclude=*.class" \
-  "--exclude=*.jar" \
-  "--include=junit.jar" \
+  "--exclude=*.bak" \
   . | gzip --best > download/dresden-ocl-src.tar.gz
 
 gunzip < download/dresden-ocl-api.tar.gz | bzip2 > download/dresden-ocl-api.tar.bz2
