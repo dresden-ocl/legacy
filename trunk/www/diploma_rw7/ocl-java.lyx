@@ -1,4 +1,4 @@
-#This file was created by <wiera> Fri Jul 14 14:50:42 2000
+#This file was created by <wiera> Wed Jul 19 13:52:32 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -698,6 +698,19 @@ Map
 -
 \newline 
 Set (qualified)
+\end_deeper 
+\layout Enumerate
+
+ocl lib
+\begin_deeper 
+\layout Enumerate
+
+removed 
+\family typewriter 
+Ocl.STRICT_CHECKING
+\family default 
+, replaced exceptions by undefined values, parameterized with the reason
+ for the undefined value.
 \end_deeper 
 \layout Enumerate
 
