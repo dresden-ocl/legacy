@@ -1,4 +1,4 @@
-#This file was created by <wiera> Thu Jul 27 16:40:49 2000
+#This file was created by <wiera> Thu Jul 27 17:32:06 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -1065,7 +1065,7 @@ Structural Scope of Invariants
 
 \layout Standard
 
-hen to check which invariants
+when to check which invariants
 \layout Section
 
 Temporal Scope of Invariants
