@@ -1,4 +1,4 @@
-#This file was created by <wiera> Thu Oct  5 18:21:13 2000
+#This file was created by <wiera> Fri Oct  6 18:15:38 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -140,14 +140,77 @@ Wishlist in
 \layout Chapter
 
 Related Work
+\layout Section
+
+Constraint Checkers
 \layout Standard
 
-Simpler approach in 
+Jass (
+\begin_inset LatexCommand \cite{jassWeb}
+
+\end_inset 
+
+) is a preprocessor for java assertions developed at the University of Oldenburg
+ (
+\begin_inset LatexCommand \cite{jassDiplom}
+
+\end_inset 
+
+).
+ Apart from class invariants and method pre/postconditions it provides check
+ statements (like assert() in C++) and loop invariants/variants.
+ Assertions are expressed in java, extended by universal and existential
+ quantifiers.
+ Jass is available under GPL.
+\layout Standard
+
+Elixir claims OCL support in it's CASE tool and it's java IDE.
+ The CASE tool provides an ocl text field only, without any syntax checking.
+ For the IDE a plugin is provided to integrate iContract (
+\begin_inset LatexCommand \cite{iContract}
+
+\end_inset 
+
+).
+\layout Standard
+
+For some applications OCL is just too powerful.
+ A simpler approach is demonstrated in 
 \begin_inset LatexCommand \cite{kbeans}
 
 \end_inset 
 
-, easier to write, less complex, but less flexible.
+.
+ It implements a number of predefined constraint types, such as 
+\emph on 
+numeric range
+\emph toggle 
+ or 
+\emph on 
+ordering of arrays
+\emph toggle 
+.
+ For instance to have an attribute 
+\family typewriter 
+age
+\family default 
+ constrained to positive values, one just adds a method 
+\family typewriter 
+getAgeMinValue() {return
+\protected_separator 
+0;}
+\family default 
+.
+ Most OCL constraints I used in the development of the ocl toolkit also
+ could have been expressed with such simple means.
+ Constrained classes must be valid JavaBeans.
+ Also, the class must announce the change of attributes manually.
+ KBeans is released under GPL.
+ Additionally there is a GUI for simulating an object population and checking
+ constraints against it.
+\layout Section
+
+Code Instrumentation
 \layout Section
 
 Reverse Engineering
@@ -163,11 +226,12 @@ A powerful approach to reverse engineering has been developed at the MIT
  The tool superwomble extracts an object model from java byte code.
  Object models are roughly a subset of UML class diagrams, featuring inheritance
  and object associations.
- The main challenge for the analysis is the detection of element types of
- container attributes.
+ An important challenge for the analysis is the detection of element types
+ of container attributes.
  The tool performs this very efficiently, without requiring any additional
  help from the user.
- Thus, it complements the two approaches presented in chapter 
+ Thus, it complements the two approaches presented in this paper.
+ A detailed comparison is provided in section 
 \begin_inset LatexCommand \ref{Sec:ReverseEngineering}
 
 \end_inset 
@@ -175,11 +239,17 @@ A powerful approach to reverse engineering has been developed at the MIT
 .
 \layout Standard
 
-JVISION 1.2.1 of Object Insight www.object-insight.com produces class diagrams
- from java source or byte code.
- It's easy to use, and has nice auto-layout.
+JVision 
+\begin_inset LatexCommand \cite{jvision}
+
+\end_inset 
+
+ produces class diagrams from java source or byte code.
+ It's easy to use and has nice auto-layout.
  But it does not handle associations in any way.
  Collection attributes are simply shown as attributes.
+ Instead it analyses, which classes create/use each other.
+ This is not nearly as useful as associations.
 \layout Chapter
 
 Code Injection
@@ -206,17 +276,23 @@ This is followed by an analysis of requirements for the code injection and
 \end_inset 
 
 .
- Sections 
+ Section 
 \begin_inset LatexCommand \ref{Sec:wrappingMethods}
 
 \end_inset 
 
- and 
-\begin_inset LatexCommand \ref{Sec:cleaningCode}
+ describes the solution in detail.
+ Section 
+\begin_inset LatexCommand \ref{sec: compareJass}
 
 \end_inset 
 
- describe the solution in detail.
+ compares this solution to Jass (
+\begin_inset LatexCommand \cite{jassWeb}
+
+\end_inset 
+
+) which approaches a similar task quite differently.
 \layout Standard
 
 Finally sections 
@@ -905,6 +981,12 @@ java meta level
 ers.
  This is a very small part of the java language and easily to be analyzed
  by a hand-crafted parser.
+ See section 
+\begin_inset LatexCommand \ref{sec: JavaParser}
+
+\end_inset 
+
+ how easy it is.
 \layout Standard
 
 This kind of method wrapping still has a problem, I called the wrapper loop.
@@ -1155,7 +1237,7 @@ flags 13
 
 Wrapped methods get the class name appended.
  Thus, a wrapper method can call the wrapped method of it's own class.
-\layout Section
+\layout Subsection
 
 Cleaning the Code
 \begin_inset LatexCommand \label{Sec:cleaningCode}
@@ -1219,6 +1301,70 @@ When cleaning the code, the injector simply removes all object features
 \family default 
  tag.
  This is quite simple and functional.
+\layout Subsection
+
+Design of the Java Parser
+\begin_inset LatexCommand \label{sec: JavaParser}
+
+\end_inset 
+
+
+\layout Standard
+
+Previous sections stated, that a very simple parser is sufficient for implementi
+ng wrapper methods.
+ This is proofed in this section by giving an overview of the parsers design.
+ In fact, it's as simple as a parser used for syntax highlighting and class
+ browsers in a java IDE.
+\layout Standard
+
+First, the parser is actually a manipulator.
+ The java file is simultaneous read, parsed, modified on-the-fly and written
+ to an output file.
+ For a class diagram of the parse tree produced see figure 
+\begin_inset LatexCommand \ref{fig: JavaParser}
+
+\end_inset 
+
+.
+\layout Standard
+
+\begin_float fig 
+\layout Standard
+\align center 
+
+\begin_inset Figure size 283 206
+file JavaParser.eps
+width 1 10
+flags 15
+
+\end_inset 
+
+
+\layout Caption
+
+Java Parser Output
+\begin_inset LatexCommand \label{fig: JavaParser}
+
+\end_inset 
+
+
+\end_float 
+\layout Standard
+
+The parser analyses things which are relevant for the parse tree only.
+ Particularly method bodies and attribute initializers are ignored.
+ These skipped parts may not even compile.
+ As long as the parenthesis balance is held, the java parser will process
+ them correctly.
+\layout Section
+
+Comparison to Jass
+\begin_inset LatexCommand \label{sec: compareJass}
+
+\end_inset 
+
+
 \layout Section
 
 Scope of Invariants
@@ -2245,7 +2391,7 @@ Suppose
 \family typewriter 
 company
 \family default 
- is an variable of type 
+ is a variable of type 
 \family typewriter 
 Company
 \family default 
@@ -3222,7 +3368,40 @@ Daniel Jackson, Allison Waingold.
 
 Holger Knublauch, Martin Sedlmayr, Thomas Rose.
  Design Patterns for the Implementation of Constraints on JavaBeans.
- TODO http://www.faw.uni-ulm.de/kbeans/
+ http://www.faw.uni-ulm.de/kbeans/
+\layout Bibliography
+\bibitem [DB99]{jassDiplom}
+
+Detlef Bertetzko.
+ Parallelität und Vererbung beim "Programmieren mit Vertrag" - Weiterentwicklung
+ von JaWA (in german).
+ Master Thesis.
+ Universität Oldenburg 1999.
+\layout Bibliography
+\bibitem [JASS]{jassWeb}
+
+The Jass Page.
+ http://semantik.informatik.uni-oldenburg.de/~jass/
+\layout Bibliography
+\bibitem [iCt]{iContract}
+
+iContract.
+ http://www.reliable-systems.com/tools/iContract/iContract.htm.
+\layout Bibliography
+\bibitem [ELX]{elixir}
+
+Elixir Technology Pte Ltd.
+ http://www.elixirtech.com/index.html
+\layout Bibliography
+\bibitem [OIJV]{jvision}
+
+Object Insight, Inc.
+ JVISION.
+ http://www.\SpecialChar \-
+object-insight.\SpecialChar \-
+com/\SpecialChar \-
+html/\SpecialChar \-
+product_info.html
 \layout Bibliography
 \bibitem [RW00]{rw7}
 
