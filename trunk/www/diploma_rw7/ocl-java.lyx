@@ -1,4 +1,4 @@
-#This file was created by <wiera> Thu Oct 12 17:10:21 2000
+#This file was created by <rw7> Sat Oct 14 20:06:32 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -3758,7 +3758,7 @@ Adds code logging each constraint checked on an object to standard out.
 
 Uses simple hash functions in 
 \family typewriter 
-HashSimple
+HashSize
 \family default 
 , instead of the sophisticated hash functions in 
 \family typewriter 
@@ -3768,6 +3768,36 @@ HashExact
  Simple hash functions just return the size of the collection, so they will
  detect insertions/deletion only.
  Reduces CPU load for big models.
+\layout LyX-Code
+
+--modcount-hash
+\layout Quotation
+
+Uses hash functions in 
+\family typewriter 
+HashModCount
+\family default 
+, instead of the hash functions in 
+\family typewriter 
+HashExact
+\family default 
+.
+ 
+\family typewriter 
+HashModCount
+\family default 
+ functions are even better in modification detection than functions in 
+\family typewriter 
+HashExact
+\family default 
+.
+ Also, they are almost as fast as 
+\family typewriter 
+HashSize
+\family default 
+.
+ However, they heavily depend on internals of the java collections implemenation.
+ Use at your own risk.
 \layout Chapter
 
 Code Examples
