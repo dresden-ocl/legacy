@@ -1,4 +1,4 @@
-#This file was created by <wiera> Fri Aug  4 17:31:49 2000
+#This file was created by <wiera> Mon Aug  7 12:31:11 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -339,7 +339,8 @@ Furthermore, UML specifies the unqualified association feature to be a set,
 \family typewriter 
 java.util.Map
 \family default 
-, the injector provides an appropriate runtime check.
+ (only keys are guaranteed to be unique), the injector provides an appropriate
+ runtime check.
 \layout Paragraph
 
 Implementation.
