@@ -1,4 +1,4 @@
-#This file was created by <wiera> Tue Nov 28 14:14:56 2000
+#This file was created by <wiera> Wed Nov 29 11:58:39 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -292,7 +292,8 @@ Jass (
  Jass is available under GPL.
 \layout Standard
 
-The following table summarizes the tools introduced above
+The following table summarizes the tools introduced above.
+ The last line shows the tool developed with this paper.
 \layout Standard
 \added_space_top 0.3cm \added_space_bottom 0.3cm \align center \LyXTable
 multicol5
@@ -443,7 +444,7 @@ GPL
 \newline 
 
 \newline 
-types / java methods
+types / Java methods
 \newline 
 
 \newline 
@@ -465,7 +466,7 @@ source code instr.
 \newline 
 LGPL
 \newline 
-
+Toolkit
 \newline 
 
 \newline 
