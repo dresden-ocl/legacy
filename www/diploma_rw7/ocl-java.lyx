@@ -1,4 +1,4 @@
-#This file was created by <rw7> Wed May 31 20:55:25 2000
+#This file was created by <rw7> Sun Jun 18 12:26:23 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -101,6 +101,9 @@ Model Information
 Needed for Type Checking.
 \layout Standard
 
+5.3.3
+\layout Standard
+
 There is already the Reflection Facade, which is pretty cool with two exception:
  
 \layout Enumerate
@@ -116,7 +119,7 @@ Solution: extend the java language.
  The new tag has a syntax like @see, but restricted to classes only.
 \layout LyX-Code
 
-class Person
+class Company
 \newline 
 {
 \newline 
@@ -136,7 +139,7 @@ class Person
 \protected_separator 
 
 \protected_separator 
-All persons which are currently employed 
+All persons currently employed 
 \newline 
 
 \protected_separator 
@@ -148,7 +151,7 @@ All persons which are currently employed
 \protected_separator 
 
 \protected_separator 
-by this person.
+by this company.
 \newline 
 
 \protected_separator 
@@ -159,6 +162,8 @@ by this person.
 
 \protected_separator 
 
+\protected_separator 
+ 
 \protected_separator 
 @element-type Person
 \newline 
@@ -301,6 +306,19 @@ int someMethod_wrappedbyocl(double x)
 \protected_separator 
 
 \newline 
+/**
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+@author ocl injector
+\layout LyX-Code
+
+*/
+\newline 
 int someMethod(double x)
 \newline 
 {
@@ -322,6 +340,12 @@ int result=someMethod_wrappedbyocl(x);
 
 \protected_separator 
 // some code checking postconditions/invariants.
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+return result;
 \newline 
 }
 \layout Standard
@@ -411,6 +435,13 @@ boolean isEmployee(Person)
 \family default 
 .
  
+\layout Standard
+
+Or look for a 
+\family typewriter 
+@see
+\family default 
+ tag in the corresponding doc comment.
 \layout Section
 
 Dynamic
@@ -420,4 +451,26 @@ Enriche the code with tracing the object types inside collections.
 \layout Itemize
 
 compile and run the program (regression tests if available)
+\layout Bibliography
+\bibitem [FF]{ff3}
+
+Frank Finger.
+ Design and Implementation of a Modular OCL Compiler.
+ Diplomarbeit.
+ TU-Dresden 2000.
+ http://www-st.inf.tu-dresden.de/ocl/
+\layout Bibliography
+\bibitem [UML]{UML}
+
+OMG Unified Modeling Language Specification, Version 1.3, June 1999.
+\layout Bibliography
+\bibitem [OCL]{OCL}
+
+Object Constraint Language Specification.
+ Chapter 7 in 
+\begin_inset LatexCommand \cite{UML}
+
+\end_inset 
+
+.
 \the_end
