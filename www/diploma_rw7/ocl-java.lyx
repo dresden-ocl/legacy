@@ -1,4 +1,4 @@
-#This file was created by <wiera> Mon Jul 31 13:29:00 2000
+#This file was created by <wiera> Mon Jul 31 19:24:35 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -355,20 +355,26 @@ tudresden.ocl.check.types.ReflectionExtender
  demand.
  This implies, that the java source code is necessary for type checking
  OCL constraints in addition to the class files.
-\layout Paragraph
+\layout Standard
 
-Where comes the tag?
+There is a crucial question left: Where do the tags come? Possible sources
+ are:
 \layout Itemize
 
-CASE-Tools
+A UML model.
+ The code generator of a CASE tool could generate these tags.
+ 
 \layout Itemize
 
-handmade: good-practice of programming.
- Should be there already in the comments, the tag makes it available formally.
+Maintained by hand.
+ It is good-practice of programming, to specify which kind of objects are
+ supposed to be in a collection attribute.
+ The tags just make this information available formally.
+ 
 \layout Itemize
 
-reverse engineering.
- see chapter 
+Reverse Engineering.
+ This is discussed in detail in chapter 
 \begin_inset LatexCommand \ref{Sec:ReverseEngineering}
 
 \end_inset 
@@ -376,11 +382,10 @@ reverse engineering.
 .
 \layout Standard
 
-Will be tested automatically by the injected code.
-\layout Standard
-
-Is a good help for further reverse engineering from Java to UML (diploma
- Stefan Frisch?)
+Collection attributes with type tags are verified on runtime by the injected
+ code.
+ Note, that this kind of type information is useful for reverse engineering
+ a UML model from given java code.
 \layout Section
 
 Looking at @pre-vious States
@@ -1174,18 +1179,53 @@ Temporal Scope of Invariants
 \end_inset 
 
 
-\layout Enumerate
-
-all methods
-\layout Enumerate
-
-public methods
-\layout Enumerate
-
-transactions
 \layout Standard
 
-refere to tutorial parameters of injector
+This section discusses the issue, when an invariant has to be fulfilled.
+ When using databases this question is simple: invariants must be valid
+ outside of transactions.
+ Since the java system does not provide transactions, we have to think of
+ a different criterion.
+ 
+\layout Standard
+
+Possible solutions are, that invariants must be valid on:
+\layout Itemize
+
+all methods.
+ This may be too strict, since private methods may intentionally leave an
+ object in an inconsistent state.
+ 
+\layout Itemize
+
+public methods (or any other access modifier).
+ This may be not strict enough.
+\layout Itemize
+
+tagged methods.
+ A special tag in the documentation comment declares, that a method promises
+ to leave the system in a consistent state.
+ This tag is then part of the interface contract.
+ This is the best solution, but requires additional effort spent by the
+ developer.
+\layout Itemize
+
+explicit request.
+ This is the way of choice, if the model is held in a database backend.
+ Then the checking of invariants is simply done immediatly before every
+ 
+\begin_inset Quotes eld
+\end_inset 
+
+commit
+\begin_inset Quotes erd
+\end_inset 
+
+.
+\layout Standard
+
+The current implementation provides checking on all methods only.
+ TODO.
 \layout Section
 
 Structural Scope of Invariants
@@ -1196,7 +1236,13 @@ Structural Scope of Invariants
 
 \layout Standard
 
-when to check which invariants
+The previous section discussed, when we have to make sure, that all invariants
+ are fulfilled.
+ A simple implementation would do this by checking all invariants on all
+ objects.
+ A smart implementation could try to check only those invariants, whose
+ result may possibly have changed by recent changes of the model.
+ This is, what this section is about.
 \layout Chapter
 
 Reverse Engineering
@@ -1207,12 +1253,23 @@ Reverse Engineering
 
 \layout Standard
 
-Avoid the UML model for type checking.
+Section 
+\begin_inset LatexCommand \ref{Sec:element_type_tag}
+
+\end_inset 
+
+ explained, how to store additional type information of a java model in
+ java documentation tags.
+ This section discusses, how to generate this information.
 \layout Standard
 
 An interactive tool for injecting 
 \family typewriter 
 @element-type
+\family default 
+ and 
+\family typewriter 
+@key-type
 \family default 
  tags into the code using information obtained from the source code or dynamical
 ly on run time.
