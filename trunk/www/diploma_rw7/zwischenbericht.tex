@@ -1,7 +1,9 @@
 %% LyX 1.1 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass{slides}
+\documentclass[german]{slides}
 \usepackage[T1]{fontenc}
+\usepackage{babel}
+\usepackage[dvips]{graphics}
 
 \makeatletter
 
@@ -58,6 +60,7 @@
 %
 %\onlynotes{\notes}
 
+\usepackage{textcomp}
 \makeatother
 
 \begin{document}
@@ -80,7 +83,7 @@ von OCL-Geschäftsregeln in Java-Programmen}\Large \par}
 \vspace{10pt}\hrule height 4pt
 
 \begin{itemize}
-\item Code Injektor
+\item Code Injector
 \item Scope von Invarianten
 \item Caching von Invarianten
 \item Erweiterte Typinformation in Java
@@ -94,7 +97,7 @@ von OCL-Geschäftsregeln in Java-Programmen}\Large \par}
 
 \lyxnewslide{}
 
-{\par\centering \textbf{\Large Code Injektor - Ziele}\Large \par}
+{\par\centering \textbf{\Large Code Injector - Ziele}\Large \par}
 
 \vspace{10pt}\hrule height 4pt
 
@@ -104,21 +107,21 @@ von OCL-Geschäftsregeln in Java-Programmen}\Large \par}
 
 \lyxnewslide{}
 
-{\par\centering \textbf{\Large Code Injektor - }\\
+{\par\centering \textbf{\Large Code Injector - }\\
 \textbf{\Large Probleme des einfachen Ansatzes}\Large \par}
 
 \vspace{10pt}\hrule height 4pt
 
 \begin{enumerate}
-\item Einfügung an jeder return Anweisung
+\item Einfügung an jeder return-Anweisung
 \item Vorberechnung des Rückgabeausdrucks
 \item Namenskonflikte
-\item kompletter Javaparser nötig
+\item kompletter Javaparser notwendig
 \end{enumerate}
 
 \lyxnewslide{}
 
-{\par\centering \textbf{\Large Code Injektor - }\\
+{\par\centering \textbf{\Large Code Injector - }\\
 \textbf{\Large Wrapping Methods}\Large \par}
 
 \vspace{10pt}\hrule height 4pt
@@ -148,7 +151,7 @@ int~someMethod(double~x)~\\
 
 \lyxnewslide{}
 
-{\par\centering \textbf{\Large Code Injektor - }\\
+{\par\centering \textbf{\Large Code Injector - }\\
 \textbf{\Large Wrapping Constructors}\Large \par}
 
 \vspace{10pt}\hrule height 4pt
@@ -171,6 +174,69 @@ SomeClass(String~x)~\\
 \{~\\
 ~~this(x,~(Dummy)null);~\\
 ~~//~post~constructor~code~\\
+\}
+\end{lyxcode}
+
+\lyxnewslide{}
+
+{\par\centering \textbf{\Large Scope von Invarianten}\Large \par}
+
+\vspace{10pt}\hrule height 4pt
+
+Wann müssen die Invarianten erfüllt sein?
+
+\begin{itemize}
+\item Alle Methoden.
+\item Öffentliche Methoden.
+\item Ausgezeichnete Methoden.
+\item Explizite Prüfung.
+\end{itemize}
+
+\lyxnewslide{}
+
+{\par\centering \textbf{\Large Caching von Invarianten}\Large \par}
+
+\vspace{10pt}\hrule height 4pt
+
+\vspace{0.3cm}
+{\par\centering \resizebox*{1\textwidth}{!}{\includegraphics{PersonCompany.eps}} \par}
+\vspace{0.3cm}
+
+\begin{lyxcode}
+context~Company~inv:~\\
+~~manager.age>=0~\\
+~\\
+context~Company~inv:~\\
+~~employees.age>=0~\\
+~\\
+context~Company~inv:~\\
+~~employees.getAge()>=0~\\
+~\\
+context~Company~inv:~\\
+~~employees.getIncomeAfterTax(0.15)>=5000
+\end{lyxcode}
+
+\lyxnewslide{}
+
+{\par\centering \textbf{\Large Überwachung von Attributen}\Large \par}
+
+\vspace{10pt}\hrule height 4pt
+
+\begin{lyxcode}
+class~Person~\\
+\{~\\
+~~int~age;~\\
+~~int~age\_oclbackup=age;~\\
+~~\\
+~~private~void~checkForChangedFeatures()~\\
+~~\{~\\
+~~~~if(age!=age\_oclbackup)~\\
+~~~~\{~\\
+~~~~~~age\_oclbackup=age;~\\
+~~~~~~//~notify~observers~of~age~\\
+~~~~\}~\\
+~~~~//~...~further~attributes~\\
+~~\}~\\
 \}
 \end{lyxcode}
 
