@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Dec 13 09:15:30 2000
+#This file was created by <wiera> Wed Dec 13 11:10:01 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -318,9 +318,9 @@ This work aims to extend the OCL compiler developed by Frank Finger with
  Additional attention is paid to java programs, where no UML class diagrams
  are available.
  The tool should be implemented to a sufficient extent.
- For the java code provided by the industrial partner net-linx Europe GmbH
- a small set of typical OCL constraints will be developed and experimented
- with.
+ This includes maintance of the existing OCL compiler.
+ For the java code provided by the industrial partner, net-linx AG, a small
+ set of typical OCL constraints will be developed and experimented with.
 \layout Section
 
 Organisation of This Work
@@ -377,7 +377,7 @@ Appendix
 \end_inset 
 
  contains a short manual of the software together with an illustrative example.
- Finally, some very detailed descriptions have been sourced out into appendix
+ Finally, some very detailed descriptions have been shifted into appendix
  
 \begin_inset LatexCommand \ref{Sec:chapterCodeExamples}
 
@@ -4470,7 +4470,7 @@ Industrial Example
 \layout Standard
 
 For practical experiments with an industrial strength project, the partner
- net-linx Europe GmbH provided the source code of its emerging product nxCom.
+ net-linx AG provided the source code of its emerging product nxCom.
  
 \layout Standard
 
@@ -4495,25 +4495,23 @@ The experiments where limited to the business logic module.
 \end_inset 
 
 .
- For the test a non-persistent developer configuration was used.
+ For the test a special developer configuration was used, which employes
+ a XML file for realizing persistence.
 \layout Standard
 
 For experimentation 10 invariants have been developed and inserted into
- this module:
-\layout Itemize
-
-5 invariants checking the consistency of bidirectional associations such
-\begin_float footnote 
-\layout Standard
-
-To avoid confusion, the actual constraints have been transformed into analogous
+ this module.
+ It wouldn't make much sense to give an introduction into the business logic
+ module, therefore the actual constraints have been transformed into analogous
  counterparts for the Person - Company model used in 
 \begin_inset LatexCommand \cite{Warmer}
 
 \end_inset 
 
-.
-\end_float 
+:
+\layout Itemize
+
+5 invariants checking the consistency of bidirectional associations such
  as:
 \layout LyX-Code
 
@@ -4615,7 +4613,7 @@ Lines of Code
 \newline 
 43587 
 \newline 
- (Re-)Instrumention 
+ (Re-)Instrumentation 
 \newline 
 36 s
 \newline 
@@ -4626,6 +4624,13 @@ Lines of Code
 23 s
 \newline 
 73 s
+\layout Standard
+
+Running the instrumented code revealed a number of constraint violations.
+ Some of them have been recronstructed by hand, and turned out to be inconsisten
+cys in the test data.
+ Due to the amount it was not possible to correct these inconsistencys within
+ this work.
 \layout Chapter
 
 Summary 
@@ -4655,12 +4660,19 @@ A concept for caching results of invariants has been developed and partially
 
 The OCL type checker was extended to gather additional information from
  javadoc tags.
- This makes the OCL compiler fully independent from a UML representation
- of the java code.
+ This makes the OCL compiler fully independent of a UML representation of
+ the java code.
  A concept for generating such tags and inserting them into the java code
  has been developed.
  This concept has been partially implemented by Steffen Zschaler.
  
+\layout Standard
+
+The existing OCL compiler has been maintained and slightly extended.
+ These extentions provide additional flexibility needed for the components
+ developed in this work.
+ Coupling beetween existing and new components is kept low by restricting
+ dependencies to java interfaces.
 \layout Standard
 
 The tool has been experimented with using the java source code of an industrial
@@ -4670,8 +4682,8 @@ The tool has been experimented with using the java source code of an industrial
 
 The OCL tool is still far from being complete.
  Some ideas for future work are discussed in the next chapter.
- However, the tool seems to be in a condition, where some courageous early
- adopters could actually start using it for some real world task.
+ However, the tool seems to be in a condition, where an early adopter could
+ actually start using it for some real world task.
  
 \layout Chapter
 
@@ -4691,7 +4703,7 @@ The results of this paper leave various directions for future work on the
 Design by Contract Taken Seriously
 \layout Standard
 
-Obviously, the OCL toolkit could be used to support Design by Contract (DbC)
+Obviously, the OCL toolkit can be used to support Design by Contract (DbC)
  
 \begin_inset LatexCommand \cite{DbC}
 
@@ -4701,7 +4713,7 @@ Obviously, the OCL toolkit could be used to support Design by Contract (DbC)
  This paradigm has been extensively researched in the past and its principals
  are thoroughly understood.
  Still, it remains to be shown, that the OCL toolkit actually conforms to
- these principals.
+ these principels.
 \layout Standard
 
 There is at least one issue to be worked on: inheriting constraints.
