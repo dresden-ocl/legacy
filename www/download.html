@@ -1,6 +1,21 @@
 <html>
 <head>
 <title>OCL Compiler</title>
+<style>
+H1,H2,H3,H4
+{
+  width:100%;
+  padding:2pt;
+  font-family:Helvetica,Helv,Arial;
+  font-weight:bold;
+  border-width:1px; border-color:#FFF;
+
+}
+H1 { font-size:24pt; padding:5pt; background:#CCF; color:#006; background:#EEF; }
+H2 { font-size:18pt; background:#EEF; }
+H3 { font-size:14pt; background:#EEE; }
+H4 { font-size:12pt; }
+</style>
 </head>
 <body bgcolor=#FFFFFF>
 
@@ -18,48 +33,43 @@
 </table>
 
 
-<table border=0 summary="">
-<tr><td height=50></td></tr>
-<tr>
-<td width=20%></td>
-<td width=40% valign=top>
-<b><code>back to <a href="index.html" target="_top">main page</a></code></b><br><br>
-</td>
-<td width=40% valign=top>
-</td>
-</tr>
-<tr><td height=50></td></tr>
-</table>
 
+<p>
+[<a href="index.html">&lt;&lt; main page</a>]
+-
+[<a href="#ocl4java">ocl4java</a>]
+-
+[<a href="#demo">demo application</a>]
+-
+[<a href="#argo">argo/uml</a>]
+-
+[<a href="#sources">sources</a>]
+-
+[<a href="#history">history</a>]
+-
+[<a href="#docs">documentation</a>]
+-
+[<a href="#links">links</a>]
+</p>
 
-<a name="download"></a>
-<h1><code>...download</code></h1>
+<h1>Download</h1>
 
 <p>
 If you find this software useful or develop any extensions, please inform us by <a href="mailto:ocl@mail-st.inf.tu-dresden.de">mail</a>.
 To keep yourself informed about new versions, please subscribe to our <a href="http://lists.sourceforge.net/mailman/listinfo/dresden-ocl-announce">mailing list</a>.
+This software is published under the <a href="http://www.gnu.org/copyleft/lesser.html">LGPL</a> (GNU Lesser General Public License).
 </p>
 
-<p>This software is published under the <a href="http://www.gnu.org/copyleft/lesser.html">GNU Lesser General Public License</a> (<a href="download/COPYING">txt</a>).</p>
+<h2><a name="ocl4java">Ocl for Java</a></h2>
 
-<h2><code>...snapshots</code></h2>
-
-
-<p>
-September 25, 2000: added inline ocl expressions (in java doccomments), numerous bugfixes, moved from xml4j to xerces.<br>
-August 31, 2000: added support for java arrays to be treated as ocl sequences.<br>
-</p>
-
-<dl>
-
-<dt><b>OCL Suite for Java</b></dt>
-<dd>
 If you want to try OCL on real java code, do the following:
 <ol>
 <li>
 Download <a href="download/dresden-ocl-injector.jar">dresden-ocl-injector.jar</a> and <a href="download/royloy.jar">royloy.jar</a> into a directory.
 <br>
-<font color="red"><b>Problems</b> when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.</font>
+<table><tr><td bgcolor="#FFDDDD">
+Problems when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.
+</td></tr></table>
 </li>
 <li>Change into that directory.</li>
 <li>
@@ -74,13 +84,13 @@ Compile the example ocl expressions and put them into the java code:
 java -jar dresden-ocl-injector.jar -r tudresden.ocl.test.royloy --modify tudresden/ocl/test/royloy/*.java
 </pre>
 The example java code has now been modified.
-<p>
-<b>NOTE for JDK1.3 Hotspots VM for Windows NT</b>:
-The ocl toolkit throws an <b>AbstractMethodError</b> with this VM.
+<table><tr><td bgcolor="#FFDDDD">
+Note for JDK1.3 Hotspots VM for Windows NT:
+The ocl toolkit throws an AbstractMethodError with this VM.
 Probably this is not NT specific, but specific to Hotspots.
 Probably this is due to bug #4248990.
-To fix, recompile the <a href="download/dresden-ocl-src.tar.gz">sources</a> with JDK1.3
-</p>
+To fix, recompile the <a href="#sources">sources</a> with JDK1.3
+</td></tr></table>
 </li>
 <li>
 Compile the example:
@@ -104,145 +114,135 @@ The example code is now exactly the same as you downloaded it.
 </li>
 </ol>
 Of course you may try this on your own java code.
-</dd>
 
-<dt><b>Compiler Demo</b></dt>
-<dd>
+<h2><a name="demo">Compiler Demo</a></h2>
 If you want to use the ocl compiler standalone, do the following:
 <ol>
 <li>
 Download <a href="download/dresden-ocl-demo.jar">dresden-ocl-demo.jar</a> into a directory.
 <br>
-<font color="red"><b>Problems</b> when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.</font>
+<table><tr><td bgcolor="#FFDDDD">
+Problems when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.
+</td></tr></table>
 </li>
 <li>Change into that directory.</li>
 <li>Type <pre>java -jar dresden-ocl-demo.jar</pre> at the command prompt.</li>
 <li>A window pops up. There you can enter constraints, check them against a model and generate java code.</li>
 </ol>
-<p>
-<b>NOTE for JDK1.3 Hotspots VM for Windows NT</b>:
-The ocl toolkit throws an <b>AbstractMethodError</b> with this VM.
+<table><tr><td bgcolor="#FFDDDD">
+Note for JDK1.3 Hotspots VM for Windows NT:
+The ocl toolkit throws an AbstractMethodError with this VM.
 Probably this is not NT specific, but specific to Hotspots.
 Probably this is due to bug #4248990.
-To fix, recompile the <a href="download/dresden-ocl-src.tar.gz">sources</a> with JDK1.3
-</p>
-</dd>
+To fix, recompile the <a href="#sources">sources</a> with JDK1.3
+</td></tr></table>
 
-<dt><b>Argo/UML</b></dt>
-<dd>
-If you want to use the ocl compiler as part of <a href="http://argouml.tigris.org/">Argo/UML</a> do the following:
+<h2><a name="argo">Argo/UML</a></h2>
+If you want to use the ocl compiler as part of <a href="http://argouml.tigris.org/">Argo/UML</a> version 0.8 do the following:
 <ol>
 <li>
 Download <a href="download/ocl-argo.jar">ocl-argo.jar</a> (a subset of dresden-ocl.jar).
-<br>
-<font color="red"><b>Problems</b> when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.</font>
+<table><tr><td bgcolor="#FFDDDD">
+Problems when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.
+</td></tr></table>
 </li>
 <li>Replace the current ocl-argo.jar in your Argo/UML installation with this file.</li>
 <li>Restart Argo/UML.</li>
-<li>Use the tab &quot;Constraints&quot; in the lower section of the Argo/UML main window.</li>
 </ol>
-You do not need xerces.jar, since this is already part of Argo/UML.
-</dd>
+<p>Use the tab &quot;Constraints&quot; in the lower section of the Argo/UML main window.</p>
 
-<dt><b>Sources</b></dt>
-<dd>
+<h2><a name="sources">Sources</a></h2>
 The complete source including test suites is available in <a href="download/dresden-ocl-src.tar.gz">dresden-ocl-src.tar.gz</a>.
-For compiling, you need <a href="download/xerces.jar">xerces.jar</a> and <a href="download/test.jar">test.jar</a>.
-Note, that the ultimate source of the current version is the <a href="http://sourceforge.net/cvs/?group_id=5840">cvs repository</a> at sourceforge.
-</dd>
-<dt><b>Documentation</b></dt>
-<dd>
-The javadoc api documentation is available for <a href="download/dresden-ocl-api.tar.gz">download</a>
-or for reading <a href="download/api/index.html">online</a>.
-You may also generate this from the sources.
-</dd>
-</dl>
+<br>
+For compiling, you need:
+<ul>
+<li><a href="download/xerces.jar">xerces.jar</a>: Xerces version 1.2.0 by <a href="http://xml.apache.org/xerces-j/index.html">Apache</a>.</li>
+<li><a href="download/test.jar">test.jar</a>: JUnit version 1.0 by <a href="http://www.xprogramming.com/software.htm">Extreme Programming</a>.</li>
+</ul>
+The ultimate source of the newest version is the <a href="http://sourceforge.net/cvs/?group_id=5840">cvs</a> repository at sourceforge.
+<br>
+The API documentation is available for <a href="download/dresden-ocl-api.tar.gz">download</a> or for reading <a href="download/api/index.html">online</a>.
 
-
-
-
-<h2><code>...dependencies</code></h2>
-
-<p>These download are offered as a convenience only (and because the compiler is tested
-with these versions); for more recent versions,
-visit the original websites.
+<h2><a name="history">History</a></h2>
 
 <ul>
-<li>
-<a href="download/xerces.jar">xerces.jar</a>:
-Xerces version 1.2.0 by <a href="http://xml.apache.org/xerces-j/index.html">Apache</a>,
-needed for dresden-ocl.jar, but not for ocl-argo.jar.
-</li>
-<li>
-<a href="download/xml4j.jar">xml4j.jar</a>:
-XML4J version 2.0.4 by <a href="http://www.ibm.com">IBM</a> Alphaworks,
-needed for dresden-ocl.jar, but not for ocl-argo.jar.
-<b>OBSOLETE</b>, replaced by xerces.
-</li>
-<li>
-<a href="download/test.jar">test.jar</a>:
-JUnit version 1.0 by <a href="http://www.xprogramming.com/software.htm">Extreme Programming</a>,
-needed for compiling and running the test suite.
-The test suite is available in the source package only.
-</li>
+<li>09/29 2000: added self starting jar files, included xerces into distribution.</li>
+<li>09/25 2000: added inline ocl expressions (in java doccomments), numerous bugfixes, moved from xml4j to xerces.</li>
+<li>08/31 2000: added support for java arrays to be treated as ocl sequences.</li>
 </ul>
 
-<p>
-<font color="red"><b>Problems</b> when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.</font>
-</p>
+<h2><a name="docs">Documentation</a></h2>
 
-<h2><code>...documentation</code></h2>
+<h3>Papers</h3>
 
-<ul>
-
-<li>
-<a href="http://www.inf.tu-dresden.de/TU/Informatik/ST2/ST/papers/uml2000_oclws.pdf">Using Previous Property Values in OCL Postconditions - An Implementation Perspective</a>:
+<p><b>
+Using Previous Property Values in OCL Postconditions - An Implementation Perspective:
+</b>
 Heinrich Hussmann,
 Frank Finger,
 Ralf Wiebicke,
 accepted for the international Workshop "UML 2.0 - The Future of the UML Constraint Language OCL",
 October 2, 2000,
-York, UK
-</li>
+York, UK.
+<a href="http://www.inf.tu-dresden.de/TU/Informatik/ST2/ST/papers/uml2000_oclws.pdf">pdf</a>
+</p>
 
-<li>
-<a href="http://www.inf.tu-dresden.de/TU/Informatik/ST2/ST/papers/uml2000.pdf">Modular Architecture for a Toolset Supporting OCL</a>:
+<p><b>
+Modular Architecture for a Toolset Supporting OCL:
+</b>
 Heinrich Hussmann; Birgit Demuth, Frank Finger,
 draft,
 to appear in Proceedings &lt;&lt;UML&gt;&gt;2000, Conference,
 October 3-6, 2000,
-York, UK
-</li>
+York, UK.
+<a href="http://www.inf.tu-dresden.de/TU/Informatik/ST2/ST/papers/uml2000.pdf">pdf</a>
+</p>
 
-<li><a href="ff3/diplom.pdf">Design and Implementation of a Modular OCL Compiler</a>:
+<h3>Reports</h3>
+
+<p><b>
+Design and Implementation of a Modular OCL Compiler:
+</b>
 Frank Finger,
 Diploma Thesis,
 March 2000.
-</li>
+<a href="ff3/diplom.pdf">pdf</a>
+</p>
 
-<li><a href="ff3/beleg.pdf">Java-Implementierung der OCL-Basisbibliothek</a> (in German):
+<p><b>
+Java-Implementierung der OCL-Basisbibliothek
+</b>
+(in German):
 Frank Finger,
 Research Report,
 July 1999.
-</li>
+<a href="ff3/beleg.pdf">pdf</a>
+</p>
 
-<li><a href="diploma_rw7/intro.html">Utility Support for Checking OCL Business Rules in Java Programs</a>:
+<p><b>
+Utility Support for Checking OCL Business Rules in Java Programs:
+</b>
 Ralf Wiebicke,
 Diploma Thesis,
 scheduled for December 2000.
-<b>This is work in progress!</b>
+This is work in progress!
 I made this available, since it contains information about the ocl injector not available anywhere else.
 Use at your own risk!
-</li>
+<a href="diploma_rw7/intro.html">link</a>.
+</p>
 
-<li><a href="http://rw7.de/ralf/gbeleg99/intro.html">A Type Information Component for OCL</a>:
+<p><b>
+A Type Information Component for OCL:
+</b>
 Chapter 3 in XML Query Languages for Repositories Based on XML Documents,
 Ralf Wiebicke,
 Research Report,
 April 2000.
-</li>
+<a href="http://rw7.de/ralf/gbeleg99/intro.html">link</a>
+</p>
 
-<li>Slides
+<h3>Slides</h3>
+
 <ul>
 <li>
 Presentation at Software Engineering Group Seminar;
@@ -262,11 +262,9 @@ Presentation on Generated Code; 22 pages
 <a href="presentations/generatedcode/sld001.htm">html</a>
 </li>
 </ul>
-</li>
-</ul>
 
 
-<h1><code>...links</code></h1>
+<h2><a name="links">Links</a></h2>
 
 <ul>
 
