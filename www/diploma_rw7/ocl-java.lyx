@@ -1,4 +1,4 @@
-#This file was created by <wiera> Mon Aug  7 13:59:39 2000
+#This file was created by <wiera> Mon Aug  7 17:43:59 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -1213,7 +1213,7 @@ This section discusses the issue, when an invariant is required to be fulfilled.
 When using databases the answer is simple: invariants must be valid outside
  of transactions.
  Since the java system does not provide transactions, the code injector
- must be flexible to various user requirements.
+ offers several strategies for various user requirements.
 \layout Standard
 
 Invariants may be required to be fulfilled on:
@@ -1242,7 +1242,23 @@ Explicit request.
  Then the checking of invariants is simply done immediately before committing.
 \layout Standard
 
-The current implementation provides checking on all methods only.
+These strategies may used in conjunction.
+ Except of 
+\emph on 
+All Methods
+\emph toggle 
+ together with 
+\emph on 
+Public Methods
+\emph toggle 
+ and/or 
+\emph on 
+Tagged Methods
+\emph toggle 
+ all other combinations make sense for special user requirements.
+\layout Standard
+
+The current implementation does not yet provide tagged methods.
  TODO.
 \layout Section
 
