@@ -1,4 +1,4 @@
-#This file was created by <wiera> Thu Aug 17 17:06:07 2000
+#This file was created by <wiera> Tue Aug 29 13:56:38 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -969,15 +969,25 @@ A straight-forward solution would add the code directly into the method.
 \layout Enumerate
 
 The code to be executed after the method (postcondition and invariants)
- has to be inserted at any return statement.
+ has to be inserted before any return statement.
 \layout Enumerate
 
-A return expression has to be computed in advance, if the post condition
+The post condition code must have the return value available.
+ Thus, a return expression has to be computed in advance, if the post condition
  code refers to the return value and/or the the return expression produces
  side effects.
 \layout Enumerate
 
-There may be name conflicts beetween the original and the generated code.
+There may be name conflicts beetween the original and the generated code,
+ since the generated code defines local variables.
+\layout Enumerate
+
+For methods with return type void it must be decided, whether the post condition
+ code has to be inserted at the end of the method.
+ This depends on whether the end of the method is a reachable point of code.
+ For the decision it needs a complete control flow analysis of the method.
+ Note, that if the post condition code is wrongly inserted at the end of
+ the method, the java compiler will fail due to unreachable statements.
 \layout Standard
 
 An implementation would need a complete java parser, which touches the original
@@ -989,7 +999,15 @@ An implementation would need a complete java parser, which touches the original
 \end_inset 
 
 .
- Method wrappers solve all these problems in a nifty but simple way.
+ 
+\layout Standard
+
+Additionally, item 4 requires much of the semantic analysis performed by
+ a java compiler.
+ This makes the simple approach very hard to implement.
+\layout Standard
+
+Method wrappers solve all these problems in a nifty but simple way.
 \layout Paragraph
 
 Wrapping Methods.
@@ -1074,8 +1092,11 @@ When the post condition code is executed, the return expression is already
  evaluated and ready to use.
 \layout Itemize
 
-No name conflicts are possible, since user code and generated code are separated
- into different methods.
+No name conflicts are possible, since user code and generated code are strictly
+ separated into different methods.
+\layout Itemize
+
+No control flow analysis is needed.
 \layout Standard
 
 The user code is modified in a simple way: a suffix is appended to the method
@@ -1090,9 +1111,10 @@ java meta level
 \end_inset 
 
  only.
- This meta level covers anything outside of method bodies and attribute
- initializers, which is a very small part of the java language and easily
- to be parsed.
+ The meta level covers anything outside of method bodies and attribute initializ
+ers.
+ This is a very small part of the java language and easily to be analyzed
+ by a hand-crafted parser.
 \layout Paragraph
 
 Wrapping Constructors.
