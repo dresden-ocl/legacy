@@ -57,7 +57,7 @@ August 31, 2000: added support for java arrays to be treated as ocl sequences.<b
 If you want to try OCL on real java code, do the following:
 <ol>
 <li>
-Download <a href="download/dresden-ocl.jar">dresden-ocl.jar</a>, <a href="download/royloy.jar">royloy.jar</a> and <a href="download/xerces.jar">xerces.jar</a> into a directory.
+Download <a href="download/dresden-ocl-injector.jar">dresden-ocl-injector.jar</a> and <a href="download/royloy.jar">royloy.jar</a> into a directory.
 <br>
 <font color="red"><b>Problems</b> when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.</font>
 </li>
@@ -71,7 +71,7 @@ jar -xf royloy.jar
 <li>
 Compile the example ocl expressions and put them into the java code:
 <pre>
-java -cp .:dresden-ocl.jar:xerces.jar tudresden.ocl.injection.Main -r tudresden.ocl.test.royloy --modify tudresden/ocl/test/royloy/*.java
+java -jar dresden-ocl-injector.jar -r tudresden.ocl.test.royloy --modify tudresden/ocl/test/royloy/*.java
 </pre>
 The example java code has now been modified.
 <p>
@@ -85,20 +85,20 @@ To fix, recompile the <a href="download/dresden-ocl-src.tar.gz">sources</a> with
 <li>
 Compile the example:
 <pre>
-javac -classpath dresden-ocl.jar:xerces.jar tudresden/ocl/test/royloy/*.java
+javac -classpath dresden-ocl-injector.jar tudresden/ocl/test/royloy/*.java
 </pre>
 </li>
 <li>
 Run the example:
 <pre>
-java -cp .:dresden-ocl.jar:xerces.jar tudresden.ocl.test.TestInjection
+java -cp .:dresden-ocl-injector.jar tudresden.ocl.test.TestInjection
 </pre>
 Enjoy the messages about violated ocl constraints.
 </li>
 <li>
 Clean the code:
 <pre>
-java -cp .:dresden-ocl.jar:xerces.jar tudresden.ocl.injection.Main --clean --modify tudresden/ocl/test/royloy/*.java
+java -jar dresden-ocl-injector.jar --clean --modify tudresden/ocl/test/royloy/*.java
 </pre>
 The example code is now exactly the same as you downloaded it.
 </li>
@@ -111,12 +111,12 @@ Of course you may try this on your own java code.
 If you want to use the ocl compiler standalone, do the following:
 <ol>
 <li>
-Download <a href="download/dresden-ocl.jar">dresden-ocl.jar</a> and <a href="download/xerces.jar">xerces.jar</a> into a directory.
+Download <a href="download/dresden-ocl-demo.jar">dresden-ocl-demo.jar</a> into a directory.
 <br>
 <font color="red"><b>Problems</b> when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.</font>
 </li>
 <li>Change into that directory.</li>
-<li>Type <pre>java -cp dresden-ocl.jar:xerces.jar tudresden.ocl.ConstraintEvaluation</pre> at the command prompt.</li>
+<li>Type <pre>java -jar dresden-ocl-demo.jar</pre> at the command prompt.</li>
 <li>A window pops up. There you can enter constraints, check them against a model and generate java code.</li>
 </ol>
 <p>
