@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Dec  6 16:27:11 2000
+#This file was created by <rw7> Fri Dec  8 04:12:21 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -129,8 +129,8 @@ sourceforge.net/.
 Introduction
 \layout Standard
 
-This work descibes the design and implementation of a tool providing runtime
- verification of OCL (Object Contraint Language) constraints in java programs.
+This work descibes the design and implementation of runtime verification
+ of OCL (Object Constraint Language) constraints in java programs.
  Therefore, the OCL compiler developed by Frank Finger 
 \begin_inset LatexCommand \cite{ff3}
 
@@ -145,9 +145,74 @@ support the principals of Design by Contract in java.
 
 Wishlist in section 3.6.
  
+\layout Standard
+
+Chapter 
+\begin_inset LatexCommand \ref{Sec:chapterRelated}
+
+\end_inset 
+
+ lists work related to this paper, particularly software aiming for similar
+ functionality.
+ Chapters 
+\begin_inset LatexCommand \ref{Sec:chapterCodeInjection}
+
+\end_inset 
+
+ and 
+\begin_inset LatexCommand \ref{Sec:chapterModelInformation}
+
+\end_inset 
+
+ present the design and implementation of the two major extensions of the
+ OCL compiler developed in this paper: the java source code instrumentation
+ and the completed model information for OCL.
+ Chapter 
+\begin_inset LatexCommand \ref{Sec:chapterIndustrial}
+
+\end_inset 
+
+ reports experiences made using the tool on an industrial strength project.
+ Chapter 
+\begin_inset LatexCommand \ref{Sec:chapterSummary}
+
+\end_inset 
+
+ summarizes the results of this work, while chapter 
+\begin_inset LatexCommand \ref{Sec:chapterOutlook}
+
+\end_inset 
+
+ points out directions for future work.
+\layout Standard
+
+Appendix 
+\begin_inset LatexCommand \ref{Sec:chapterMaintance}
+
+\end_inset 
+
+ lists all modifications of the OCL compiler made during this work.
+ Appendix 
+\begin_inset LatexCommand \ref{Sec:chapterUsage}
+
+\end_inset 
+
+ contains a short manual of the software together with a [illustrative]
+ example.
+ Finally, some very detailed descriptions have been moved to appendix 
+\begin_inset LatexCommand \ref{Sec:chapterCodeExamples}
+
+\end_inset 
+
+ to keep the main text short [uebersichtlich].
 \layout Chapter
 
 Related Work
+\begin_inset LatexCommand \label{Sec:chapterRelated}
+
+\end_inset 
+
+
 \layout Standard
 
 This chapter lists both papers and software related to this diploma thesis.
@@ -4212,13 +4277,198 @@ All approaches have one thing in common: they are not perfect.
  tags is necessary to allow correcting intervention of a human user.
 \layout Chapter
 
-OCL on an Industrial Example
+Industrial Example 
+\begin_inset LatexCommand \label{Sec:chapterIndustrial}
+
+\end_inset 
+
+
 \layout Chapter
 
-Summary
+Summary 
+\begin_inset LatexCommand \label{Sec:chapterSummary}
+
+\end_inset 
+
+
+\layout Chapter
+
+Outlook 
+\begin_inset LatexCommand \label{Sec:chapterOutlook}
+
+\end_inset 
+
+
+\layout Standard
+
+The results of this paper leave various directions for future work on the
+ OCL toolkit.
+ This chapter outlines the (in the author's opinion) most interesting ideas.
+\layout Section
+
+Design by Contract Taken Seriously
+\layout Standard
+
+Obviously, the OCL toolkit could be used to support Design by Contract (DbC)
+ 
+\begin_inset LatexCommand \cite{DbC}
+
+\end_inset 
+
+.
+ This paradigm has been extensively researched in the past and it's principals
+ are thoroughly understood.
+ Still, it remains to be shown, that the OCL toolkit actually conforms to
+ these principals.
+\layout Standard
+
+There is at least one issue to be worked on: inheriting constraints.
+ In the current version this is completly ignored [vernachlässigt].
+ This means, that a subclass does not inherit the constraints of it's anchestors.
+\layout Standard
+
+But simply promoting a class's constraints to all it's [Nachkommen] is not
+ sufficient.
+ This downward promotion implies a conjunctionXX (AND) of inherited and
+ [eigenen] constraints.
+ This is suitable for invariants and postconditions, but not for preconditions.
+ DbC requires inheritance of 
+\emph on 
+contracts
+\emph toggle 
+, not just constraints, thus preconditions cannot be strengthened.
+ To make this sure, DbC suggests a disjunctionXXX (OR) of inherited on [eigene]
+ constraints.
+\layout Standard
+
+This causes some uncomfortable effects.
+ Consider a class representing a bank account.
+ The account has an attribute 
+\family typewriter 
+balance
+\family default 
+ and a method for drawing money.
+ For some technical reason the amount to be drawn cannot exceed 10000 per
+ transaction.
+ This could be expressed like this:
+\layout LyX-Code
+
+context Account::drawMoney(amount:integer)
+\layout LyX-Code
+
+
+\protected_separator 
+ pre: amount<=10000
+\layout LyX-Code
+
+
+\protected_separator 
+ pre: balance-amount>=0
+\layout Standard
+
+A subclass weakens this preconditions by allowing a debit of 1000.
+ 
+\layout LyX-Code
+
+context DebitableAccount::drawMoney(amount:integer)
+\layout LyX-Code
+
+
+\protected_separator 
+ pre: balance-amount>=(-1000)
+\layout Standard
+
+But what happened now? The effective precondition of DebitableAccount (oring
+ preconditions of both classes) is now just balance-amount>=(-1000).
+ The upper limit for amount disappeared.
+ This is perfectly compatible with DbC, but certainly not the intention
+ of the developer.
+\layout Standard
+
+A suitable solution could feature named preconditions and a 
+\begin_inset Quotes eld
+\end_inset 
+
+per name
+\begin_inset Quotes erd
+\end_inset 
+
+ disjunction of these:
+\layout LyX-Code
+
+context Account::drawMoney(amount:integer)
+\layout LyX-Code
+
+
+\protected_separator 
+ pre max_amount: 
+\protected_separator 
+amount<=10000
+\layout LyX-Code
+
+
+\protected_separator 
+ pre min_balance: balance-amount>=0
+\layout LyX-Code
+
+
+\protected_separator 
+
+\layout LyX-Code
+
+context DebitableAccount::drawMoney(amount:integer)
+\layout LyX-Code
+
+
+\protected_separator 
+ pre min_balance: balance-amount>=(-1000)
+\layout Standard
+
+This 
+\layout Standard
+
+Extend Java (byte code compatible)
+\layout Section
+
+Integration with CASE Tools
+\layout Standard
+
+Export of OCL
+\layout Standard
+
+Export of Element Types
+\layout Standard
+
+Name Adapters
+\layout Standard
+
+Reverse Engineering from Java to UML
+\layout Standard
+
+@element-type, additional @back +checking
+\layout Section
+
+Other
+\layout Standard
+
+minimize observed attributes
+\layout Standard
+
+observing methods(queries) additional step of indirection
+\layout Standard
+
+java constraints
+\layout Standard
+
+more flexible scope of inv/tagged methods
 \layout Chapter
 \start_of_appendix 
-Maintance of the OCL Toolkit
+Maintance of the OCL Toolkit 
+\begin_inset LatexCommand \label{Sec:chapterMaintance}
+
+\end_inset 
+
+
 \layout Standard
 
 This chapter describes all major changes to Frank Fingers OCL compiler.
@@ -4289,7 +4539,7 @@ Previous versions of the OCL library provided a default functionality, if
  no name adapter had been set explicitly.
 \layout Standard
 
-Now its mandatory to set a name adapter.
+Now it is mandatory to set a name adapter.
  Otherwise a NullPointerException is thrown.
  The default functionality has been moved into a separate name adapter (
 \family typewriter 
@@ -4307,6 +4557,58 @@ name\SpecialChar \-
 adapter
 \family default 
 .
+\layout Standard
+
+
+\family typewriter 
+Argo\SpecialChar \-
+Name\SpecialChar \-
+Adapter
+\family default 
+ has been generalized into 
+\family typewriter 
+Prefix\SpecialChar \-
+Name\SpecialChar \-
+Adapter
+\family default 
+, which takes an arbitrary name prefix (
+\begin_inset Quotes eld
+\end_inset 
+
+
+\family typewriter 
+my
+\family default 
+
+\begin_inset Quotes erd
+\end_inset 
+
+ for Argo/UML) as a constructor parameter.
+ Using this adapter with 
+\begin_inset Quotes eld
+\end_inset 
+
+
+\family typewriter 
+lnk
+\family default 
+
+\begin_inset Quotes erd
+\end_inset 
+
+ and 
+\begin_inset Quotes eld
+\end_inset 
+
+
+\family typewriter 
+the
+\family default 
+
+\begin_inset Quotes erd
+\end_inset 
+
+ should work for Together/J and Rational Rose.
 \layout Subsection
 
 Qualified Associations
@@ -4744,7 +5046,7 @@ public class Person
 \protected_separator 
 
 \protected_separator 
-TRANSFER 
+// TRANSFER 
 \layout LyX-Code
 
 
@@ -4770,7 +5072,9 @@ TRANSFER
 \protected_separator 
 
 \protected_separator 
- PREPARATION
+
+\protected_separator 
+{
 \layout LyX-Code
 
 
@@ -4779,7 +5083,11 @@ TRANSFER
 \protected_separator 
 
 \protected_separator 
- USER CODE
+ 
+\protected_separator 
+
+\protected_separator 
+// PREPARATION
 \layout LyX-Code
 
 
@@ -4788,7 +5096,53 @@ TRANSFER
 \protected_separator 
 
 \protected_separator 
- POST
+
+\protected_separator 
+}
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+ // USER CODE
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+{
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+ 
+\protected_separator 
+
+\protected_separator 
+// POST
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+}
 \layout LyX-Code
 
 
@@ -4844,7 +5198,14 @@ public class Person
 \protected_separator 
 
 \protected_separator 
-TRANSFER 
+// TRANSFER 
+\layout LyX-Code
+
+
+\protected_separator 
+ 
+\protected_separator 
+ {
 \layout LyX-Code
 
 
@@ -4853,7 +5214,16 @@ TRANSFER
 \protected_separator 
 
 \protected_separator 
- PREPARATION
+ 
+\protected_separator 
+ // PREPARATION
+\layout LyX-Code
+
+
+\protected_separator 
+ 
+\protected_separator 
+ }
 \layout LyX-Code
 
 
@@ -4862,7 +5232,14 @@ TRANSFER
 \protected_separator 
 
 \protected_separator 
- USER CODE
+ // USER CODE
+\layout LyX-Code
+
+
+\protected_separator 
+ 
+\protected_separator 
+ {
 \layout LyX-Code
 
 
@@ -4871,7 +5248,16 @@ TRANSFER
 \protected_separator 
 
 \protected_separator 
- POST
+ 
+\protected_separator 
+ // POST
+\layout LyX-Code
+
+
+\protected_separator 
+ 
+\protected_separator 
+ }
 \layout LyX-Code
 
 
@@ -4914,7 +5300,12 @@ tudresden.ocl.lib.
 .
 \layout Chapter
 
-Usage of the OCL Tool
+Usage of the OCL Tool 
+\begin_inset LatexCommand \label{Sec:chapterUsage}
+
+\end_inset 
+
+
 \layout Standard
 
 This chapter describes, how to use the instrumentation tool.
@@ -5424,7 +5815,12 @@ n.
 .
 \layout Chapter
 
-Code Examples
+Code Examples 
+\begin_inset LatexCommand \label{Sec:chapterCodeExamples}
+
+\end_inset 
+
+
 \layout Section
 
 Unreachable Post Condition Code in iContract
@@ -5944,7 +6340,7 @@ Frank Finger.
  http://dresden-ocl.\SpecialChar \-
 sourceforge.net/.
 \layout Bibliography
-\bibitem [TP98]{DcC}
+\bibitem [TP98]{DbC}
 
 Todd Plessel.
  Design By Contract: A Missing Link In The Quest For Quality Software.
