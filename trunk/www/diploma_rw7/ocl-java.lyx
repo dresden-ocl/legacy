@@ -1,4 +1,4 @@
-#This file was created by <wiera> Mon Dec 11 23:20:28 2000
+#This file was created by <wiera> Tue Dec 12 15:10:25 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -4474,25 +4474,158 @@ For practical experiments with an industrial strength project, the partner
  
 \layout Standard
 
-business objects, 
+The product is a three tier solution providing a business directory service.
+ There is a core business logic module, a maintance interface implemented
+ with Java Swing and a customer web interface using Java Server Pages.
 \layout Standard
 
-lines of code, 
+The experiments where limited to the business logic module.
+ It consist of 245 classes and 17131 lines of code.
+ Persistence is realized using the Versant ODBMS and the Java Versant Interface
+ (JVI) 
+\begin_inset LatexCommand \cite{Versant}
+
+\end_inset 
+
+.
+ The OCL toolkit does not work together with JVI due to a bug in the latter.
+ A detailed analysis can be found in appendix 
+\begin_inset LatexCommand \ref{sec: VersantProblem}
+
+\end_inset 
+
+.
+ For the test a non-persistent developer configuration was used.
 \layout Standard
 
-number of classes, 
+For experimentation 10 invariants have been developed and inserted into
+ this module:
+\layout Itemize
+
+5 invariants checking the consistency of bidirectional associations such
+\begin_float footnote 
 \layout Standard
 
-number of constraints
+To avoid confusion, the actual constraints have been transformed into analogous
+ counterparts for the Person - Company model used in 
+\begin_inset LatexCommand \cite{Warmer}
+
+\end_inset 
+
+.
+\end_float 
+ as:
+\layout LyX-Code
+
+context Person inv employers_back: 
+\layout LyX-Code
+
+
+\protected_separator 
+ employers->forAll(employees->includes(self)) 
+\layout Itemize
+
+3 invariants where several attributes where tested for consistency to the
+ object's current state in life cycle, such as:
+\layout LyX-Code
+
+context Person inv:
+\layout LyX-Code
+
+
+\protected_separator 
+ isMarried implies (wife->isEmpty xor husband->isEmpty)
+\layout Itemize
+
+one invariant ensuring a minimum cardinality of an association:
+\layout LyX-Code
+
+context Company inv has_employees: 
+\layout LyX-Code
+
+
+\protected_separator 
+ employees->size>0
+\layout Itemize
+
+and finally one invariant checking the consistency of a redundant attribute,
+ in this case the uppercase version of a string:
+\layout LyX-Code
+
+context Company inv: 
+\layout LyX-Code
+
+
+\protected_separator 
+ uppername=name.toUpper
 \layout Standard
 
-kind of constraints,
-\layout Standard
+The impact of code instrumentation on the size of the module is shown in
+ the table below.
+ Lines of Code where determined using CCCC 
+\begin_inset LatexCommand \cite{cccc}
 
-problem with versant.
-\layout Standard
+\end_inset 
 
-versant+cccc bibliographic 
+).
+ Execution times where measured on a AMD Athlon 600 system.
+\layout Standard
+\added_space_top 0.3cm \added_space_bottom 0.3cm \align center \LyXTable
+multicol5
+5 3 0 0 -1 -1 -1 -1
+1 1 0 0
+1 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+8 1 1 "" ""
+8 1 0 "" ""
+8 1 1 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+
+
+\newline 
+Original Code
+\newline 
+Instrumented Code
+\newline 
+Size of Source Code
+\newline 
+ 1.1 MB
+\newline 
+3.2 MB
+\newline 
+Lines of Code
+\newline 
+ 17131 
+\newline 
+43587 
+\newline 
+ (Re-)Instrumention 
+\newline 
+36 s
+\newline 
+91 s
+\newline 
+(Re-)Cleaning 
+\newline 
+23 s
+\newline 
+73 s
 \layout Chapter
 
 Summary 
