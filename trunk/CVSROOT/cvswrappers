@@ -49,3 +49,4 @@
 *.so -k 'b'
 *.exe -k 'b'
 *.com -k 'b'
+*.zargo -k 'b'
