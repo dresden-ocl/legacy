@@ -11,19 +11,23 @@ dvi:	ocl-java.dvi zwischenbericht.dvi
 ps:	ocl-java.ps
 pdf:	ocl-java.pdf
 
+DOCEPS=\
+	observingInvariants.eps \
+	observingMethods.eps \
+	PersonCompany.eps
 
 # running twice because labels may have changed
-%.dvi:	%.tex
+%.dvi:	%.tex $(DOCEPS)
 		latex --interaction errorstopmode $<
 		latex --interaction errorstopmode $<
 
-%.ps:	%.dvi
+%.ps:	%.dvi $(DOCEPS)
 		dvips -q -o $@ $<
 
 %.pdf:	%.ps
 		ps2pdf $< $@
 
-%.html:	%.tex makehtml
+%.html:	%.tex $(DOCEPS) makehtml
 		./makehtml $< $@
 		
 %.txt:	%.lyx

@@ -9,8 +9,10 @@
 % Uncomment to print out only notes
 %
 %\onlynotes{\notes}
+
+\usepackage{textcomp}
 \end_preamble
-\language default
+\language german
 \inputencoding default
 \fontscheme default
 \graphics dvips
@@ -66,7 +68,7 @@ vspace{10pt}
 hrule height 4pt
 \layout Itemize
 
-Code Injektor
+Code Injector
 \layout Itemize
 
 Scope von Invarianten
@@ -94,7 +96,7 @@ Ausblick
 
 \series bold 
 \size larger 
-Code Injektor - Ziele
+Code Injector - Ziele
 \layout Standard
 
 
@@ -114,7 +116,7 @@ Ziele
 
 \series bold 
 \size larger 
-Code Injektor - 
+Code Injector - 
 \newline 
 Probleme des einfachen Ansatzes
 \layout Standard
@@ -128,7 +130,7 @@ vspace{10pt}
 hrule height 4pt
 \layout Enumerate
 
-Einfügung an jeder return Anweisung
+Einfügung an jeder return-Anweisung
 \layout Enumerate
 
 Vorberechnung des Rückgabeausdrucks
@@ -137,7 +139,7 @@ Vorberechnung des Rückgabeausdrucks
 Namenskonflikte
 \layout Enumerate
 
-kompletter Javaparser nötig
+kompletter Javaparser notwendig
 \layout Slide
 
 \layout Standard
@@ -145,7 +147,7 @@ kompletter Javaparser nötig
 
 \series bold 
 \size larger 
-Code Injektor - 
+Code Injector - 
 \newline 
 Wrapping Methods
 \layout Standard
@@ -233,7 +235,7 @@ return result;
 
 \series bold 
 \size larger 
-Code Injektor - 
+Code Injector - 
 \newline 
 Wrapping Constructors
 \layout Standard
@@ -300,6 +302,232 @@ this(x, (Dummy)null);
 
 \protected_separator 
 // post constructor code
+\newline 
+}
+\layout Slide
+
+\layout Standard
+\align center 
+
+\series bold 
+\size larger 
+Scope von Invarianten
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+vspace{10pt}
+\backslash 
+hrule height 4pt
+\layout Standard
+
+Wann müssen die Invarianten erfüllt sein?
+\layout Itemize
+
+Alle Methoden.
+\layout Itemize
+
+Öffentliche Methoden.
+\layout Itemize
+
+Ausgezeichnete Methoden.
+\layout Itemize
+
+Explizite Prüfung.
+\layout Slide
+
+\layout Standard
+\align center 
+
+\series bold 
+\size larger 
+Caching von Invarianten
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+vspace{10pt}
+\backslash 
+hrule height 4pt
+\layout Standard
+\added_space_top 0.3cm \added_space_bottom 0.3cm \align center 
+
+\begin_inset Figure size 595 151
+file PersonCompany.eps
+width 3 100.00
+flags 15
+
+\end_inset 
+
+
+\layout LyX-Code
+
+context Company inv:
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+manager.age>=0
+\newline 
+
+\newline 
+context Company inv:
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+employees.age>=0
+\newline 
+
+\newline 
+context Company inv:
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+employees.getAge()>=0
+\newline 
+
+\newline 
+context Company inv:
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+employees.getIncomeAfterTax(0.15)>=5000
+\layout Slide
+
+\layout Standard
+\align center 
+
+\series bold 
+\size larger 
+Überwachung von Attributen
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+vspace{10pt}
+\backslash 
+hrule height 4pt
+\layout LyX-Code
+
+class Person
+\newline 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+int age;
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+int age_oclbackup=age;
+\newline 
+
+\protected_separator 
+
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+private void checkForChangedFeatures()
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+if(age!=age_oclbackup)
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+age_oclbackup=age;
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+// notify observers of age
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+}
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+// ...
+ further attributes
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+}
 \newline 
 }
 \layout Slide
