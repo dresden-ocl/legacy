@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Jul 26 16:59:29 2000
+#This file was created by <wiera> Wed Jul 26 17:15:22 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -85,8 +85,8 @@ LaTeX{}
  
 \layout Standard
 
-The source code developed together with this paper available at http://dresden-o
-cl.sourceforge.net/.
+The source code developed together with this paper is available at http://dresde
+n-ocl.sourceforge.net/.
 \layout Standard
 
 
@@ -124,7 +124,7 @@ CASE-Tools
 Net-Linx
 \layout Standard
 
-Anpassbarkeit an vorhandenen Quellcode.
+adaptability an legacy Quellcode.
 \layout Section
 
 Model Information
