@@ -1,4 +1,4 @@
-#This file was created by <wiera> Tue Jun 27 16:56:14 2000
+#This file was created by <wiera> Wed Jun 28 13:06:48 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -264,6 +264,10 @@ no import statements, explicit package qualifying in the generated code
 checking the @element-type
 \layout Itemize
 
+able to read arbitrary java files, which have passed sucessfully a the java
+ compiler.
+\layout Itemize
+
 may be: Auslagerung von möglichst viel code auf eine Extraklasse pro Klasse
  oder pro Package.
  Entlastung des CVS.
@@ -520,13 +524,21 @@ Using reflection in ReflectionFacade and ocl library
 \begin_deeper 
 \layout Enumerate
 
-added polymorphism of operation parameters (ReflectionFacade.\SpecialChar \-
+Added polymorphism of operation parameters (ReflectionFacade.\SpecialChar \-
 navigateParameterize
 d and OclAnyImpl.getFeature).
  This made ReflectionAdapter.getClassForType superflucous, so removed.
 \layout Enumerate
 
-New mapping beetween collections in OCL and Java conforming JDK1.2.
+Now its mandatory to provide a NameAdapter to the ocl library.
+ Otherwise NullPointerExceptions are thrown.
+ The default functionality if no NameAdapter is given has been moved into
+ a separate NameAdapter (SimpleNameAdapter) which is used in ReflectionFacade
+ as well.
+ 
+\layout Enumerate
+
+New mapping beetween collections in OCL and Java conforming to JDK1.2.
  The special handling of Vector is used for older CodeGenerators.
  (DefaultOclFactory.getOclRepresentationFor(Object) and DefaultReflectionAdapter.g
 etClassForType)
