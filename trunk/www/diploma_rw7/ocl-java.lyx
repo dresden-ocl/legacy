@@ -1,4 +1,4 @@
-#This file was created by <wiera> Mon Dec  4 17:36:22 2000
+#This file was created by <wiera> Mon Dec  4 19:41:28 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -774,7 +774,7 @@ context Person::employ()
 post: age=age@pre
 \layout Standard
 
-the following codefragments will be produced:
+The following code fragments will be produced:
 \layout Standard
 \added_space_top 0.3cm \added_space_bottom 0.3cm \align center \LyXTable
 multicol5
@@ -829,7 +829,7 @@ int node2=this.age;
 \newline 
 
 \family typewriter 
-boolean result=(node1==node2)
+boolean result=(node1==node2);
 \layout Standard
 
 Typically these fragments would be inserted as follows:
@@ -935,7 +935,7 @@ node
 \family typewriter 
 boolean result=(node1==node2)
 \family default 
-
+;
 \newline 
 
 \protected_separator 
@@ -946,7 +946,7 @@ boolean result=(node1==node2)
 }
 \layout Standard
 
-Note, that precise semantics of codefragments involving the @pre expression
+Note, that precise semantics of code fragments involving the @pre expression
  has been changed, so that the original meaning described in 
 \begin_inset LatexCommand \cite{ff3}
 
@@ -990,15 +990,15 @@ The most important feature is the reversability of code instrumentation.
  It must be possible to
 \layout Itemize
 
-Clean the code tracelessly from all inserted fragments.
+clean the code tracelessly from all inserted fragments.
 \layout Itemize
 
-Redo the instrumentation on source code that has already been modified,
+redo the instrumentation on source code that has already been modified,
  for instance when constraints have been changed.
  
 \layout Itemize
 
-Edit the modified source code without losing all changes at the next instrumenta
+edit the modified source code without losing all changes at the next instrumenta
 tion.
  
 \layout Standard
@@ -1042,7 +1042,7 @@ Explicit package qualifiers for the OCL library in the generated code.
  Otherwise, an import statement for the OCL library would be necessary.
  This would be just another spot, were the original source code had to be
  touched.
- Additionally, this may introduce name conflicts beetween OCL library and
+ Additionally, this may introduce name conflicts between OCL library and
  user code.
 \layout Subsection
 
@@ -1117,12 +1117,14 @@ void employ();
 }
 \layout Standard
 
-It is necessary to put the constraints directly under the nose of the developer.
+Constraints should be immediately visible to the editor of a java file.
+ Also, this generally promotes the single source approach.
  The author is strongly convinced, that constraints stored in an extra text
  file are too far away from attention.
 \layout Standard
 
-Invariants may also placed on an attribute or method of their context class.
+Invariants may also be placed on an attribute or method of their context
+ class.
  This is for convenience, since most invariants are clearly related to one
  specific attribute or method.
 \layout Subsection
@@ -1130,7 +1132,7 @@ Invariants may also placed on an attribute or method of their context class.
 Checking the Element Type.
 \layout Standard
 
-The instrumented code must check, that collection attributes comply to the
+The instrumented code must check, that container attributes comply to the
  
 \family typewriter 
 @element-type
@@ -1139,13 +1141,28 @@ The instrumented code must check, that collection attributes comply to the
 \family typewriter 
 @key-type
 \family default 
- tags introduced in section 
+ javadoc tags.
+ For collections the 
+\family typewriter 
+@element-type
+\family default 
+ tag specifies the type of the objects allowed in the collection.
+ For maps 
+\family typewriter 
+@element-type
+\family default 
+ specifies the type of values, while 
+\family typewriter 
+@key-type
+\family default 
+ defines the type of key objects.
+ A detailed description is provided in section 
 \begin_inset LatexCommand \ref{Sec:element_type_tag}
 
 \end_inset 
 
 .
- This is quite easily done just before checking invariants.
+ 
 \layout Standard
 
 Note, that this feature may be be used standalone, without OCL expressions
@@ -1183,7 +1200,7 @@ At first, section
 
 \end_inset 
 
- explain my approach.
+ explain the approach followed in this work.
  A somewhat tricky caveat and how it is solved is worked out in 
 \begin_inset LatexCommand \ref{Sec:WrapperLoop}
 
@@ -1237,9 +1254,64 @@ A Simple Approach
 
 \layout Standard
 
-A straight-forward solution would add the code directly into the method.
- But this raises some severe problems.
- 
+A straight-forward solution would insert the code directly into the method.
+ Consider the following method.
+\layout LyX-Code
+
+int someMethod(double x)
+\newline 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+// here comes the code.
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+return result;
+\newline 
+} 
+\layout Standard
+
+The generated code could be inserted like this:
+\layout LyX-Code
+
+int someMethod(double x)
+\newline 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+// some code checking invariants/preconditions.
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+// here comes the code.
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+// some code checking invariants/postconditions.
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+return result;
+\newline 
+} 
+\layout Standard
+
+But this raises some severe problems:
 \layout Enumerate
 
 The code to be executed after the method (postcondition and invariants)
@@ -1247,12 +1319,17 @@ The code to be executed after the method (postcondition and invariants)
 \layout Enumerate
 
 The post condition code must have the return value available.
- Thus, a return expression has to be computed in advance, if the post condition
- code refers to the return value and/or the the return expression produces
- side effects.
+ Instead of the 
+\family typewriter 
+result
+\family default 
+ variable in the example above, there could be a complex expression.
+ Such a return expression has to be computed in advance, if the post condition
+ code refers to the return value or the return expression produces side
+ effects.
 \layout Enumerate
 
-There may be name conflicts beetween the original and the generated code,
+There may be name conflicts between the original and the generated code,
  since the generated code defines local variables.
 \layout Enumerate
 
@@ -1264,8 +1341,9 @@ For methods with return type void it must be decided, whether the post condition
  the method, the java compiler will fail due to unreachable statements.
 \layout Standard
 
-An implementation would need a complete java parser, which touches the original
- code at many different places and in a complicated way.
+An implementation would need a complete java parser.
+ The following code instrumentation would have to modify the original code
+ at many different places and in a complicated way.
  This runs contrary to the strategy of minimally invasive modification as
  decided in section 
 \begin_inset LatexCommand \ref{Sec:injection_requirements_reversable}
@@ -1287,9 +1365,19 @@ Jass (
 
 \end_inset 
 
-) uses this simple approach, and encounters all the problems mentioned above.
- For a detailed comparison see section 
+) and iContract (
+\begin_inset LatexCommand \cite{iContract}
+
+\end_inset 
+
+) use this simple approach and encounter all the problems mentioned above.
+ For a detailed comparison see sections 
 \begin_inset LatexCommand \ref{sec: compareJass}
+
+\end_inset 
+
+ and 
+\begin_inset LatexCommand \ref{sec: compareIContract}
 
 \end_inset 
 
@@ -1297,6 +1385,7 @@ Jass (
 \layout Standard
 
 Method wrappers solve all these problems in a nifty but simple way.
+ This is introduced in the following section.
 \layout Subsection
 
 Wrapping Methods
@@ -1386,7 +1475,7 @@ return result;
 \layout Standard
 
 Now let's have a look back at the problems encountered for the simple approach.
- Non of them exists anymore.
+ None of them exist anymore.
  
 \layout Itemize
 
@@ -1406,18 +1495,18 @@ No control flow analysis is needed.
 
 The user code is modified in a simple way: a suffix is appended to the method
  name.
- For an implementation a very inchoate java parser is sufficient, which
+ For an implementation a very fragmentary java parser is sufficient, which
  understands 
 \begin_inset Quotes eld
 \end_inset 
 
-java meta level
+java signature level
 \begin_inset Quotes erd
 \end_inset 
 
  only.
- The meta level covers anything outside of method bodies and attribute initializ
-ers.
+ This signature level covers anything outside of method bodies and attribute
+ initializers.
  This is a very small part of the java language and easily to be analyzed
  by a hand-crafted parser.
  See section 
@@ -1428,13 +1517,14 @@ ers.
  how easy it is.
 \layout Standard
 
-This kind of method wrapping still has a problem, I called the wrapper loop.
- See section 
+This kind of method wrapping still has a problem, which I called the wrapper
+ loop.
+ Section 
 \begin_inset LatexCommand \ref{Sec:WrapperLoop}
 
 \end_inset 
 
- how this is solved.
+ shows how this is solved.
 \layout Subsection
 
 Wrapping Constructors
@@ -1510,15 +1600,17 @@ this(x, (Dummy)null);
 }
 \layout Standard
 
-A special case occurs if a class provides no explicit constructor.
- Then there is the default constructor as specified in 
+A special case occurs if a class doesn't provide any constructors.
+ Then the java compiler generates a default constructor as specified in
+ 
 \begin_inset LatexCommand \cite{JAVA}
 
 \end_inset 
 
  section 8.6.7.
- This default constructor is not wrapped, but replaced by an explicit constructo
-r with the same access modifier.
+ This default constructor cannot be wrapped.
+ Instead it is replaced by an explicit constructor with the same access
+ modifier as the generated default constructor would get.
 \layout Subsection
 
 Avoiding the Wrapper Loop
@@ -1697,7 +1789,7 @@ flags 13
 \layout Standard
 
 Wrapped methods get the class name appended.
- Thus, a wrapper method can call the wrapped method of it's own class.
+ Thus, a wrapper method can call the wrapped method of its own class.
 \layout Subsection
 
 Cleaning the Code
@@ -1720,7 +1812,7 @@ The user code is modified in two different ways only:
 Renaming the wrapped methods/constructors.
 \layout Enumerate
 
-Adding new object features, i.e.
+Adding new object features, e.g.
  wrapper methods, methods for checking invariants and observing attributes.
 \layout Standard
 
@@ -1773,8 +1865,8 @@ Design of the Java Parser
 
 Previous sections stated, that a very simple parser is sufficient for implementi
 ng wrapper methods.
- This is proofed in this section by giving an overview of the parsers design.
- In fact, it's as simple as a parser used for syntax highlighting and class
+ This is proven in this section by giving an overview of the parser's design.
+ In fact, it is as simple as a parser used for syntax highlighting and class
  browsers in a java IDE.
 \layout Standard
 
@@ -1836,19 +1928,19 @@ Jass (
  It translates jass files into java.
  Jass files are valid java source code with assertions specified in comments.
  The generated java file contains additional code checking these assertions.
- Thus, jass performs something similar to the code instrumentation presented
+ Thus, Jass performs something similar to the code instrumentation presented
  in the sections above.
  
 \layout Standard
 
-However, jass directly inserts generated code into user code as described
+However, Jass directly inserts generated code into user code as described
  in section 
 \begin_inset LatexCommand \ref{sec: SimpleApproach}
 
 \end_inset 
 
 .
- Thus the problems found there should occur in jass too:
+ Thus the problems found there should occur in Jass too:
 \layout Enumerate
 
 
@@ -1858,7 +1950,7 @@ The code to be executed after the method has to be inserted before any return
 \newline 
 
 \emph toggle 
-This is done by jass.
+This is done by Jass.
  Thus, it requires a full java parser (JavaCC here).
 \layout Enumerate
 
@@ -1868,16 +1960,16 @@ The return expression has to be computed in advance.
 \emph toggle 
 
 \newline 
-This is also done by jass.
+This is also done by Jass.
 \layout Enumerate
 
 
 \emph on 
-There may be name conflicts beetween the original and the generated code.
+There may be name conflicts between the original and the generated code.
 \emph toggle 
 
 \newline 
-Jass just defines a number of names (i.e.
+Jass just defines a number of names (e.g.
  
 \family typewriter 
 jassResult
@@ -1892,7 +1984,7 @@ For methods with return type void it must be decided, whether the end of
 \emph toggle 
 
 \newline 
-This is a known problem of jass.
+This is a known problem of Jass.
  It will simply fail in such cases.
  There is a work around: enclose the method body into a 
 \family typewriter 
@@ -1908,7 +2000,7 @@ Jass performs a complex modification of the java source code.
 \end_inset 
 
 .
- Thus, jass must be run before compilation whenever the source code has
+ Thus, Jass must be run before compilation whenever the source code has
  changed.
  Additionally, the source code repository must hold jass files instead of
  java, which causes administration effort for existing projects.
@@ -1981,16 +2073,16 @@ The return expression has to be computed in advance.
 \emph toggle 
 
 \newline 
-This also has to be done by iContract.
+This is also done by iContract.
 \layout Enumerate
 
 
 \emph on 
-There may be name conflicts beetween the original and the generated code.
+There may be name conflicts between the original and the generated code.
 \emph toggle 
 
 \newline 
-Also iContract forbids a number of names (i.e.
+Also iContract forbids a number of names (e.g.
  
 \family typewriter 
 __return_value_holder_
@@ -2005,23 +2097,8 @@ For methods with return type void it must be decided, whether the end of
 \emph toggle 
 
 \newline 
-The list of known bug states, that 
-\emph on 
-
-\begin_inset Quotes eld
-\end_inset 
-
-method body with only throw (in non void function) leads to wrong code
-\begin_inset Quotes erd
-\end_inset 
-
-
-\emph toggle 
-.
- This is not the full truth.
- For void methods there is the problem, that a control flow analysis is
- needed.
- This has been proofed on example in appendix 
+iContract doesn't do the control flow analysis needed to decide this question.
+ This has been proven on example in appendix 
 \begin_inset LatexCommand \ref{sec: unreachableIConstract}
 
 \end_inset 
@@ -2029,7 +2106,7 @@ method body with only throw (in non void function) leads to wrong code
 .
 \layout Standard
 
-Experience with iContract shows, that correct modifying of java source code
+Experience with iContract shows, that correctly modifying java source code
  isn't trivial at all.
  The current list of known problems suggests, that iContract isn't usable
  for a real-world task.
@@ -2066,7 +2143,7 @@ The code to be executed after the method has to be inserted before any return
 
 \emph toggle 
 This is also needed for byte code instrumentation, but it's much easier.
- Just scan the code for return opcodes.
+ The code just has to be scanned for return opcodes.
  
 \layout Enumerate
 
@@ -2083,7 +2160,7 @@ This is not needed.
 
 
 \emph on 
-There may be name conflicts beetween the original and the generated code.
+There may be name conflicts between the original and the generated code.
 \emph toggle 
 
 \newline 
@@ -2111,7 +2188,7 @@ is
 \emph toggle 
  reachable, there will also be a return opcode, no matter whether there
  was a return statement in the source.
- This is proofed on example in appendix 
+ This is shown on example in appendix 
 \begin_inset LatexCommand \ref{sec: byteCodeReturn}
 
 \end_inset 
@@ -2158,11 +2235,11 @@ Summary
 
 \layout Standard
 
-Method wrappers proof to be the best choice when instrumenting source code
+Wrapping methods seems to be the best choice when instrumenting source code
  for checking constraints.
- They solve several problems encountered with the simple approach of direct
- insertion.
- Method wrappers seem to be completely new.
+ Several problems encountered with the simple approach of direct insertion
+ are solved.
+ 
 \layout Standard
 
 Method wrappers cannot be used, if implementation constraints (assertions,
@@ -2263,11 +2340,11 @@ Tagged Methods
 
 There won't be a single solution for this problem.
  Many applications will require their own individual scope of invariants.
- The scope may even differ beetween several classes of invariants.
+ The scope may even differ between several classes of invariants.
  
 \layout Standard
 
-Current implementation supports scopes needed during the ongoing diploma
+The current implementation supports scopes needed during the ongoing diploma
  thesis only.
  Up to now, all invariants share the same scope.
  Also, tagged methods are not yet supported.
@@ -2715,7 +2792,7 @@ age!=age_backup
  For collection attributes it's not that easy.
  The backup of a collection shouldn't be a collection as well, since this
  would consume large amounts of memory.
- Also, comparison beetween two collection isn't that fast.
+ Also, comparison between two collection isn't that fast.
 \layout Standard
 
 Thus, the backup for collection attributes stores a single integer value
@@ -2784,7 +2861,7 @@ tudresden.injection.lib.Hash*.java
 These hash functions are good at detecting changes.
  However, they are too slow.
  Each invocation involves an iteration over the whole collection.
- For object populations of a few hundert instances with many relations beetween
+ For object populations of a few hundert instances with many relations between
  them, this virtually causes the system to stop.
 \layout Standard
 
@@ -3706,7 +3783,7 @@ This section describes how type information can be extracted from java byte
 Superwomble is a powerful reverse engineering solution.
  It generates object graphs from nothing but java byte code.
  Object graphs are roughly speaking a subset of UML class diagrams.
- They feature classes with generalizationships and associations beetween
+ They feature classes with generalizationships and associations between
  them.
  The graph is finally fed into a tool named dot, which does a nice layout
  for the graph.
@@ -3810,7 +3887,7 @@ Integration of Superwomble results into the interactive tool should be possible.
 Comparison
 \layout Standard
 
-This section provides a comparison beetween the three approaches presented
+This section provides a comparison between the three approaches presented
  in the sections above.
  
 \layout Standard
@@ -3977,8 +4054,8 @@ Only byte code analysis requires no source code.
 Anyway, byte code analysis requires, that there is a fully compilable source
  code somewhere, even if it's not available to the user.
  Source code analysis even makes do with incorrect source code, as long
- as meta data is parsable (method headers etc.) and method bodies hold the
- bracket balance.
+ as signature data is parsable (method headers etc.) and method bodies hold
+ the bracket balance.
  Most demanding on source code quality is runtime analysis, which requires
  a running system, with complete test cases.
 \layout Standard
@@ -4035,7 +4112,7 @@ Finally,
 availability
 \emph toggle 
  is about whether it is allowed to use, review and adapt the implementation.
- Roughly speaking, the difference beetween 
+ Roughly speaking, the difference between 
 \emph on 
 LGPL
 \emph toggle 
@@ -4043,7 +4120,7 @@ LGPL
 \emph on 
 Binary at no cost
 \emph toggle 
- is same as beetween free speech and free beer (
+ is same as between free speech and free beer (
 \begin_inset LatexCommand \cite{freesw}
 
 \end_inset 
@@ -4213,7 +4290,7 @@ isMap()
 Type Mapping from OCL to Java.
 \layout Standard
 
-The mapping beetween OCL types and java types now supports the collections
+The mapping between OCL types and java types now supports the collections
  API introduced in JDK version 1.2.
  The changes concern 
 \family typewriter 
@@ -4390,7 +4467,8 @@ Handling of Null Values
 \layout Standard
 
 Previous versions handled a special null value for OCL strings.
- This null value behaved like an empty string for most cases (i.e.concatenation).
+ This null value behaved like an empty string for most cases (e.g.
+ concatenation).
  However a null string and an empty string were not equal.
  This was removed.
  Now a null string does exactly behave like an empty string.
