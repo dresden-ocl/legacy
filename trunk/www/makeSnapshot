@@ -1,0 +1,18 @@
+
+rm -rf download/*
+cp -a ../src/*.jar ../src/jars/* ../src/api download
+
+tar c \
+  -C ../src/api \
+  . | gzip --best > download/dresden-ocl-api.tar.gz
+
+tar c \
+  -C  ../src \
+  --exclude=CVS \
+  --exclude=api \
+  "--exclude=*.class" \
+  "--exclude=*.jar" \
+  . | gzip --best > download/dresden-ocl-src.tar.gz
+
+gunzip < download/dresden-ocl-api.tar.gz | bzip2 > download/dresden-ocl-api.tar.bz2
+gunzip < download/dresden-ocl-src.tar.gz | bzip2 > download/dresden-ocl-src.tar.bz2
