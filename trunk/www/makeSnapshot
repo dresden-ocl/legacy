@@ -1,6 +1,6 @@
 
 rm -rf download/*
-cp -a ../src/*.jar ../src/jars/* ../src/api download
+cp -a ../src/*.jar ../src/api download
 
 tar c \
   -C ../src/api \
