@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Dec 13 22:16:50 2000
+#This file was created by <wiera> Thu Dec 14 12:17:11 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -23,7 +23,7 @@
 \quotes_language english
 \quotes_times 2
 \papercolumns 1
-\papersides 1
+\papersides 2
 \paperpagestyle default
 
 \layout Title
@@ -37,6 +37,11 @@ Ralf Wiebicke
 \layout Date
 
 December 2000
+\layout LaTeX
+
+
+\backslash 
+cleardoublepage
 \layout Section*
 
 Copyright
@@ -89,6 +94,11 @@ LaTeX{}
 
 The source code developed together with this paper is available at http://
  dresden-ocl.sourceforge.net/.
+\layout LaTeX
+
+
+\backslash 
+cleardoublepage
 \layout Standard
 
 
@@ -97,6 +107,11 @@ The source code developed together with this paper is available at http://
 \end_inset 
 
 
+\layout LaTeX
+
+
+\backslash 
+cleardoublepage
 \layout Chapter
 
 Introduction
@@ -362,6 +377,11 @@ Appendix
 This work comes with a CD, containing a current snapshot of the developed
  software, an electronic version of this paper and software and literature
  referred to in this work, where available.
+\layout LaTeX
+
+
+\backslash 
+cleardoublepage
 \layout Chapter
 
 Related Work
@@ -809,9 +829,14 @@ There is a universal code instrumentation toolkit (
  heavy-weight than the parser developed with this paper.
  There is a test version available at no cost, limited in the size of source
  programs it can handle.
+\layout LaTeX
+
+
+\backslash 
+cleardoublepage
 \layout Chapter
 
-Code Instrumentation
+Code Instrumentation 
 \begin_inset LatexCommand \label{Sec:chapterCodeInjection}
 
 \end_inset 
@@ -3473,9 +3498,14 @@ Iterator
  It is important, that all collections used in the application provide fail-fast
  iterators (JDK standard collections do).
  Otherwise modifications may be missed silently.
+\layout LaTeX
+
+
+\backslash 
+cleardoublepage
 \layout Chapter
 
-Model Information
+Model Information 
 \begin_inset LatexCommand \label{Sec:chapterModelInformation}
 
 \end_inset 
@@ -4440,6 +4470,11 @@ All approaches have one thing in common: they are not perfect.
 @element-type
 \family default 
  tags is necessary to allow correcting intervention of a human user.
+\layout LaTeX
+
+
+\backslash 
+cleardoublepage
 \layout Chapter
 
 Industrial Example 
@@ -4612,6 +4647,11 @@ Running the instrumented code revealed a number of constraint violations.
 ies in the test data.
  Due to the amount it was not possible to correct these inconsistencies
  within this work.
+\layout LaTeX
+
+
+\backslash 
+cleardoublepage
 \layout Chapter
 
 Summary 
@@ -4666,6 +4706,11 @@ The OCL tool is still far from being complete.
  However, the tool seems to be in a condition, where an early adopter could
  actually start using it for some real world task.
  
+\layout LaTeX
+
+
+\backslash 
+cleardoublepage
 \layout Chapter
 
 Outlook 
@@ -5025,8 +5070,13 @@ Simply put, this means more options and probably some kind of configuration
 \end_inset 
 
 .
-\layout Chapter
+\layout LaTeX
 \start_of_appendix 
+
+\backslash 
+cleardoublepage
+\layout Chapter
+
 Maintance of the OCL
 \protected_separator 
 Compiler 
@@ -5880,6 +5930,11 @@ tudresden.ocl.lib.
 \end_inset 
 
 .
+\layout LaTeX
+
+
+\backslash 
+cleardoublepage
 \layout Chapter
 
 Usage of the OCL Tool 
@@ -6395,6 +6450,11 @@ n.
 \end_inset 
 
 .
+\layout LaTeX
+
+
+\backslash 
+cleardoublepage
 \layout Chapter
 
 Code Examples 
@@ -6910,6 +6970,11 @@ available within the next few weeks.
 \end_inset 
 
 
+\layout LaTeX
+
+
+\backslash 
+cleardoublepage
 \layout Standard
 
 
@@ -6918,6 +6983,11 @@ available within the next few weeks.
 \end_inset 
 
 
+\layout LaTeX
+
+
+\backslash 
+cleardoublepage
 \layout Bibliography
 \bibitem [AU]{Argo}
 
