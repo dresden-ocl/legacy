@@ -1,14 +1,17 @@
-#This file was created by <rw7> Sun Jun 18 12:26:23 2000
+#This file was created by <wiera> Tue Jun 27 16:56:14 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
+\begin_preamble
+\usepackage{textcomp}
+\end_preamble
 \language english
 \inputencoding latin1
 \fontscheme default
 \graphics default
 \paperfontsize default
 \spacing single 
-\papersize Default
+\papersize a4paper
 \paperpackage a4
 \use_geometry 0
 \use_amsmath 0
@@ -63,6 +66,14 @@ Availability
 This document is available at http://www.inf.tu-dresden.de/~rw7/diplom00/ in
  several electronic forms including PostScript, PDF, Html and the original
  kLyx version.
+\layout Standard
+
+
+\begin_inset LatexCommand \tableofcontents
+
+\end_inset 
+
+
 \layout Chapter
 
 Introduction
@@ -116,7 +127,11 @@ no isquery tag
 \layout Standard
 
 Solution: extend the java language.
- The new tag has a syntax like @see, but restricted to classes only.
+ The new tag has a syntax like 
+\family typewriter 
+@see
+\family default 
+, but restricted to classes only.
 \layout LyX-Code
 
 class Company
@@ -183,9 +198,9 @@ by this company.
 Cool implementation: an extension of the reflection api and the java compiler.
 \layout Standard
 
-My implementation: A skript scanning the source code for these comments,
- and an extension of the reflection facade to use this information.
- (royloy.Person#employees=Person)
+My implementation: An extension of the reflection facade scanning the source
+ code for these comments.
+ Encapsulated in tudresden.ocl.check.types.ReflectionExtender.
 \layout Paragraph
 
 Where comes the tag?
@@ -306,19 +321,6 @@ int someMethod_wrappedbyocl(double x)
 \protected_separator 
 
 \newline 
-/**
-\newline 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-@author ocl injector
-\layout LyX-Code
-
-*/
-\newline 
 int someMethod(double x)
 \newline 
 {
@@ -402,6 +404,64 @@ this(x, new Void());
 // some code checking postconditions/invariants.
 \newline 
 }
+\layout Section
+
+Cleaning the Code
+\layout Standard
+
+One of my goals for the injector tool is the following:
+\layout Quote
+
+The user may inject generated code into arbitrary user code in place, edit
+ the modified source code, redo the injection in place when the ocl constraints
+ have changed, and clean the code from the injected code.
+ Cleaning means, that there is not a single byte left in the source.
+\layout Standard
+
+This section explains, how the injector tool accomplishes this goal.
+\layout Standard
+
+The injector tool touches the user code in two different ways:
+\layout Enumerate
+
+renaming the wrapped methods
+\layout Enumerate
+
+adding new class features, i.e.
+ wrapper methods, semaphore attributes
+\layout Paragraph
+
+Renaming Wrapped Methods.
+\layout Standard
+
+For each method to be wrapped the suffix 
+\family typewriter 
+_wrappedbyocl
+\family default 
+ is appended to the name.
+ This transformation is done in the unparsed method header, so all typographical
+ extras in the header (line breaks, comments etc.) are preserved.
+ This transformation is easily reversed, when the code has to be cleaned.
+\layout Paragraph
+
+Cleaning Generated Class Features
+\layout LyX-Code
+
+/**
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+@author ocl_injector
+\newline 
+*/
+\newline 
+int someMethod(double x);
+\newline 
+
 \layout Chapter
 
 Reverse Engineering
@@ -451,6 +511,118 @@ Enriche the code with tracing the object types inside collections.
 \layout Itemize
 
 compile and run the program (regression tests if available)
+\layout Chapter
+
+Maintaining the OCL Compiler
+\layout Enumerate
+
+Using reflection in ReflectionFacade and ocl library
+\begin_deeper 
+\layout Enumerate
+
+added polymorphism of operation parameters (ReflectionFacade.\SpecialChar \-
+navigateParameterize
+d and OclAnyImpl.getFeature).
+ This made ReflectionAdapter.getClassForType superflucous, so removed.
+\layout Enumerate
+
+New mapping beetween collections in OCL and Java conforming JDK1.2.
+ The special handling of Vector is used for older CodeGenerators.
+ (DefaultOclFactory.getOclRepresentationFor(Object) and DefaultReflectionAdapter.g
+etClassForType)
+\layout Standard
+\added_space_top 0.3cm \added_space_bottom 0.3cm \align center \LyXTable
+multicol5
+5 3 0 0 -1 -1 -1 -1
+1 1 0 0
+1 1 0 0
+0 0 0 0
+0 1 0 0
+0 1 0 0
+8 1 0 "" ""
+8 1 0 "" ""
+8 1 1 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+
+Java (java.util)
+\newline 
+Ocl.TAKE_VECTORS_AS_SET
+\newline 
+OCL
+\newline 
+List
+\newline 
+-
+\newline 
+Sequence
+\newline 
+Vector
+\newline 
+false
+\newline 
+Sequence
+\newline 
+
+\newline 
+true
+\newline 
+Set
+\newline 
+Set
+\newline 
+-
+\newline 
+Set
+\end_deeper 
+\layout Enumerate
+
+Typechecker
+\begin_deeper 
+\layout Enumerate
+
+added OclAny to TypeChecker (DefaultTypeFactory).
+ 
+\layout Enumerate
+
+Bugfix, removed TypeFactory.getClassifier replaced all calls by TypeFactor.get
+\end_deeper 
+\layout Enumerate
+
+JavaCodegenerator: 
+\begin_deeper 
+\layout Enumerate
+
+different meaning of Codefragments created for @pre expressions (TRANSFER,
+ PREPARATION, CODE), makes it easier and more flexible for different code
+ injector tools
+\layout Enumerate
+
+explicit package qualifier for ocl library is optionally prepended, replaces
+ the import statement.
+ Why?
+\begin_deeper 
+\layout Enumerate
+
+Fewer spots were the code ahs to be touched
+\layout Enumerate
+
+Avoid name confict beetween ocl library and user code.
+\end_deeper 
+\end_deeper 
 \layout Bibliography
 \bibitem [FF]{ff3}
 
