@@ -1,4 +1,4 @@
-#This file was created by <wiera> Tue Sep 26 14:26:47 2000
+#This file was created by <wiera> Thu Sep 28 12:44:57 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -92,7 +92,12 @@ n-ocl.sourceforge.net/.
 Neu
 \layout Enumerate
 
-Section 3.3.4.
+Section 
+\begin_inset LatexCommand \ref{Sec:WrapperLoop}
+
+\end_inset 
+
+.
  Avoiding the Wrapper Loop
 \layout Standard
 
@@ -113,312 +118,6 @@ Simpler approach in
 \end_inset 
 
 , easier to write, less complex, but less flexible.
-\layout Section
-
-OCL and Extreme Programming
-\layout Chapter
-
-Code Generation
-\layout Section
-
-Representation Of Associations
-\layout Subsection
-
-Possibilities
-\layout Itemize
-
-Collections named by the role name (maps for qualified associations)
-\layout Itemize
-
-Methods (isEmployed)
-\layout Subsection
-
-CASE-Tools
-\layout Subsection
-
-Net-Linx
-\layout Standard
-
-adaptability to legacy Quellcode.
-\layout Section
-
-Model Information
-\begin_inset LatexCommand \label{Sec:element_type_tag}
-
-\end_inset 
-
-
-\layout Standard
-
-The OCL compiler needs model information for type checking.
- How this works is explained in 
-\begin_inset LatexCommand \cite{ff3}
-
-\end_inset 
-
- section 5.3.3.
- The sources for model information may be a UML model exported from a CASE
- tool, or the java source code, which is accessed through reflection API
-\begin_float footnote 
-\layout Standard
-
-see class 
-\family typewriter 
-tudresden.ocl.check.types.ReflectionFacade
-\family default 
-.
-\end_float 
-.
- The latter approach is very convenient, since most java projects don't
- have a (up to date) UML representation of their business model.
- 
-\layout Standard
-
-However, java reflection lacks some model properties which are important
- for type checking.
-\layout Enumerate
-
-Element types of collections, particularly collections representing associations.
- 
-\layout Enumerate
-
-Qualifier types of maps, representing qualified associations.
-\layout Enumerate
-
-The isQuery tag of operations.
- Note, that OCL expressions may use operations without side effects (queries)
- only.
-\layout Standard
-
-The solution is to put the additional information needed into java documentation
- comments.
- See the example below.
- 
-\layout LyX-Code
-
-class Company
-\newline 
-{
-\newline 
-
-\protected_separator 
-
-\protected_separator 
-/**
-\newline 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-All persons employed
-\protected_separator 
-by this company.
-\newline 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
- 
-\protected_separator 
-@element-type Person
-\newline 
-
-\protected_separator 
-
-\protected_separator 
-*/
-\newline 
-
-\protected_separator 
- Collection employees;
-\newline 
-}
-\layout Standard
-
-The new 
-\family typewriter 
-@element-type
-\family default 
- tag has a syntax like 
-\family typewriter 
-@see
-\family default 
- as defined in 
-\begin_inset LatexCommand \cite{JAVA}
-
-\end_inset 
-
- section 18.4.1, but may refer to classes and interfaces only.
- This tag is valid for attributes only, and there may be only one of such
- tags per documentation comment.
- The tag is not restricted to attributes of type 
-\family typewriter 
-java.util.Collection
-\family default 
-, since future implementations could use other collection API's as well.
-\layout Standard
-
-Analogously, the 
-\family typewriter 
-@key-type
-\family default 
- tag is introduced for association qualifiers.
- 
-\layout LyX-Code
-
-class Bank
-\newline 
-{
-\newline 
-
-\protected_separator 
-
-\protected_separator 
-/**
-\newline 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-Customers qualified by
-\protected_separator 
-their account number.
-\newline 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-@element-type Person
-\newline 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-@key-type Integer
-\newline 
-
-\protected_separator 
-
-\protected_separator 
-*/
-\newline 
-
-\protected_separator 
- Map customers;
-\newline 
-}
-\layout Standard
-
-Note, that the reflection model is restricted to qualified associations
- with one qualifier only.
- 
-\begin_inset LatexCommand \cite{UML}
-
-\end_inset 
-
- allows multiple qualifiers, but there is no convenient representation for
- this in java.
- 
-\layout Standard
-
-Furthermore, UML specifies the unqualified association feature to be a set,
- i.e.
- there must be no duplicates.
- Since this is not enforced by 
-\family typewriter 
-java.util.Map
-\family default 
- (only keys are guaranteed to be unique), the ocl library provides an appropriat
-e runtime check.
-\layout Paragraph
-
-Implementation.
-\layout Standard
-
-A really comfortable implementation would let the java compiler do the parsing,
- and provide the information through an extended reflection API.
- This would be similar to the 
-\family typewriter 
-@deprecated
-\family default 
- tag.
- My implementation extends
-\begin_float footnote 
-\layout Standard
-
-Encapsulated in 
-\family typewriter 
-tudresden.ocl.check.types.ReflectionExtender
-\family default 
-.
-\end_float 
- the reflection facade by scanning the source code for these comments on
- demand.
- This implies, that the java source code is necessary for type checking
- OCL constraints in addition to the class files.
-\layout Standard
-
-There is a crucial question left: Where do the tags come? Possible sources
- are:
-\layout Itemize
-
-A UML model.
- The code generator of a CASE tool could generate these tags.
- 
-\layout Itemize
-
-Maintained by hand.
- It is good-practice of programming, to specify which kind of objects are
- supposed to be in a collection attribute.
- The tags just make this information available formally.
- 
-\layout Itemize
-
-Reverse Engineering.
- This is discussed in detail in chapter 
-\begin_inset LatexCommand \ref{Sec:ReverseEngineering}
-
-\end_inset 
-
-.
-\layout Standard
-
-Collection attributes with type tags are verified on runtime by the injected
- code.
- Note, that this kind of type information is useful for reverse engineering
- a UML model from given java code.
-\layout Section
-
-Looking at Previous States
-\layout Standard
-
-only 1 @pre pro navigation, may be proposal
 \layout Chapter
 
 Code Injection
@@ -1912,6 +1611,282 @@ tudresden.ocl.injection.Invariant.identityHashCode
  of the collection to avoid the overhead of maintaining a complete backup
  collection.
 \layout Chapter
+
+Model Information
+\layout Section
+
+Storing Doc Comment Tags
+\begin_inset LatexCommand \label{Sec:element_type_tag}
+
+\end_inset 
+
+
+\layout Standard
+
+The OCL compiler needs model information for type checking.
+ How this works is explained in 
+\begin_inset LatexCommand \cite{ff3}
+
+\end_inset 
+
+ section 5.3.3.
+ The sources for model information may be a UML model exported from a CASE
+ tool, or the java source code, which is accessed through reflection API
+\begin_float footnote 
+\layout Standard
+
+see class 
+\family typewriter 
+tudresden.ocl.check.types.ReflectionFacade
+\family default 
+.
+\end_float 
+.
+ The latter approach is very convenient, since most java projects don't
+ have a (up to date) UML representation of their business model.
+ 
+\layout Standard
+
+However, java reflection lacks some model properties which are important
+ for type checking.
+\layout Enumerate
+
+Element types of collections, particularly collections representing associations.
+ 
+\layout Enumerate
+
+Qualifier types of maps, representing qualified associations.
+\layout Enumerate
+
+The isQuery tag of operations.
+ Note, that OCL expressions may use operations without side effects (queries)
+ only.
+\layout Standard
+
+The solution is to put the additional information needed into java documentation
+ comments.
+ See the example below.
+ 
+\layout LyX-Code
+
+class Company
+\newline 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+/**
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+All persons employed
+\protected_separator 
+by this company.
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+ 
+\protected_separator 
+@element-type Person
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+*/
+\newline 
+
+\protected_separator 
+ Collection employees;
+\newline 
+}
+\layout Standard
+
+The new 
+\family typewriter 
+@element-type
+\family default 
+ tag has a syntax like 
+\family typewriter 
+@see
+\family default 
+ as defined in 
+\begin_inset LatexCommand \cite{JAVA}
+
+\end_inset 
+
+ section 18.4.1, but may refer to classes and interfaces only.
+ This tag is valid for attributes only, and there may be only one of such
+ tags per documentation comment.
+ The tag is not restricted to attributes of type 
+\family typewriter 
+java.util.Collection
+\family default 
+, since future implementations could use other collection API's as well.
+\layout Standard
+
+Analogously, the 
+\family typewriter 
+@key-type
+\family default 
+ tag is introduced for association qualifiers.
+ 
+\layout LyX-Code
+
+class Bank
+\newline 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+/**
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+Customers qualified by
+\protected_separator 
+their account number.
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+@element-type Person
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+@key-type Integer
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+*/
+\newline 
+
+\protected_separator 
+ Map customers;
+\newline 
+}
+\layout Standard
+
+Note, that the reflection model is restricted to qualified associations
+ with one qualifier only.
+ 
+\begin_inset LatexCommand \cite{UML}
+
+\end_inset 
+
+ allows multiple qualifiers, but there is no convenient representation for
+ this in java.
+ 
+\layout Standard
+
+Furthermore, UML specifies the unqualified association feature to be a set,
+ i.e.
+ there must be no duplicates.
+ Since this is not enforced by 
+\family typewriter 
+java.util.Map
+\family default 
+ (only keys are guaranteed to be unique), the ocl library provides an appropriat
+e runtime check.
+\layout Paragraph
+
+Implementation.
+\layout Standard
+
+A really comfortable implementation would let the java compiler do the parsing,
+ and provide the information through an extended reflection API.
+ This would be similar to the 
+\family typewriter 
+@deprecated
+\family default 
+ tag.
+ My implementation extends
+\begin_float footnote 
+\layout Standard
+
+Encapsulated in 
+\family typewriter 
+tudresden.ocl.check.types.ReflectionExtender
+\family default 
+.
+\end_float 
+ the reflection facade by scanning the source code for these comments on
+ demand.
+ This implies, that the java source code is necessary for type checking
+ OCL constraints in addition to the class files.
+\layout Standard
+
+There is a crucial question left: Where do the tags come? Possible sources
+ are:
+\layout Itemize
+
+A UML model.
+ The code generator of a CASE tool could generate these tags.
+ 
+\layout Itemize
+
+Maintained by hand.
+ It is good-practice of programming, to specify which kind of objects are
+ supposed to be in a collection attribute.
+ The tags just make this information available formally.
+ 
+\layout Itemize
+
+Reverse Engineering.
+ This is discussed in detail in chapter 
+\begin_inset LatexCommand \ref{Sec:ReverseEngineering}
+
+\end_inset 
+
+.
+\layout Standard
+
+Collection attributes with type tags are verified on runtime by the injected
+ code.
+ Note, that this kind of type information is useful for reverse engineering
+ a UML model from given java code.
+\layout Section
 
 Reverse Engineering
 \begin_inset LatexCommand \label{Sec:ReverseEngineering}
