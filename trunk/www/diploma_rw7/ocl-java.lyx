@@ -1,4 +1,4 @@
-#This file was created by <rw7> Sun Oct 15 15:40:02 2000
+#This file was created by <wiera> Mon Oct 16 18:21:26 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -2455,7 +2455,7 @@ hashCode
  To achieve the behavior intended, collection hash functions had to be rewritten
  with calls to 
 \family typewriter 
-System.identityHashCode(Object)
+System.identityHashCode
 \family default 
 .
  This has been implemented in class 
@@ -2504,7 +2504,7 @@ HashExact
 \family default 
 .
  It uses the fact, that standard collections already provide a change detection
- mechanism for implementing fail-fast iterators (TODO reference).
+ mechanism for implementing fail-fast iterators.
  Each collection maintains a modification counter, which is incremented
  whenever the collection is modified.
  Iterators create a copy of this counter on creation, and check this copy
@@ -2516,7 +2516,8 @@ HashModCount
 \family default 
  has to access the private counter attribute via reflection.
  This is highly dependent on the internal details of collection classes.
- One should better not expect it to work.
+ The implementation has been tested successfully on JDK 1.2.2.
+ With other versions better do not expect it to work.
 \layout Standard
 
 There is a work-around for this.
@@ -2527,7 +2528,7 @@ ConcurrentModificationException
 \family default 
 .
  This has not been implemented yet, since it imposes several problems.
- Using the disassembler I found out, that 
+ Method 
 \family typewriter 
 hasNext()
 \family default 
@@ -2536,7 +2537,7 @@ hasNext()
 \family typewriter 
 next()
 \family default 
- has to be invoced.
+ has to be invoked.
  But this may also fail due to 
 \family typewriter 
 NoSuchElementException
@@ -2557,7 +2558,7 @@ HashExact
 HashSize
 \family default 
  is easily provided.
- This could even be decided dynamicly depending on the size of the arrays.
+ This could even be decided dynamicely depending on the size of the arrays.
 \layout Standard
 
 The table below summarizes the different detection mechanisms:
@@ -2847,7 +2848,8 @@ RuntimeException
 \family typewriter 
 HashSize
 \family default 
- hoping, that is doesn't miss too many modifications.
+.
+ Hopefully it doesn't miss too many modifications.
  
 \layout Standard
 
@@ -4355,7 +4357,8 @@ HashExact
 HashSize
 \family default 
 .
- However, they heavily depend on internals of the java collections implemenation.
+ However, they heavily depend on internals of the java collections implementatio
+n.
  Use at your own risk.
  See section 
 \begin_inset LatexCommand \ref{Sec:detectingCollectionChanges}
@@ -4697,6 +4700,171 @@ Disassembling was done with
 javap -c
 \family default 
 .
+\layout Section
+
+The Problem with Versant Database
+\layout Standard
+
+This appendix shows why Versant and the Dresden OCL Toolkit don't work together.
+ 
+\layout Standard
+
+The problem is a bug in Java Versant Interface (JVI).
+ JVI provides an enhancer, which instruments the user application on byte
+ code level.
+ The enhancer transforms any access to object fields into a call to a wrapper
+ method provided by JVI.
+ 
+\layout Standard
+
+The class used for invariant caching must be database persistent.
+ Thus, it also has to be enhanced.
+ This class contains the following piece of source code.
+\layout LyX-Code
+
+Field f=...;
+\newline 
+if(f==null)
+\newline 
+
+\protected_separator 
+ throw new RuntimeException(...);
+\newline 
+f.setAccessible(true);
+\newline 
+HashSet observer=(HashSet)(f.get(o));
+\protected_separator 
+ 
+\layout Standard
+
+The last line is 
+\family typewriter 
+Invariant.java:69
+\family default 
+.
+ This line throws the exception shown below.
+\layout LyX-Code
+
+java.lang.NoSuchMethodException:
+\newline 
+_vj_getfield_\SpecialChar \-
+com_\SpecialChar \-
+net_\SpecialChar \-
+linx_\SpecialChar \-
+iyp_\SpecialChar \-
+businessObject_\SpecialChar \-
+InColumnAd_\SpecialChar \-
+startOnline
+\newline 
+at com.versant.trans.Wrappers.method_invoke
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+(Wrappers.java:209)
+\newline 
+at com.versant.trans.Wrappers.java_lang_reflect_Field_get_internal
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+(Wrappers.java:344)
+\newline 
+at com.versant.trans.Wrappers.java_lang_reflect_Field_get
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+(Wrappers.java:369)
+\newline 
+at tudresden.ocl.injection.lib.Invariant.addObserver
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+(Invariant.java:69)
+\newline 
+...
+\layout Standard
+
+The code line in question contains a method call to 
+\family typewriter 
+Field.get
+\family default 
+.
+ This method cannot throw a 
+\family typewriter 
+NoSuchMethodException
+\family default 
+ under normal circumstances.
+\layout Standard
+
+What happened? The enhancer transformed the call to 
+\family typewriter 
+Field.get
+\family default 
+ into a call to a wrapper method provided by JVI.
+ This method probably does some database stuff, and then tries to access
+ the field requested.
+ Therefore it tries to invoke another wrapper method 
+\family typewriter 
+_vj_getfield_\SpecialChar \-
+com_\SpecialChar \-
+net_\SpecialChar \-
+linx_\SpecialChar \-
+iyp_\SpecialChar \-
+businessObject_\SpecialChar \-
+InColumnAd_\SpecialChar \-
+startOnline
+\family default 
+ on the object.
+ The class of the object is 
+\family typewriter 
+InColumnAd
+\family default 
+, the field requested is 
+\family typewriter 
+startOnline
+\family default 
+.
+ However, this method does not exist, since the field is inherited from
+ its super class.
+\layout Standard
+
+This bug prevents any code from accessing object fields via reflection,
+ if the objects class inherits this field from a super class.
+ This affects the runtime libraries of both the ocl code generator and the
+ code injector.
+\layout Standard
+
+A possible work-around is to wrap all field accesses with corresponding
+ methods.
+ These methods would access their field without reflection, thus would not
+ be affected by the bug.
+ These methods could be created automatically by the ocl injector.
+ This would require a moderate implementation effort.
+ However, the design of the ocl toolkit would suffer a much tighter dependency
+ between the ocl library the injector.
+ It's not planned to implement this work-around.
+\layout Standard
+
+On October 13, 2000 Versant support announced a bugfix 
+\emph on 
+
+\begin_inset Quotes eld
+\end_inset 
+
+available within the next few weeks.
+\emph toggle 
+
+\begin_inset Quotes erd
+\end_inset 
+
+
 \layout Standard
 
 
