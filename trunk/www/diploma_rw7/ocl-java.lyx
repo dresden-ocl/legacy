@@ -1,4 +1,4 @@
-#This file was created by <wiera> Tue Aug  1 19:09:47 2000
+#This file was created by <wiera> Fri Aug  4 15:47:21 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -329,6 +329,17 @@ Note, that the reflection model is restricted to qualified associations
 
  allows multiple qualifiers, but there is no convenient representation for
  this in java.
+ 
+\layout Standard
+
+Furthermore, UML specifies the unqualified association feature to be a set,
+ i.e.
+ there must be no duplicates.
+ Since this is not enforced by 
+\family typewriter 
+java.util.Map
+\family default 
+, the injector provides an appropriate runtime check.
 \layout Paragraph
 
 Implementation.
@@ -1185,6 +1196,9 @@ Temporal Scope of Invariants
 
 \layout Standard
 
+SEE Warmer/Kleppe sec 5.4.
+\layout Standard
+
 This section discusses the issue, when an invariant has to be fulfilled.
  When using databases this question is simple: invariants must be valid
  outside of transactions.
@@ -1216,7 +1230,7 @@ tagged methods.
 
 explicit request.
  This is the way of choice, if the model is held in a database backend.
- Then the checking of invariants is simply done immediatly before every
+ Then the checking of invariants is simply done immediately before every
  
 \begin_inset Quotes eld
 \end_inset 
