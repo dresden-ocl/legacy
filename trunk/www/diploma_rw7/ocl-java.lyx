@@ -1,4 +1,4 @@
-#This file was created by <wiera> Thu Oct  5 14:42:37 2000
+#This file was created by <wiera> Thu Oct  5 18:21:13 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -173,6 +173,13 @@ A powerful approach to reverse engineering has been developed at the MIT
 \end_inset 
 
 .
+\layout Standard
+
+JVISION 1.2.1 of Object Insight www.object-insight.com produces class diagrams
+ from java source or byte code.
+ It's easy to use, and has nice auto-layout.
+ But it does not handle associations in any way.
+ Collection attributes are simply shown as attributes.
 \layout Chapter
 
 Code Injection
