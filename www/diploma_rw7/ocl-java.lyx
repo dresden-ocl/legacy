@@ -1,4 +1,4 @@
-#This file was created by <wiera> Thu Jul 27 12:59:25 2000
+#This file was created by <wiera> Thu Jul 27 16:38:13 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -124,7 +124,7 @@ CASE-Tools
 Net-Linx
 \layout Standard
 
-adaptability an legacy Quellcode.
+adaptability to legacy Quellcode.
 \layout Section
 
 Model Information
@@ -1006,26 +1006,17 @@ Cleaning the Code
 
 \layout Standard
 
-One of my goals for the injector tool is the following:
-\layout Quote
-
-The user may inject generated code into arbitrary user code in place, edit
- the modified source code, redo the injection in place when the ocl constraints
- have changed, and clean the code from the injected code.
- Cleaning means, that there is not a single byte left in the source.
-\layout Standard
-
-This section explains, how the injector tool accomplishes this goal.
-\layout Standard
-
-The injector tool touches the user code in two different ways:
+One of the requirements was, that the injector is able clean the modified
+ code without leaving any traces.
+ This section explains, how this requirement is met.
+ The user code is touched in two different ways only:
 \layout Enumerate
 
-renaming the wrapped methods
+Renaming the wrapped methods.
 \layout Enumerate
 
-adding new class features, i.e.
- wrapper methods, semaphore attributes
+Adding new object features, i.e.
+ wrapper methods, a method for checking invariants and a semaphore attribute.
 \layout Paragraph
 
 Renaming Wrapped Methods.
@@ -1036,12 +1027,16 @@ For each method to be wrapped the suffix
 _wrappedbyocl
 \family default 
  is appended to the name.
- This transformation is done in the unparsed method header, so all typographical
- extras in the header (line breaks, comments etc.) are preserved.
+ This transformation is done on the unparsed method header, so all typographical
+ extras (line breaks, comments etc.) are preserved.
  This transformation is easily reversed, when the code has to be cleaned.
 \layout Paragraph
 
-Cleaning Generated Class Features
+Removing Generated Features.
+\layout Standard
+
+Removing generated class features relies on the fact, that the injector
+ tags all generated features as shown below.
 \layout LyX-Code
 
 /**
@@ -1056,9 +1051,10 @@ Cleaning Generated Class Features
 \newline 
 */
 \newline 
-int someMethod(double x);
-\newline 
+void checkOclInvariants();
+\layout Standard
 
+This is quite simple and functional.
 \layout Section
 
 Structural Scope of Invariants
