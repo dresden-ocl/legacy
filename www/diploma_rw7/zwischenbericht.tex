@@ -1,0 +1,189 @@
+%% LyX 1.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass{slides}
+\usepackage[T1]{fontenc}
+
+\makeatletter
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+ \newcounter{slidetype}
+ \setcounter{slidetype}{0}
+ \newif\ifLyXsNoCenter
+ \LyXsNoCenterfalse
+ \newcommand{\noslidecentering}{
+    \LyXsNoCentertrue%
+ }
+ \newcommand{\slidecentering}{
+    \LyXsNoCenterfalse%
+ }
+ \newcommand{\lyxendslide}[1]{
+    \ifLyXsNoCenter%
+         \vfill%
+    \fi%
+    \ifcase \value{slidetype}%
+         \or % no action for 0
+         \end{slide} \or%
+         \end{overlay} \or%
+         \end{note}%
+    \fi%
+    \setcounter{slidetype}{0}
+	\visible
+ }
+ \AtEndDocument{\lyxendslide{.}}
+ \newcommand{\lyxnewslide}[1]{
+    \lyxendslide{.}
+    \setcounter{slidetype}{1}
+    \begin{slide}
+ }
+ \newenvironment{lyxcode}
+   {\begin{list}{}{
+     \setlength{\rightmargin}{\leftmargin}
+     \raggedright
+     \setlength{\itemsep}{0pt}
+     \setlength{\parsep}{0pt}
+     \verbatim@font}%
+    \item[]}
+   {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+% Uncomment to print out only slides and overlays
+%
+%\onlyslides{\slides}
+
+% Uncomment to print out only notes
+%
+%\onlynotes{\notes}
+
+\makeatother
+
+\begin{document}
+
+
+\lyxnewslide{}
+
+{\par\centering \textbf{\Large Werzeugunterstützung für die Überprüfung der Einhaltung
+von OCL-Geschäftsregeln in Java-Programmen}\Large \par}
+
+{\par\centering Ralf Wiebicke\par}
+
+{\par\centering 28. August 2000\par}
+
+
+\lyxnewslide{}
+
+{\par\centering \textbf{\Large Übersicht}\Large \par}
+
+\vspace{10pt}\hrule height 4pt
+
+\begin{itemize}
+\item Code Injektor
+\item Scope von Invarianten
+\item Caching von Invarianten
+\item Erweiterte Typinformation in Java
+
+\begin{itemize}
+\item Statische Analyse
+\item Dynamische Typverfolgung
+\end{itemize}
+\item Ausblick
+\end{itemize}
+
+\lyxnewslide{}
+
+{\par\centering \textbf{\Large Code Injektor - Ziele}\Large \par}
+
+\vspace{10pt}\hrule height 4pt
+
+\begin{itemize}
+\item Ziele
+\end{itemize}
+
+\lyxnewslide{}
+
+{\par\centering \textbf{\Large Code Injektor - }\\
+\textbf{\Large Probleme des einfachen Ansatzes}\Large \par}
+
+\vspace{10pt}\hrule height 4pt
+
+\begin{enumerate}
+\item Einfügung an jeder return Anweisung
+\item Vorberechnung des Rückgabeausdrucks
+\item Namenskonflikte
+\item kompletter Javaparser nötig
+\end{enumerate}
+
+\lyxnewslide{}
+
+{\par\centering \textbf{\Large Code Injektor - }\\
+\textbf{\Large Wrapping Methods}\Large \par}
+
+\vspace{10pt}\hrule height 4pt
+
+\begin{lyxcode}
+int~someMethod(double~x)~\\
+\{~\\
+~~//~here~comes~the~code.~\\
+\}~
+\end{lyxcode}
+\vspace{10pt}\hrule height 1pt
+
+\begin{lyxcode}
+int~someMethod\_wrappedbyocl(double~x)~\\
+\{~\\
+~~//~here~comes~the~code.~\\
+\}~\\
+~~\\
+int~someMethod(double~x)~\\
+\{~\\
+~~//~pre~method~code~\\
+~~int~result=someMethod\_wrappedbyocl(x);~\\
+~~//~post~method~code~\\
+~~return~result;~\\
+\}
+\end{lyxcode}
+
+\lyxnewslide{}
+
+{\par\centering \textbf{\Large Code Injektor - }\\
+\textbf{\Large Wrapping Constructors}\Large \par}
+
+\vspace{10pt}\hrule height 4pt
+
+\begin{lyxcode}
+SomeClass(String~x)~\\
+\{~\\
+~~//~here~comes~the~code~\\
+\}
+\end{lyxcode}
+\vspace{10pt}\hrule height 1pt
+
+\begin{lyxcode}
+SomeClass(String~x,~Dummy)~\\
+\{~\\
+~~//~here~comes~the~code~\\
+\}~\\
+~~\\
+SomeClass(String~x)~\\
+\{~\\
+~~this(x,~(Dummy)null);~\\
+~~//~post~constructor~code~\\
+\}
+\end{lyxcode}
+
+\lyxnewslide{}
+
+{\par\centering \textbf{\Large Ausblick}\Large \par}
+
+\vspace{10pt}\hrule height 4pt
+
+\begin{itemize}
+\item Typechecker for observed
+\item Observe Methods
+\item Application Netlinx
+\item tagged Methods scope
+\end{itemize}
+\end{document}
