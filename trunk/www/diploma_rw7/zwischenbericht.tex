@@ -68,8 +68,8 @@
 
 \lyxnewslide{}
 
-{\par\centering \textbf{\Large Werzeugunterstützung für die Überprüfung der Einhaltung
-von OCL-Geschäftsregeln in Java-Programmen}\Large \par}
+{\par\centering \textbf{\Large Werkzeugunterstützung für die Überprüfung der
+Einhaltung von OCL-Geschäftsregeln in Java-Programmen}\Large \par}
 
 {\par\centering Ralf Wiebicke\par}
 
@@ -86,23 +86,7 @@ von OCL-Geschäftsregeln in Java-Programmen}\Large \par}
 \item Code Injector
 \item Scope von Invarianten
 \item Caching von Invarianten
-\item Erweiterte Typinformation in Java
-
-\begin{itemize}
-\item Statische Analyse
-\item Dynamische Typverfolgung
-\end{itemize}
 \item Ausblick
-\end{itemize}
-
-\lyxnewslide{}
-
-{\par\centering \textbf{\Large Code Injector - Ziele}\Large \par}
-
-\vspace{10pt}\hrule height 4pt
-
-\begin{itemize}
-\item Ziele
 \end{itemize}
 
 \lyxnewslide{}
@@ -113,8 +97,8 @@ von OCL-Geschäftsregeln in Java-Programmen}\Large \par}
 \vspace{10pt}\hrule height 4pt
 
 \begin{enumerate}
-\item Einfügung an jeder return-Anweisung
-\item Vorberechnung des Rückgabeausdrucks
+\item Post-Code an jeder return-Anweisung
+\item Vorausberechnung des Rückgabeausdrucks
 \item Namenskonflikte
 \item kompletter Javaparser notwendig
 \end{enumerate}
@@ -194,31 +178,8 @@ Wann müssen die Invarianten erfüllt sein?
 
 \lyxnewslide{}
 
-{\par\centering \textbf{\Large Caching von Invarianten}\Large \par}
-
-\vspace{10pt}\hrule height 4pt
-
-\vspace{0.3cm}
-{\par\centering \resizebox*{1\textwidth}{!}{\includegraphics{PersonCompany.eps}} \par}
-\vspace{0.3cm}
-
-\begin{lyxcode}
-context~Company~inv:~\\
-~~manager.age>=0~\\
-~\\
-context~Company~inv:~\\
-~~employees.age>=0~\\
-~\\
-context~Company~inv:~\\
-~~employees.getAge()>=0~\\
-~\\
-context~Company~inv:~\\
-~~employees.getIncomeAfterTax(0.15)>=5000
-\end{lyxcode}
-
-\lyxnewslide{}
-
-{\par\centering \textbf{\Large Überwachung von Attributen}\Large \par}
+{\par\centering \textbf{\Large Caching von Invarianten -}\\
+\textbf{\Large Überwachung von Attributen}\Large \par}
 
 \vspace{10pt}\hrule height 4pt
 
@@ -242,14 +203,99 @@ class~Person~\\
 
 \lyxnewslide{}
 
+{\par\centering \textbf{\Large Caching von Invarianten - }\\
+\textbf{\Large Beispiele}\Large \par}
+
+\vspace{10pt}\hrule height 4pt
+
+\vspace{0.3cm}
+{\par\centering \resizebox*{1\textwidth}{!}{\includegraphics{PersonCompany.eps}} \par}
+\vspace{0.3cm}
+
+\begin{lyxcode}
+context~Company~inv:~\\
+~~manager.age>=0~\\
+~\\
+context~Company~inv:~\\
+~~employees.age>=0~\\
+~\\
+context~Company~inv:~\\
+~~employees.getAge()>=0~\\
+~\\
+context~Company~inv:~\\
+~~employees.getIncomeAfterTax(0.15)>=5000
+\end{lyxcode}
+
+\lyxnewslide{}
+
 {\par\centering \textbf{\Large Ausblick}\Large \par}
 
 \vspace{10pt}\hrule height 4pt
 
 \begin{itemize}
-\item Typechecker for observed
-\item Observe Methods
-\item Application Netlinx
-\item tagged Methods scope
+\item Anwendung bei Netlinx
+\item Scope von Invarianten
+
+\begin{itemize}
+\item Unterstützung von ausgezeichneten Methoden
 \end{itemize}
+\item Caching von Invarianten
+
+\begin{itemize}
+\item Einschränkung der observierten Attribute im Typechecker
+\item Observation von Methoden
+\end{itemize}
+\end{itemize}
+
+\lyxnewslide{}
+
+{\par\centering \textbf{\Large Erweiterte Typinformation}\Large \par}
+
+\vspace{10pt}\hrule height 4pt
+
+\begin{lyxcode}
+class~Company~\\
+\{~\\
+~~/{*}{*}~\\
+~~~~~All~persons~employed~by~this~company.~\\
+~~~~~@element-type~Person~\\
+~~{*}/~\\
+~~Collection~employees;~\\
+\}
+\end{lyxcode}
+\vspace{10pt}\hrule height 1pt
+
+\begin{lyxcode}
+class~Bank~\\
+\{~\\
+~~/{*}{*}~\\
+~~~~~Customers~qualified~by~their~~\\
+~~~~~account~number.~\\
+~~~~~@element-type~Person~\\
+~~~~~@key-type~Integer~\\
+~~{*}/~\\
+~~Map~customers;~\\
+\}
+\end{lyxcode}
+
+\lyxnewslide{}
+
+{\par\centering \textbf{\Large Erweiterte Typinformation - }\\
+\textbf{\Large Statische Analyse}\Large \par}
+
+\vspace{10pt}\hrule height 4pt
+
+\begin{lyxcode}
+/{*}{*}~\\
+~~~All~employed~\{@link~\underbar{Person}~persons\}~~\\
+~~~of~this~company.~\\
+~~~@see~\underbar{Person}~\\
+{*}/~\\
+Collection~employees;~\\
+~~\\
+boolean~isEmployee(\underbar{Person});~\\
+void~addEmployee(\underbar{Person});~\\
+void~removeEmployee(\underbar{Person});
+
+\end{lyxcode}
 \end{document}
