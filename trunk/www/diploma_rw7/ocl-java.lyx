@@ -1,4 +1,4 @@
-#This file was created by <rw7> Fri Dec  8 04:12:21 2000
+#This file was created by <wiera> Fri Dec  8 21:36:58 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -129,7 +129,7 @@ sourceforge.net/.
 Introduction
 \layout Standard
 
-This work descibes the design and implementation of runtime verification
+This work describes the design and implementation of runtime verification
  of OCL (Object Constraint Language) constraints in java programs.
  Therefore, the OCL compiler developed by Frank Finger 
 \begin_inset LatexCommand \cite{ff3}
@@ -197,14 +197,14 @@ Appendix
 
 \end_inset 
 
- contains a short manual of the software together with a [illustrative]
- example.
- Finally, some very detailed descriptions have been moved to appendix 
+ contains a short manual of the software together with an illustrative example.
+ Finally, some very detailed descriptions have been sourced out into appendix
+ 
 \begin_inset LatexCommand \ref{Sec:chapterCodeExamples}
 
 \end_inset 
 
- to keep the main text short [uebersichtlich].
+ to keep the main text clear.
 \layout Chapter
 
 Related Work
@@ -4323,22 +4323,22 @@ Obviously, the OCL toolkit could be used to support Design by Contract (DbC)
 \layout Standard
 
 There is at least one issue to be worked on: inheriting constraints.
- In the current version this is completly ignored [vernachlässigt].
- This means, that a subclass does not inherit the constraints of it's anchestors.
+ In the current version this is completely neglected.
+ This means, that a subclass does not inherit the constraints of it's ancestors.
 \layout Standard
 
-But simply promoting a class's constraints to all it's [Nachkommen] is not
+But simply promoting constraints of a class to all its descendants is not
  sufficient.
- This downward promotion implies a conjunctionXX (AND) of inherited and
- [eigenen] constraints.
+ This downward promotion implies a conjunction (logical AND) of inherited
+ and own constraints.
  This is suitable for invariants and postconditions, but not for preconditions.
  DbC requires inheritance of 
 \emph on 
 contracts
 \emph toggle 
 , not just constraints, thus preconditions cannot be strengthened.
- To make this sure, DbC suggests a disjunctionXXX (OR) of inherited on [eigene]
- constraints.
+ To make this sure, DbC suggests a disjunction (logical OR) of inherited
+ and own constraints.
 \layout Standard
 
 This causes some uncomfortable effects.
@@ -4366,7 +4366,7 @@ context Account::drawMoney(amount:integer)
  pre: balance-amount>=0
 \layout Standard
 
-A subclass weakens this preconditions by allowing a debit of 1000.
+A subclass weakens the second precondition by allowing a debit of 1000.
  
 \layout LyX-Code
 
@@ -4378,14 +4378,19 @@ context DebitableAccount::drawMoney(amount:integer)
  pre: balance-amount>=(-1000)
 \layout Standard
 
-But what happened now? The effective precondition of DebitableAccount (oring
+But what happened now? The effective precondition of DebitableAccount (
+\emph on 
+ORing
+\emph toggle 
  preconditions of both classes) is now just balance-amount>=(-1000).
  The upper limit for amount disappeared.
  This is perfectly compatible with DbC, but certainly not the intention
  of the developer.
 \layout Standard
 
-A suitable solution could feature named preconditions and a 
+A sensible solution should allow to inherit the amount<=10000 constraint
+ as such without repeating it in the subclass.
+ A suitable solution could feature named preconditions and a 
 \begin_inset Quotes eld
 \end_inset 
 
@@ -4424,19 +4429,60 @@ context DebitableAccount::drawMoney(amount:integer)
  pre min_balance: balance-amount>=(-1000)
 \layout Standard
 
-This 
+These considerations suggest, that there is still some investigation and
+ development needed to make the OCL toolkit usable for supporting Design
+ by Contract.
 \layout Standard
 
-Extend Java (byte code compatible)
+Anyway, the ultimate solution to bring DbC into java would an extension
+ of the java language.
+ Only then it will be easy and stable enough for a wide spread use in industry.
+ Such an extention should be possible without breaking byte code compatibility,
+ as shown with the addition of inner classes in JDK 1.1.
 \layout Section
 
-Integration with CASE Tools
+Compatibility with CASE Tools
 \layout Standard
 
-Export of OCL
+The OCL toolkit works with arbitrary java source code.
+ Thus, it should be definitely compatible with java code generators of all
+ CASE tools.
+ Still, there are some issues to be mentioned.
+\layout Paragraph
+
+Export of OCL.
+ 
 \layout Standard
 
-Export of Element Types
+If the CASE tool is able to store OCL constraints, there should be some
+ export function for them as well.
+ A sophisticated export function could even embed the constraints into javadoc
+ comments (section 
+\begin_inset LatexCommand \ref{Sec:embedConstraints}
+
+\end_inset 
+
+) for easier browsing and editing.
+ This should be easy for CASE tools with the source code available, otherwise
+ the feasibility depends on API's of the CASE tool.
+\layout Paragraph
+
+Export of Element Types.
+\layout Standard
+
+Even more important is the export of 
+\family typewriter 
+@element-type
+\family default 
+ tags (section 
+\begin_inset LatexCommand \ref{Sec:element_type_tag}
+
+\end_inset 
+
+).
+ These are needed for type checking of constraints.
+ The feasibility of such an extension depends again on the availability
+ of either the source code or suitable API's.
 \layout Standard
 
 Name Adapters
