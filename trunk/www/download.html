@@ -65,12 +65,12 @@ jar -xf royloy.jar
 <li>
 Compile the example ocl expressions and put them into the java code: (copy&amp;paste <a href="paste.txt">without line breaks</a>)
 <pre>
-java -cp .:dresden-ocl.jar:xml4j.jar tudresden.ocl.injection.Main
-  -f tudresden/ocl/test/royloy/oclexpressions
-  -r tudresden.ocl.test.royloy
-  -n argo
-  -vm "System.out.println"
-  -m tudresden/ocl/test/royloy/*.java
+java -cp .:dresden-ocl.jar:xml4j.jar tudresden.ocl.injection.Main \
+  --constraint-file  tudresden/ocl/test/royloy/oclexpressions \
+  --reflection-model tudresden.ocl.test.royloy \
+  --name-adapter      argo \
+  --violation-makro  "System.out.println" \
+  --modify tudresden/ocl/test/royloy/*.java
 </pre>
 The example java code has now been modified.
 </li>
@@ -91,9 +91,9 @@ Enjoy the messages about violated ocl constraints.
 Clean the code:
 (again <a href="paste.txt">without line breaks</a>)
 <pre>
-java -cp .:dresden-ocl.jar:xml4j.jar tudresden.ocl.injection.Main
-  --clean
-  -m tudresden/ocl/test/royloy/*.java
+java -cp .:dresden-ocl.jar:xml4j.jar tudresden.ocl.injection.Main \
+  --clean \
+  --modify tudresden/ocl/test/royloy/*.java
 </pre>
 The example code is now exactly the same as you downloaded it.
 </li>
