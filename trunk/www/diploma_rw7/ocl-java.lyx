@@ -1,4 +1,4 @@
-#This file was created by <wiera> Thu Dec 14 12:17:11 2000
+#This file was created by <wiera> Fri Dec 15 14:14:27 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -23,7 +23,7 @@
 \quotes_language english
 \quotes_times 2
 \papercolumns 1
-\papersides 2
+\papersides 1
 \paperpagestyle default
 
 \layout Title
