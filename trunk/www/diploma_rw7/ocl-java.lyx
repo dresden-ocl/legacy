@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Aug 30 14:22:39 2000
+#This file was created by <wiera> Thu Aug 31 12:14:09 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -2112,6 +2112,10 @@ Map
 -
 \newline 
 Set (qualified)
+\layout Standard
+
+Furthermore, arrays are now supported.
+ They are mapped into sequences of the appropriate element type.
 \layout Section
 
 Undefined Values in the OCL Library
