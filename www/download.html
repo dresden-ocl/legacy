@@ -45,14 +45,73 @@ This software is published under the
 <A href="http://www.gnu.org/copyleft/lesser.html" target="blank">LGPL</A> (GNU Lesser General Public License).
 </P>
 
+<P>
+The latest release of the OCL Toolkit can be downloaded from our 
+<a href="http://sourceforge.net/projects/dresden-ocl" target=blank>project site</a> at SourceForge under section <b>Latest File Releases</b>. 
+There you will find the following archives:
+<ol>
+	<li><b>dresden-ocl-<i>release_number</i>.tar.gz</b> - the executable jar archives which are:
+		<table border=0>
+			<tr>
+				<td>i.&nbsp;</td>
+				<td>dresden-ocl-injector.jar</td>
+				<td>&nbsp;-&nbsp;</td>
+				<td><a href="#ocl4java">OCL for Java</a></td>
+			</tr>
+			<tr>
+				<td>ii.&nbsp;</td>
+				<td>dresden-ocl-demo.jar</td>
+				<td>&nbsp;-&nbsp;</td>
+				<td><a href="#demo">compiler demo application</a></td>
+			</tr>
+			<tr>
+				<td>iii.&nbsp;</td>
+				<td>ocl-argo.jar</td>
+				<td>&nbsp;-&nbsp;</td>
+				<td><a href="#argo">for use with Argo/UML</a></td>
+			</tr>
+			<tr>
+				<td>iv.&nbsp;</td>
+				<td>dresden-ocl-sql.jar</td>
+				<td>&nbsp;-&nbsp;</td>
+				<td><a href="#ocl2sql">OCL for SQL</a></td>
+			</tr>
+			<tr>
+				<td>v.&nbsp;</td>
+				<td>dresden-ocl-lib.jar</td>
+				<td>&nbsp;-&nbsp;</td>
+				<td>OCL runtime library for Java. Use with injected code.</td>
+			</tr>
+			<tr>
+				<td>vi.&nbsp;</td>
+				<td>dresden-ocl-reverseeng.jar</td>
+				<td>&nbsp;-&nbsp;</td>
+				<td>OCL for Java helper application</td>
+			</tr>
+		</table>
+	</li>
+	<li><b>dresden-ocl-src-<i>release_number</i>.tar.gz</b> - the complete sources including test suites.
+	       For compiling you need:
+		<UL>
+  			<LI><A href="http://dresden-ocl.sourceforge.net/download/xerces.jar">xerces.jar</A>
+                            :Xerces version 1.4.3 by Apache [<A href="http://xml.apache.org/xerces-j/index.html" target="blank">link</A>] is already in the source package.
+			</LI>
+  			<LI>junit.jar: JUnit version 3.7 by Kent Beck and Erich Gamma 
+			    [<A href="http://www.junit.org/" target="blank">link</A>] is already in the source package.
+			</LI>
+		</UL>
+	</li>
+</ol>
+Alternatively, you can browse directly the <A href="http://sourceforge.net/cvs/?group_id=5840" target="blank">cvs repository</a> at
+SourceForge. The API documentation is available for <A href="http://dresden-ocl.sourceforge.net/download/dresden-ocl-api.tar.gz">download</A>
+or for reading <A href="http://dresden-ocl.sourceforge.net/download/api/index.html" target="blank">online</A>.
+</P>
+
 <H2><A name=ocl4java>OCL for Java</A></H2>
 If you want to try OCL on real java code, do the following:
 <OL>
-  <LI>Download <A
-  href="http://dresden-ocl.sourceforge.net/download/dresden-ocl-injector.jar">dresden-ocl-injector.jar</A>
-  and <A
-  href="http://dresden-ocl.sourceforge.net/download/royloy.jar">royloy.jar</A>
-  into a directory. <BR>
+  <LI>Download <A href="http://dresden-ocl.sourceforge.net/download/royloy.jar">royloy.jar</A> and install it to 
+      the directory where dresden-ocl-injector.jar is located. <BR>
   <TABLE>
     <TBODY>
     <TR>
@@ -80,11 +139,8 @@ If you want to try OCL on real java code, do the following:
 <H2><A name=demo>compiler demo application</A></H2>If you want to use the ocl
 compiler demo application, do the following:
 <OL>
-  <LI>Download <A
-  href="http://dresden-ocl.sourceforge.net/download/dresden-ocl-demo.jar">dresden-ocl-demo.jar</A>
-  and <A
-  href="http://dresden-ocl.sourceforge.net/download/xerces.jar">xerces.jar</A>
-  into a directory. <BR>
+  <LI>Download <A href="http://dresden-ocl.sourceforge.net/download/xerces.jar">xerces.jar</A> and install it to 
+      the directory where dresden-ocl-demo.jar is located. <BR>
   <TABLE>
     <TBODY>
     <TR>
@@ -99,17 +155,7 @@ compiler demo application, do the following:
 <H2><A name=argo>Argo/UML</A></H2>
 If you want to use the ocl compiler as part of <A href="http://argouml.tigris.org/" target="blank">Argo/UML</A> version 0.8 do the following:
 <OL>
-  <LI>Download <A
-  href="http://dresden-ocl.sourceforge.net/download/ocl-argo.jar">ocl-argo.jar</A>
-  (a subset of dresden-ocl.jar).
-  <TABLE>
-    <TBODY>
-    <TR>
-      <TD bgColor=#ffdddd>Problems when downloading with netscape? Select
-        "Save Link As.." in the context menu, instead of just clicking the link.
-      </TD></TR></TBODY></TABLE>
-  <LI>Replace the current ocl-argo.jar in your Argo/UML installation with this
-  file.
+  <LI>Replace the current ocl-argo.jar in your Argo/UML installation with the released ocl-argo.jar file.
   <LI>Restart Argo/UML. </LI></OL>
 <P>Use the tab "Constraints" in the lower section of the Argo/UML main
 window.</P>
@@ -117,9 +163,8 @@ window.</P>
 <H2><A name=ocl2sql>OCL for SQL</A></H2>
 If you want to use the OCL2SQL tool prototype, do the following:
 <ol>
-	<li>Download <A href="http://dresden-ocl.sourceforge.net/download/dresden-ocl-sql.jar">dresden-ocl-sql.jar</A> and
-		<A href="http://dresden-ocl.sourceforge.net/download/xerces.jar">xerces.jar</A>
-  		into a directory.
+	<li>Download <A href="http://dresden-ocl.sourceforge.net/download/xerces.jar">xerces.jar</A> and install it to the 
+	     the directory where dresden-ocl-sql.jar is located.
  		<TABLE><TBODY><TR><TD bgColor=#ffdddd>
  		Problems when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.
       	</TD></TR></TBODY></TABLE></li>
@@ -137,25 +182,6 @@ Alternativly to the OCL2SQL tool, the jar also contains a SQL test application w
 the development of the SQL code generator. The test application makes use of the <a href="#demo">compiler demo
 application</a>. You can run the SQL test application by typing at the command prompt:
 <PRE>java -classpath .:dresden-ocl-sql.jar tudresden/ocl/SQLTestApp</PRE>
-
-
-<H2><A name=sources>sources</A></H2>The complete source including test suites is
-available in <A
-href="http://dresden-ocl.sourceforge.net/download/dresden-ocl-src.tar.gz">dresden-ocl-src.tar.gz</A>.
-<BR>For compiling, you need:
-<UL>
-  <LI><A
-  href="http://dresden-ocl.sourceforge.net/download/xerces.jar">xerces.jar</A>:
-  Xerces version 1.4.3 by Apache [<A
-  href="http://xml.apache.org/xerces-j/index.html" target="blank">link</A>].
-  <LI>junit.jar: JUnit version 3.7 by Kent Beck and Erich Gamma [<A
-  href="http://www.junit.org/" target="blank">link</A>] is already in the source package.
-</LI></UL>The ultimate source of the newest version is the <A
-href="http://sourceforge.net/cvs/?group_id=5840" target="blank">cvs</A> repository at
-sourceforge. <BR>The API documentation is available for <A
-href="http://dresden-ocl.sourceforge.net/download/dresden-ocl-api.tar.gz">download</A>
-or for reading <A
-href="http://dresden-ocl.sourceforge.net/download/api/index.html" target="blank">online</A>.
 
 </body>
 </html>

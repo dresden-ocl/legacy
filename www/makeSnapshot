@@ -6,7 +6,7 @@ rm -rf download/*
 mkdir download
 
 # Was: cp -a ../src/*.jar ../src/build/*.jar ../src/api download
-cp -a ../src/*.jar ../build/*.jar ../api download
+cp  ../src/*.jar ../build/*.jar ../api download
 
 tar c \
   -C ../api \
