@@ -46,6 +46,7 @@ To keep yourself informed about new versions, please subscribe to our <a href="h
 
 
 <p>
+September 25, 2000: numerous bugfixes, moved from xml4j to xerces.<br>
 August 31, 2000: added support for java arrays to be treated as ocl sequences.<br>
 </p>
 
@@ -56,7 +57,7 @@ August 31, 2000: added support for java arrays to be treated as ocl sequences.<b
 If you want to try OCL on real java code, do the following:
 <ol>
 <li>
-Download <a href="download/dresden-ocl.jar">dresden-ocl.jar</a>, <a href="download/royloy.jar">royloy.jar</a> and <a href="download/xml4j.jar">xml4j.jar</a> into a directory.
+Download <a href="download/dresden-ocl.jar">dresden-ocl.jar</a>, <a href="download/royloy.jar">royloy.jar</a> and <a href="download/xerces.jar">xerces.jar</a> into a directory.
 <br>
 <font color="red"><b>Problems</b> when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.</font>
 </li>
@@ -70,7 +71,7 @@ jar -xf royloy.jar
 <li>
 Compile the example ocl expressions and put them into the java code: (copy&amp;paste <a href="paste.txt">without line breaks</a>)
 <pre>
-java -cp .:dresden-ocl.jar:xml4j.jar tudresden.ocl.injection.Main \
+java -cp .:dresden-ocl.jar:xerces.jar tudresden.ocl.injection.Main \
   --constraint-file  tudresden/ocl/test/royloy/oclexpressions \
   --reflection-model tudresden.ocl.test.royloy \
   --name-adapter      argo \
@@ -89,13 +90,13 @@ To fix, recompile the <a href="download/dresden-ocl-src.tar.gz">sources</a> with
 <li>
 Compile the example:
 <pre>
-javac -classpath dresden-ocl.jar:xml4j.jar tudresden/ocl/test/royloy/*.java
+javac -classpath dresden-ocl.jar:xerces.jar tudresden/ocl/test/royloy/*.java
 </pre>
 </li>
 <li>
 Run the example:
 <pre>
-java -cp .:dresden-ocl.jar:xml4j.jar tudresden.ocl.test.TestInjection
+java -cp .:dresden-ocl.jar:xerces.jar tudresden.ocl.test.TestInjection
 </pre>
 Enjoy the messages about violated ocl constraints.
 </li>
@@ -103,7 +104,7 @@ Enjoy the messages about violated ocl constraints.
 Clean the code:
 (again <a href="paste.txt">without line breaks</a>)
 <pre>
-java -cp .:dresden-ocl.jar:xml4j.jar tudresden.ocl.injection.Main \
+java -cp .:dresden-ocl.jar:xerces.jar tudresden.ocl.injection.Main \
   --clean \
   --modify tudresden/ocl/test/royloy/*.java
 </pre>
@@ -118,12 +119,12 @@ Of course you may try this on your own java code.
 If you want to use the ocl compiler standalone, do the following:
 <ol>
 <li>
-Download <a href="download/dresden-ocl.jar">dresden-ocl.jar</a> and <a href="download/xml4j.jar">xml4j.jar</a> into a directory.
+Download <a href="download/dresden-ocl.jar">dresden-ocl.jar</a> and <a href="download/xerces.jar">xerces.jar</a> into a directory.
 <br>
 <font color="red"><b>Problems</b> when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.</font>
 </li>
 <li>Change into that directory.</li>
-<li>Type <pre>java -cp dresden-ocl.jar:xml4j.jar tudresden.ocl.ConstraintEvaluation</pre> at the command prompt.</li>
+<li>Type <pre>java -cp dresden-ocl.jar:xerces.jar tudresden.ocl.ConstraintEvaluation</pre> at the command prompt.</li>
 <li>A window pops up. There you can enter constraints, check them against a model and generate java code.</li>
 </ol>
 <p>
@@ -148,13 +149,13 @@ Download <a href="download/ocl-argo.jar">ocl-argo.jar</a> (a subset of dresden-o
 <li>Restart Argo/UML.</li>
 <li>Use the tab &quot;Constraints&quot; in the lower section of the Argo/UML main window.</li>
 </ol>
-You do not need xml4j.jar, since this is already part of Argo/UML.
+You do not need xerces.jar, since this is already part of Argo/UML.
 </dd>
 
 <dt><b>Sources</b></dt>
 <dd>
 The complete source including test suites is available in <a href="download/dresden-ocl-src.tar.gz">dresden-ocl-src.tar.gz</a>.
-For compiling, you need <a href="download/xml4j.jar">xml4j.jar</a> and <a href="download/test.jar">test.jar</a>.
+For compiling, you need <a href="download/xerces.jar">xerces.jar</a> and <a href="download/test.jar">test.jar</a>.
 Note, that the ultimate source of the current version is the <a href="http://sourceforge.net/cvs/?group_id=5840">cvs repository</a> at sourceforge.
 </dd>
 <dt><b>Documentation</b></dt>
@@ -176,9 +177,15 @@ visit the original websites.
 
 <ul>
 <li>
+<a href="download/xerces.jar">xerces.jar</a>:
+Xerces version 1.2.0 by <a href="http://xml.apache.org/xerces-j/index.html">Apache</a>,
+needed for dresden-ocl.jar, but not for ocl-argo.jar.
+</li>
+<li>
 <a href="download/xml4j.jar">xml4j.jar</a>:
 XML4J version 2.0.4 by <a href="http://www.ibm.com">IBM</a> Alphaworks,
 needed for dresden-ocl.jar, but not for ocl-argo.jar.
+<b>OBSOLETE</b>, replaced by xerces.
 </li>
 <li>
 <a href="download/test.jar">test.jar</a>:
