@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>                                     
+    <title>Dresden OCL Toolkit - Introduction</title>
+    <link rel="stylesheet" type="text/css" href="ocltoolkit.css" />
+  </head>
+  
+  <!--#include virtual="_header.ssi" -->
+
+       <h1>Introduction</h1>
+
+ <!--#include virtual="_menu.html" -->
+
+<h2>Modules of the Dresden OCL Toolkit 2.0</h2>
+<p>The Dresden OCL Toolkit for OCL2.0 currently consists of the following elements:</p>
+
+<h3>Common OCL Metamodel</h3>
+<p>The whole toolkit is metamodel-based and relies on a common metamodel derived
+from the MOF14 and UML15 metamodels.</p>
+
+<h3>Metadata Repository (MDR)</h3>
+<p>All models and metamodels (MOF14, UML15 and our common OCL metamodel) are
+stored in a metadata repository. We use NetBeans'
+<a href="http://mdr.netbeans.org/">metadata repository implementation</a>.</p>
+
+<h3>JMI-based (meta-) model API</h3>
+<p>Using the MDR and our metamodels, we are able to generate Java interfaces for
+accessing models in the MDR.</p>
+
+<h3>OCL Standard Library</h3>
+<p>We adapted our well proven "OCL-Basisbibliothek" by Frank Finger to fit the new,
+metamodel-based architecture.</p>
+
+<h3>OCL2.0 Parser</h3>
+<p>Our OCL2.0 parser is based on a tailored, hand-optimized L-attributed grammar
+of OCL2.0. We feed it to an enhanced version of the popular LALR(1) parser generator
+<a href="http://www.sablecc.org/">SableCC</a> to create lexer, syntax analyzer
+("parser") and an abstract attribute evaluator skeleton. The implementation class
+of the attribute evaluator is derived from the abstract skeleton by inheritance.</p>
+
+<p>The parser uses two passes. Pass one creates a concrete syntax tree from the
+textual constraint. During pass two, the attribute evaluator performs the
+transformation from CST to AST.</p>
+
+<h3>Code generator/constraint evaluator</h3>
+<p>The OCL 2.0 workbench is a demo application which allows you to load MOF14 based
+models, create constraints over these models, generate code for them and evaluate
+the constraints in the context of a concrete model (M1)</p>
+
+<h3>OCL2.0 parser GUI</h3>
+<p>This demo application shows the OCL2.0 parser in action. It allows you to load or
+edit textual OCL constraints, load UML15 models through XMI import and parse the
+constraints in the context of the model loaded. After parsing, the constraints will
+be attached to their contextual model elements and you can export the enhanced
+model using XMI export.</p>
+
+
+<!--#include virtual="_footer.ssi" -->
+
+</html>
