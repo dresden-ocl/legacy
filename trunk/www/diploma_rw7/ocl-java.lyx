@@ -1,4 +1,4 @@
-#This file was created by <wiera> Mon Dec 11 13:42:55 2000
+#This file was created by <wiera> Mon Dec 11 14:28:18 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -308,7 +308,7 @@ Task
 \layout Standard
 
 This work aims to extend the OCL compiler developed by Frank Finger with
- a java source code instrumentation.
+ a java source code instrumentation tool.
  
 \begin_inset LatexCommand \cite{ff3}
 
@@ -4536,9 +4536,9 @@ The tool has been experimented with using the java source code of an industrial
 \layout Standard
 
 The OCL tool is still far from being complete.
- Some ideas for future work are discussed in the next section.
- However, the tool seems to be in a state, where some courageous early adopters
- could actually start using it for some real world task.
+ Some ideas for future work are discussed in the next chapter.
+ However, the tool seems to be in a condition, where some courageous early
+ adopters could actually start using it for some real world task.
  
 \layout Chapter
 
@@ -4683,7 +4683,7 @@ These considerations suggest, that there is still some investigation and
  by Contract.
 \layout Standard
 
-Anyway, the ultimate solution to bring DbC into java would an extension
+Anyway, the ultimate solution to bring DbC into java would be an extension
  of the java language.
  Only then it will be easy and stable enough for a wide spread use in industry.
  Such an extention should be possible without breaking byte code compatibility,
