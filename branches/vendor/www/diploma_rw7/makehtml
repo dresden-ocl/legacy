@@ -1,0 +1,25 @@
+#!/bin/bash
+
+TEX=$1
+HTML=$2
+
+mkdir $HTML
+
+latex2html \
+  -dir $HTML \
+  -html_version 3.0 \
+  -split 0 \
+  -notransparent \
+  -white \
+  -up_url "../intro.html" \
+  -up_title "Start" \
+  -lcase_tags \
+  $TEX
+
+rm $HTML\/index.html
+tidy -m  -wrap 100000 $HTML\/*.html
+rm -f $HTML\/*.old
+chmod a+r $HTML\/*.html $HTML\/*.css
+## $HTML\/*.png
+
+
