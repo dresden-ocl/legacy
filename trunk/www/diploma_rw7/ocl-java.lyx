@@ -1,4 +1,4 @@
-#This file was created by <wiera> Fri Aug 11 15:47:24 2000
+#This file was created by <wiera> Mon Aug 14 12:45:55 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -98,6 +98,14 @@ n-ocl.sourceforge.net/.
 \layout Chapter
 
 Introduction
+\layout Standard
+
+Simpler approach in 
+\begin_inset LatexCommand \cite{kbeans}
+
+\end_inset 
+
+, easier to write, less complex, but less flexible.
 \layout Section
 
 OCL and Extreme Programming
@@ -1714,8 +1722,7 @@ Decision Support: Giving hints to the developer.
 \end_inset 
 
 ).
- There is a special indication, if several hints suggest different element
- types.
+ There is a special indication, if several hints suggest different types.
 \layout Section
 
 Static Information
@@ -1809,13 +1816,45 @@ Runtime Type Tracing
 
 \layout Standard
 
-This section describes, how to trace the contents of collections on runtime.
-\layout Itemize
+This section describes, how to trace element types of collections on runtime.
+ This is useful, if there is no static type informtion available, as described
+ in the previous section.
+ 
+\layout Standard
 
-Enrich the code with tracing the object types inside collections.
-\layout Itemize
+For each collection attribute, the object types encountered during a run
+ of the program are collected and fed into the interactive tool.
+ This requires the program to be executable.
+ Additionally there must be extensive test cases available, otherwise only
+ a subset of all possible element types will be encountered.
+\layout Standard
 
-compile and run the program (regression tests if available)
+The interactive tool presents the set of object types for every collection
+ attribute.
+ Additionally, the tool higlights all types, for which there is no super
+ type in this set.
+ Formally, this is local minima of the set respective to the generalization
+ partial order.
+ These local minima are good candidates for a element type, especcially
+ if there are many types encountered in the collection attribute.
+\layout Paragraph
+
+Implementation.
+\layout Standard
+
+Basicly, the ocl injector makes a static method 
+\family typewriter 
+traceTypes
+\begin_float footnote 
+\layout Standard
+
+actually 
+\family typewriter 
+tudresden.ocl.injection.lib.TypeTracer.traceTypes
+\family default 
+.
+\end_float 
+ to be executed whenever a collection attribute changes it's contents.
 \layout Chapter
 
 Maintaining the OCL Compiler
@@ -2022,7 +2061,7 @@ Frank Finger.
  Design and Implementation of a Modular OCL Compiler.
  Diplomarbeit.
  TU-Dresden 2000.
- http://www-st.inf.tu-dresden.de/ocl/
+ http://dresden-ocl.sourceforge.net/
 \layout Bibliography
 \bibitem [WK99]{Warmer}
 
@@ -2050,4 +2089,10 @@ James Gosling, Bill Joy, Guy Steele.
  The Java Language Specification.
  Edition 1.0.
  August 1996.
+\layout Bibliography
+\bibitem [KSR00]{kbeans}
+
+Holger Knublauch, Martin Sedlmayr, Thomas Rose.
+ Design Patterns for the Implementation of Constraints on JavaBeans.
+ TODO http://www.faw.uni-ulm.de/kbeans/
 \the_end
