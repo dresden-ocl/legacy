@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Dec 13 22:14:37 2000
+#This file was created by <wiera> Wed Dec 13 22:16:50 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -31,10 +31,6 @@
 Diploma Thesis:
 \newline 
 Utility Support for Checking OCL Business Rules in Java Programs
-\newline 
----DRAFT---
-\newline 
----scheduled for 12/2000---
 \layout Author
 
 Ralf Wiebicke
