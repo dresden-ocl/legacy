@@ -43,9 +43,65 @@ To keep yourself informed about new versions, please subscribe to our <a href="h
 <p>This software is published under the <a href="http://www.gnu.org/copyleft/lesser.html">GNU Lesser General Public License</a> (<a href="download/COPYING">txt</a>).</p>
 
 <h2><code>...snapshots</code></h2>
-<p>July 19, 2000</p>
+<p>August 11, 2000</p>
 <dl>
-<dt><b>Standalone</b></dt>
+
+<dt><b>OCL Suite for Java</b></dt>
+<dd>
+If you want to try OCL on real java code, do the following:
+<ol>
+<li>
+Download <a href="download/dresden-ocl.jar">dresden-ocl.jar</a>, <a href="download/royloy.jar">royloy.jar</a> and <a href="download/xml4j.jar">xml4j.jar</a> into a directory.
+<br>
+<font color="red"><b>Problems</b> when downloading with netscape? Select "Save Link As.." in the context menu, instead of just clicking the link.</font>
+</li>
+<li>Change into that directory.</li>
+<li>
+Unzip the example java code in royloy.jar:
+<pre>
+jar -xf royloy.jar
+</pre>
+</li>
+<li>
+Compile the example ocl expressions and put them into the java code: (copy&amp;paste <a href="paste.txt">without line breaks</a>)
+<pre>
+java -cp .:dresden-ocl.jar:xml4j.jar tudresden.ocl.injection.Main
+  -f tudresden/ocl/test/royloy/oclexpressions
+  -r tudresden.ocl.test.royloy
+  -n argo
+  -vm "System.out.println"
+  -m tudresden/ocl/test/royloy/*.java
+</pre>
+The example java code has now been modified.
+</li>
+<li>
+Compile the example:
+<pre>
+javac -classpath dresden-ocl.jar:xml4j.jar tudresden/ocl/test/royloy/*.java
+</pre>
+</li>
+<li>
+Run the example:
+<pre>
+java -cp .:dresden-ocl.jar:xml4j.jar tudresden.ocl.test.TestInjection
+</pre>
+Enjoy the messages about violated ocl constraints.
+</li>
+<li>
+Clean the code:
+(again <a href="paste.txt">without line breaks</a>)
+<pre>
+java -cp .:dresden-ocl.jar:xml4j.jar tudresden.ocl.injection.Main
+  --clean
+  -m tudresden/ocl/test/royloy/*.java
+</pre>
+The example code is now exactly the same as you downloaded it.
+</li>
+</ol>
+Of course you may try this on your own java code.
+</dd>
+
+<dt><b>Compiler Demo</b></dt>
 <dd>
 If you want to use the ocl compiler standalone, do the following:
 <ol>
@@ -59,6 +115,7 @@ Download <a href="download/dresden-ocl.jar">dresden-ocl.jar</a> and <a href="dow
 <li>A window pops up. There you can enter constraints, check them against a model and generate java code.</li>
 </ol>
 </dd>
+
 <dt><b>Argo/UML</b></dt>
 <dd>
 If you want to use the ocl compiler as part of <a href="http://argouml.tigris.org/">Argo/UML</a> do the following:
@@ -74,11 +131,12 @@ Download <a href="download/ocl-argo.jar">ocl-argo.jar</a> (a subset of dresden-o
 </ol>
 You do not need xml4j.jar, since this is already part of Argo/UML.
 </dd>
+
 <dt><b>Sources</b></dt>
 <dd>
 The complete source including test suites is available in <a href="download/dresden-ocl-src.tar.gz">dresden-ocl-src.tar.gz</a>.
 For compiling, you need <a href="download/xml4j.jar">xml4j.jar</a> and <a href="download/test.jar">test.jar</a>.
-Note, that the ultimate source of the current verion is the <a href="http://sourceforge.net/cvs/?group_id=5840">cvs repository</a> at sourceforge.
+Note, that the ultimate source of the current version is the <a href="http://sourceforge.net/cvs/?group_id=5840">cvs repository</a> at sourceforge.
 </dd>
 <dt><b>Documentation</b></dt>
 <dd>
