@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Dec 13 14:27:21 2000
+#This file was created by <wiera> Wed Dec 13 22:14:37 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -1245,7 +1245,11 @@ Method wrappers, explained detailed in section
 \layout Enumerate
 
 Explicit package qualifiers for the OCL library in the generated code.
- Otherwise, an import statement for the OCL library would be necessary.
+ Otherwise, an 
+\family typewriter 
+import
+\family default 
+ statement for the OCL library would be necessary.
  This would be just another spot, were the original source code had to be
  touched.
  Additionally, this may introduce name conflicts between OCL library and
@@ -1371,7 +1375,7 @@ The instrumented code must check, that container attributes comply to the
  
 \layout Standard
 
-Note, that this feature may be be used standalone, without OCL expressions
+Note, that this feature may be used standalone, without OCL expressions
  at all.
  Then it provides a runtime check for typed collections.
 \layout Section
@@ -1437,7 +1441,7 @@ Sections
 
 \end_inset 
 
-, 
+ and 
 \begin_inset LatexCommand \ref{sec: compareByteCodeInstr}
 
 \end_inset 
@@ -1750,7 +1754,7 @@ Wrapping Constructors
 \layout Standard
 
 Another transformation is used for constructors, since they cannot be renamed.
- Suppose a example constructor
+ Suppose an example constructor.
 \layout LyX-Code
 
 SomeClass(String x)
@@ -3064,7 +3068,7 @@ HashExact
 \begin_float footnote 
 \layout Standard
 
-all the source code is in 
+All the source code is in 
 \family typewriter 
 tudresden.injection.lib.Hash*.java
 \family default 
@@ -4017,13 +4021,13 @@ traceTypes
 \begin_float footnote 
 \layout Standard
 
-actually 
+Actually 
 \family typewriter 
 tudresden.ocl.injection.lib.TypeTracer.traceTypes
 \family default 
 .
 \end_float 
- to be executed whenever a collection attribute changes it's contents.
+ to be executed whenever a collection attribute changes its contents.
  Class 
 \family typewriter 
 TypeTracer
@@ -4044,7 +4048,7 @@ Byte Code Analysis
 
 This section describes how type information can be extracted from java byte
  code.
- This technology and it's implementation (called Superwomble) was developed
+ This technology and its implementation (called Superwomble) was developed
  by Daniel Jackson and Allison Waingold at the MIT.
  This section outlines the parts of their paper (
 \begin_inset LatexCommand \cite{womble}
@@ -4118,7 +4122,11 @@ Object
 Person
 \family default 
 .
- This is a good hint, that the element type of employees is 
+ This is a good hint, that the element type of 
+\family typewriter 
+employees
+\family default 
+ is 
 \family typewriter 
 Person
 \family default 
@@ -4457,7 +4465,7 @@ The product is a three tier solution providing a business directory service.
 \layout Standard
 
 The experiments where limited to the business logic module.
- It consist of 245 classes and 17131 lines of code.
+ It consists of 245 classes and 17131 lines of code.
  Persistence is realized using the Versant ODBMS and the Java Versant Interface
  (JVI) 
 \begin_inset LatexCommand \cite{Versant}
@@ -5465,7 +5473,7 @@ Code Fragments for @pre
 \layout Standard
 
 Meaning of code fragments created for @pre expressions (TRANSFER, PREPARATION,
- CODE) has been changed.
+ POST) has been changed.
  The new behavior is easier and more flexible for different code instrumentation
  tools.
  For a description of the new behavior see section 
@@ -6169,7 +6177,7 @@ Specifies the java packages containing the model covered.
 \family typewriter 
 context Person
 \family default 
-, the type checker will look for class Person in all package given by this
+, the type checker will look for class Person in all packages given by this
  option.
  This is some kind of 
 \begin_inset Quotes eld
