@@ -1,4 +1,4 @@
-#This file was created by <wiera> Fri Oct  6 18:15:38 2000
+#This file was created by <wiera> Mon Oct  9 18:33:31 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -68,7 +68,9 @@ copyright
 \latex default 
 
 \protected_separator 
-2000 Ralf Wiebicke and published under the GNU Lesser General Public License.
+2000 Ralf Wiebicke and published under the GNU Lesser General Public License
+ (LGPL).
+ Additional source code was developed by Steffen Zschaler under LGPL.
 \layout Section*
 
 Availability
@@ -118,6 +120,14 @@ Sections
 \end_inset 
 
  and following.
+\layout Enumerate
+
+Section 
+\begin_inset LatexCommand \ref{sec: compareJass}
+
+\end_inset 
+
+.
 \layout Standard
 
 
@@ -145,23 +155,30 @@ Related Work
 Constraint Checkers
 \layout Standard
 
-Jass (
-\begin_inset LatexCommand \cite{jassWeb}
+JMSAssert (
+\begin_inset LatexCommand \cite{JMSAssert}
 
 \end_inset 
 
-) is a preprocessor for java assertions developed at the University of Oldenburg
- (
-\begin_inset LatexCommand \cite{jassDiplom}
+) provides OCL for java.
+ Constraints are embedded into java doc comments.
+ The tool links into the JVM to make the constraints checked.
+ This approach does not involve source code modification.
+ This makes it easier to use, but also platform dependent (currently Windows
+ only).
+ It also requires just-in-time compilers to be switched off.
+ Binaries are available at no cost.
+\layout Standard
+
+Also Cybernetic Intelligence develops an OCL compiler (
+\begin_inset LatexCommand \cite{Cybernetic}
 
 \end_inset 
 
 ).
- Apart from class invariants and method pre/postconditions it provides check
- statements (like assert() in C++) and loop invariants/variants.
- Assertions are expressed in java, extended by universal and existential
- quantifiers.
- Jass is available under GPL.
+ The current prototype claims to support syntax checking only.
+ Type checking is under development.
+ Frontends are available for Select Enterprise and Rational Rose.
 \layout Standard
 
 Elixir claims OCL support in it's CASE tool and it's java IDE.
@@ -211,6 +228,50 @@ getAgeMinValue() {return
 \layout Section
 
 Code Instrumentation
+\layout Standard
+
+Jass (
+\begin_inset LatexCommand \cite{jassWeb}
+
+\end_inset 
+
+) is a preprocessor for java assertions developed at the University of Oldenburg
+ (
+\begin_inset LatexCommand \cite{jassDiplom}
+
+\end_inset 
+
+).
+ Apart from class invariants and method pre/postconditions it provides check
+ statements (like assert() in C++) and loop invariants/variants.
+ Assertions are expressed in java, extended by universal and existential
+ quantifiers.
+ Jass approaches a task similarly to code injection presented in this paper
+ with different means.
+ Section 
+\begin_inset LatexCommand \ref{sec: compareJass}
+
+\end_inset 
+
+ provides a detailed comparison.
+ Jass is available under GPL.
+\layout Standard
+
+There is a universal code instrumentation toolkit (
+\begin_inset LatexCommand \cite{CodeInstrumentation}
+
+\end_inset 
+
+) for java available.
+ It parses java files into parse trees, preserving white space and comments.
+ The parse tree can be modified and written back into the file.
+ There are various applications for this, including tracing of program execution.
+ The code injection presented in this paper could probably realized using
+ this tool.
+ However, the parser reads the full java structure, thus is much more heavy-weig
+ht than the parser developed with this paper.
+ There is a test version available at no cost, limited in the size of source
+ programs it can handle.
 \layout Section
 
 Reverse Engineering
@@ -811,6 +872,11 @@ The main task of code injection is to have some code executed immediately
 \layout Subsection
 
 A Simple Approach
+\begin_inset LatexCommand \label{sec: SimpleApproach}
+
+\end_inset 
+
+
 \layout Standard
 
 A straight-forward solution would add the code directly into the method.
@@ -855,6 +921,21 @@ An implementation would need a complete java parser, which touches the original
 Additionally, item 4 requires much of the semantic analysis performed by
  a java compiler.
  This makes the simple approach very hard to implement.
+ 
+\layout Standard
+
+Jass (
+\begin_inset LatexCommand \cite{jassWeb}
+
+\end_inset 
+
+) uses this simple approach, and encounters all the problems mentioned above.
+ For a detailed comparison see section 
+\begin_inset LatexCommand \ref{sec: compareJass}
+
+\end_inset 
+
+.
 \layout Standard
 
 Method wrappers solve all these problems in a nifty but simple way.
@@ -1343,7 +1424,7 @@ flags 15
 
 \layout Caption
 
-Java Parser Output
+Design of Java Parser 
 \begin_inset LatexCommand \label{fig: JavaParser}
 
 \end_inset 
@@ -1357,7 +1438,7 @@ The parser analyses things which are relevant for the parse tree only.
  These skipped parts may not even compile.
  As long as the parenthesis balance is held, the java parser will process
  them correctly.
-\layout Section
+\layout Subsection
 
 Comparison to Jass
 \begin_inset LatexCommand \label{sec: compareJass}
@@ -1365,6 +1446,99 @@ Comparison to Jass
 \end_inset 
 
 
+\layout Standard
+
+Jass (
+\begin_inset LatexCommand \cite{jassWeb}
+
+\end_inset 
+
+) is a precompiler for checking assertions in java.
+ It translates jass files into java.
+ Jass files are valid java source code with assertions specified in comments.
+ The generated java file contains additional code checking these assertions.
+ Thus, jass performs something similar to code injection presented in the
+ sections above.
+ 
+\layout Standard
+
+However, jass directly inserts generated code into user code as described
+ in section 
+\begin_inset LatexCommand \ref{sec: SimpleApproach}
+
+\end_inset 
+
+.
+ Thus the problems found there should occur in jass too:
+\layout Enumerate
+
+
+\emph on 
+The code to be executed after the method has to be inserted before any return
+ statement.
+\newline 
+
+\emph toggle 
+This is done by jass.
+ Thus, it requires a full java parser (JavaCC here).
+\layout Enumerate
+
+
+\emph on 
+The return expression has to be computed in advance.
+\emph toggle 
+
+\newline 
+This is also done by jass.
+\layout Enumerate
+
+
+\emph on 
+There may be name conflicts beetween the original and the generated code.
+\emph toggle 
+
+\newline 
+Jass just defines a number of names (i.e.
+ 
+\family typewriter 
+jassResult
+\family default 
+), which cannot be used in the user code.
+\layout Enumerate
+
+
+\emph on 
+For methods with return type void it must be decided, whether the end of
+ the method is a reachable point of code.
+\emph toggle 
+
+\newline 
+This is a known problem of jass.
+ It will simply fail in such cases.
+ There is a work around: enclose the method body into a 
+\family typewriter 
+if(true){...}
+\family default 
+ statement.
+\layout Standard
+
+Jass performs a complex modification of the java source code.
+ This modification cannot be reversed as described in section 
+\begin_inset LatexCommand \ref{Sec:injection_requirements_reversable}
+
+\end_inset 
+
+.
+ Thus, jass must be run before compilation whenever the source code has
+ changed.
+ Additionally, the source code repository must hold jass files instead of
+ java, which causes lots of inconvenience for existing projects.
+\layout Standard
+
+Jass cannot use wrapper methods, since this would not allow loop invariants
+ and check statements to be implemented.
+ But without these features as in ocl, method wrappers are much better than
+ direct injection.
 \layout Section
 
 Scope of Invariants
@@ -3381,17 +3555,46 @@ Detlef Bertetzko.
 \bibitem [JASS]{jassWeb}
 
 The Jass Page.
- http://semantik.informatik.uni-oldenburg.de/~jass/
+ http://semantik.informatik.uni-oldenburg.de/~jass/.
+\layout Bibliography
+\bibitem [MMS]{JMSAssert}
+
+Man Machine Systems.
+ JMSAssert.
+ http://www.\SpecialChar \-
+mmsindia.\SpecialChar \-
+com/\SpecialChar \-
+JMSAssert.html.
 \layout Bibliography
 \bibitem [iCt]{iContract}
 
 iContract.
- http://www.reliable-systems.com/tools/iContract/iContract.htm.
+ http://www.reliable-systems.com/tools/iContract/\SpecialChar \-
+iContract.htm.
 \layout Bibliography
 \bibitem [ELX]{elixir}
 
 Elixir Technology Pte Ltd.
  http://www.elixirtech.com/index.html
+\layout Bibliography
+\bibitem [CMA]{CodeInstrumentation}
+
+Glen McCluskey & Associates LLC.
+ Java Test Coverage and Instrumentation Toolkits.
+ http://www.\SpecialChar \-
+glenmccl.\SpecialChar \-
+com/\SpecialChar \-
+instr/\SpecialChar \-
+index.htm
+\layout Bibliography
+\bibitem [CIG]{Cybernetic}
+
+Cybernetic Intelligence GmbH.
+ OCL Compiler.
+ http://www.\SpecialChar \-
+cybernetic.\SpecialChar \-
+org/\SpecialChar \-
+prodocl.htm
 \layout Bibliography
 \bibitem [OIJV]{jvision}
 
