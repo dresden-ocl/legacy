@@ -1,4 +1,4 @@
-#This file was created by <wiera> Fri Dec  8 21:36:58 2000
+#This file was created by <rw7> Sat Dec  9 23:39:56 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -4441,7 +4441,10 @@ Anyway, the ultimate solution to bring DbC into java would an extension
  as shown with the addition of inner classes in JDK 1.1.
 \layout Section
 
-Compatibility with CASE Tools
+Integration with CASE Tools
+\layout Subsection
+
+Code Generation
 \layout Standard
 
 The OCL toolkit works with arbitrary java source code.
@@ -4462,9 +4465,9 @@ If the CASE tool is able to store OCL constraints, there should be some
 
 \end_inset 
 
-) for easier browsing and editing.
- This should be easy for CASE tools with the source code available, otherwise
- the feasibility depends on API's of the CASE tool.
+), providing a single source solution.
+ This should be easy to implement for CASE tools with the source code available,
+ otherwise the feasibility depends on API's of the CASE tool.
 \layout Paragraph
 
 Export of Element Types.
@@ -4474,7 +4477,7 @@ Even more important is the export of
 \family typewriter 
 @element-type
 \family default 
- tags (section 
+ javadoc tags (section 
 \begin_inset LatexCommand \ref{Sec:element_type_tag}
 
 \end_inset 
@@ -4483,33 +4486,169 @@ Even more important is the export of
  These are needed for type checking of constraints.
  The feasibility of such an extension depends again on the availability
  of either the source code or suitable API's.
+\layout Paragraph
+
+Removing Name Adapters.
 \layout Standard
 
-Name Adapters
+Code generators of Argo/UML, Rational Rose and Together/J require the usage
+ [Einsatz] of name adapters.
+ This is, since an association end called 
+\family typewriter 
+employers
+\family default 
+ does not result in an collection attribute of the same name, as one would
+ expect.
+ Instead, the attribute is called 
+\family typewriter 
+myEmployers
+\family default 
+, 
+\family typewriter 
+theEmployers
+\family default 
+ or 
+\family typewriter 
+lnkEmployers
+\family default 
+, depending on the CASE tool.
+ The neccesary translation is encapsulated in name adapters.
+ It would be nice to have the original name used.
+ This would remove the need for name adapters, making the OCL toolkit and
+ its application a bit less complex.
+\layout Subsection
+
+Reverse Engineering 
 \layout Standard
 
-Reverse Engineering from Java to UML
+The OCL toolkit provides support for inserting and validating 
+\family typewriter 
+@element-type
+\family default 
+ javadoc tags into arbitrary source code.
+ This information could be used for reverse engineering from Java to UML.
 \layout Standard
 
-@element-type, additional @back +checking
+This significantly changes the way of reverse engineering: Up to now, a
+ CASE tool analyses the source code, and wherever there is some information
+ missing (particularly the element type of container attributes) it makes
+ some simple assumptions.
+ In a second step, the user is expected to review the results and adjust
+ them [korrigieren] where necessary.
+\layout Standard
+
+The OCL toolkit can be used to swap the order of steps.
+ First, the missing information is inserted into the source code in form
+ of 
+\family typewriter 
+@element-type
+\family default 
+ tags.
+ This information is then used by the CASE tool to [geradewegs] produce
+ a correct UML model.
+ The advantage is, that the additional information can be verified using
+ the runtime checks provided by the OCL toolkit.
+\layout Standard
+
+Of course, the 
+\family typewriter 
+@element-type
+\family default 
+ tag does not provide all the needed information.
+ For instance bidirectional associations cannot be determined[bestimmt],
+ since they cannot be distinguished from two independent one-way associations.
+ This could be approached by introducing some kind of 
+\family typewriter 
+@reverse-direction
+\family default 
+ tag.
+ Given the infrastructure already provided, such extensions should be easy
+ to implement.
+\layout Standard
+
+These considerations suggest, that the OCL toolkit together with a CASE
+ tool could be extended into a complete round trip engineering solution.
+ This would include special support for starting the round trip at the 
+\begin_inset Quotes eld
+\end_inset 
+
+java side
+\begin_inset Quotes erd
+\end_inset 
+
+ of the circle.
 \layout Section
 
-Other
+Others
+\layout Paragraph
+
+Reduce Observed Attributes.
 \layout Standard
 
-minimize observed attributes
+Caching of invariants requires observing object attributes for modifications.
+ Up to now, all attributes found in the java source code are observed, regardles
+s whether they are used in some OCL expression or not.
+ This could be reduced to those attributes, which are actually referred
+ to in any of the constraints.
+ This would significantly improve runtime efficiency of the instrumented
+ code.
+ For an implementation one would probably intercept the OCL type checker
+ to get the necessary information.
+\layout Paragraph
+
+Observing Queries.
 \layout Standard
 
-observing methods(queries) additional step of indirection
+Caching the results of invariants (section 
+\begin_inset LatexCommand \ref{Sec:structuralScope}
+
+\end_inset 
+
+) requires observing of both attributes and query methods.
+ However, observing queries has not been implemented.
+ The entire [ganze] approach to caching requires a significant memory overhead.
+ Observing queries will make this even worse by introducing another step
+ of indirection.
+ This should not be done [in Angriff nehmen] before this approach has shown
+ to be functional for big projects with many and complex invariants.
+\layout Paragraph
+
+Java Constraints.
 \layout Standard
 
-java constraints
+Constraints could be expressed in Java instead of OCL.
+ This may be useful for developers, who are unfamiliar with UML and OCL.
+ An advantage is, that such a tool would be dramatically smaller and faster.
+ A serious drawback is the loss of some quite comfortable functionality
+ of OCL, such as universal and existential quantifiers.
+ Furthermore, caching of invariants for java constraints requires much more
+ implementation effort.
+\layout Paragraph
+
+Customizability.
 \layout Standard
 
-more flexible scope of inv/tagged methods
+Simply put, this means more options and probably some kind of configuration
+ file.
+ A good example [Vorbild] is iContract 
+\begin_inset LatexCommand \cite{iContract}
+
+\end_inset 
+
+, which allows to enable constraints independently for packages, classes
+ and methods with a config file.
+ Additionally there could be a more flexible scope of invariants, as suggested
+ in section 
+\begin_inset LatexCommand \ref{Sec:structuralScope}
+
+\end_inset 
+
+.
 \layout Chapter
 \start_of_appendix 
-Maintance of the OCL Toolkit 
+Maintance of the OCL
+\protected_separator 
+Compiler 
 \begin_inset LatexCommand \label{Sec:chapterMaintance}
 
 \end_inset 
@@ -4864,7 +5003,7 @@ Ocl.to<OclType>(OclRoot)
  
 \layout Subsection
 
-Handling of Null Values
+Java Null Values
 \layout Standard
 
 Previous versions handled a special null value for OCL strings.
