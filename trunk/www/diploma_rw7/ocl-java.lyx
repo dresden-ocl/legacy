@@ -1,4 +1,4 @@
-#This file was created by <wiera> Fri Jul 28 13:07:51 2000
+#This file was created by <wiera> Mon Jul 31 13:29:00 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -427,12 +427,12 @@ This is followed by an analysis of requirements for the code injection and
 \layout Standard
 
 Finally sections 
-\begin_inset LatexCommand \ref{Sec:structuralScope}
+\begin_inset LatexCommand \ref{Sec:temporalScope}
 
 \end_inset 
 
  and 
-\begin_inset LatexCommand \ref{Sec:temporalScope}
+\begin_inset LatexCommand \ref{Sec:structuralScope}
 
 \end_inset 
 
@@ -1168,17 +1168,6 @@ void checkOclInvariants();
 This is quite simple and functional.
 \layout Section
 
-Structural Scope of Invariants
-\begin_inset LatexCommand \label{Sec:structuralScope}
-
-\end_inset 
-
-
-\layout Standard
-
-when to check which invariants
-\layout Section
-
 Temporal Scope of Invariants
 \begin_inset LatexCommand \label{Sec:temporalScope}
 
@@ -1197,6 +1186,17 @@ transactions
 \layout Standard
 
 refere to tutorial parameters of injector
+\layout Section
+
+Structural Scope of Invariants
+\begin_inset LatexCommand \label{Sec:structuralScope}
+
+\end_inset 
+
+
+\layout Standard
+
+when to check which invariants
 \layout Chapter
 
 Reverse Engineering
