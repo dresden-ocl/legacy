@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Sep 20 19:49:08 2000
+#This file was created by <wiera> Mon Sep 25 17:49:51 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -1195,6 +1195,12 @@ A special case occurs if a class provides no explicit constructor.
  section 8.6.7.
  This default constructor is not wrapped, but replaced by an explicit constructo
 r with the same access modifier.
+\layout Subsection
+
+The problem with inheritance
+\layout Standard
+
+[TODO]
 \layout Section
 
 Cleaning the Code
