@@ -1,4 +1,4 @@
-#This file was created by <wiera> Thu Oct 19 15:39:23 2000
+#This file was created by <wiera> Tue Nov 28 14:14:56 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -136,10 +136,27 @@ Wishlist in
 Related Work
 \layout Standard
 
-constraint checking and source code modification is in constraint checking
+This chapter lists both papers and software related to this diploma thesis.
+ For some of the work there is a detailed comparison in subsequent chapters.
+ 
 \layout Section
 
-Constraint Checkers
+Runtime Constraint Checking 
+\begin_inset LatexCommand \label{Sec:relatedConstraints}
+
+\end_inset 
+
+
+\layout Standard
+
+This section lists tools, which perform runtime constraint checking on java
+ programs, more or less similar to the tool developed in chapter 
+\begin_inset LatexCommand \ref{Sec:chapterCodeInjection}
+
+\end_inset 
+
+.
+ 
 \layout Standard
 
 JMSAssert (
@@ -155,17 +172,6 @@ JMSAssert (
  only).
  It also requires just-in-time compilers to be switched off.
  Binaries are available at no cost.
-\layout Standard
-
-Cybernetic Intelligence develops an OCL compiler (
-\begin_inset LatexCommand \cite{Cybernetic}
-
-\end_inset 
-
-).
- The current prototype claims to support syntax checking only.
- Type checking is under development.
- Frontends are available for Select Enterprise and Rational Rose.
 \layout Standard
 
 Several approaches instrument java byte code to make constraints checked,
@@ -252,13 +258,11 @@ getAgeMinValue() {return
  Most OCL constraints I used in the development of the OCL toolkit also
  could have been expressed with such simple means.
  Constrained classes must be valid JavaBeans.
- Also, the class must announce the change of attributes manually.
+ Also, the class must announce the modification of attributes manually to
+ have the constraints reevaluated.
  KBeans is released under GPL.
  Additionally there is a GUI for simulating an object population and checking
  constraints against it.
-\layout Section
-
-Code Instrumentation
 \layout Standard
 
 Jass (
@@ -288,25 +292,203 @@ Jass (
  Jass is available under GPL.
 \layout Standard
 
-There is a universal code instrumentation toolkit (
-\begin_inset LatexCommand \cite{CodeInstrumentation}
+The following table summarizes the tools introduced above
+\layout Standard
+\added_space_top 0.3cm \added_space_bottom 0.3cm \align center \LyXTable
+multicol5
+13 4 0 0 -1 -1 -1 -1
+1 1 0 0
+1 0 0 0
+0 1 0 0
+0 0 0 0
+0 1 0 0
+0 0 0 0
+0 1 0 0
+0 1 0 0
+0 0 0 0
+0 1 0 0
+0 1 0 0
+0 0 0 0
+0 1 0 0
+8 1 1 "" ""
+8 1 0 "" ""
+8 1 0 "" ""
+8 1 1 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
 
-\end_inset 
 
-) available for java.
- It parses java files into parse trees, preserving white space and comments.
- The parse tree can be modified and written back into the file.
- There are various applications for this, including tracing/profiling of
- program execution.
- The code injection presented in this paper could probably be realized using
- this tool.
- However, the parser analyses the complete java file, thus is much more
- heavy-weight than the parser developed with this paper.
- There is a test version available at no cost, limited in the size of source
- programs it can handle.
+\newline 
+Constraint Source
+\newline 
+Verification Method
+\newline 
+Availability
+\newline 
+JMSAssert
+\newline 
+OCL in Javadoc
+\newline 
+links JVM 
+\newline 
+binary
+\newline 
+
+\newline 
+
+\newline 
+(platform dependent)
+\newline 
+
+\newline 
+Handshake
+\newline 
+proprietary language
+\newline 
+byte code instr.
+ / 
+\newline 
+not
+\newline 
+
+\newline 
+
+\newline 
+ proxy system library
+\newline 
+available
+\newline 
+jContractor
+\newline 
+ Java methods
+\newline 
+ byte code instr.
+ /
+\newline 
+not
+\newline 
+
+\newline 
+
+\newline 
+class loader
+\newline 
+available
+\newline 
+iContract
+\newline 
+OCL in Javadoc
+\newline 
+source code instr.
+\newline 
+binary
+\newline 
+kBeans
+\newline 
+predefined constraint
+\newline 
+in special environment
+\newline 
+GPL
+\newline 
+
+\newline 
+types / java methods
+\newline 
+
+\newline 
+
+\newline 
+Jass
+\newline 
+Java fragments in Javadoc
+\newline 
+source code instr.
+\newline 
+GPL
+\newline 
+Dresden 
+\newline 
+OCL in Javadoc
+\newline 
+source code instr.
+\newline 
+LGPL
+\newline 
+
+\newline 
+
+\newline 
+(reversible)
+\newline 
+
 \layout Section
 
 Reverse Engineering
+\begin_inset LatexCommand \label{Sec:relatedReverse}
+
+\end_inset 
+
+
+\layout Standard
+
+This section lists work related to reverse engineering needed in chapter
+ 
+\begin_inset LatexCommand \ref{Sec:chapterModelInformation}
+
+\end_inset 
+
+.
 \layout Standard
 
 A powerful approach to reverse engineering has been developed at the MIT
@@ -344,9 +526,61 @@ JVision
  Collection attributes are simply shown as attributes.
  Instead it analyses, which classes create/use each other.
  This is not nearly as useful as associations.
+\layout Section
+
+Other Related Work
+\layout Standard
+
+Cybernetic Intelligence develops an OCL compiler (
+\begin_inset LatexCommand \cite{Cybernetic}
+
+\end_inset 
+
+).
+ The current prototype claims to support syntax checking only.
+ Type checking is under development.
+ Frontends are available for Select Enterprise and Rational Rose.
+\layout Standard
+
+Several approaches implement OCL upon object repositories, such as USE 
+\begin_inset LatexCommand \cite{USE}
+
+\end_inset 
+
+ and ModelRun 
+\begin_inset LatexCommand \cite{Bold}
+
+\end_inset 
+
+.
+ The object repositories can be populated and animated visually, with OCL
+ constraints continuesly being checked.
+\layout Standard
+
+There is a universal code instrumentation toolkit (
+\begin_inset LatexCommand \cite{CodeInstrumentation}
+
+\end_inset 
+
+) available for java.
+ It parses java files into parse trees, preserving white space and comments.
+ The parse tree can be modified and written back into the file.
+ There are various applications for this, including tracing/profiling of
+ program execution.
+ The code injection presented in this paper could probably be realized using
+ this tool.
+ However, the parser analyses the complete java file, thus is much more
+ heavy-weight than the parser developed with this paper.
+ There is a test version available at no cost, limited in the size of source
+ programs it can handle.
 \layout Chapter
 
 Code Injection
+\begin_inset LatexCommand \label{Sec:chapterCodeInjection}
+
+\end_inset 
+
+
 \layout Standard
 
 Injection of generated code into java programs is the main subject of this
@@ -2874,6 +3108,11 @@ If this is not acceptable to you, implement the iterator method.
 \layout Chapter
 
 Model Information
+\begin_inset LatexCommand \label{Sec:chapterModelInformation}
+
+\end_inset 
+
+
 \layout Standard
 
 The OCL compiler needs model information for type checking.
@@ -5111,6 +5350,34 @@ articles/\SpecialChar \-
 9801/\SpecialChar \-
 9801d/\SpecialChar \-
 9801d.htm
+\layout Bibliography
+\bibitem [RG00]{USE}
+
+Mark Richters, Martin Gogolla.
+ Validating UML Models and OCL Constraints.
+ In Andy Evans and Stuart Kent, editors, Proc.
+ 3rd Int.
+ Conf.
+ Unified Modeling Language (UML'2000).
+ Springer, Berlin, LNCS, 2000.
+ http://www.\SpecialChar \-
+db.\SpecialChar \-
+informatik.\SpecialChar \-
+uni-bremen.\SpecialChar \-
+de/\SpecialChar \-
+projects/USE/
+\layout Bibliography
+\bibitem [BS]{Bold}
+
+BoldSoft.
+ ModelRun.
+ http://www.\SpecialChar \-
+boldsoft.\SpecialChar \-
+com/\SpecialChar \-
+products/\SpecialChar \-
+model\SpecialChar \-
+run/\SpecialChar \-
+index.html
 \layout Bibliography
 \bibitem [ELX]{elixir}
 
