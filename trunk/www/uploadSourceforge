@@ -1,0 +1,15 @@
+rsync \
+  -e ssh \
+  --recursive \
+  --times \
+  --safe-links \
+  --delete \
+  --delete-excluded \
+  --exclude="CVS" \
+  --exclude="uploadSourceforge" \
+  --verbose \
+  --progress \
+  --stats \
+  ./ \
+  rw7@dresden-ocl.sourceforge.net:/home/groups/dresden-ocl/htdocs
+
