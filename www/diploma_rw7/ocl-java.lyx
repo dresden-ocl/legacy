@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Jun 28 13:06:48 2000
+#This file was created by <wiera> Wed Jul 12 10:26:00 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -58,14 +58,35 @@ Permission is granted to copy, distribute and/or modify this document under
  version published by the Free Software Foundation; with no Invariant Sections,
  no Front-Cover Texts, and no Back-Cover Texts.
  A copy of the license is available at http://www.gnu.org/copyleft/fdl.html.
+\layout Standard
+
+The source code developed together with this paper is Copyright 
+\latex latex 
+
+\backslash 
+copyright
+\latex default 
+
+\protected_separator 
+2000 Ralf Wiebicke and published under the GNU Lesser General Public License.
 \layout Section*
 
 Availability
 \layout Standard
 
-This document is available at http://www.inf.tu-dresden.de/~rw7/diplom00/ in
- several electronic forms including PostScript, PDF, Html and the original
- kLyx version.
+This document is available at http://dresden-ocl.sourceforge.net/diploma_rw7/
+ in several electronic forms including 
+\latex latex 
+
+\backslash 
+LaTeX{}
+\latex default 
+, PostScript, PDF, Html and the original kLyx version.
+ 
+\layout Standard
+
+The source code developed together with this paper available at http://dresden-o
+cl.sourceforge.net/.
 \layout Standard
 
 
@@ -112,7 +133,12 @@ Model Information
 Needed for Type Checking.
 \layout Standard
 
-5.3.3
+See 
+\begin_inset LatexCommand \cite{ff3}
+
+\end_inset 
+
+ section 5.3.3
 \layout Standard
 
 There is already the Reflection Facade, which is pretty cool with two exception:
@@ -154,24 +180,10 @@ class Company
 \protected_separator 
 
 \protected_separator 
-All persons currently employed 
-\newline 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-
+All persons employed
 \protected_separator 
 by this company.
 \newline 
-
-\protected_separator 
-
-\protected_separator 
 
 \protected_separator 
 
@@ -191,6 +203,71 @@ by this company.
 
 \protected_separator 
  Collection employees;
+\newline 
+}
+\layout Standard
+
+The this is extended to Maps, which represent qualified associations of
+ the UML model.
+\layout LyX-Code
+
+class Bank
+\newline 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+/**
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+Customers qualified by
+\protected_separator 
+their account number.
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+@element-type Person
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+@key-type Integer
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+*/
+\newline 
+
+\protected_separator 
+ Map customers;
 \newline 
 }
 \layout Standard
@@ -518,6 +595,11 @@ compile and run the program (regression tests if available)
 \layout Chapter
 
 Maintaining the OCL Compiler
+\layout Standard
+
+This chapter decribes all major change to Frank Fingers OCL compiler.
+ This includes bugfixes too, if they caused changes of internal or external
+ interfaces.
 \layout Enumerate
 
 Using reflection in ReflectionFacade and ocl library
@@ -538,6 +620,12 @@ Now its mandatory to provide a NameAdapter to the ocl library.
  
 \layout Enumerate
 
+Added a simplified form of qualified associations to ReflectionFacade and
+ ocl library.
+ Simplification means, that there may be only one qualifier attribute.
+ Qualified associations are represented by java.util.Map.
+\layout Enumerate
+
 New mapping beetween collections in OCL and Java conforming to JDK1.2.
  The special handling of Vector is used for older CodeGenerators.
  (DefaultOclFactory.getOclRepresentationFor(Object) and DefaultReflectionAdapter.g
@@ -545,15 +633,19 @@ etClassForType)
 \layout Standard
 \added_space_top 0.3cm \added_space_bottom 0.3cm \align center \LyXTable
 multicol5
-5 3 0 0 -1 -1 -1 -1
+6 3 0 0 -1 -1 -1 -1
 1 1 0 0
 1 1 0 0
 0 0 0 0
 0 1 0 0
 0 1 0 0
+0 1 0 0
 8 1 0 "" ""
 8 1 0 "" ""
 8 1 1 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
@@ -599,6 +691,12 @@ Set
 -
 \newline 
 Set
+\newline 
+Map
+\newline 
+-
+\newline 
+Set (qualified)
 \end_deeper 
 \layout Enumerate
 
@@ -610,7 +708,7 @@ added OclAny to TypeChecker (DefaultTypeFactory).
  
 \layout Enumerate
 
-Bugfix, removed TypeFactory.getClassifier replaced all calls by TypeFactor.get
+Bugfix, removed TypeFactory.getClassifier - replaced all calls by TypeFactor.get
 \end_deeper 
 \layout Enumerate
 
@@ -629,14 +727,14 @@ explicit package qualifier for ocl library is optionally prepended, replaces
 \begin_deeper 
 \layout Enumerate
 
-Fewer spots were the code ahs to be touched
+Fewer spots were the code has to be touched
 \layout Enumerate
 
 Avoid name confict beetween ocl library and user code.
 \end_deeper 
 \end_deeper 
 \layout Bibliography
-\bibitem [FF]{ff3}
+\bibitem [FF00]{ff3}
 
 Frank Finger.
  Design and Implementation of a Modular OCL Compiler.
