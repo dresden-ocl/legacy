@@ -1,4 +1,4 @@
-#This file was created by <wiera> Tue Aug  8 12:05:47 2000
+#This file was created by <wiera> Tue Aug  8 15:35:50 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -1280,7 +1280,7 @@ The previous section discussed, when we have to make sure, that all invariants
 Design
 \layout Standard
 
-This is achieved with an observer design.
+Caching is realized with an observer design.
  Each invariant determines all object attributes it depends on and registers
  to these attributes as observer.
  Figure 
@@ -1411,9 +1411,12 @@ An feature (attribute or query method) of an object.
 Person.age
 \layout Standard
 
-For now, think of features as attributes only.
- How to deal with query methods is explained later.
- The cycle of checking invariants contains two stages.
+For now, lets think of features as attributes only.
+ How to deal with query methods is explained below.
+ 
+\layout Standard
+
+The cycle of checking invariants contains two stages.
 \layout Enumerate
 
 Evaluating invariants.
@@ -1427,7 +1430,7 @@ Running the model.
  When an attribute changed its value during execution of user code, it notifies
  all observing invariant instances.
  Then, the attribute unregisters all observers, so they must register again
- on the following stage 1.
+ on the next evaluation stage.
 \layout Standard
 
 This design can be extended to query
@@ -1451,7 +1454,7 @@ Operations used in ocl expressions must not have side effects.
 \layout Standard
 \align center 
 
-\begin_inset Figure size 595 238
+\begin_inset Figure size 595 177
 file observingMethods.eps
 width 4 100
 flags 15
@@ -1468,12 +1471,172 @@ Design for Observing Methods
 
 
 \end_float 
+\layout Standard
+
+The point is, that not methods but method invocations are features observed
+ by invariants.
+ A method invocation is a method together with a parameter sequence suitable
+ to invoke this method.
+ 
+\layout Standard
+
+Up to now, the implementation observes attributes only.
 \layout Subsection
 
 Implementation
 \layout Standard
 
 Not all of these classes exist explicitly in the implementation.
+ 
+\emph on 
+Class
+\emph toggle 
+ and 
+\emph on 
+Object
+\emph toggle 
+ are provided by the user model already.
+ 
+\emph on 
+Invariant
+\emph toggle 
+ exists only as an additional method 
+\family typewriter 
+checkOclInvariant_<name>
+\family default 
+ of its context class.
+ 
+\emph on 
+InvariantInstance
+\emph toggle 
+ is an explicit class
+\begin_float footnote 
+\layout Standard
+
+called a bit confusingly 
+\family typewriter 
+tudresden.ocl.injection.lib.Invariant
+\family default 
+.
+\end_float 
+ of the injection library.
+ Finally 
+\emph on 
+Feature
+\emph toggle 
+ is provided by the user model, but cannot be referred as a single java
+ object.
+ (
+\family typewriter 
+java.lang.reflect.Field
+\family default 
+ is a field of a class, not of an object.) Whenever a feature has to be referred,
+ it is represented by it's observer collection object, which sufficient
+ for the needs of this implementation.
+\layout Standard
+
+Changes of object features are detected with polling.
+ For each feature the ocl injector adds a backup to the class.
+ 
+\layout LyX-Code
+
+class Person
+\newline 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+int age;
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+int age_oclbackup=age;
+\newline 
+}
+\layout Standard
+
+Additionally there is a utility method added comparing each attribute to
+ it's backup.
+ If there is a difference, the observers of the attribute are notified.
+ 
+\layout LyX-Code
+
+private void checkForChangedFeatures()
+\newline 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+if(age!=age_oclbackup)
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+age_oclbackup=age;
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+// notify observers of age
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+}
+\layout LyX-Code
+
+
+\protected_separator 
+
+\layout Standard
+
+This method is called immediatly before and after each method of the class.
+ If the attribute contains an object reference, the comparision tests object
+ identity, not object equality.
+ This means, the 
+\family typewriter 
+!=
+\family default 
+ operator is used as for basic types and not the 
+\family typewriter 
+equals()
+\family default 
+ method.
+ For collections the backup stores a hashcode
+\begin_float footnote 
+\layout Standard
+
+see 
+\family typewriter 
+tudresden.ocl.injection.Invariant.identityHashCode
+\family default 
+.
+\end_float 
+ of the collection to avoid the overhead of maintaining a complete backup
+ collection.
 \layout Chapter
 
 Reverse Engineering
