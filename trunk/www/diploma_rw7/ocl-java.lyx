@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Dec 13 11:38:02 2000
+#This file was created by <wiera> Wed Dec 13 11:53:56 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -4829,8 +4829,8 @@ Code Generation
 \layout Standard
 
 The OCL toolkit works with arbitrary java source code.
- Thus, it should be definitely compatible with java code generators of all
- CASE tools.
+ Thus, it is definitely compatible with java code generators of all CASE
+ tools.
  Still, there are some issues to be mentioned.
 \layout Paragraph
 
@@ -4908,7 +4908,7 @@ lnkEmployers
 \family default 
 , depending on the CASE tool.
  The necessary translation is encapsulated in name adapters.
- It would be nice to make code generators using the original name.
+ It would be nice to make code generators use the original name.
  This would remove the need for name adapters, making the OCL toolkit and
  its application a bit less complex.
 \layout Subsection
@@ -4980,7 +4980,12 @@ Others
 Reduce Observed Attributes.
 \layout Standard
 
-Caching of invariants requires observing object attributes for modifications.
+Caching of invariants (section 
+\begin_inset LatexCommand \ref{Sec:structuralScope}
+
+\end_inset 
+
+) requires observing object attributes for modifications.
  Up to now, all attributes found in the java source code are observed, regardles
 s whether they are used in some OCL expression or not.
  This could be reduced to those attributes, which are actually referred
@@ -4994,12 +4999,8 @@ s whether they are used in some OCL expression or not.
 Observing Queries.
 \layout Standard
 
-Caching the results of invariants (section 
-\begin_inset LatexCommand \ref{Sec:structuralScope}
-
-\end_inset 
-
-) requires observing of both attributes and query methods.
+Caching the results of invariants requires observing of both attributes
+ and query methods.
  However, observing queries has not been implemented yet.
  The total approach to caching requires a significant memory overhead.
  Observing queries will make this even worse by introducing another step
@@ -5630,7 +5631,7 @@ public class Person
 \protected_separator 
 
 \protected_separator 
-// TRANSFER 
+// TRANSFER FRAGMENT
 \layout LyX-Code
 
 
@@ -5652,37 +5653,9 @@ public class Person
 
 
 \protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-{
-\layout LyX-Code
-
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
  
 \protected_separator 
-
-\protected_separator 
-// PREPARATION
-\layout LyX-Code
-
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-}
+ getIncomeAfterTaxPRE(tax);
 \layout LyX-Code
 
 
@@ -5696,37 +5669,9 @@ public class Person
 
 
 \protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-{
-\layout LyX-Code
-
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
  
 \protected_separator 
-
-\protected_separator 
-// POST
-\layout LyX-Code
-
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-
-\protected_separator 
-}
+ getIncomeAfterTaxPOST(tax, result);
 \layout LyX-Code
 
 
@@ -5741,6 +5686,78 @@ public class Person
 
 \protected_separator 
  }
+\layout LyX-Code
+
+
+\protected_separator 
+
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+private void getIncomeAfterTaxPRE(double tax)
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+{
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+// PREPARATION FRAGMENT
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+}
+\layout LyX-Code
+
+
+\protected_separator 
+
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+private void getIncomeAfterTaxPOST(double tax, double result)
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+{
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+ // POST FRAGMENT
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+}
 \layout LyX-Code
 
 }
@@ -5782,7 +5799,7 @@ public class Person
 \protected_separator 
 
 \protected_separator 
-// TRANSFER 
+// TRANSFER FRAGEMENT
 \layout LyX-Code
 
 
@@ -5800,7 +5817,7 @@ public class Person
 \protected_separator 
  
 \protected_separator 
- // PREPARATION
+ // PREPARATION FRAGMENT
 \layout LyX-Code
 
 
@@ -5834,7 +5851,7 @@ public class Person
 \protected_separator 
  
 \protected_separator 
- // POST
+ // POST FRAGEMENT
 \layout LyX-Code
 
 
