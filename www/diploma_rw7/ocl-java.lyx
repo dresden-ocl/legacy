@@ -1,4 +1,4 @@
-#This file was created by <wiera> Mon Oct  9 18:33:31 2000
+#This file was created by <wiera> Tue Oct 10 17:09:08 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -91,7 +91,7 @@ The source code developed together with this paper is available at http://dresde
 n-ocl.sourceforge.net/.
 \layout Section*
 
-Neu
+New
 \layout Enumerate
 
 Section 
@@ -122,8 +122,13 @@ Sections
  and following.
 \layout Enumerate
 
-Section 
+Sections 
 \begin_inset LatexCommand \ref{sec: compareJass}
+
+\end_inset 
+
+ and 
+\begin_inset LatexCommand \ref{sec: compareByteCodeInstr}
 
 \end_inset 
 
@@ -150,6 +155,9 @@ Wishlist in
 \layout Chapter
 
 Related Work
+\layout Standard
+
+constraint checking and source code modification is in constraint checking
 \layout Section
 
 Constraint Checkers
@@ -179,6 +187,31 @@ Also Cybernetic Intelligence develops an OCL compiler (
  The current prototype claims to support syntax checking only.
  Type checking is under development.
  Frontends are available for Select Enterprise and Rational Rose.
+\layout Standard
+
+Several approaches instrument java byte code to make constraints checked,
+ such as Handshake (
+\begin_inset LatexCommand \cite{Handshake}
+
+\end_inset 
+
+) and jContractor (
+\begin_inset LatexCommand \cite{jContractor}
+
+\end_inset 
+
+).
+ Section 
+\begin_inset LatexCommand \ref{sec: compareByteCodeInstr}
+
+\end_inset 
+
+ discusses, whether the approach of source code instrumentation presented
+ in this paper is adaptable to byte code instrumentation.
+ Handshake uses separate text files with a non-standard syntax to express
+ class invariants and pre/postconditions.
+ jContractor implements constraints with dedicated java methods.
+ Neither Handshake nor jContractor binaries are publicly available.
 \layout Standard
 
 Elixir claims OCL support in it's CASE tool and it's java IDE.
@@ -262,14 +295,15 @@ There is a universal code instrumentation toolkit (
 
 \end_inset 
 
-) for java available.
+) available for java.
  It parses java files into parse trees, preserving white space and comments.
  The parse tree can be modified and written back into the file.
- There are various applications for this, including tracing of program execution.
- The code injection presented in this paper could probably realized using
+ There are various applications for this, including tracing/profiling of
+ program execution.
+ The code injection presented in this paper could probably be realized using
  this tool.
- However, the parser reads the full java structure, thus is much more heavy-weig
-ht than the parser developed with this paper.
+ However, the parser analyses the complete java file, thus is much more
+ heavy-weight than the parser developed with this paper.
  There is a test version available at no cost, limited in the size of source
  programs it can handle.
 \layout Section
@@ -1532,13 +1566,126 @@ Jass performs a complex modification of the java source code.
  Thus, jass must be run before compilation whenever the source code has
  changed.
  Additionally, the source code repository must hold jass files instead of
- java, which causes lots of inconvenience for existing projects.
+ java, which causes administration effort for existing projects.
 \layout Standard
 
 Jass cannot use wrapper methods, since this would not allow loop invariants
  and check statements to be implemented.
  But without these features as in ocl, method wrappers are much better than
  direct injection.
+\layout Subsection
+
+Comparison to Byte Code Instrumentation
+\begin_inset LatexCommand \label{sec: compareByteCodeInstr}
+
+\end_inset 
+
+
+\layout Standard
+
+This paper is focused on source code instrumentation.
+ Another approach is to modify java byte code.
+ This section discusses, whether it's possible and useful, to apply the
+ concept of method wrappers to byte code instrumentation.
+\layout Standard
+
+Once again I review the problems found in section 
+\begin_inset LatexCommand \ref{sec: SimpleApproach}
+
+\end_inset 
+
+.
+\layout Enumerate
+
+
+\emph on 
+The code to be executed after the method has to be inserted before any return
+ statement.
+\newline 
+
+\emph toggle 
+This is also needed for byte code instrumentation, but it's much easier.
+ Just scan the code for return opcodes.
+ 
+\layout Enumerate
+
+
+\emph on 
+The return expression has to be computed in advance.
+\emph toggle 
+
+\newline 
+This is not needed.
+ Whenever a return opcode is executed, the return value is ready-to-use
+ on the top of the execution stack.
+\layout Enumerate
+
+
+\emph on 
+There may be name conflicts beetween the original and the generated code.
+\emph toggle 
+
+\newline 
+This cannot happen.
+ Name conflicts with local variables are not possible, since variable names
+ do not exist anymore in byte code.
+ Name conflicts with non-local variables are not possible too, since they
+ are handled by different opcodes.
+\layout Enumerate
+
+
+\emph on 
+For methods with return type void it must be decided, whether the end of
+ the method is a reachable point of code.
+\emph toggle 
+
+\newline 
+This is also no problem.
+ The java compiler takes care for it - just scan for return opcodes.
+ If the end of the method body isn't a reachable point of code, then there
+ is also no return opcode.
+ On the other hand, if the end of a method 
+\emph on 
+is
+\emph toggle 
+ reachable, there will also be a return opcode, no matter whether there
+ was a return statement in the source.
+ This is proofed on example in appendix 
+\begin_inset LatexCommand \ref{sec: byteCodeReturn}
+
+\end_inset 
+
+, since the JVM Specification 
+\begin_inset LatexCommand \cite{JVM}
+
+\end_inset 
+
+ wasn't that clear about it.
+\layout Standard
+
+Thus, it makes no sense, to apply the approach of method wrappers to byte
+ code instrumentation.
+ 
+\layout Standard
+
+In contrary to the approach presented in this paper, byte code instrumentation
+ has to be redone after every compilation of the source code.
+ This may be done on the fly, when loading the classes into the JVM.
+ For instance jContractor 
+\begin_inset LatexCommand \cite{jContractor}
+
+\end_inset 
+
+ uses a class loader to instrument java code.
+ This may cause problems, if the user code registers a class loader of it's
+ own.
+ This is solved by handshake 
+\begin_inset LatexCommand \cite{Handshake}
+
+\end_inset 
+
+, which intercepts system calls of the JVM opening class files for instrumenting
+ byte code.
 \layout Section
 
 Scope of Invariants
@@ -3476,6 +3623,85 @@ HashExact
  Simple hash functions just return the size of the collection, so they will
  detect insertions/deletion only.
  Reduces CPU load for big models.
+\layout Chapter
+
+Code
+\begin_inset LatexCommand \label{sec: byteCodeReturn}
+
+\end_inset 
+
+
+\layout Standard
+
+This appendix lists the example used to verify the statement of section
+ 
+\begin_inset LatexCommand \ref{sec: compareByteCodeInstr}
+
+\end_inset 
+
+, that byte code instrumention does not need control flow analysis when
+ inserting post method code.
+\layout Standard
+
+The end of method body below isn't a reachable point of code.
+\layout LyX-Code
+
+void method1() 
+\newline 
+{ 
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+throw new RuntimeException(); 
+\newline 
+}
+\layout Standard
+
+Thus, the end of the compiled method does not have a return opcode.
+ 
+\layout LyX-Code
+
+Method void method1() 
+\newline 
+0 new #10 <Class java.lang.RuntimeException> 
+\newline 
+3 dup 
+\newline 
+4 invokespecial #14 <Method java.lang.RuntimeException()> 
+\newline 
+7 athrow 
+\layout Standard
+
+The end of the second method 
+\emph on 
+is
+\emph toggle 
+ a reachable point of code.
+\layout LyX-Code
+
+void method2() 
+\newline 
+{
+\newline 
+} 
+\layout Standard
+
+Accordingly, the method ends with a return opcode, even if the source code
+ did not contain a return statement.
+\layout LyX-Code
+
+Method void method2() 
+\newline 
+0 return 
+\layout Standard
+
+Disassembling was done with 
+\family typewriter 
+javap -c
+\family default 
+.
 \layout Standard
 
 
@@ -3491,7 +3717,8 @@ Frank Finger.
  Design and Implementation of a Modular OCL Compiler.
  Diplomarbeit.
  TU-Dresden 2000.
- http://dresden-ocl.sourceforge.net/
+ http://dresden-ocl.\SpecialChar \-
+sourceforge.net/
 \layout Bibliography
 \bibitem [WK99]{Warmer}
 
@@ -3506,7 +3733,11 @@ Errata for
 
 \end_inset 
 
-: http://www.klasse.nl/ocl-boek/errata.htm
+: http://www.\SpecialChar \-
+klasse.\SpecialChar \-
+nl/\SpecialChar \-
+ocl-boek/\SpecialChar \-
+errata.htm
 \layout Bibliography
 \bibitem [UML]{UML}
 
@@ -3527,7 +3758,27 @@ Object Constraint Language Specification.
 James Gosling, Bill Joy, Guy Steele.
  The Java Language Specification.
  Edition 1.0.
- August 1996.
+ Addison-Wesley, August 1996.
+ http://java.\SpecialChar \-
+sun.\SpecialChar \-
+com/\SpecialChar \-
+docs/\SpecialChar \-
+books/\SpecialChar \-
+jls/\SpecialChar \-
+html/\SpecialChar \-
+index.html
+\layout Bibliography
+\bibitem [JVM]{JVM}
+
+Tim Lindholm, Frank Yellin.
+ The Java Virtual Machine Specification, Second Edition.
+ Addison-Wesley, 1997.
+ http://java.\SpecialChar \-
+sun.\SpecialChar \-
+com/\SpecialChar \-
+docs/\SpecialChar \-
+books/\SpecialChar \-
+vmspec/.
 \layout Bibliography
 \bibitem [JW99]{womble}
 
@@ -3536,13 +3787,21 @@ Daniel Jackson, Allison Waingold.
  Proc.
  International Conference on Software Engineering.
  May 1999.
- http://sdg.lcs.mit.edu/womble/
+ http://sdg.\SpecialChar \-
+lcs.\SpecialChar \-
+mit.\SpecialChar \-
+edu/\SpecialChar \-
+womble/
 \layout Bibliography
 \bibitem [KSR00]{kbeans}
 
 Holger Knublauch, Martin Sedlmayr, Thomas Rose.
  Design Patterns for the Implementation of Constraints on JavaBeans.
- http://www.faw.uni-ulm.de/kbeans/
+ http://www.\SpecialChar \-
+faw.\SpecialChar \-
+uni-ulm.\SpecialChar \-
+de/\SpecialChar \-
+kbeans/
 \layout Bibliography
 \bibitem [DB99]{jassDiplom}
 
@@ -3555,7 +3814,38 @@ Detlef Bertetzko.
 \bibitem [JASS]{jassWeb}
 
 The Jass Page.
- http://semantik.informatik.uni-oldenburg.de/~jass/.
+ http://semantik.\SpecialChar \-
+informatik.\SpecialChar \-
+uni-oldenburg.\SpecialChar \-
+de/~jass/.
+\layout Bibliography
+\bibitem [DH98]{Handshake}
+
+Andrew Duncan, Urs Hölzle.
+ Adding Contracts to Java with Handshake.
+ Technical Report TRCS98-32, Computer Science Department, University of
+ California, Santa Barbara, December 1998.
+ http://www.\SpecialChar \-
+cs.\SpecialChar \-
+ucsb.\SpecialChar \-
+edu/\SpecialChar \-
+oocsb/\SpecialChar \-
+papers/\SpecialChar \-
+handshake98.html.
+\layout Bibliography
+\bibitem [KHB98]{jContractor}
+
+Murat Karaorman, Urs Hölzle, John Bruno.
+ jContractor: A Reflective Java Library to Support Design By Contract.
+ Technical Report TRCS98-31, Computer Science Department, University of
+ California, Santa Barbara, December 1998.
+ http://www.\SpecialChar \-
+cs.\SpecialChar \-
+ucsb.\SpecialChar \-
+edu/\SpecialChar \-
+oocsb/\SpecialChar \-
+papers/\SpecialChar \-
+TRCS98-31.html.
 \layout Bibliography
 \bibitem [MMS]{JMSAssert}
 
@@ -3569,13 +3859,20 @@ JMSAssert.html.
 \bibitem [iCt]{iContract}
 
 iContract.
- http://www.reliable-systems.com/tools/iContract/\SpecialChar \-
+ http://www.\SpecialChar \-
+reliable-systems.\SpecialChar \-
+com/\SpecialChar \-
+tools/\SpecialChar \-
+iContract/\SpecialChar \-
 iContract.htm.
 \layout Bibliography
 \bibitem [ELX]{elixir}
 
 Elixir Technology Pte Ltd.
- http://www.elixirtech.com/index.html
+ http://www.\SpecialChar \-
+elixirtech.\SpecialChar \-
+com/\SpecialChar \-
+index.html
 \layout Bibliography
 \bibitem [CMA]{CodeInstrumentation}
 
@@ -3612,11 +3909,16 @@ Ralf Wiebicke.
  XML Query Languages for Repositories Based on XML Documents.
  Großer Beleg.
  TU-Dresden 2000.
- http://dresden-ocl.sourceforge.net/
+ http://dresden-ocl.\SpecialChar \-
+sourceforge.net/
 \layout Bibliography
 \bibitem [FSF00]{freesw}
 
 Free Software Foundation.
  What is Free Software? 1996-2000.
- http://www.gnu.org/philosophy/free-sw.html
+ http://www.\SpecialChar \-
+gnu.\SpecialChar \-
+org/\SpecialChar \-
+philosophy/\SpecialChar \-
+free-sw.html
 \the_end
