@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Jul 19 18:59:03 2000
+#This file was created by <wiera> Fri Jul 21 10:28:22 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -720,6 +720,13 @@ Ocl.STRICT_CHECKING
 \family default 
 , replaced exceptions by undefined values, parameterized with the reason
  for the undefined value.
+\layout Enumerate
+
+Ocl.Collection.setToRange makes an undefined collection (instead of throwing
+ an exception), if lower bound is greater than upper bound.
+\layout Enumerate
+
+Ocl.to<OclType>(OclRoot) methods check for undefined arguments.
 \end_deeper 
 \layout Enumerate
 
