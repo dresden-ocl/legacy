@@ -46,7 +46,7 @@ To keep yourself informed about new versions, please subscribe to our <a href="h
 
 
 <p>
-September 25, 2000: numerous bugfixes, moved from xml4j to xerces.<br>
+September 25, 2000: added inline ocl expressions (in java doccomments), numerous bugfixes, moved from xml4j to xerces.<br>
 August 31, 2000: added support for java arrays to be treated as ocl sequences.<br>
 </p>
 
@@ -69,14 +69,9 @@ jar -xf royloy.jar
 </pre>
 </li>
 <li>
-Compile the example ocl expressions and put them into the java code: (copy&amp;paste <a href="paste.txt">without line breaks</a>)
+Compile the example ocl expressions and put them into the java code:
 <pre>
-java -cp .:dresden-ocl.jar:xerces.jar tudresden.ocl.injection.Main \
-  --constraint-file  tudresden/ocl/test/royloy/oclexpressions \
-  --reflection-model tudresden.ocl.test.royloy \
-  --name-adapter      argo \
-  --violation-macro  System.out.println \
-  --modify tudresden/ocl/test/royloy/*.java
+java -cp .:dresden-ocl.jar:xerces.jar tudresden.ocl.injection.Main -r tudresden.ocl.test.royloy --modify tudresden/ocl/test/royloy/*.java
 </pre>
 The example java code has now been modified.
 <p>
@@ -102,11 +97,8 @@ Enjoy the messages about violated ocl constraints.
 </li>
 <li>
 Clean the code:
-(again <a href="paste.txt">without line breaks</a>)
 <pre>
-java -cp .:dresden-ocl.jar:xerces.jar tudresden.ocl.injection.Main \
-  --clean \
-  --modify tudresden/ocl/test/royloy/*.java
+java -cp .:dresden-ocl.jar:xerces.jar tudresden.ocl.injection.Main --clean --modify tudresden/ocl/test/royloy/*.java
 </pre>
 The example code is now exactly the same as you downloaded it.
 </li>
