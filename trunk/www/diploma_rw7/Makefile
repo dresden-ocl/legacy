@@ -12,6 +12,11 @@ ps:	ocl-java.ps
 pdf:	ocl-java.pdf
 
 DOCEPS=\
+        JavaParser.eps \
+        PersonCompany.eps \
+        WrapperLoop1.eps \
+        WrapperLoop2.eps \
+        WrapperLoop3.eps \
 	observingInvariants.eps \
 	observingMethods.eps \
 	PersonCompany.eps
@@ -36,3 +41,5 @@ DOCEPS=\
 %.tex:	%.lyx
 		echo $@ "is older than" $<
 
+%.eps:	%.argo
+		echo $@ "is older than" $<
