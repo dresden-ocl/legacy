@@ -5,10 +5,10 @@ all:	html dvi ps pdf
 		rm -f ocl-java.lyx~ zwischenbericht.lyx~
 
 txt:	ocl-java.txt
-tex:	ocl-java.tex zwischenbericht.lyx
+tex:	ocl-java.tex zwischenbericht.tex
 html:	ocl-java.html
-dvi:	ocl-java.dvi zwischenbericht.dvi
-ps:	ocl-java.ps
+dvi:	ocl-java.dvi zwischenbericht.dvi legal.dvi
+ps:	ocl-java.ps legal.ps
 pdf:	ocl-java.pdf
 
 DOCEPS=\
