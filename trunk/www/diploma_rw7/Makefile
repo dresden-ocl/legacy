@@ -2,12 +2,12 @@
 .PHONY:	all txt tex html dvi ps pdf
 
 all:	html dvi ps pdf
-		rm -f ocl-java.lyx~
+		rm -f ocl-java.lyx~ zwischenbericht.lyx~
 
 txt:	ocl-java.txt
-tex:	ocl-java.tex
+tex:	ocl-java.tex zwischenbericht.lyx
 html:	ocl-java.html
-dvi:	ocl-java.dvi
+dvi:	ocl-java.dvi zwischenbericht.dvi
 ps:	ocl-java.ps
 pdf:	ocl-java.pdf
 

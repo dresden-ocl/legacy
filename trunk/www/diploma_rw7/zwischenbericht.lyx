@@ -1,0 +1,334 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 2.15
+\textclass slides
+\begin_preamble
+% Uncomment to print out only slides and overlays
+%
+%\onlyslides{\slides}
+
+% Uncomment to print out only notes
+%
+%\onlynotes{\notes}
+\end_preamble
+\language default
+\inputencoding default
+\fontscheme default
+\graphics dvips
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Slide
+
+\layout Standard
+\align center 
+
+\series bold 
+\size larger 
+Werzeugunterstützung für die Überprüfung der Einhaltung von OCL-Geschäftsregeln
+ in Java-Programmen
+\layout Standard
+\align center 
+Ralf Wiebicke
+\layout Standard
+\align center 
+28.
+ August 2000
+\layout Slide
+
+\layout Standard
+\align center 
+
+\series bold 
+\size larger 
+Übersicht
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+vspace{10pt}
+\backslash 
+hrule height 4pt
+\layout Itemize
+
+Code Injektor
+\layout Itemize
+
+Scope von Invarianten
+\layout Itemize
+
+Caching von Invarianten
+\layout Itemize
+
+Erweiterte Typinformation in Java
+\begin_deeper 
+\layout Itemize
+
+Statische Analyse
+\layout Itemize
+
+Dynamische Typverfolgung
+\end_deeper 
+\layout Itemize
+
+Ausblick
+\layout Slide
+
+\layout Standard
+\align center 
+
+\series bold 
+\size larger 
+Code Injektor - Ziele
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+vspace{10pt}
+\backslash 
+hrule height 4pt
+\layout Itemize
+
+Ziele
+\layout Slide
+
+\layout Standard
+\align center 
+
+\series bold 
+\size larger 
+Code Injektor - 
+\newline 
+Probleme des einfachen Ansatzes
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+vspace{10pt}
+\backslash 
+hrule height 4pt
+\layout Enumerate
+
+Einfügung an jeder return Anweisung
+\layout Enumerate
+
+Vorberechnung des Rückgabeausdrucks
+\layout Enumerate
+
+Namenskonflikte
+\layout Enumerate
+
+kompletter Javaparser nötig
+\layout Slide
+
+\layout Standard
+\align center 
+
+\series bold 
+\size larger 
+Code Injektor - 
+\newline 
+Wrapping Methods
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+vspace{10pt}
+\backslash 
+hrule height 4pt
+\layout LyX-Code
+
+int someMethod(double x)
+\newline 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+// here comes the code.
+\newline 
+} 
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+vspace{10pt}
+\backslash 
+hrule height 1pt
+\layout LyX-Code
+
+int someMethod_wrappedbyocl(double x)
+\newline 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+// here comes the code.
+\newline 
+}
+\newline 
+
+\protected_separator 
+
+\newline 
+int someMethod(double x)
+\newline 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+// pre method code
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+int result=someMethod_wrappedbyocl(x);
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+// post method code
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+return result;
+\newline 
+}
+\layout Slide
+
+\layout Standard
+\align center 
+
+\series bold 
+\size larger 
+Code Injektor - 
+\newline 
+Wrapping Constructors
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+vspace{10pt}
+\backslash 
+hrule height 4pt
+\layout LyX-Code
+
+SomeClass(String x)
+\newline 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+// here comes the code
+\newline 
+}
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+vspace{10pt}
+\backslash 
+hrule height 1pt
+\layout LyX-Code
+
+SomeClass(String x, Dummy)
+\newline 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+// here comes the code
+\newline 
+}
+\newline 
+
+\protected_separator 
+
+\newline 
+SomeClass(String x)
+\newline 
+{
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+this(x, (Dummy)null);
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+// post constructor code
+\newline 
+}
+\layout Slide
+
+\layout Standard
+\align center 
+
+\series bold 
+\size larger 
+Ausblick
+\layout Standard
+
+
+\latex latex 
+
+\backslash 
+vspace{10pt}
+\backslash 
+hrule height 4pt
+\layout Itemize
+
+Typechecker for observed
+\layout Itemize
+
+Observe Methods
+\layout Itemize
+
+Application Netlinx
+\layout Itemize
+
+tagged Methods scope
+\the_end
