@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>                                     
+    <!-- MODIFIY TITLE IN BROWSER'S TITLE BAR -->
+    <title>Dresden OCL Toolkit - Usage example</title>
+    <link rel="stylesheet" type="text/css" href="ocltoolkit.css" />
+  </head>
+  
+  <!--#include virtual="_header.ssi" -->
+
+  
+       <!-- MODIFY THE PAGE'S TITLE (DISPLAYED IN HEADER BESIDE OCL TOOLKIT LOGO) -->
+       <h1>Usage examples</h1>
+
+  <!--#include virtual="_menu.html" -->
+
+       <!-- ADD CONTENT FROM HERE: USE H2 AS HIGHEST ORDER HEADLINE -->
+       <h2>The Royals and Loyals model</h2>
+
+<p>The model presented here is taken (with some modifications) from the book
+"The Object Constraint Language: Precise Modeling With UML" by J. Warmer and A. Kleppe,
+where it serves as a showcase for the use of OCL constraints. It has been implemented in
+Java to demonstrate the abilities of the Dresden OCL Toolkit.</p>
+
+<p><a href="images/royloy.gif">
+<img src="images/royloy_small.gif" alt="The Royals and Loyals model"/></a></p>
+
+<p>You can download the complete model as JAR file (<a href="downloads/royloy.jar">royloy.jar</a>).
+This allows you to inspect more than the few OCL constraints listed next serving
+as examples and also to perform the code instrumentation and runtime constraint
+checking using the Toolkit from the command line yourself as explained later.</p>
+
+       <h2>OCL constraints</h2>
+
+<p>Listed below are only those OCL constraints defined within the <code>Company</code>
+class. <a href="downloads/royloy.jar">Download the complete model</a> and browse the
+Java files yourself for more constraints.</p>
+
+<p><code>
+<strong>@invariant manager_is_employee:</strong><br/>
+&nbsp;&nbsp;employees->iterate(<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;p:Person ; b:Bag(Person)=Bag{} |<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;b->including(p)<br/>
+&nbsp;&nbsp;)->includes(manager)</code></p>
+
+<p><code>
+<strong>@invariant manager_is_employee2:</strong><br/>
+&nbsp;&nbsp;manager.employers->includes(self)</code></p>
+
+<p><code>
+<strong>@invariant :</strong><br/>
+&nbsp;&nbsp;manager.oclIsKindOf(Person)</code></p>
+
+<p><code><strong>@invariant numberOfEmployees:</strong><br/>
+&nbsp;&nbsp;self.numberOfEmployees=employees->size</code></p>
+
+        <h2>Try toolkit on real code</h2>
+
+        <h3>Preparations</h3>
+
+<p>To perform the subsequent steps you need to have the Java archive (JAR)
+<code>dresden-ocl-injector.jar</code>. As it is part of the release version 1.1
+you can either <a href="http://sourceforge.net/project/showfiles.php?group_id=5840">
+dowload the release</a> or you can build it from the CVS sources (see the <a href="download.html">
+download page</a> for details) using the ant target <code>ant jar.dresden-ocl-injector</code>.
+In the latter case, the archive will be created in the <code>build</code> subdirectory.</p>
+
+<p>In addition you need the Royals and Loyals model, of course. While it is also contained
+in the CVS repository (<code>tudresden/ocl/test/royloy</code>), you might as well
+download <a href="downloads/royloy.jar">royloy.jar</a> and. You must then extract
+the archive's contents into the directory that holds the <code>dresden-ocl-injector.jar</code>
+by copying it there and then typing<br/><br/>
+<code>jar -xf royloy.jar</code><br/><br/>
+at the command line from within that directory.</p>
+
+        <h3>The example step by step</h3>
+
+<ol>
+<li>Compile the example.<br/>
+<code>javac -classpath dresden-ocl-injector.jar tudresden/ocl/test/royloy/*.java</code><br/><br/></li>
+<li>Run the example.<br/>
+<code>java -classpath .;dresden-ocl-injector.jar tudresden.ocl.test.TestInjectionRoyloy</code><br/>
+No output is being generated as the example code is being executed flawlessly.</li><br/>
+<li>Compile the examplary OCL expressions and generate the constraint checking code.<br/>
+<code>java -jar dresden-ocl-injector.jar -r tudresden.ocl.test.royloy --modify tudresden/ocl/test/royloy/*.java</code><br/><br/></li>
+<li>Compile the example again.<br/>
+<code>javac -classpath dresden-ocl-injector.jar tudresden/ocl/test/royloy/*.java</code><br/><br/></li>
+<li>Run the example again...<br/>
+<code>java -cp .:dresden-ocl-injector.jar tudresden.ocl.test.TestInjectionRoyloy</code><br/>
+...and enjoy the notifications on violations of OCL constraints.<br/><br/></li>
+<li>Clean the code to reset the example.<br/>
+<code>java -jar dresden-ocl-injector.jar --clean --modify tudresden/ocl/test/royloy/*.java</code></li>
+</ol>
+
+
+       <h2>Further examples</h2>
+
+<p>Further examples on the utilization of the Dresden OCL Toolkit have been given
+along with the integrations of the Toolkit into ArgoUML and Together. See the examples
+on the <a href="argo_integration.html">integration into ArgoUML</a> and
+<a href="together_integration_usageexample.html">Together</a> respectively.</p>
+       
+
+       <!-- END OF CONTENT -->
+
+  <!--#include virtual="_footer.ssi" -->
+
+</html>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>                                     
+    <!-- MODIFIY TITLE IN BROWSER'S TITLE BAR -->
+    <title>Dresden OCL Toolkit - Together Integration, Getting Started</title>
+    <link rel="stylesheet" type="text/css" href="ocltoolkit.css" />
+  </head>
+  
+  <!--#include virtual="_header.ssi" -->
+
+  
+       <!-- MODIFY THE PAGE'S TITLE (DISPLAYED IN HEADER BESIDE OCL TOOLKIT LOGO) -->
+       <h1>Getting Started with Integration into Together ControlCenter</h1>
+
+  <!--#include virtual="_menu.html" -->
+
+       <!-- ADD CONTENT FROM HERE: USE H2 AS HIGHEST ORDER HEADLINE -->
+       <h2>Prerequesites</h2>
+
+<p>For performing all the subsequent steps successfully, make sure the following software
+requirements are met:</p>
+
+<ul>
+<li>Java SDK 1.3 or higher (SDK 1.3 recommended)</li>
+<li><a href="http://ant.apache.org/">Jakarta Ant</a> build tool (any version from 1.4
+onwards is believed to suffice)</li>
+<li><a href="http://www.borland.de/together/index.html">Borland
+Together ControlCenter</a> version 6.0 and above</li>
+</ul>
+
+       <h2>1.) Getting sources from CVS</h2>
+
+<p>The following instructions presume usage of a simple command line CVS client. You can
+of course use your favorite graphical CVS client such as WinCVS instead. When encountering
+problems, please refer to the <a href="http://sourceforge.net/cvs/?group_id=5840">documentation
+on SourceForge</a> on checking out from CVS.</p>
+
+<ol>
+<li>Log anonymously into the CVS repository by typing (all in one line)<br/>
+<code>cvs <nobr>-d:pserver:anonymous@cvs.sourceforge.net:</nobr> /cvsroot/dresden-ocl login</code><br/>
+(when asked for the password, just hit 'Enter')<br/><br/></li>
+<li>Check all sources out that you need:<br/>
+<code>cvs <nobr>-d:pserver:anonymous@cvs.sourceforge.net:</nobr> /cvsroot/dresden-ocl checkout src -P</code><br/><br/></li>
+<li>And the build file:<br/>
+<code>cvs <nobr>-d:pserver:anonymous@cvs.sourceforge.net:</nobr> /cvsroot/dresden-ocl checkout build.xml</code></li>
+</ol>
+
+       <h2>2.) Build module</h2>
+
+<p><code>{BASE-DIR}</code> denotes the directory you have checked the sources out into.
+If your work directory during the checkout has been <code>c:\dresden-ocl</code> then
+that is your base directory.</p>
+
+<ol>
+<li>Build the module by typing:<br/>
+<code>{BASE-DIR}/ant jar.ocl-together</code><br/><br/></li>
+<li>After successfull completion you should be able to find a file <code>ocl-together.jar</code>
+in <code>{BASE-DIR}/build</code>.
+</ol>
+
+       <h2>3.) Getting module to work in Together</h2>
+
+<p><code>{TOGETHER-BASE-DIR}</code> denotes your copy of Together ControlCenter's
+base directory.</p>
+
+<ol>
+<li>Create a directory <code>dresden-ocl</code> as subdirectory in
+<code>{TOGETHER-BASE-DIR}/modules/com/togethersoft/modules</code> (the name
+you choose for that directory doesn't really matter).<br/><br/></li>
+<li>Copy the file <code>{BASE-DIR}/build/ocl-together.jar</code> into
+<code>{TOGETHER-BASE-DIR}/modules/com/togethersoft/modules/dresden-ocl</code>.<br/><br/></li>
+<li>Start Together ControlCenter.<br/><br/></li>
+<li>Choose <code>Tools --> Activate/Deactivate Features</code> and check <code>OCL Editor</code>
+and <code>OCL Injector</code> in the <code>Early Access</code> tab.<br/><br/></li>
+<li>When you now choose a class or interface on the diagram pane you should see
+an additional tab labeled <code>OCL Constraints</code> in the Inspector where you
+can now add OCL constraints.</li>
+
+ 
+
+       <!-- END OF CONTENT -->
+
+  <!--#include virtual="_footer.ssi" -->
+
+</html>
