@@ -13,5 +13,5 @@ rsync \
   --progress \
   --stats \
   ./ \
-  sz9@dresden-ocl.sourceforge.net:/home/groups/d/dr/dresden-ocl/htdocs
+  sl13@dresden-ocl.sourceforge.net:/home/groups/d/dr/dresden-ocl/htdocs
 
