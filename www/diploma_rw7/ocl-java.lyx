@@ -1,4 +1,4 @@
-#This file was created by <wiera> Tue Dec 12 15:10:25 2000
+#This file was created by <wiera> Wed Dec 13 09:15:30 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -6922,6 +6922,73 @@ available within the next few weeks.
 
 
 \layout Bibliography
+\bibitem [AU]{Argo}
+
+Argo/UML.
+ http://argouml.\SpecialChar \-
+tigris.org/.
+\layout Bibliography
+\bibitem [BS]{Bold}
+
+BoldSoft.
+ ModelRun.
+ http://www.\SpecialChar \-
+boldsoft.\SpecialChar \-
+com/\SpecialChar \-
+products/\SpecialChar \-
+model\SpecialChar \-
+run/\SpecialChar \-
+index.html.
+\layout Bibliography
+\bibitem [CI]{Cybernetic}
+
+Cybernetic Intelligence GmbH.
+ OCL Compiler.
+ http://www.\SpecialChar \-
+cybernetic.\SpecialChar \-
+org/\SpecialChar \-
+prodocl.htm.
+\layout Bibliography
+\bibitem [CMA]{CodeInstrumentation}
+
+Glen McCluskey & Associates LLC.
+ Java Test Coverage and Instrumentation Toolkits.
+ http://www.\SpecialChar \-
+glenmccl.\SpecialChar \-
+com/\SpecialChar \-
+instr/\SpecialChar \-
+index.htm.
+\layout Bibliography
+\bibitem [DB99]{jassDiplom}
+
+Detlef Bertetzko.
+ Parallelität und Vererbung beim "Programmieren mit Vertrag" - Weiterentwicklung
+ von JaWA (in german).
+ Master Thesis.
+ Universität Oldenburg, 1999.
+\layout Bibliography
+\bibitem [DH98]{Handshake}
+
+Andrew Duncan, Urs Hölzle.
+ Adding Contracts to Java with Handshake.
+ Technical Report TRCS98-32, Computer Science Department, University of
+ California, Santa Barbara, December 1998.
+ http://www.\SpecialChar \-
+cs.\SpecialChar \-
+ucsb.\SpecialChar \-
+edu/\SpecialChar \-
+oocsb/\SpecialChar \-
+papers/\SpecialChar \-
+handshake98.html.
+\layout Bibliography
+\bibitem [ET]{elixir}
+
+Elixir Technology Pte Ltd.
+ http://www.\SpecialChar \-
+elixirtech.\SpecialChar \-
+com/\SpecialChar \-
+index.html.
+\layout Bibliography
 \bibitem [FF00]{ff3}
 
 Frank Finger.
@@ -6931,67 +6998,15 @@ Frank Finger.
  http://dresden-ocl.\SpecialChar \-
 sourceforge.net/.
 \layout Bibliography
-\bibitem [SM93]{solidCode}
+\bibitem [FSF00]{freesw}
 
-Steve Maguire.
- Writing Solid Code.
- Microsoft Press, 1993.
-\layout Bibliography
-\bibitem [SM93g]{bugs}
-
-Steve Maguire.
- Nie wieder Bugs! Die Kunst der fehlerfreien C-Programmierung.
- Microsoft Press Deutschland.
- German translation of 
-\begin_inset LatexCommand \cite{solidCode}
-
-\end_inset 
-
-.
-\layout Bibliography
-\bibitem [TP98]{DbC}
-
-Todd Plessel.
- Design By Contract: A Missing Link In The Quest For Quality Software.
- Lockheed Martin / US EPA, August 1998.
+Free Software Foundation.
+ What is Free Software? 1996-2000.
  http://www.\SpecialChar \-
-elj.\SpecialChar \-
-com/\SpecialChar \-
-eiffel/\SpecialChar \-
-dbc/.
-\layout Bibliography
-\bibitem [WK99]{Warmer}
-
-Jos Warmer, Anneke Kleppe.
- The Object Constraint Language: Precise Modeling with UML.
- Addison-Wesley, 1999.
-\layout Bibliography
-\bibitem [WK99e]{WarmerErrata}
-
-Errata for 
-\begin_inset LatexCommand \cite{Warmer}
-
-\end_inset 
-
-: http://www.\SpecialChar \-
-klasse.\SpecialChar \-
-nl/\SpecialChar \-
-ocl-boek/\SpecialChar \-
-errata.htm.
-\layout Bibliography
-\bibitem [UML]{UML}
-
-OMG Unified Modeling Language Specification, Version 1.3, June 1999.
-\layout Bibliography
-\bibitem [OCL]{OCL}
-
-Object Constraint Language Specification.
- Chapter 7 in 
-\begin_inset LatexCommand \cite{UML}
-
-\end_inset 
-
-.
+gnu.\SpecialChar \-
+org/\SpecialChar \-
+philosophy/\SpecialChar \-
+free-sw.html.
 \layout Bibliography
 \bibitem [GJS96]{JAVA}
 
@@ -7008,17 +7023,13 @@ jls/\SpecialChar \-
 html/\SpecialChar \-
 index.html.
 \layout Bibliography
-\bibitem [LY97]{JVM}
+\bibitem [JASS]{jassWeb}
 
-Tim Lindholm, Frank Yellin.
- The Java Virtual Machine Specification, Second Edition.
- Addison-Wesley, 1997.
- http://java.\SpecialChar \-
-sun.\SpecialChar \-
-com/\SpecialChar \-
-docs/\SpecialChar \-
-books/\SpecialChar \-
-vmspec/.
+The Jass Page.
+ http://semantik.\SpecialChar \-
+informatik.\SpecialChar \-
+uni-oldenburg.\SpecialChar \-
+de/~jass/.
 \layout Bibliography
 \bibitem [JW99]{womble}
 
@@ -7032,46 +7043,6 @@ lcs.\SpecialChar \-
 mit.\SpecialChar \-
 edu/\SpecialChar \-
 womble/.
-\layout Bibliography
-\bibitem [KSR00]{kbeans}
-
-Holger Knublauch, Martin Sedlmayr, Thomas Rose.
- Design Patterns for the Implementation of Constraints on JavaBeans.
- http://www.\SpecialChar \-
-faw.\SpecialChar \-
-uni-ulm.\SpecialChar \-
-de/\SpecialChar \-
-kbeans/.
-\layout Bibliography
-\bibitem [DB99]{jassDiplom}
-
-Detlef Bertetzko.
- Parallelität und Vererbung beim "Programmieren mit Vertrag" - Weiterentwicklung
- von JaWA (in german).
- Master Thesis.
- Universität Oldenburg, 1999.
-\layout Bibliography
-\bibitem [JASS]{jassWeb}
-
-The Jass Page.
- http://semantik.\SpecialChar \-
-informatik.\SpecialChar \-
-uni-oldenburg.\SpecialChar \-
-de/~jass/.
-\layout Bibliography
-\bibitem [DH98]{Handshake}
-
-Andrew Duncan, Urs Hölzle.
- Adding Contracts to Java with Handshake.
- Technical Report TRCS98-32, Computer Science Department, University of
- California, Santa Barbara, December 1998.
- http://www.\SpecialChar \-
-cs.\SpecialChar \-
-ucsb.\SpecialChar \-
-edu/\SpecialChar \-
-oocsb/\SpecialChar \-
-papers/\SpecialChar \-
-handshake98.html.
 \layout Bibliography
 \bibitem [KHB98]{jContractor}
 
@@ -7087,6 +7058,28 @@ oocsb/\SpecialChar \-
 papers/\SpecialChar \-
 TRCS98-31.html.
 \layout Bibliography
+\bibitem [KSR00]{kbeans}
+
+Holger Knublauch, Martin Sedlmayr, Thomas Rose.
+ Design Patterns for the Implementation of Constraints on JavaBeans.
+ http://www.\SpecialChar \-
+faw.\SpecialChar \-
+uni-ulm.\SpecialChar \-
+de/\SpecialChar \-
+kbeans/.
+\layout Bibliography
+\bibitem [LY97]{JVM}
+
+Tim Lindholm, Frank Yellin.
+ The Java Virtual Machine Specification, Second Edition.
+ Addison-Wesley, 1997.
+ http://java.\SpecialChar \-
+sun.\SpecialChar \-
+com/\SpecialChar \-
+docs/\SpecialChar \-
+books/\SpecialChar \-
+vmspec/.
+\layout Bibliography
 \bibitem [MMS]{JMSAssert}
 
 Man Machine Systems.
@@ -7096,16 +7089,25 @@ mmsindia.\SpecialChar \-
 com/\SpecialChar \-
 JMSAssert.html.
 \layout Bibliography
-\bibitem [RK98]{iContract}
+\bibitem [OCL]{OCL}
 
-Reto Kramer.
- iContract - The Java- Design by Contract- Tool.
+Object Constraint Language Specification.
+ Chapter 7 in 
+\begin_inset LatexCommand \cite{UML}
+
+\end_inset 
+
+.
+\layout Bibliography
+\bibitem [OI]{jvision}
+
+Object Insight, Inc.
+ JVISION.
  http://www.\SpecialChar \-
-reliable-systems.\SpecialChar \-
+object-insight.\SpecialChar \-
 com/\SpecialChar \-
-tools/\SpecialChar \-
-iContract/\SpecialChar \-
-iContract.htm.
+html/\SpecialChar \-
+product_info.html.
 \layout Bibliography
 \bibitem [PSM98]{findBugsEarly}
 
@@ -7141,60 +7143,16 @@ uni-bremen.\SpecialChar \-
 de/\SpecialChar \-
 projects/USE/.
 \layout Bibliography
-\bibitem [BS]{Bold}
+\bibitem [RK98]{iContract}
 
-BoldSoft.
- ModelRun.
+Reto Kramer.
+ iContract - The Java- Design by Contract- Tool.
  http://www.\SpecialChar \-
-boldsoft.\SpecialChar \-
+reliable-systems.\SpecialChar \-
 com/\SpecialChar \-
-products/\SpecialChar \-
-model\SpecialChar \-
-run/\SpecialChar \-
-index.html.
-\layout Bibliography
-\bibitem [ET]{elixir}
-
-Elixir Technology Pte Ltd.
- http://www.\SpecialChar \-
-elixirtech.\SpecialChar \-
-com/\SpecialChar \-
-index.html.
-\layout Bibliography
-\bibitem [CMA]{CodeInstrumentation}
-
-Glen McCluskey & Associates LLC.
- Java Test Coverage and Instrumentation Toolkits.
- http://www.\SpecialChar \-
-glenmccl.\SpecialChar \-
-com/\SpecialChar \-
-instr/\SpecialChar \-
-index.htm.
-\layout Bibliography
-\bibitem [CI]{Cybernetic}
-
-Cybernetic Intelligence GmbH.
- OCL Compiler.
- http://www.\SpecialChar \-
-cybernetic.\SpecialChar \-
-org/\SpecialChar \-
-prodocl.htm.
-\layout Bibliography
-\bibitem [OI]{jvision}
-
-Object Insight, Inc.
- JVISION.
- http://www.\SpecialChar \-
-object-insight.\SpecialChar \-
-com/\SpecialChar \-
-html/\SpecialChar \-
-product_info.html.
-\layout Bibliography
-\bibitem [AU]{Argo}
-
-Argo/UML.
- http://argouml.\SpecialChar \-
-tigris.org/.
+tools/\SpecialChar \-
+iContract/\SpecialChar \-
+iContract.htm.
 \layout Bibliography
 \bibitem [RSC]{Rose}
 
@@ -7207,12 +7165,62 @@ products/\SpecialChar \-
 rose/\SpecialChar \-
 index.jsp.
 \layout Bibliography
+\bibitem [RW00]{rw7}
+
+Ralf Wiebicke.
+ XML Query Languages for Repositories Based on XML Documents.
+ Großer Beleg.
+ TU-Dresden, 2000.
+ http://dresden-ocl.\SpecialChar \-
+sourceforge.net/.
+\layout Bibliography
+\bibitem [SM93]{solidCode}
+
+Steve Maguire.
+ Writing Solid Code.
+ Microsoft Press, 1993.
+\layout Bibliography
+\bibitem [SM93g]{bugs}
+
+Steve Maguire.
+ Nie wieder Bugs! Die Kunst der fehlerfreien C-Programmierung.
+ Microsoft Press Deutschland.
+ German translation of 
+\begin_inset LatexCommand \cite{solidCode}
+
+\end_inset 
+
+.
+\layout Bibliography
+\bibitem [TF]{cccc}
+
+Tim Littlefair.
+ CCCC - C and C++ Code Counter.
+ http://cccc.\SpecialChar \-
+sourceforge.\SpecialChar \-
+net/.
+\layout Bibliography
+\bibitem [TP98]{DbC}
+
+Todd Plessel.
+ Design By Contract: A Missing Link In The Quest For Quality Software.
+ Lockheed Martin / US EPA, August 1998.
+ http://www.\SpecialChar \-
+elj.\SpecialChar \-
+com/\SpecialChar \-
+eiffel/\SpecialChar \-
+dbc/.
+\layout Bibliography
 \bibitem [TSC]{Together}
 
 TogetherSoft Corporation.
  Together.
  http://www.\SpecialChar \-
 togethersoft.com/.
+\layout Bibliography
+\bibitem [UML]{UML}
+
+OMG Unified Modeling Language Specification, Version 1.3, June 1999.
 \layout Bibliography
 \bibitem [VC]{Versant}
 
@@ -7226,30 +7234,22 @@ products/\SpecialChar \-
 vds/\SpecialChar \-
 index.html.
 \layout Bibliography
-\bibitem [TF]{cccc}
+\bibitem [WK99]{Warmer}
 
-Tim Littlefair.
- CCCC - C and C++ Code Counter.
- http://cccc.\SpecialChar \-
-sourceforge.\SpecialChar \-
-net/.
+Jos Warmer, Anneke Kleppe.
+ The Object Constraint Language: Precise Modeling with UML.
+ Addison-Wesley, 1999.
 \layout Bibliography
-\bibitem [RW00]{rw7}
+\bibitem [WK99e]{WarmerErrata}
 
-Ralf Wiebicke.
- XML Query Languages for Repositories Based on XML Documents.
- Großer Beleg.
- TU-Dresden, 2000.
- http://dresden-ocl.\SpecialChar \-
-sourceforge.net/.
-\layout Bibliography
-\bibitem [FSF00]{freesw}
+Errata for 
+\begin_inset LatexCommand \cite{Warmer}
 
-Free Software Foundation.
- What is Free Software? 1996-2000.
- http://www.\SpecialChar \-
-gnu.\SpecialChar \-
-org/\SpecialChar \-
-philosophy/\SpecialChar \-
-free-sw.html.
+\end_inset 
+
+: http://www.\SpecialChar \-
+klasse.\SpecialChar \-
+nl/\SpecialChar \-
+ocl-boek/\SpecialChar \-
+errata.htm.
 \the_end
