@@ -1,4 +1,4 @@
-#This file was created by <wiera> Mon Sep 25 19:04:02 2000
+#This file was created by <wiera> Tue Sep 26 14:26:47 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -87,6 +87,13 @@ LaTeX{}
 
 The source code developed together with this paper is available at http://dresde
 n-ocl.sourceforge.net/.
+\layout Section*
+
+Neu
+\layout Enumerate
+
+Section 3.3.4.
+ Avoiding the Wrapper Loop
 \layout Standard
 
 
@@ -953,7 +960,7 @@ Note, that this feature may be be used standalone, without ocl expressions
  Then it provides a runtime check for typed collections.
 \layout Section
 
-Methods Wrappers
+Code Insertion
 \begin_inset LatexCommand \label{Sec:wrappingMethods}
 
 \end_inset 
@@ -964,9 +971,9 @@ Methods Wrappers
 The main task of code injection is to have some code executed immediately
  before and after all methods (and after all constructors too).
  This section describes, how this is done by the ocl injector.
-\layout Paragraph
+\layout Subsection
 
-Simple Approach.
+A Simple Approach
 \layout Standard
 
 A straight-forward solution would add the code directly into the method.
@@ -1014,9 +1021,14 @@ Additionally, item 4 requires much of the semantic analysis performed by
 \layout Standard
 
 Method wrappers solve all these problems in a nifty but simple way.
-\layout Paragraph
+\layout Subsection
 
-Wrapping Methods.
+Wrapping Methods
+\begin_inset LatexCommand \label{Sec:wrappingMethodsSub}
+
+\end_inset 
+
+
 \layout Standard
 
 Some code tells more than thousand words, so I use an example to explain.
@@ -1039,7 +1051,18 @@ int someMethod(double x)
 The code injector transforms this into two methods.
 \layout LyX-Code
 
-int someMethod_wrappedbyocl(double x)
+int someMethod_wrappedbyocl
+\begin_float footnote 
+\layout Standard
+
+This is not yet the full truth, see section 
+\begin_inset LatexCommand \ref{Sec:WrapperLoop}
+
+\end_inset 
+
+.
+\end_float 
+(double x)
 \newline 
 {
 \newline 
@@ -1121,9 +1144,18 @@ java meta level
 ers.
  This is a very small part of the java language and easily to be analyzed
  by a hand-crafted parser.
-\layout Paragraph
+\layout Standard
 
-Wrapping Constructors.
+This kind of method wrapping still has a problem, I called the wrapper loop.
+ See section 
+\begin_inset LatexCommand \ref{Sec:WrapperLoop}
+
+\end_inset 
+
+ how this is solved.
+\layout Subsection
+
+Wrapping Constructors
 \layout Standard
 
 Another transformation is used for constructors, since they cannot be renamed.
@@ -1150,13 +1182,13 @@ SomeClass(String x, Dummy
 \begin_float footnote 
 \layout Standard
 
-actually this is class 
+Actually this is class 
 \family typewriter 
 tudresden.ocl.injection.lib.WrapperDummy
 \family default 
 .
 \end_float 
-)
+ oclwrapperdummy)
 \newline 
 {
 \newline 
@@ -1202,10 +1234,166 @@ A special case occurs if a class provides no explicit constructor.
 r with the same access modifier.
 \layout Subsection
 
-The problem with inheritance
+Avoiding the Wrapper Loop
+\begin_inset LatexCommand \label{Sec:WrapperLoop}
+
+\end_inset 
+
+
 \layout Standard
 
-[TODO]
+Wrapping methods as described in section 
+\begin_inset LatexCommand \ref{Sec:wrappingMethodsSub}
+
+\end_inset 
+
+ causes a problem for a special situation.
+ This sections describes this situation and the solution provided by the
+ ocl injector.
+\layout Standard
+
+The critical situation is shown in the figure below:
+\layout Standard
+\added_space_top 0.3cm \added_space_bottom 0.3cm \align center 
+
+\begin_inset Figure size 121 141
+file WrapperLoop1.eps
+height 1 5
+flags 13
+
+\end_inset 
+
+
+\layout Standard
+
+The dotted arrow represents a method call: 
+\family typewriter 
+Sub.method()
+\family default 
+ contains a statement 
+\family typewriter 
+super.method();
+\family default 
+ somewhere.
+\layout Standard
+
+The ocl injector changes the structure as shown below:
+\layout Standard
+\added_space_top 0.3cm \added_space_bottom 0.3cm \align center 
+
+\begin_inset Figure size 210 141
+file WrapperLoop2.eps
+height 1 5
+flags 13
+
+\end_inset 
+
+
+\layout Standard
+
+The arrows show the problem: there's an infinite loop of method calls.
+ In detail the following happens:
+\layout Enumerate
+
+Method 
+\family typewriter 
+Sub.method()
+\family default 
+ is called somewhere in the user program.
+ This is a wrapper method replacing the original method, which is named
+ 
+\family typewriter 
+method_wrappedbyocl()
+\family default 
+ now.
+\layout Enumerate
+
+
+\family typewriter 
+Sub.method()
+\family default 
+ does some ocl specific things, before it executes the statement 
+\family typewriter 
+method_wrappedbyocl()
+\family default 
+.
+ This calls the original method 
+\family typewriter 
+Sub.method_wrappedbyocl()
+\family default 
+ as it is supposed to be.
+\layout Enumerate
+
+
+\family typewriter 
+Sub.method_wrappedbyocl()
+\family default 
+ contains the 
+\family typewriter 
+super.method();
+\family default 
+ statement, therefore calls 
+\family typewriter 
+Super.method()
+\family default 
+.
+\layout Enumerate
+
+
+\family typewriter 
+Super.method()
+\family default 
+ is a wrapper method replacing the original method, which is called 
+\family typewriter 
+Super.method_wrappedbyocl()
+\family default 
+ now.
+ It does some ocl specific thing, before it executes the statement 
+\family typewriter 
+method_wrappedbyocl()
+\family default 
+.
+ But this statement does not call 
+\family typewriter 
+Super.method_wrappedbyocl()
+\family default 
+ as it is supposed to be, but 
+\family typewriter 
+Sub.method_wrappedbyocl()
+\family default 
+, which finally causes the infinite loop.
+\layout Standard
+
+The principal solution approach is simple: method 
+\family typewriter 
+Super.method()
+\family default 
+ should force 
+\family typewriter 
+Super.method_wrappedbyocl()
+\family default 
+ to be executed, although this method was overridden in class 
+\family typewriter 
+Sub
+\family default 
+.
+ Java language does not provide a way, to call a method, which was overridden.
+ Therefore we do a small trick:
+\layout Standard
+\added_space_top 0.3cm \added_space_bottom 0.3cm \align center 
+
+\begin_inset Figure size 229 141
+file WrapperLoop3.eps
+height 1 5
+flags 13
+
+\end_inset 
+
+
+\layout Standard
+
+Wrapped methods get the class name appended.
+ Thus, a wrapper method can call the wrapped method of it's own class.
 \layout Section
 
 Cleaning the Code
