@@ -9,12 +9,13 @@ latex2html \
   -dir $HTML \
   -html_version 3.0 \
   -split 0 \
-  -notransparent \
   -white \
   -up_url "../intro.html" \
   -up_title "Start" \
   -lcase_tags \
   $TEX
+
+#  -notransparent \
 
 rm $HTML\/index.html
 tidy -m  -wrap 100000 $HTML\/*.html
