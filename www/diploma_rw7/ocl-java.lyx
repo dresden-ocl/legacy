@@ -1,4 +1,4 @@
-#This file was created by <wiera> Fri Dec 15 14:14:27 2000
+#This file was created by <rw7> Tue Feb 27 20:41:06 2001
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -81,8 +81,8 @@ copyright
 Availability
 \layout Standard
 
-This document is available at http://dresden-ocl.sourceforge.net/diploma_rw7/
- in several electronic forms including 
+This document is available at http://rw7.de/ralf/diplom00/intro.html in several
+ electronic forms including 
 \latex latex 
 
 \backslash 
@@ -94,6 +94,30 @@ LaTeX{}
 
 The source code developed together with this paper is available at http://
  dresden-ocl.sourceforge.net/.
+\layout Section*
+
+Modifications
+\layout Standard
+
+This version includes several post-submission updates as listed below.
+ For the submission version see the CVS repository.
+ 
+\layout Itemize
+
+The paper moved to http://rw7.de/ralf/diplom00/intro.html.
+\layout Itemize
+
+Versant provided a fix for the bug mentioned in chapter 
+\begin_inset LatexCommand \ref{Sec:chapterIndustrial}
+
+\end_inset 
+
+ and appendix 
+\begin_inset LatexCommand \ref{sec: VersantProblem}
+
+\end_inset 
+
+.
 \layout LaTeX
 
 
@@ -4505,7 +4529,8 @@ The experiments where limited to the business logic module.
 
 .
  The OCL toolkit does not work together with JVI due to a bug in the latter.
- A detailed analysis can be found in appendix 
+ (This bug has been fixed after submission of this paper.) A detailed analysis
+ can be found in appendix 
 \begin_inset LatexCommand \ref{sec: VersantProblem}
 
 \end_inset 
@@ -6969,7 +6994,8 @@ available within the next few weeks.
 \begin_inset Quotes erd
 \end_inset 
 
-
+ After submission of this paper, on February 27, 2001 this bugfix was published
+ as patch bundle 3 for JVI 2.4.0 on Linux.
 \layout LaTeX
 
 
