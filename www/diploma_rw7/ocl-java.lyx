@@ -1,4 +1,4 @@
-#This file was created by <wiera> Fri Dec  1 17:14:17 2000
+#This file was created by <wiera> Mon Dec  4 16:25:55 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -198,8 +198,8 @@ JMSAssert (
 
 \end_inset 
 
-) provides OCL for java.
- Constraints are embedded into java doc comments.
+) provides OCL support for java.
+ Constraints are embedded into javadoc comments.
  The tool links into the JVM to make the constraints checked.
  This approach does not involve source code modification.
  This makes it easier to use, but also platform dependent (currently Windows
@@ -233,25 +233,15 @@ Several approaches instrument java byte code to make constraints checked,
  Neither Handshake nor jContractor binaries are publicly available.
 \layout Standard
 
-Elixir (
-\begin_inset LatexCommand \cite{elixir}
-
-\end_inset 
-
-) claims OCL support in it's CASE tool and its java IDE.
- The CASE tool provides an OCL text field only, without any syntax checking.
- For the IDE a plugin is provided to integrate iContract (
+iContract (
 \begin_inset LatexCommand \cite{iContract}
 
 \end_inset 
 
-).
-\layout Standard
-
-iContract is a preprocessor for java.
+) is a preprocessor for java.
  It instruments java source code to check constraints.
  It supports a subset of OCL.
- Constraints are embedded into java doc comments.
+ Constraints are embedded into javadoc comments.
  iContracts source code instrumentation is analyzed in detail in section
  
 \begin_inset LatexCommand \ref{sec: compareIContract}
@@ -414,7 +404,7 @@ Availability
 \newline 
 JMSAssert
 \newline 
-OCL in Javadoc
+OCL in javadoc
 \newline 
 links JVM 
 \newline 
@@ -447,7 +437,7 @@ available
 \newline 
 jContractor
 \newline 
- Java methods
+ java methods
 \newline 
  byte code instr.
  /
@@ -464,7 +454,7 @@ available
 \newline 
 iContract
 \newline 
-OCL in Javadoc
+OCL in javadoc
 \newline 
 source code instr.
 \newline 
@@ -480,7 +470,7 @@ GPL
 \newline 
 
 \newline 
-types / Java methods
+types / java methods
 \newline 
 
 \newline 
@@ -488,7 +478,7 @@ types / Java methods
 \newline 
 Jass
 \newline 
-Java fragments in Javadoc
+java fragments in javadoc
 \newline 
 source code instr.
 \newline 
@@ -496,7 +486,7 @@ GPL
 \newline 
 Dresden 
 \newline 
-OCL in Javadoc
+OCL in javadoc
 \newline 
 source code instr.
 \newline 
@@ -535,8 +525,7 @@ A powerful approach to reverse engineering has been developed at the MIT
 \end_inset 
 
 .
- The tool Superwomble presented in this paper extracts an object model from
- java byte code.
+ The tool Superwomble extracts an object model from java byte code.
  Object models are roughly a subset of UML class diagrams, featuring inheritance
  and object associations.
  An important challenge for the analysis is the detection of element types
@@ -561,7 +550,7 @@ JVision
  It's easy to use and has nice auto-layout.
  But it does not handle associations in any way.
  Collection attributes are simply shown as attributes.
- Instead it analyses, which classes create/use each other.
+ Instead it analyses, which classes instantiate/use each other.
  This is not nearly as useful as associations.
 \layout Section
 
@@ -577,6 +566,16 @@ Cybernetic Intelligence develops an OCL compiler (
  The current prototype claims to support syntax checking only.
  Type checking is under development.
  Frontends are available for Select Enterprise and Rational Rose.
+\layout Standard
+
+Elixir (
+\begin_inset LatexCommand \cite{elixir}
+
+\end_inset 
+
+) claims OCL support in it's CASE tool and its java IDE.
+ The CASE tool provides an OCL text field only, without any syntax checking.
+ For the IDE a plugin is provided to integrate iContract.
 \layout Standard
 
 Several approaches implement OCL upon object repositories, such as USE 
@@ -681,12 +680,12 @@ The java code generator developed in
 \begin_float footnote 
 \layout Standard
 
-see class 
+see documentation of class 
 \family typewriter 
 tudresden.ocl.codegen.CodeFragment.
 \end_float 
 .
- These code fragment have the following properties:
+ These code fragments have the following properties:
 \layout Standard
 \added_space_top 0.3cm \added_space_bottom 0.3cm \align center \LyXTable
 multicol5
@@ -720,19 +719,19 @@ Constrained
 \protected_separator 
 type 
 \newline 
-The default navigation context of this constraint.
+The class this constraint applies to.
 \newline 
 Kind 
 \newline 
-Specifies, whether this constraint is an invariant, a pre- or a postcondition.
+Specifies, whether this fragment is an invariant, a pre- or a postcondition
+ or a transfer or preparation fragment for a postcondition.
  
 \newline 
 Constrained
 \protected_separator 
 operation 
 \newline 
-The operation, this constraint applies to (valid for pre- and postconditions
- only).
+The operation, this constraint applies to (not valid for invariants).
 \newline 
 Code 
 \newline 
@@ -742,12 +741,12 @@ Result
 \protected_separator 
 variable 
 \newline 
-Specifies the boolean value, which contains the result of the OCL expression
- after code execution.
+Specifies the name of the boolean variable, which contains the result of
+ the OCL expression after code execution.
 \layout Standard
 
 For each postcondition containing a @pre expression there are two additional
- codefragments called preparation and transfer.
+ code fragments called preparation and transfer.
  See below.
 \layout Subsection
 
@@ -1054,7 +1053,7 @@ Embedding Constraints in Java Source Code.
 
 \layout Standard
 
-It should be possible to embed constraints in the java documentation comments.
+It should be possible to embed constraints in the javadoc comments.
  The placement of embedded constraints implicates (and replaces) the context
  of the constraint.
  See the example below.
@@ -1934,7 +1933,7 @@ iContract (
 \end_inset 
 
 ) is a precompiler for checking OCL constraints in java programs.
- It extracts constraints from java doc comments and produces modified java
+ It extracts constraints from javadoc comments and produces modified java
  source files checking these constraints.
  This is exactly the functionality, which the tool presented in this paper
  tries to provide.
@@ -2233,8 +2232,8 @@ Public methods (or any other access modifier).
 \layout Itemize
 
 Tagged methods.
- A special tag in the documentation comment declares, that a method promises
- to leave the system in a consistent state.
+ A special tag in the javadoc comment declares, that a method promises to
+ leave the system in a consistent state.
  This tag is then part of the interface contract.
  This is the best solution, but requires additional effort spent by the
  developer.
@@ -3245,8 +3244,8 @@ Representing Element Types
 
 \layout Standard
 
-Element types and qualifier types are specified special tags in java documentati
-on comments.
+Element types and qualifier types are specified special tags in javadoc
+ comments.
  See the example below.
  
 \layout LyX-Code
@@ -3313,7 +3312,7 @@ The
 
  section 18.4.1, but may refer to classes and interfaces only.
  This tag is valid for attributes only, and there may be only one of such
- tags per documentation comment.
+ tags per javadoc comment.
  The tag is not restricted to attributes of type 
 \family typewriter 
 java.util.Collection
@@ -3484,7 +3483,7 @@ Section
 \end_inset 
 
  explained, how to store additional type information of a java model in
- java documentation tags.
+ javadoc tags.
  This section discusses, how to create this information.
 \layout Standard
 
@@ -3550,7 +3549,8 @@ Source Code Analysis
 \layout Standard
 
 Information about element types may be derived from static properties of
- the class, such as parameter types of methods and other tags in doccomments.
+ the class, such as parameter types of methods and other tags in javadoc
+ comments.
  
 \layout Standard
 
@@ -4830,7 +4830,7 @@ jar -xf royloy.jar
 \layout Standard
 
 You may now have a look at the example code, its in tudresden/ocl/test/royloy/.
- The java code already contains ocl expressions in java doc comments, for
+ The java code already contains ocl expressions in javadoc comments, for
  an easy start see 
 \family typewriter 
 Person.java
@@ -4876,7 +4876,7 @@ java -jar dresden-ocl-injector.jar
 
 The example java code has now been modified.
  The modified code will have the same behavior as the original code, but
- will additionally check the ocl constraints embedded in the java doc comments.
+ will additionally check the ocl constraints embedded in the javadoc comments.
 \layout Paragraph
 
 Step 3:
@@ -5032,8 +5032,8 @@ Performs cleaning of source files instead of injection.
 \layout Quotation
 
 Specifies the text file containing the constraints.
- Usually not needed, since constraints may and should be placed into java
- doc comments.
+ Usually not needed, since constraints may and should be placed into javadoc
+ comments.
  See section 
 \begin_inset LatexCommand \ref{Sec:embedConstraints}
 
