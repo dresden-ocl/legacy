@@ -83,6 +83,19 @@ jar -xf royloy.jar
 </pre>
 </li>
 <li>
+Compile the example:
+<pre>
+javac -classpath dresden-ocl-injector.jar tudresden/ocl/test/royloy/*.java
+</pre>
+</li>
+<li>
+Run the example:
+<pre>
+java -cp .:dresden-ocl-injector.jar tudresden.ocl.test.TestInjectionRoyloy
+</pre>
+Nothing happens. The example code runs through without complaining.
+</li>
+<li>
 Compile the example ocl expressions and put them into the java code:
 <pre>
 java -jar dresden-ocl-injector.jar -r tudresden.ocl.test.royloy --modify tudresden/ocl/test/royloy/*.java
@@ -97,17 +110,17 @@ To fix, recompile the <a href="#sources">sources</a> with JDK1.3
 </td></tr></table>
 </li>
 <li>
-Compile the example:
+Compile the example again:
 <pre>
 javac -classpath dresden-ocl-injector.jar tudresden/ocl/test/royloy/*.java
 </pre>
 </li>
 <li>
-Run the example:
+Run the example again:
 <pre>
 java -cp .:dresden-ocl-injector.jar tudresden.ocl.test.TestInjectionRoyloy
 </pre>
-Enjoy the messages about violated ocl constraints.
+This time something happens. Enjoy the messages about violated ocl constraints.
 </li>
 <li>
 Clean the code:
