@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Dec 13 12:05:02 2000
+#This file was created by <wiera> Wed Dec 13 14:22:20 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -6941,39 +6941,26 @@ available within the next few weeks.
 \bibitem [AU]{Argo}
 
 Argo/UML.
- http://argouml.\SpecialChar \-
-tigris.org/.
+ http://argouml.tigris.org/.
 \layout Bibliography
 \bibitem [BS]{Bold}
 
 BoldSoft.
  ModelRun.
- http://www.\SpecialChar \-
-boldsoft.\SpecialChar \-
-com/\SpecialChar \-
-products/\SpecialChar \-
-model\SpecialChar \-
-run/\SpecialChar \-
-index.html.
+ http://www.boldsoft.com/products/modelrun/ index.html.
 \layout Bibliography
 \bibitem [CI]{Cybernetic}
 
 Cybernetic Intelligence GmbH.
  OCL Compiler.
- http://www.\SpecialChar \-
-cybernetic.\SpecialChar \-
-org/\SpecialChar \-
-prodocl.htm.
+ http://www.
+ cybernetic.org/prodocl.htm.
 \layout Bibliography
 \bibitem [CMA]{CodeInstrumentation}
 
 Glen McCluskey & Associates LLC.
  Java Test Coverage and Instrumentation Toolkits.
- http://www.\SpecialChar \-
-glenmccl.\SpecialChar \-
-com/\SpecialChar \-
-instr/\SpecialChar \-
-index.htm.
+ http://www.glenmccl.com/instr/index.htm.
 \layout Bibliography
 \bibitem [DB99]{jassDiplom}
 
@@ -6989,21 +6976,12 @@ Andrew Duncan, Urs Hölzle.
  Adding Contracts to Java with Handshake.
  Technical Report TRCS98-32, Computer Science Department, University of
  California, Santa Barbara, December 1998.
- http://www.\SpecialChar \-
-cs.\SpecialChar \-
-ucsb.\SpecialChar \-
-edu/\SpecialChar \-
-oocsb/\SpecialChar \-
-papers/\SpecialChar \-
-handshake98.html.
+ http://www.cs.ucsb.edu/oocsb/papers/handshake98.html.
 \layout Bibliography
 \bibitem [ET]{elixir}
 
 Elixir Technology Pte Ltd.
- http://www.\SpecialChar \-
-elixirtech.\SpecialChar \-
-com/\SpecialChar \-
-index.html.
+ http://www.elixirtech.com/index.html.
 \layout Bibliography
 \bibitem [FF00]{ff3}
 
@@ -7011,18 +6989,13 @@ Frank Finger.
  Design and Implementation of a Modular OCL Compiler.
  Diplomarbeit.
  TU-Dresden, 2000.
- http://dresden-ocl.\SpecialChar \-
-sourceforge.net/.
+ http://dresden-ocl.sourceforge.net/.
 \layout Bibliography
 \bibitem [FSF00]{freesw}
 
 Free Software Foundation.
  What is Free Software? 1996-2000.
- http://www.\SpecialChar \-
-gnu.\SpecialChar \-
-org/\SpecialChar \-
-philosophy/\SpecialChar \-
-free-sw.html.
+ http://www.gnu.org/philosophy/free-sw.html.
 \layout Bibliography
 \bibitem [GJS96]{JAVA}
 
@@ -7030,22 +7003,12 @@ James Gosling, Bill Joy, Guy Steele.
  The Java Language Specification.
  Edition 1.0.
  Addison-Wesley, August 1996.
- http://java.\SpecialChar \-
-sun.\SpecialChar \-
-com/\SpecialChar \-
-docs/\SpecialChar \-
-books/\SpecialChar \-
-jls/\SpecialChar \-
-html/\SpecialChar \-
-index.html.
+ http://java.sun.com/docs/books/jls/html/index.html.
 \layout Bibliography
 \bibitem [JASS]{jassWeb}
 
 The Jass Page.
- http://semantik.\SpecialChar \-
-informatik.\SpecialChar \-
-uni-oldenburg.\SpecialChar \-
-de/~jass/.
+ http://semantik.informatik.uni-oldenburg.de/~jass/.
 \layout Bibliography
 \bibitem [JW99]{womble}
 
@@ -7054,11 +7017,7 @@ Daniel Jackson, Allison Waingold.
  Proc.
  International Conference on Software Engineering.
  May 1999.
- http://sdg.\SpecialChar \-
-lcs.\SpecialChar \-
-mit.\SpecialChar \-
-edu/\SpecialChar \-
-womble/.
+ http://sdg.lcs.mit.edu/womble/.
 \layout Bibliography
 \bibitem [KHB98]{jContractor}
 
@@ -7066,44 +7025,27 @@ Murat Karaorman, Urs Hölzle, John Bruno.
  jContractor: A Reflective Java Library to Support Design By Contract.
  Technical Report TRCS98-31, Computer Science Department, University of
  California, Santa Barbara, December 1998.
- http://www.\SpecialChar \-
-cs.\SpecialChar \-
-ucsb.\SpecialChar \-
-edu/\SpecialChar \-
-oocsb/\SpecialChar \-
-papers/\SpecialChar \-
-TRCS98-31.html.
+ http://www.cs.ucsb.edu/oocsb/papers/TRCS98-31.html.
 \layout Bibliography
 \bibitem [KSR00]{kbeans}
 
 Holger Knublauch, Martin Sedlmayr, Thomas Rose.
  Design Patterns for the Implementation of Constraints on JavaBeans.
- http://www.\SpecialChar \-
-faw.\SpecialChar \-
-uni-ulm.\SpecialChar \-
-de/\SpecialChar \-
-kbeans/.
+ http://www.faw.uni-ulm.de/kbeans/.
 \layout Bibliography
 \bibitem [LY97]{JVM}
 
 Tim Lindholm, Frank Yellin.
  The Java Virtual Machine Specification, Second Edition.
  Addison-Wesley, 1997.
- http://java.\SpecialChar \-
-sun.\SpecialChar \-
-com/\SpecialChar \-
-docs/\SpecialChar \-
-books/\SpecialChar \-
-vmspec/.
+ http://java.sun.com/docs/books/vmspec/.
 \layout Bibliography
 \bibitem [MMS]{JMSAssert}
 
 Man Machine Systems.
  JMSAssert.
- http://www.\SpecialChar \-
-mmsindia.\SpecialChar \-
-com/\SpecialChar \-
-JMSAssert.html.
+ http://www.mmsindia.
+ com/JMSAssert.html.
 \layout Bibliography
 \bibitem [OCL]{OCL}
 
@@ -7119,11 +7061,7 @@ Object Constraint Language Specification.
 
 Object Insight, Inc.
  JVISION.
- http://www.\SpecialChar \-
-object-insight.\SpecialChar \-
-com/\SpecialChar \-
-html/\SpecialChar \-
-product_info.html.
+ http://www.object-insight.com/html/ product_info.html.
 \layout Bibliography
 \bibitem [PSM98]{findBugsEarly}
 
@@ -7134,14 +7072,7 @@ Jeffery E.
  Finding bugs early.
  Dr.
  Dobb's Journal, January 1998.
- http://www.\SpecialChar \-
-ddj.\SpecialChar \-
-com/\SpecialChar \-
-articles/\SpecialChar \-
-1998/\SpecialChar \-
-9801/\SpecialChar \-
-9801d/\SpecialChar \-
-9801d.htm.
+ http://www.ddj.com/articles/1998/9801/9801d/9801d.htm.
 \layout Bibliography
 \bibitem [RG00]{USE}
 
@@ -7152,34 +7083,20 @@ Mark Richters, Martin Gogolla.
  Conf.
  Unified Modeling Language (UML'2000).
  Springer, Berlin, LNCS, 2000.
- http://www.\SpecialChar \-
-db.\SpecialChar \-
-informatik.\SpecialChar \-
-uni-bremen.\SpecialChar \-
-de/\SpecialChar \-
-projects/USE/.
+ http://www.db.informatik.uni-bremen.de/projects/USE/.
 \layout Bibliography
 \bibitem [RK98]{iContract}
 
 Reto Kramer.
  iContract - The Java- Design by Contract- Tool.
- http://www.\SpecialChar \-
-reliable-systems.\SpecialChar \-
-com/\SpecialChar \-
-tools/\SpecialChar \-
-iContract/\SpecialChar \-
-iContract.htm.
+ http://www.reliable-systems.com/tools/iContract/iContract.htm.
 \layout Bibliography
 \bibitem [RSC]{Rose}
 
 Rational Software Corporation.
  Rational Rose.
- http://www.\SpecialChar \-
-rational.\SpecialChar \-
-com/\SpecialChar \-
-products/\SpecialChar \-
-rose/\SpecialChar \-
-index.jsp.
+ http://www.rational.
+ com/products/rose/index.jsp.
 \layout Bibliography
 \bibitem [RW00]{rw7}
 
@@ -7187,8 +7104,7 @@ Ralf Wiebicke.
  XML Query Languages for Repositories Based on XML Documents.
  Großer Beleg.
  TU-Dresden, 2000.
- http://dresden-ocl.\SpecialChar \-
-sourceforge.net/.
+ http://dresden-ocl.sourceforge.net/.
 \layout Bibliography
 \bibitem [SM93]{solidCode}
 
@@ -7212,27 +7128,20 @@ Steve Maguire.
 
 Tim Littlefair.
  CCCC - C and C++ Code Counter.
- http://cccc.\SpecialChar \-
-sourceforge.\SpecialChar \-
-net/.
+ http://cccc.sourceforge.net/.
 \layout Bibliography
 \bibitem [TP98]{DbC}
 
 Todd Plessel.
  Design By Contract: A Missing Link In The Quest For Quality Software.
  Lockheed Martin / US EPA, August 1998.
- http://www.\SpecialChar \-
-elj.\SpecialChar \-
-com/\SpecialChar \-
-eiffel/\SpecialChar \-
-dbc/.
+ http://www.elj.com/eiffel/dbc/.
 \layout Bibliography
 \bibitem [TSC]{Together}
 
 TogetherSoft Corporation.
  Together.
- http://www.\SpecialChar \-
-togethersoft.com/.
+ http://www.togethersoft.com/.
 \layout Bibliography
 \bibitem [UML]{UML}
 
@@ -7242,13 +7151,7 @@ OMG Unified Modeling Language Specification, Version 1.3, June 1999.
 
 Versant Corporation.
  J/VERSANT Interface Release 2.4.0.
- http://www.\SpecialChar \-
-versant.\SpecialChar \-
-com/\SpecialChar \-
-us/\SpecialChar \-
-products/\SpecialChar \-
-vds/\SpecialChar \-
-index.html.
+ http://www.versant.com/us/products/vds/index.html.
 \layout Bibliography
 \bibitem [WK99]{Warmer}
 
@@ -7263,9 +7166,5 @@ Errata for
 
 \end_inset 
 
-: http://www.\SpecialChar \-
-klasse.\SpecialChar \-
-nl/\SpecialChar \-
-ocl-boek/\SpecialChar \-
-errata.htm.
+: http://www.klasse.nl/ocl-boek/errata.htm.
 \the_end
