@@ -1,0 +1,362 @@
+<html>
+<head>
+<title>OCL Compiler</title>
+</head>
+<body bgcolor=#FFFFFF>
+
+<table>
+  <tr>
+    <td width=10%>
+      <a href="http://www.tu-dresden.de"><img height=114 width=219 border=0 src="images/tulogo.gif" alt="Dresden University Of Technology"></a>
+    </td>
+  	<td width=10%>
+  	  <a href="http://www-st.inf.tu-dresden.de"><img height=119 width=119 border=0 src="images/st.gif" alt="Chair for Software Technology"></a>
+  	</td>
+  	<td width=55%></td>
+  	<td width=25%><img height=100 width=280 src="images/logo.gif" alt="oclcompiler"></td>
+  </tr>
+</table>
+
+<!-- --------------------------- -->
+This project is being migrated  to 
+<A href="http://sourceforge.net"><IMG src="http://sourceforge.net/sflogo.php?group_id=5840&amp;type=1" width="88" height="31" border="0" alt="SourceForge"></A>
+<table border=0>
+<tr><td height=50></td></tr>
+<tr>
+<td width=20%></td>
+<td width=40% valign=top>
+<b><code>contents:</code></b><br><br>
+<table border=0>
+  <tr>
+	<td><img height=10 width=10 src="images/dot.gif"></td>
+	<td><a href="#introduction"><code>introduction</code></a></td>
+  </tr>
+  <tr>
+	<td><img height=10 width=10 align=top src="images/dot.gif"></td>
+	<td><a href="#modules"><code>modules</code></a><br></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+	  <table>
+		  <tr>
+			<td><img height=10 width=10 src="images/dot.gif"></td>
+			<td><a href="#parser"><code>parser</code></a></td>
+		  </tr>
+		  <tr>
+			<td><img height=10 width=10 src="images/dot.gif"></td>
+			<td><a href="#semanticanalysis"><code>semantic analysis</code></a></td>
+		  </tr>
+		  <tr>
+			<td><img height=10 width=10 src="images/dot.gif"></td>
+			<td><a href="#normalization"><code>normalization</code></a></td>
+		  </tr>
+		  <tr>
+			<td><img height=10 width=10 src="images/dot.gif"></td>
+			<td><a href="#codegenerator"><code>code generator</code></a></td>
+		  </tr>
+		  <tr>
+			<td><img height=10 width=10 src="images/dot.gif"></td>
+			<td><a href="#library"><code>library</code></a></td>
+		  </tr>
+		  <tr>
+			<td><img height=10 width=10 src="images/dot.gif"></td>
+			<td><a href="#interfaces"><code>interfaces</code></a></td>
+		  </tr>
+	  </table>
+	</td>
+  </tr>
+  <tr>
+	<td><img height=10 width=10 src="images/dot.gif"></td>
+	<td><a href="#releasepolicy"><code>release policy</code></a></td>
+  </tr>
+  <tr>
+  	<td></td>
+    <td>
+	  <table>
+		  <tr>
+			<td><img height=10 width=10 src="images/dot.gif"></td>
+			<td><a href="#reuse"><code>reuse</code></a></td>
+		  </tr>
+	  </table>
+	</td>
+  </tr>
+</table>
+</td>
+<td width=40% valign=top>
+<b><code>on separate pages:</code></b><br><br>
+<table border=0>
+  <tr>
+	<td><img height=10 width=10 src="images/dot.gif"></td>
+	<td><code><a href="applet.html" target="_top">OCL parser applet</a></code></td>
+  </tr>
+  <tr>
+	<td><img height=10 width=10 align=top src="images/dot.gif"></td>
+	<td><a href="download.html"><code>download and documentation</code></a><br></td>
+  </tr>
+</table>
+</td>
+</tr>
+<tr><td height=50></td></tr>
+</table>
+
+<!-- --------------------------- -->
+
+<a name="introduction"></a>
+<h1><code>...introduction</code></h1>
+
+<p>This is a compiler that generates code out of OCL expressions.
+The generated code evaluates the OCL constraint for a model instance, i.e.
+a program or data base, at runtime. Constraints formulated during analysis and
+design can then easily be checked in the implementation.
+<p>While the Java code
+generator that is being implemented makes certain restrictions to the OCL
+constructs that can be used, the other compiler modules are implemented as
+close to the OCL specification of UML 1.3 as possible.
+
+<p>If you are interested in more information or want to be notified about
+changes on this page, send an email to
+<a href="mailto:ocl@mail-st.inf.tu-dresden.de">us</a>.
+
+<!-- --------------------------- -->
+
+<a name="modules"></a>
+<h1><code>...modules</code></h1>
+
+<p>The compiler is constructed of modules with separated responsibilities to allow
+easy reuse or replacement. The architecture is flexible enough to adapt the
+existing modules to a variety of purposes, such as code generation for other
+languages or OCL interpretation.</p>
+
+
+<p><img height=150 width=500 src="images/modules.gif" alt="module cooperation"></p>
+
+
+<a name="parser"></a>
+<h2><CODE>parser</CODE></h2>
+
+<p>The parser is built using the tool <a href="http://www.sable.mcgill.ca/sablecc/">SableCC</a>.
+It complies to OCL 1.3, with slight
+changes where inconsistencies in the specification where found (e.g. the specification
+grammar lacks some literals and
+the possiblity to express calls to the Collection operation &quot;iterate&quot;).</p>
+
+<p>The parser can be examined with the <a href="applet.html">applet</a>. Just enter
+an OCL expression into the text area on the tab &quot;constraint&quot;
+and click the &quot;Parse&quot;
+button.</p>
+
+
+<a name="semanticanalysis"></a>
+<h2><CODE>semantic analysis</CODE></h2>
+
+<p>Semantic analysis consists of simple consistency checks and type checking.
+An example for a consistency check is that an expression must have an operation
+context (like <CODE>context Person::getAge()</CODE>) if and only
+if it has an <CODE>pre</CODE> or <CODE>post</CODE> stereotype.
+Besides assuring the correctness of an OCL expression with reference to
+some source of model information, the type checker adds type information
+to some abstract syntax nodes and to variables. This information is available to
+other modules.</p>
+
+<p>The <a href="applet.html" target="_top">applet</a> automatically
+type-checks any OCL expression that is parsed.
+Since type checking requires model information, that will only be successful
+if the entered OCL expression complies to one of the UML diagrams shown below
+the applet unless another model information source is selected on the tab
+&quot;model&quot;. The source for such model information can of course be adapted in
+the compiler by implementing the interfaces <CODE>ModelFacade</CODE>
+and <CODE>Any</CODE> (see <a href="#interfaces">interfaces</a>).
+
+<p>As a result of type checking some of the abstract syntax tree's nodes
+display their type in the tree view (after the second '-'). Basically, all
+<i>*Expression</i> nodes (<I>Expression</I>, <I>LogicalExpression</I>, ...),
+all literals and nodes of type <i>PostfixExpressionTail</i>
+carry type information. Type checking
+is successful if the top expression node(s) are found to be of type
+<i>Boolean</i>. This is indicated by a green mark under &quot;Type Check&quot;
+on the tab &quot;AST&quot;.
+
+
+<a name="normalization"></a>
+<h2><CODE>normalization</CODE></h2>
+
+<p>To pave the way for code generation, normalization steps can be applied to the
+abstract syntax tree. This reduces code generator complexity. Instead of
+defining one OCL normal form, a set of normalization steps can be fitted
+together to generate a normal form specific to the desired target language.
+Examples for normalization steps are:
+<table>
+  <tr>
+  	<td valign=top> <img height=15 width=10 src="images/dotgap.gif"></td>
+  	<td> Explicit qualification of names (<code>age</code> becomes <code>self.age</code>)</td>
+  </tr>
+  <tr>
+  	<td valign=top> <img height=15 width=10 src="images/dotgap.gif"></td>
+  	<td> Insertion of iterators</td>
+  </tr>
+  <tr>
+  	<td valign=top> <img height=15 width=10 src="images/dotgap.gif"></td>
+  	<td> Insertion of type information</td>
+  </tr>
+  <tr>
+  	<td valign=top> <img height=15 width=10 src="images/dotgap.gif"></td>
+  	<td> Expansion of multiple iterators</td>
+  </tr>
+</table>
+
+<p>The <a href="applet.html" target="_top">applet</a> normalizes the abstract
+syntax tree using a normalization pattern
+adapted for the Java code generator when the &quot;Normalize&quot;
+button on the tab &quot;AST&quot; is pressed.
+The &quot;To Text&quot; button then writes the normalized
+constraint back into the text field of tab &quot;constraint&quot;.
+
+<a name="codegenerator"></a>
+<h2><CODE>code generator</CODE></h2>
+
+<p>A Java code generator is part of the OCL compiler. The Java code generated by it
+uses an class libary that represents the OCL type system. The following two
+tables show examples of generated code, including the original OCL expression.
+
+<p><table border=1>
+<tr><td><code>context Company inv: manager.age &gt;= 18</code></td></tr>
+<tr><td><code>
+<pre>final OclAnyImpl tuddOclNode0=Ocl.toOclAnyImpl( Ocl.getFor(this) );
+final OclAnyImpl tuddOclNode1=Ocl.toOclAnyImpl(tuddOclNode0.getFeature(&quot;manager&quot;));
+final OclInteger tuddOclNode2=Ocl.toOclInteger(tuddOclNode1.getFeature(&quot;age&quot;));
+final OclInteger tuddOclNode3=new OclInteger(18);
+final OclBoolean tuddOclNode4=tuddOclNode2.isGreaterEqual(tuddOclNode3);
+</pre></code></td></tr>
+</table>
+
+<p><table border=1>
+<tr><td><code>context Company inv: employees-&gt;isUnique(name)</code></td></tr>
+<tr><td><code>
+<pre>final OclAnyImpl tuddOclNode0=Ocl.toOclAnyImpl( Ocl.getFor(this) );
+final OclSet tuddOclNode1=Ocl.toOclSet(tuddOclNode0.getFeature(&quot;employees&quot;));
+final OclIterator tuddOclIter0=tuddOclNode1.getIterator();
+final OclRootEvaluatable tuddOclEval0=new OclRootEvaluatable() {
+  public OclRoot evaluate() {
+    final OclString tuddOclNode2=Ocl.toOclString(Ocl.toOclAnyImpl(tuddOclIter0.getValue()).getFeature(&quot;name&quot;));
+    return tuddOclNode2;
+  }
+};
+final OclBoolean tuddOclNode3=tuddOclNode1.isUnique(tuddOclIter0, tuddOclEval0);</pre>
+</code></td></tr>
+</table>
+
+<p>The applet allows to generate code by clicking the &quot;Generate&quot;
+button on the tab &quot;Java&quot;.
+
+<a name="library"></a>
+<h2><CODE>library</CODE></h2>
+
+The OCL class library implements the predefined OCL types and operations
+and allows to
+access application types through Java reflection (see the calls to
+<code>getFeature</code> in the example code above). It is adaptable
+in some respects to different code generators.</p>
+
+<a name="interfaces"></a>
+<h2><code>interfaces</code></h2>
+
+There are three interfaces between the OCL compiler and its surrounding environment
+(e.g. a CASE tool).
+
+<table>
+  <tr>
+  	<td valign=top> <img height=15 width=10 src="images/dotgap.gif"></td>
+  	<td> OCL constraint: the compiler is invoked with a simple String</td>
+  </tr>
+  <tr>
+  	<td valign=top> <img height=15 width=10 src="images/dotgap.gif"></td>
+  	<td> Model information: information from the UML model is necessary for
+	type checking. This interface is described below.</td>
+  </tr>
+  <tr>
+  	<td valign=top> <img height=15 width=10 src="images/dotgap.gif"></td>
+  	<td> Target code interface: The compiler will produce a String in the
+	target language (Java, SQL, ...) and will pass this String to the CASE tool
+	along with some other information (something like &quot;this String is a
+	postcondition for
+	<code>Person::getIncome()</code>&quot;)</td>
+  </tr>
+</table>
+
+<p>In the <a href="applet.html" target="_top">applet</a>, information for the first interface is entered into the text area.
+The second interface can be configured on the tab &quot;model&quot;.
+By default it is implemented to return information for two default models (see
+class diagrams below applet). The applet's implementation of the third
+interface displays the information on the tab &quot;Java&quot;.
+
+<p>The following class diagrams shows the internal type representation classes of
+the type checker. To adapt this to a new source of model information (e.g.
+a CASE tool, or some &quot;hard-wired&quot; model like for the applet) the
+interface <code>ModelFacade</code> has to be implemented to return objects
+fulfilling the <code>Any</code> interface which defines methods for access to
+attributes with and without parameters. An <code>ModelFacade</code> object is
+passed to the constructor of the <code>TypeChecker</code> class.
+
+<p><img src="images/modelfacade.gif" height=258 width=598
+        alt="interfaces for model information access">
+
+<p>An example of the communication between the OCL compiler's type checker
+and an implementation of these interfaces is shown in the following sequence
+diagram.
+
+<p><img src="images/seq_modelfacade.gif" height=507 width=705
+        alt="interfaces for model information access">
+
+
+
+
+<!-- --------------------------- -->
+
+
+<a name="releasepolicy"></a>
+<h1><code>...release policy</code></h1>
+
+<p>The OCL compiler is available under Free Software Foundation's
+LGPL, with the subset used by Argo/UML 0.7.2 alternatively being available
+under the BSD public license.
+The diploma paper on the compiler is written in English and contains
+detailed documentation of the compiler and its modules. Both the compiler and
+documentation are available on the <a href="download.html">download</a> page.
+
+<a name="reuse">
+<h2><code>...reuse</code></h2>
+
+The compiler is adaptable for a vast variety of purposes. This list, which will
+hopefully grow soon, shows projects that build on the OCL compiler.
+
+<table>
+  <tr>
+  	<td valign=top> <img height=15 width=10 src="images/dotgap.gif"></td>
+  	<td>Kendar Dongre at Clemson University is working on an extension of the
+  	  OCL for the specification of state machines.</td>
+  </tr>
+  <tr>
+  	<td valign=top> <img height=15 width=10 src="images/dotgap.gif"></td>
+  	<td>An integration of the OCL compiler into the open-source CASE tool
+  	  <a href="http://argouml.tigris.org">Argo/UML</a> is under development.
+  	  </td>
+  </tr>
+  <tr>
+  	<td valign=top> <img height=15 width=10 src="images/dotgap.gif"></td>
+  	<td>Sten L&ouml;cher develops a SQL code generator at Dresden University
+  	  of Technology.</td>
+  </tr>
+  <tr>
+  	<td valign=top> <img height=15 width=10 src="images/dotgap.gif"></td>
+  	<td>The XMI support implemented by Ralf Wiebicke is not really reuse
+  	  anymore since it is part of the standard configuration of the
+  	  OCL compiler.</td>
+  </tr>
+</table>
+
+<hr>
+<p align=left>Last update: May 6, 2000</p>
+
+</body>
+</html>
