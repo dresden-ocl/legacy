@@ -1,4 +1,4 @@
-#This file was created by <rw7> Mon Dec 11 04:41:37 2000
+#This file was created by <wiera> Mon Dec 11 13:27:34 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -148,8 +148,8 @@ Many different approaches for increasing software quality have been developed
  Few of them have experienced wide spread usage in industry.
  One of them is Structural Programming, another one is the Object Oriented
  Paradigm.
- And there is just another one, which [besticht,überzeugt] by its simpleness
- [Einfachheit]: Check Statements (or 
+ And there is just another one, which convinces through its simpleness:
+ Check Statements (or 
 \family typewriter 
 assert
 \family default 
@@ -304,7 +304,7 @@ The tool developed with this paper aims to support verification of design
  
 \layout Section
 
-[Aufgabenstellung]
+Task
 \layout Standard
 
 This work aims to extend the OCL compiler developed by Frank Finger with
@@ -317,13 +317,13 @@ This work aims to extend the OCL compiler developed by Frank Finger with
  section 3.6 already provides a list of requirements for such a tool.
  Additional attention is paid to java programs, where no UML class diagrams
  are available.
- The tool should be implemented to a [ausreichend] suitable extent.
+ The tool should be implemented to a sufficient extent.
  For the java code provided by the industrial partner net-linx Europe GmbH
  a small set of typical OCL constraints will be developed and experimented
  with.
 \layout Section
 
-[Gliederung]
+Organisation of This Work
 \layout Standard
 
 Chapter 
@@ -4492,7 +4492,7 @@ kind of constraints,
 problem with versant.
 \layout Standard
 
-versant bibliographic + Argo/UML, Rose, Together
+versant+cccc bibliographic 
 \layout Chapter
 
 Summary 
@@ -4737,11 +4737,25 @@ Even more important is the export of
  of either the source code or suitable API's.
 \layout Paragraph
 
-Removing Name Adapters.
+Superseding Name Adapters.
 \layout Standard
 
-Code generators of Argo/UML, Rational Rose and Together/J require the usage
- [Einsatz] of name adapters.
+Code generators of Argo/UML 
+\begin_inset LatexCommand \cite{Argo}
+
+\end_inset 
+
+, Rational Rose 
+\begin_inset LatexCommand \cite{Rose}
+
+\end_inset 
+
+ and Together 
+\begin_inset LatexCommand \cite{Together}
+
+\end_inset 
+
+ require the employment of name adapters.
  This is, since an association end called 
 \family typewriter 
 employers
@@ -4783,7 +4797,7 @@ This significantly changes the way of reverse engineering: Up to now, a
  missing (particularly the element type of container attributes) it makes
  some simple assumptions.
  In a second step, the user is expected to review the results and adjust
- them [korrigieren] where necessary.
+ them where necessary.
 \layout Standard
 
 The OCL toolkit can be used to swap the order of steps.
@@ -4793,8 +4807,8 @@ The OCL toolkit can be used to swap the order of steps.
 @element-type
 \family default 
  tags.
- This information is then used by the CASE tool to [geradewegs] produce
- a correct UML model.
+ This information is then used by the CASE tool to straightly produce a
+ correct UML model.
  The advantage is, that the additional information can be verified using
  the runtime checks provided by the OCL toolkit.
 \layout Standard
@@ -4804,8 +4818,8 @@ Of course, the
 @element-type
 \family default 
  tag does not provide all the needed information.
- For instance bidirectional associations cannot be determined[bestimmt],
- since they cannot be distinguished from two independent one-way associations.
+ For instance bidirectional associations cannot be determined, since they
+ cannot be distinguished from two independent one-way associations.
  This could be approached by introducing some kind of 
 \family typewriter 
 @reverse-direction
@@ -4855,11 +4869,11 @@ Caching the results of invariants (section
 
 ) requires observing of both attributes and query methods.
  However, observing queries has not been implemented yet.
- The entire [ganze] approach to caching requires a significant memory overhead.
+ The total approach to caching requires a significant memory overhead.
  Observing queries will make this even worse by introducing another step
  of indirection.
- This should not be done [in Angriff nehmen] before this approach has shown
- to be functional for big projects with many and complex invariants.
+ This should not be attempted until this approach has shown to be functional
+ for big projects with many and complex invariants.
 \layout Paragraph
 
 Java Constraints.
@@ -4878,18 +4892,18 @@ Constraints could be expressed in Java instead of OCL.
  implementation effort.
 \layout Paragraph
 
-[Customizability].
+Enhancing Flexibility.
 \layout Standard
 
 Simply put, this means more options and probably some kind of configuration
  file.
- A good example [Vorbild] is iContract 
+ A good example is iContract 
 \begin_inset LatexCommand \cite{iContract}
 
 \end_inset 
 
 , which allows to enable constraints independently for packages, classes
- and methods with a config file.
+ and methods using a configuration file.
  Additionally there could be a more flexible scope of invariants, as suggested
  in section 
 \begin_inset LatexCommand \ref{Sec:structuralScope}
@@ -6600,11 +6614,17 @@ The Problem with Versant Database
 
 \layout Standard
 
-This appendix shows why Versant and the Dresden OCL Toolkit don't work together.
+This appendix shows why the Versant ODBMS and the Dresden OCL Toolkit don't
+ work together.
  
 \layout Standard
 
-The problem is a bug in Java Versant Interface (JVI).
+The problem is a bug in Java Versant Interface 
+\begin_inset LatexCommand \cite{Versant}
+
+\end_inset 
+
+ (JVI).
  JVI provides an enhancer, which instruments the user application on byte
  code level.
  The enhancer transforms any access to object fields into a call to a wrapper
@@ -7036,6 +7056,42 @@ object-insight.\SpecialChar \-
 com/\SpecialChar \-
 html/\SpecialChar \-
 product_info.html.
+\layout Bibliography
+\bibitem [AU]{Argo}
+
+Argo/UML.
+ http://argouml.\SpecialChar \-
+tigris.org/.
+\layout Bibliography
+\bibitem [RSC]{Rose}
+
+Rational Software Corporation.
+ Rational Rose.
+ http://www.\SpecialChar \-
+rational.\SpecialChar \-
+com/\SpecialChar \-
+products/\SpecialChar \-
+rose/\SpecialChar \-
+index.jsp.
+\layout Bibliography
+\bibitem [TSC]{Together}
+
+TogetherSoft Corporation.
+ Together.
+ http://www.\SpecialChar \-
+togethersoft.com/.
+\layout Bibliography
+\bibitem [VC]{Versant}
+
+Versant Corporation.
+ J/VERSANT Interface Release 2.4.0.
+ http://www.\SpecialChar \-
+versant.\SpecialChar \-
+com/\SpecialChar \-
+us/\SpecialChar \-
+products/\SpecialChar \-
+vds/\SpecialChar \-
+index.html.
 \layout Bibliography
 \bibitem [RW00]{rw7}
 
