@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Jul 12 10:26:00 2000
+#This file was created by <wiera> Fri Jul 14 14:50:42 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -624,6 +624,7 @@ Added a simplified form of qualified associations to ReflectionFacade and
  ocl library.
  Simplification means, that there may be only one qualifier attribute.
  Qualified associations are represented by java.util.Map.
+ ReflectionAdapter.isMap.
 \layout Enumerate
 
 New mapping beetween collections in OCL and Java conforming to JDK1.2.
@@ -733,6 +734,22 @@ Fewer spots were the code has to be touched
 Avoid name confict beetween ocl library and user code.
 \end_deeper 
 \end_deeper 
+\layout Section
+
+Silly Bugfixes
+\layout Enumerate
+
+JavaCodeGenerator: Reihenfolge bei arrow
+\layout Enumerate
+
+Basic.navigate: max[1]
+\layout Enumerate
+
+DefaultOclFactory.getOclRepresentationFor(Object): dealing with Float and
+ Double
+\layout Enumerate
+
+OclCollection.setToRange: exchanged bounds in error condition
 \layout Bibliography
 \bibitem [FF00]{ff3}
 
