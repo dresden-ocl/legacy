@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Nov 29 16:38:27 2000
+#This file was created by <wiera> Thu Nov 30 11:18:34 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -80,8 +80,22 @@ copyright
 Availability
 \layout Standard
 
-This document is available at http://dresden-ocl.sourceforge.net/diploma_rw7/
- in several electronic forms including 
+This document is available at http://dresden-ocl.
+\family typewriter 
+\SpecialChar \-
+
+\family default 
+sourceforge.
+\family typewriter 
+\SpecialChar \-
+
+\family default 
+net/
+\family typewriter 
+\SpecialChar \-
+
+\family default 
+diploma_rw7/ in several electronic forms including 
 \latex latex 
 
 \backslash 
@@ -91,8 +105,17 @@ LaTeX{}
  
 \layout Standard
 
-The source code developed together with this paper is available at http://dresde
-n-ocl.sourceforge.net/.
+The source code developed together with this paper is available at http://
+\family typewriter 
+\SpecialChar \-
+
+\family default 
+dresden-ocl.
+\family typewriter 
+\SpecialChar \-
+
+\family default 
+sourceforge.net/.
 \layout Section*
 
 New
@@ -108,6 +131,17 @@ Section
 
 Appendix 
 \begin_inset LatexCommand \ref{sec: VersantProblem}
+
+\end_inset 
+
+.
+\layout Enumerate
+
+completed chapter 2 Related Work.
+\layout Enumerate
+
+section 
+\begin_inset LatexCommand \ref{Sec:maintainJavaCodeGenerator}
 
 \end_inset 
 
@@ -250,7 +284,9 @@ age
 \family default 
  constrained to positive values, one just adds a method 
 \family typewriter 
-getAgeMinValue() {return
+getAge\SpecialChar \-
+Min\SpecialChar \-
+Value() {return
 \protected_separator 
 0;}
 \family default 
@@ -277,8 +313,8 @@ Jass (
 \end_inset 
 
 ).
- Apart from class invariants and method pre/postconditions it provides check
- statements (like assert() in C++) and loop invariants/variants.
+ Apart from class invariants and method pre- and postconditions it provides
+ check statements (like assert() in C++) and loop invariants and variants.
  Assertions are expressed in java, extended by universal and existential
  quantifiers.
  Jass approaches a task similarly to code injection presented in this paper
@@ -1552,7 +1588,8 @@ Sub.method()
  This is a wrapper method replacing the original method, which is named
  
 \family typewriter 
-method_wrappedbyocl()
+method_\SpecialChar \-
+wrappedbyocl()
 \family default 
  now.
 \layout Enumerate
@@ -1563,27 +1600,33 @@ Sub.method()
 \family default 
  does some OCL specific things, before it executes the statement 
 \family typewriter 
-method_wrappedbyocl()
+method_\SpecialChar \-
+wrappedbyocl()
 \family default 
 .
  This calls the original method 
 \family typewriter 
-Sub.method_wrappedbyocl()
+Sub.\SpecialChar \-
+method_\SpecialChar \-
+wrappedbyocl()
 \family default 
  as it is supposed to be.
 \layout Enumerate
 
 
 \family typewriter 
-Sub.method_wrappedbyocl()
+Sub.method_\SpecialChar \-
+wrappedbyocl()
 \family default 
  contains the 
 \family typewriter 
-super.method();
+super.\SpecialChar \-
+method();
 \family default 
  statement, therefore calls 
 \family typewriter 
-Super.method()
+Super.\SpecialChar \-
+method()
 \family default 
 .
 \layout Enumerate
@@ -1594,32 +1637,43 @@ Super.method()
 \family default 
  is a wrapper method replacing the original method, which is called 
 \family typewriter 
-Super.method_wrappedbyocl()
+Super.\SpecialChar \-
+method_\SpecialChar \-
+wrappedbyocl()
 \family default 
  now.
  It does some OCL specific thing, before it executes the statement 
 \family typewriter 
-method_wrappedbyocl()
+method_\SpecialChar \-
+wrappedbyocl()
 \family default 
 .
  But this statement does not call 
 \family typewriter 
-Super.method_wrappedbyocl()
+Super.\SpecialChar \-
+method_\SpecialChar \-
+wrappedbyocl()
 \family default 
  as it is supposed to be, but 
 \family typewriter 
-Sub.method_wrappedbyocl()
+Sub.method_\SpecialChar \-
+wrapped\SpecialChar \-
+byocl()
 \family default 
 , which finally causes the infinite loop.
 \layout Standard
 
 The principal solution approach is simple: method 
 \family typewriter 
-Super.method()
+Super.\SpecialChar \-
+method()
 \family default 
  should force 
 \family typewriter 
-Super.method_wrappedbyocl()
+Super.\SpecialChar \-
+method_\SpecialChar \-
+wrapped\SpecialChar \-
+byocl()
 \family default 
  to be executed, although this method was overridden in class 
 \family typewriter 
@@ -2485,7 +2539,10 @@ Invariant
 \emph toggle 
  exists only as an additional method 
 \family typewriter 
-checkOclInvariant_<name>
+check\SpecialChar \-
+Ocl\SpecialChar \-
+Invariant_\SpecialChar \-
+<name>
 \family default 
  of its context class.
  
@@ -2511,7 +2568,10 @@ Feature
  object.
  (
 \family typewriter 
-java.lang.reflect.Field
+java.\SpecialChar \-
+lang.\SpecialChar \-
+reflect.\SpecialChar \-
+Field
 \family default 
  is a field of a class, not of an object.) Whenever a feature has to be referred,
  it is represented by it's observer collection object, which sufficient
@@ -4054,13 +4114,17 @@ Polymorphism of Operation Parameters
 
 Both 
 \family typewriter 
-ReflectionFacade.\SpecialChar \-
-navigateParameterized
+Reflection\SpecialChar \-
+Facade.\SpecialChar \-
+navigate\SpecialChar \-
+Parameterized
 \family default 
  and 
 \family typewriter 
-OclAnyImpl.\SpecialChar \-
-getFeature
+OclAny\SpecialChar \-
+Impl.\SpecialChar \-
+get\SpecialChar \-
+Feature
 \family default 
  lacked polymorphism of operation parameters.
  This means, that a method is found only if actual parameter types match
@@ -4078,8 +4142,11 @@ getFeature
 
 The new implementation made 
 \family typewriter 
-ReflectionAdapter.\SpecialChar \-
-getClassForType
+Reflection\SpecialChar \-
+Adapter.\SpecialChar \-
+get\SpecialChar \-
+Class\SpecialChar \-
+ForType
 \family default 
  superfluous, so it was removed from the interface.
 \layout Subsection
@@ -4095,12 +4162,18 @@ Now its mandatory to set a name adapter.
  Otherwise a NullPointerException is thrown.
  The default functionality has been moved into a separate name adapter (
 \family typewriter 
-SimpleNameAdapter
+Simple\SpecialChar \-
+Name\SpecialChar \-
+Adapter
 \family default 
 ) which is used in the reflection facade as well.
  The name adapter may also be set by the java property 
 \family typewriter 
-tudresden.ocl.lib.nameadapter
+tudresden.\SpecialChar \-
+ocl.\SpecialChar \-
+lib.\SpecialChar \-
+name\SpecialChar \-
+adapter
 \family default 
 .
 \layout Subsection
@@ -4124,11 +4197,14 @@ Simplified
 
 Qualified associations are represented in java with 
 \family typewriter 
-java.util.Map
+java.\SpecialChar \-
+util.Map
 \family default 
  by default, but this may be changed by implementing 
 \family typewriter 
-ReflectionAdapter.isMap()
+Reflection\SpecialChar \-
+Adapter.\SpecialChar \-
+isMap()
 \family default 
 .
 \layout Subsection
@@ -4140,15 +4216,20 @@ The mapping beetween OCL types and java types now supports the collections
  API introduced in JDK version 1.2.
  The changes concern 
 \family typewriter 
-DefaultOclFactory.\SpecialChar \-
+Default\SpecialChar \-
+Ocl\SpecialChar \-
+Factory.\SpecialChar \-
 getOcl\SpecialChar \-
 Representation\SpecialChar \-
 For(Object)
 \family default 
  and 
 \family typewriter 
-DefaultReflection\SpecialChar \-
-Adapter.getClass\SpecialChar \-
+Default\SpecialChar \-
+Reflection\SpecialChar \-
+Adapter.\SpecialChar \-
+get\SpecialChar \-
+Class\SpecialChar \-
 ForType
 \family default 
 .
@@ -4157,12 +4238,22 @@ ForType
 
 A special handling of 
 \family typewriter 
-java.util.Vector
+java.\SpecialChar \-
+util.\SpecialChar \-
+Vector
 \family default 
- supports code generated by Argo/UML.
+ supports code generated by Argo/
+\family typewriter 
+\SpecialChar \-
+
+\family default 
+UML.
  The static configuration variable 
 \family typewriter 
-Ocl.TAKE_VECTORS_AS_SET
+Ocl.\SpecialChar \-
+TAKE_\SpecialChar \-
+VECTORS_\SpecialChar \-
+AS_SET
 \family default 
  causes vectors to be mapped to sets, instead of sequences.
 \layout Standard
@@ -4264,7 +4355,8 @@ This was given up.
 
 This made 
 \family typewriter 
-Ocl.STRICT_CHECKING
+Ocl.STRICT_\SpecialChar \-
+CHECKING
 \family default 
  superfluous, so it was removed.
  Wherever this property was used, the library now produces an undefined
@@ -4276,7 +4368,10 @@ Undefined values were introduced at some other operations of OCL objects:
 
 Method 
 \family typewriter 
-OclCollection.setToRange
+OclCollection.\SpecialChar \-
+set\SpecialChar \-
+To\SpecialChar \-
+Range
 \family default 
  now creates an undefined collection (instead of throwing an exception),
  if lower bound is greater than upper bound.
@@ -4320,8 +4415,10 @@ OclFactory
 .
  This method is called in 
 \family typewriter 
-OclAnyImpl.\SpecialChar \-
-getFeature
+OclAny\SpecialChar \-
+Impl.\SpecialChar \-
+get\SpecialChar \-
+Feature
 \family default 
 .
 \layout Section
@@ -4803,7 +4900,22 @@ none
  section 3.5.1 and 3.5.6.
 \layout LyX-Code
 
--is --invariant-scope [all|private|protected|package|public|explicit]
+-is --invariant-scope 
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+[all|private|protected|package|public|explicit]
 \layout Quotation
 
 Specifies the the scope of invariants used.
@@ -4839,7 +4951,9 @@ Specifies what to do, if a constraint fails.
  The injector appends a pair of parents enclosing a suitable message string.
  Good candidates are 
 \family typewriter 
-System.out.println
+System.\SpecialChar \-
+out.\SpecialChar \-
+println
 \family default 
  (the default) or 
 \family typewriter 
@@ -4880,8 +4994,10 @@ Performs type tracing of collection elements.
  
 \family typewriter 
 tudresden.\SpecialChar \-
-ocl.injection.\SpecialChar \-
-lib.TypeTracer.log
+ocl.\SpecialChar \-
+injection.\SpecialChar \-
+lib.\SpecialChar \-
+TypeTracer.log
 \family default 
 .
 \layout Quotation
@@ -4890,9 +5006,13 @@ Note, that the log file must be specified when running the user program,
  not the injector! For example use 
 \family typewriter 
 -Dtudresden.\SpecialChar \-
-ocl.injection.\SpecialChar \-
+ocl.\SpecialChar \-
+injection.\SpecialChar \-
 lib.TypeTracer.\SpecialChar \-
-log=ocltypetrace.txt
+log=example.\SpecialChar \-
+ocl\SpecialChar \-
+type\SpecialChar \-
+trace
 \family default 
 .
  If not specified, the type information is written to standard out.
