@@ -1,4 +1,4 @@
-#This file was created by <wiera> Mon Aug  7 17:43:59 2000
+#This file was created by <wiera> Tue Aug  8 11:37:33 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -1275,11 +1275,27 @@ The previous section discussed, when we have to make sure, that all invariants
  But even then it's not absolutely necessary to evaluate all invariants.
  The implementation developed along with this paper checks only those invariants
 , whose result may possibly have changed by recent changes of the model.
+\layout Subsection
+
+Design
+\layout Standard
+
+This is achieved with an observer design.
+ Each invariant determines all object attributes it depends on and registers
+ to these attributes as observer.
+ Figure 
+\begin_inset LatexCommand \ref{Abb:observingInvariants}
+
+\end_inset 
+
+ shows the meta model of the principal design.
+\layout Standard
+
 \begin_float fig 
 \layout Standard
 \align center 
 
-\begin_inset Figure size 595 244
+\begin_inset Figure size 595 253
 file observingInvariants.eps
 width 4 100
 flags 15
@@ -1289,9 +1305,138 @@ flags 15
 
 \layout Caption
 
-Model for Observing Invariants
+Design for Observing Invariants
+\begin_inset LatexCommand \label{Abb:observingInvariants}
+
+\end_inset 
+
+
 \end_float 
  
+\layout Standard
+
+The classes in the UML chart have the following meaning:
+\layout Standard
+\added_space_top 0.3cm \added_space_bottom 0.3cm \align center \LyXTable
+multicol5
+6 3 0 0 -1 -1 -1 -1
+1 1 0 0
+1 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+2 1 0 "" ""
+2 1 0 "5cm" ""
+2 1 1 "3cm" ""
+0 8 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+
+Class
+\newline 
+
+\newline 
+Example
+\newline 
+Class
+\newline 
+An arbitrary class of the user model
+\newline 
+
+\family typewriter 
+class Person
+\family default 
+
+\newline 
+Invariant
+\newline 
+An invariant in the context of a class
+\newline 
+
+\family typewriter 
+context Person inv: age>=0
+\family default 
+
+\newline 
+Object
+\newline 
+An instance of a class
+\newline 
+Person 
+\begin_inset Quotes eld
+\end_inset 
+
+Smith
+\begin_inset Quotes erd
+\end_inset 
+
+
+\newline 
+InvariantInstance
+\newline 
+An invariant in the context of an object.
+\newline 
+Has 
+\begin_inset Quotes eld
+\end_inset 
+
+Smith
+\begin_inset Quotes erd
+\end_inset 
+
+ a positive age?
+\newline 
+Feature
+\newline 
+An feature (attribute or query method) of an object.
+\newline 
+
+\family typewriter 
+Person.age
+\layout Standard
+
+For now, think of features as attributes only.
+ How to deal with query methods is explained later.
+ The cycle of checking invariants contains two stages.
+\layout Enumerate
+
+Evaluating invariants.
+ When evaluating an invariant instance, this invariant instance registers
+ to all object attributes used during evaluation as observer.
+ This means, the attribute promises to notify the invariant instance, when
+ the attributes value changes.
+\layout Enumerate
+
+Running the model.
+ When an attribute changed its value during execution of user code, it notifies
+ all observing invariant instances.
+ Then, the attribute unregisters all observers, so they must register again
+ on the following stage 1.
+\layout Standard
+
+This design can be extended to methods.
+\layout Subsection
+
+Implementation
+\layout Standard
+
+Not all of these classes exist explicitly in the implementation.
 \layout Chapter
 
 Reverse Engineering
