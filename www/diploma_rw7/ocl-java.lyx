@@ -1,4 +1,4 @@
-#This file was created by <wiera> Thu Jul 27 16:38:13 2000
+#This file was created by <wiera> Thu Jul 27 16:40:49 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -811,7 +811,7 @@ Methods Wrappers
 
 \layout Standard
 
-The main task of code injection is to have some code executed immediatly
+The main task of code injection is to have some code executed immediately
  before and after all methods (and after all constructors too).
  This section describes, how this is done by the ocl injector.
 \layout Paragraph
@@ -873,7 +873,7 @@ int someMethod(double x)
 } 
 \layout Standard
 
-The code injector transformes this into two methods.
+The code injector transforms this into two methods.
 \layout LyX-Code
 
 int someMethod_wrappedbyocl(double x)
@@ -926,7 +926,7 @@ return result;
 The reader may have a look back at the problems encountered for the simple
  approach.
  Non of them exists anymore.
- Especcially, a very inchoate java parser is sufficient, which understands
+ Especially, a very inchoate java parser is sufficient, which understands
  anything outside of method bodies and attribute initializers only.
 \layout Paragraph
 
