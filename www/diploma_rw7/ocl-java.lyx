@@ -1,4 +1,4 @@
-#This file was created by <wiera> Mon Aug 14 12:45:55 2000
+#This file was created by <wiera> Tue Aug 15 13:45:52 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -347,8 +347,8 @@ Furthermore, UML specifies the unqualified association feature to be a set,
 \family typewriter 
 java.util.Map
 \family default 
- (only keys are guaranteed to be unique), the injector provides an appropriate
- runtime check.
+ (only keys are guaranteed to be unique), the ocl library provides an appropriat
+e runtime check.
 \layout Paragraph
 
 Implementation.
@@ -1748,7 +1748,7 @@ employees
 Person
 \family default 
 , but this information is not yet available to the OCL compiler.
- The tool can derive an apropriate hint for the developer from one of the
+ The tool can derive an appropriate hint for the developer from one of the
  underlined features.
 \layout LyX-Code
 
@@ -1817,7 +1817,7 @@ Runtime Type Tracing
 \layout Standard
 
 This section describes, how to trace element types of collections on runtime.
- This is useful, if there is no static type informtion available, as described
+ This is useful, if there is no static type information available, as described
  in the previous section.
  
 \layout Standard
@@ -1831,12 +1831,12 @@ For each collection attribute, the object types encountered during a run
 
 The interactive tool presents the set of object types for every collection
  attribute.
- Additionally, the tool higlights all types, for which there is no super
+ Additionally, the tool highlights all types, for which there is no super
  type in this set.
  Formally, this is local minima of the set respective to the generalization
  partial order.
- These local minima are good candidates for a element type, especcially
- if there are many types encountered in the collection attribute.
+ These local minima are good candidates for a element type, especially if
+ there are many types encountered in the collection attribute.
 \layout Paragraph
 
 Implementation.
