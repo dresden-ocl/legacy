@@ -1,4 +1,4 @@
-#This file was created by <rw7> Sun Oct 15 01:23:04 2000
+#This file was created by <rw7> Sun Oct 15 15:40:02 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -136,6 +136,14 @@ Sections
 
  and 
 \begin_inset LatexCommand \ref{sec: compareByteCodeInstr}
+
+\end_inset 
+
+.
+\layout Enumerate
+
+Section 
+\begin_inset LatexCommand \ref{Sec:detectingCollectionChanges}
 
 \end_inset 
 
@@ -2380,7 +2388,7 @@ tudresden.ocl.injection.HashExact.identityHashCode
  The following section discusses this in detail.
 \layout Subsection
 
-Detecting Collection Changes
+Detecting Collection Modification
 \begin_inset LatexCommand \label{Sec:detectingCollectionChanges}
 
 \end_inset 
@@ -2518,7 +2526,335 @@ There is a work-around for this.
 ConcurrentModificationException
 \family default 
 .
- This has not been implemented yet.
+ This has not been implemented yet, since it imposes several problems.
+ Using the disassembler I found out, that 
+\family typewriter 
+hasNext()
+\family default 
+ does not check for modifications.
+ Thus, method 
+\family typewriter 
+next()
+\family default 
+ has to be invoced.
+ But this may also fail due to 
+\family typewriter 
+NoSuchElementException
+\family default 
+ if there are no elements left.
+ Thus, the iterator used for backup would have to be recreated, whenever
+ there is no element left.
+ Empty collections would require a special treatment.
+\layout Standard
+
+Using the fail-fast mechanism obviously does not work for arrays.
+ However, a fall back to 
+\family typewriter 
+HashExact
+\family default 
+ or 
+\family typewriter 
+HashSize
+\family default 
+ is easily provided.
+ This could even be decided dynamicly depending on the size of the arrays.
+\layout Standard
+
+The table below summarizes the different detection mechanisms:
+\layout Standard
+\added_space_top 0.3cm \added_space_bottom 0.3cm \align center \LyXTable
+multicol5
+16 5 0 0 -1 -1 -1 -1
+1 1 0 0
+1 0 0 0
+0 1 0 0
+0 0 0 0
+0 1 0 0
+0 1 0 0
+1 1 0 0
+1 0 0 0
+0 0 0 0
+1 0 0 0
+0 1 0 0
+0 0 0 0
+0 0 0 0
+0 1 0 0
+0 0 0 0
+0 1 0 0
+8 1 0 "" ""
+8 1 0 "" ""
+8 1 0 "" ""
+8 1 0 "" ""
+8 1 1 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+
+
+\newline 
+Exact
+\newline 
+Size
+\newline 
+ModCount
+\newline 
+Iterator
+\newline 
+Modification 
+\newline 
+nearly perfect
+\newline 
+insertion/
+\newline 
+perfect
+\newline 
+perfect
+\newline 
+Detection
+\newline 
+
+\newline 
+deletion only
+\newline 
+
+\newline 
+
+\newline 
+Runtime 
+\newline 
+linear
+\newline 
+constant/
+\newline 
+constant/
+\newline 
+constant/
+\newline 
+Complexity
+\newline 
+
+\newline 
+very low
+\newline 
+low
+\newline 
+intermediate
+\newline 
+Implemention
+\newline 
+yes
+\newline 
+yes
+\newline 
+yes
+\newline 
+-
+\newline 
+Works with
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+Arrays
+\newline 
+yes
+\newline 
+yes
+\newline 
+fall back 
+\newline 
+fall back
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+to other
+\newline 
+to other
+\newline 
+Collections without 
+\newline 
+yes
+\newline 
+yes
+\newline 
+runtime
+\newline 
+silent
+\newline 
+Fail-Fast Iterators
+\newline 
+
+\newline 
+
+\newline 
+error
+\newline 
+failure
+\newline 
+ Non-JDK 
+\newline 
+yes
+\newline 
+yes
+\newline 
+runtime 
+\newline 
+yes
+\newline 
+Collections with 
+\newline 
+
+\newline 
+
+\newline 
+error
+\newline 
+
+\newline 
+Fail-Fast Iterators
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+JDK Standard 
+\newline 
+yes
+\newline 
+yes
+\newline 
+yes
+\newline 
+yes
+\newline 
+Collections 
+\newline 
+
+\newline 
+
+\newline 
+
+\newline 
+
+\layout Standard
+
+Finally there is the question, which to choose.
+ Probably you should start with HashExact (the default).
+ If this works, everything is fine.
+ If the application slows down more, than you are willing to accept, try
+ 
+\family typewriter 
+HashModCount
+\family default 
+.
+ If this works, it's fine.
+ Otherwise it will fail fast throwing a 
+\family typewriter 
+RuntimeException
+\family default 
+.
+ Then you may try 
+\family typewriter 
+HashSize
+\family default 
+ hoping, that is doesn't miss too many modifications.
+ 
+\layout Standard
+
+If this is not acceptable to you, implement the iterator method.
+ Make sure, that all collections used in your application provide fail-fast
+ iterators (JDK standard collections do).
+ Otherwise modifications may be missed silently.
 \layout Chapter
 
 Model Information
@@ -4021,6 +4357,12 @@ HashSize
 .
  However, they heavily depend on internals of the java collections implemenation.
  Use at your own risk.
+ See section 
+\begin_inset LatexCommand \ref{Sec:detectingCollectionChanges}
+
+\end_inset 
+
+.
 \layout Chapter
 
 Code Examples
