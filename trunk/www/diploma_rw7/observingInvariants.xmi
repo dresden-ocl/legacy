@@ -26,7 +26,7 @@
       </Foundation.Core.Namespace.ownedElement>
       <Foundation.Core.Namespace.ownedElement>
         <Foundation.Core.Class xmi.id="xmi.3" xmi.uuid="127-0-0-2-794d04cb:e0d4f59c7c:-7ffd">
-          <Foundation.Core.ModelElement.name>Attribute</Foundation.Core.ModelElement.name>
+          <Foundation.Core.ModelElement.name>Feature</Foundation.Core.ModelElement.name>
           <Foundation.Core.ModelElement.isSpecification xmi.value="false"/>
           <Foundation.Core.GeneralizableElement.isRoot xmi.value="false"/>
           <Foundation.Core.GeneralizableElement.isLeaf xmi.value="false"/>
@@ -392,7 +392,7 @@
       </Foundation.Core.Namespace.ownedElement>
       <Foundation.Core.Namespace.ownedElement>
         <Foundation.Core.AssociationEnd xmi.id="xmi.28" xmi.uuid="127-0-0-2-794d04cb:e0d4f59c7c:-7fe9">
-          <Foundation.Core.ModelElement.name>observedAttributes</Foundation.Core.ModelElement.name>
+          <Foundation.Core.ModelElement.name>observedFeatures</Foundation.Core.ModelElement.name>
           <Foundation.Core.ModelElement.isSpecification xmi.value="false"/>
           <Foundation.Core.AssociationEnd.isNavigable xmi.value="true"/>
           <Foundation.Core.AssociationEnd.multiplicity>

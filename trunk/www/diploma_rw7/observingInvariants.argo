@@ -29,15 +29,15 @@
     <stat name="dblClicksInToDoPane"
          value="0" />
     <stat name="longestToDoList"
-         value="21" />
+         value="16" />
     <stat name="longestAdd"
          value="0" />
     <stat name="longestHot"
          value="0" />
     <stat name="numCriticsFired"
-         value="40890" />
+         value="1193" />
     <stat name="numNotValid"
-         value="21" />
+         value="1" />
     <stat name="numCriticsApplied"
          value="0" />
     <stat name="toDoPerspectivesChanged"
@@ -63,7 +63,7 @@
     <stat name="numChecks"
          value="0" />
     <stat name="Num_Button_Clicks"
-         value="1" />
+         value="0" />
     <stat name="Drags_To_New"
          value="0" />
     <stat name="Drags_To_Existing"
