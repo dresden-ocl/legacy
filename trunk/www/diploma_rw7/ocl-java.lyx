@@ -1,4 +1,4 @@
-#This file was created by <wiera> Tue Aug  8 15:35:50 2000
+#This file was created by <wiera> Wed Aug  9 12:41:30 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -1062,7 +1062,7 @@ The reader may have a look back at the problems encountered for the simple
  anything outside of method bodies and attribute initializers only.
 \layout Paragraph
 
-Wrapping Constructors (not yet implemented).
+Wrapping Constructors.
 \layout Standard
 
 Another transformation is used for constructors, since they cannot be renamed.
@@ -1084,7 +1084,17 @@ SomeClass(String x)
 Instead of renaming, the original constructor gets an additional dummy argument.
 \layout LyX-Code
 
-SomeClass(String x, Void dummy)
+SomeClass(String x, Dummy
+\begin_float footnote 
+\layout Standard
+
+actually this is class 
+\family typewriter 
+tudresden.ocl.injection.lib.WrapperDummy
+\family default 
+.
+\end_float 
+)
 \newline 
 {
 \newline 
@@ -1108,7 +1118,7 @@ SomeClass(String x)
 \protected_separator 
 
 \protected_separator 
-this(x, new Void());
+this(x, (Dummy)null);
 \newline 
 
 \protected_separator 
@@ -1454,7 +1464,7 @@ Operations used in ocl expressions must not have side effects.
 \layout Standard
 \align center 
 
-\begin_inset Figure size 595 177
+\begin_inset Figure size 595 196
 file observingMethods.eps
 width 4 100
 flags 15
