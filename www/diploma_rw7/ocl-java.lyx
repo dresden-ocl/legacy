@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Nov 29 11:58:39 2000
+#This file was created by <wiera> Wed Nov 29 16:38:27 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -87,7 +87,7 @@ This document is available at http://dresden-ocl.sourceforge.net/diploma_rw7/
 \backslash 
 LaTeX{}
 \latex default 
-, PostScript, PDF, HTML and the original kLyX version.
+, Postscript, PDF, HTML and the original kLyx version.
  
 \layout Standard
 
@@ -434,7 +434,7 @@ source code instr.
 \newline 
 binary
 \newline 
-kBeans
+KBeans
 \newline 
 predefined constraint
 \newline 
@@ -1725,7 +1725,7 @@ ng wrapper methods.
 \layout Standard
 
 First, the parser is actually a manipulator.
- The java file is simultaneous read, parsed, modified on-the-fly and written
+ The java file is simultaneously read, parsed, modified on-the-fly and written
  to an output file.
  For a class diagram of the parse tree produced see figure 
 \begin_inset LatexCommand \ref{fig: JavaParser}
@@ -3464,10 +3464,11 @@ Decision Support: Giving hints to the developer.
 \end_inset 
 
 ).
- There is a special indication, if several hints suggest different types.
+ There should be a special indication, if several hints suggest different
+ types.
 \layout Standard
 
-A prototype of this tool has been developed by Steffen Zschaler
+A prototype
 \begin_float footnote 
 \layout Standard
 
@@ -3477,7 +3478,7 @@ tudresden.ocl.injection.reverseeng.RevengGUI
 \family default 
 .
 \end_float 
-.
+ of this tool has been developed by Steffen Zschaler.
 \layout Subsection
 
 Source Code Analysis
@@ -3503,8 +3504,8 @@ employees
 Person
 \family default 
 , but this information is not yet available to the OCL compiler.
- The tool can derive an appropriate hint for the developer from one of the
- underlined features.
+ The tool could derive an appropriate hint for the developer from each of
+ the underlined features.
 \layout LyX-Code
 
 /**
@@ -3619,7 +3620,7 @@ TypeTracer
  maintains a static data structure containing all element types and key
  types for all attributes, as well as the minima of these type sets.
  This information is continuesly written to a log file.
- The interactive tool reads this log file on startup.
+ The interactive tool can read this log file and display the information.
 \layout Subsection
 
 Byte Code Analysis 
@@ -3750,7 +3751,7 @@ Comparison
 \layout Standard
 
 This section provides a comparison beetween the three approaches presented
- in the section above.
+ in the sections above.
  
 \layout Standard
 \added_space_top 0.3cm \added_space_bottom 0.3cm \align center \LyXTable
@@ -3896,7 +3897,7 @@ very low
 \newline 
 
 \newline 
-License
+Availability
 \newline 
 LGPL
 \newline 
@@ -3970,7 +3971,7 @@ implementation effort
 
 Finally, 
 \emph on 
-license
+availability
 \emph toggle 
  is about whether it is allowed to use, review and adapt the implementation.
  Roughly speaking, the difference beetween 
@@ -3993,8 +3994,9 @@ Summary
 \layout Standard
 
 There have been three approaches presented for acquiring type information.
- Source code and runtime analysis are implemented and fully integrated into
- the project.
+ Runtime analysis is implemented and fully integrated into the project.
+ Source code analysis is not yet implemented, but this should be easy to
+ add.
  Experiences with byte code analysis where drawn from the tool Superwomble
  (
 \begin_inset LatexCommand \cite{womble}
@@ -4042,7 +4044,7 @@ This chapter describes all major changes to Frank Fingers OCL compiler.
 Reflection Facade and OCL Library
 \layout Standard
 
-Many changes occurred both in the reflection type facade and in the OCL
+Many changes occurred both in the reflection model facade and in the OCL
  library.
  This section groups these changes.
 \layout Subsection
@@ -4265,8 +4267,8 @@ This made
 Ocl.STRICT_CHECKING
 \family default 
  superfluous, so it was removed.
- replaced exceptions by undefined values, parameterized with the reason
- for the undefined value.
+ Wherever this property was used, the library now produces an undefined
+ value, parameterized with the message of the exception formerly thrown.
 \layout Standard
 
 Undefined values were introduced at some other operations of OCL objects:
@@ -4288,7 +4290,7 @@ Ocl.to<OclType>(OclRoot)
  
 \layout Subsection
 
-Null Values
+Handling of Null Values
 \layout Standard
 
 Previous versions handled a special null value for OCL strings.
@@ -4304,7 +4306,7 @@ Previous versions returned an undefined OCL collection, if the java collection
  Now, null collections are treated exactly like empty collections.
 \layout Standard
 
-This behavior is achieved by introducing a new method 
+This behavior is encapsulated into a new method 
 \family typewriter 
 getOcl\SpecialChar \-
 Representation\SpecialChar \-
@@ -4325,63 +4327,362 @@ getFeature
 \layout Section
 
 Type Checker
-\layout Enumerate
+\layout Standard
 
-added OclAny to TypeChecker (DefaultTypeFactory).
+Previous versions of the type checker missed support for classifier 
+\family typewriter 
+OclAny
+\family default 
+ in class 
+\family typewriter 
+Default\SpecialChar \-
+Type\SpecialChar \-
+Factory
+\family default 
+.
  
-\layout Enumerate
+\layout Standard
 
-Bugfix, removed TypeFactory.getClassifier - replaced all calls by TypeFactory.get
+Method 
+\family typewriter 
+getClassifier
+\family default 
+ in class 
+\family typewriter 
+Type\SpecialChar \-
+Factory
+\family default 
+ has been removed and replaced by 
+\family typewriter 
+Type\SpecialChar \-
+Factory.get
+\family default 
+.
 \layout Section
 
-Java Code Generator: 
+Java Code Generator 
 \begin_inset LatexCommand \label{Sec:maintainJavaCodeGenerator}
 
 \end_inset 
 
 
-\layout Enumerate
+\layout Subsection
 
-different meaning of Codefragments created for @pre expressions (TRANSFER,
- PREPARATION, CODE), makes it easier and more flexible for different code
- injector tools.
- compare to 
-\begin_inset LatexCommand \cite{ff3}
+Code Fragments for @pre
+\layout Standard
 
-\end_inset 
-
- section 7.1.2, description of new behavior in section 
+Meaning of code fragments created for @pre expressions (TRANSFER, PREPARATION,
+ CODE) has been changed.
+ The new behavior is easier and more flexible for different code injector
+ tools.
+ For a description of the new behavior see section 
 \begin_inset LatexCommand \ref{Sec:codegeneration_result}
 
 \end_inset 
 
-, TODO comparison to Franks example
-\layout Enumerate
+.
+ 
+\layout Standard
 
-explicit package qualifier for OCL library is optionally prepended.
- Replaces the import statement and therefore fulfills the corresponding
- requirement in section 
-\begin_inset LatexCommand \ref{Sec:injection_requirements}
+For the old behavior compare to 
+\begin_inset LatexCommand \cite{ff3}
+
+\end_inset 
+
+ section 7.1.2.
+ Below, there is a detailed comparison on the example used there.
+\layout Standard
+
+The ocl expression is
+\layout LyX-Code
+
+context Person::getIncomeAfterTax(tax:Real):Real post:
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+age = age@pre
+\layout Standard
+
+The TRANSFER fragment generated is still the same:
+\layout LyX-Code
+
+OclInteger tudOclNode2;
+\layout Standard
+
+However, the PREPARATION fragment has changed.
+ Below, there is the old version.
+ The new version just lacks the parts set in italics.
+\layout LyX-Code
+
+final OclAnyImpl tudOclNode0=Ocl.toOclAnyImpl(Ocl.getFor(this));
+\layout LyX-Code
+
+final OclReal tudOclOpPar0=Ocl.toOclReal(Ocl.getFor(tax));
+\layout LyX-Code
+
+final OclReal tudOclResult0=OclReal.UNDEFINED;
+\layout LyX-Code
+
+final OclInteger tudOclNode1=Ocl.toOclInteger(
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+tudOclNode0.getFeature("age"));
+\layout LyX-Code
+
+
+\shape italic 
+final OclInteger 
+\shape default 
+tudOclNode2=Ocl.toOclInteger(
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+tudOclNode0.getFeature("age"));
+\layout LyX-Code
+
+final OclBoolean tudOclNode3=tudOclNode1.isEqualTo(tudOclNode2);
+\layout LyX-Code
+
+
+\shape italic 
+this.tudOclNode2=tudOclNode2;
+\layout Standard
+
+The POST fragment changed as well.
+ Again, this is the old version, with the new version lacking the first
+ line put in italics.
+\layout LyX-Code
+
+
+\shape italic 
+final OclInteger tudOclNode2=this.tudOclNode2;
+\layout LyX-Code
+
+final OclAnyImpl tudOclNode0=Ocl.toOclAnyImpl(Ocl.getFor(this));
+\layout LyX-Code
+
+final OclReal tudOclOpPar0=Ocl.toOclReal(Ocl.getFor(tax));
+\layout LyX-Code
+
+final OclReal tudOclResult0=Ocl.toOclReal(Ocl.getFor(result));
+\layout LyX-Code
+
+final OclInteger tudOclNode1=Ocl.toOclInteger(
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+tudOclNode0.getFeature("age"));
+\layout LyX-Code
+
+final OclBoolean tudOclNode3=tudOclNode1.isEqualTo(tudOclNode2);
+\layout Standard
+
+The old code fragments were intended to be inserted into the user code as
+ follows:
+\layout LyX-Code
+
+public class Person 
+\layout LyX-Code
+
+{
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+TRANSFER 
+\layout LyX-Code
+
+
+\protected_separator 
+
+\layout LyX-Code
+
+
+\protected_separator 
+ public double getIncomeAfterTax(double tax) 
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+{
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+ PREPARATION
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+ USER CODE
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+ POST
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+ return result;
+\layout LyX-Code
+
+
+\protected_separator 
+ }
+\layout LyX-Code
+
+}
+\layout Standard
+
+With the new fragments, this still works.
+ However, it's also possible to insert the TRANSFER fragment into the method,
+ thus making it a local variable:
+\layout LyX-Code
+
+public class Person 
+\layout LyX-Code
+
+{
+\layout LyX-Code
+
+
+\protected_separator 
+
+\layout LyX-Code
+
+
+\protected_separator 
+ public double getIncomeAfterTax(double tax) 
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+{
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+TRANSFER 
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+ PREPARATION
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+ USER CODE
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+ POST
+\layout LyX-Code
+
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+ return result;
+\layout LyX-Code
+
+
+\protected_separator 
+ }
+\layout LyX-Code
+
+}
+\layout Standard
+
+The injector developed with this paper uses the second insertion scheme
+ only.
+\layout Subsection
+
+Explicit Package Qualifiers.
+\layout Standard
+
+The java code generator now optionally prepends the explicit package qualifier
+ 
+\family typewriter 
+tudresden.ocl.lib.
+
+\family default 
+ to OCL library classes.
+ This makes an import statement superfluous, and therefore fulfills the
+ corresponding requirement in section 
+\begin_inset LatexCommand \ref{Sec:injection_requirements_reversable}
 
 \end_inset 
 
 .
-\layout Section
-
-Silly Bugfixes
-\layout Enumerate
-
-JavaCodeGenerator: order on arrow
-\layout Enumerate
-
-Basic.navigate: max[1]
-\layout Enumerate
-
-DefaultOclFactory.getOclRepresentationFor(Object): dealing with Float and
- Double
-\layout Enumerate
-
-OclCollection.setToRange: exchanged bounds in error condition
 \layout Chapter
 \start_of_appendix 
 Usage of Injector 
