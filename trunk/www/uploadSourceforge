@@ -7,10 +7,11 @@ rsync \
   --delete-excluded \
   --exclude="CVS" \
   --exclude="uploadSourceforge" \
+  --exclude="makeSnapshot" \
   --exclude="diploma_rw7" \
   --verbose \
   --progress \
   --stats \
   ./ \
-  rw7@dresden-ocl.sourceforge.net:/home/groups/d/dr/dresden-ocl/htdocs
+  sz9@dresden-ocl.sourceforge.net:/home/groups/d/dr/dresden-ocl/htdocs
 
