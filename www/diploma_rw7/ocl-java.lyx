@@ -1,4 +1,4 @@
-#This file was created by <wiera> Mon Sep 18 10:00:31 2000
+#This file was created by <wiera> Wed Sep 20 19:49:08 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -864,7 +864,7 @@ It should be possible to embed constraints in the java documentation comments.
 \protected_separator 
 
 \protected_separator 
-@invariant age>0
+@invariant ageGreaterZero: age>0
 \newline 
 */
 \newline 
@@ -898,7 +898,7 @@ int age;
 \protected_separator 
 
 \protected_separator 
-@postcondition age=age@pre
+@postcondition: age=age@pre
 \newline 
 
 \protected_separator 
@@ -918,8 +918,9 @@ It is necessary to put the constraints directly under the nose of the developer.
  file are too far away from attention.
 \layout Standard
 
-This feature is not implemented yet.
- TODO.
+Invariants may also placed on an attribute or method of their context class.
+ This is for convinience, since most invariants are clearly related to one
+ specific attribute or method.
 \layout Subsection
 
 Checking the Element Type.
@@ -1979,7 +1980,11 @@ Now its mandatory to set a name adapter.
 SimpleNameAdapter
 \family default 
 ) which is used in the reflection facade as well.
- 
+ The name adapter may also be set by the java property 
+\family typewriter 
+tudresden.ocl.lib.nameadapter
+\family default 
+.
 \layout Subsection
 
 Qualified Associations
@@ -2271,8 +2276,8 @@ Performs cleaning of source files instead of injection.
 \layout Quotation
 
 Specifies the text file containing the constraints.
- If this option is not provided, the injector performs checking of element
- types only.
+ Usually not needed, since constraints may and should be inlined into java
+ doc comments.
 \layout LyX-Code
 
 -x --xmi-model model.xmi
@@ -2435,6 +2440,13 @@ Triggers immediate insertion of wrapper methods.
  Otherwise wrapper methods are inserted at the end of each class.
  Immediate insertion allows easier tracing of the modifications.
  This option is mainly useful for debugging.
+\layout LyX-Code
+
+--trace-checking
+\layout Quotation
+
+Adds code logging each constraint checked on an object to standard out.
+ Useful for debugging.
 \layout Standard
 
 
