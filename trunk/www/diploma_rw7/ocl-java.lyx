@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Aug 16 13:05:27 2000
+#This file was created by <wiera> Wed Aug 16 16:34:56 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -1188,7 +1188,7 @@ Reversable modification means, that the injector is able clean the modified
  
 \layout Standard
 
-The user code is modifies in two different ways only:
+The user code is modified in two different ways only:
 \layout Enumerate
 
 Renaming the wrapped methods/constructors.
@@ -1196,9 +1196,6 @@ Renaming the wrapped methods/constructors.
 
 Adding new object features, i.e.
  wrapper methods, methods for checking invariants and observing attributes.
-\layout Paragraph
-
-Renaming Wrapped Methods.
 \layout Standard
 
 For each method to be wrapped the suffix 
@@ -1211,9 +1208,6 @@ _wrappedbyocl
  This transformation is easily reversed, when the code has to be cleaned.
  For constructors, this works similarly with appending the dummy parameter
  to the parameter list.
-\layout Paragraph
-
-Removing Generated Features.
 \layout Standard
 
 Removing generated class features relies on the fact, that the injector
@@ -1297,7 +1291,7 @@ Explicit request.
  Then the checking of invariants is simply done immediately before committing.
 \layout Standard
 
-These strategies may used in conjunction.
+These strategies may be used in conjunction.
  Except of 
 \emph on 
 All Methods
@@ -1433,37 +1427,19 @@ Object
 \newline 
 An instance of a class
 \newline 
-Person 
-\begin_inset Quotes eld
-\end_inset 
-
-Smith
-\begin_inset Quotes erd
-\end_inset 
-
-
+Person John
 \newline 
 InvariantInstance
 \newline 
 An invariant in the context of an object.
 \newline 
-Has 
-\begin_inset Quotes eld
-\end_inset 
-
-Smith
-\begin_inset Quotes erd
-\end_inset 
-
- a positive age?
+Has John a positive age?
 \newline 
 Feature
 \newline 
 A feature (attribute or query method) of an object.
 \newline 
-
-\family typewriter 
-Person.age
+John's age
 \layout Standard
 
 For now, lets think of features as attributes only.
@@ -1661,6 +1637,15 @@ age_oclbackup=age;
 
 \protected_separator 
 }
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+// ...
+ further attributes
+\newline 
+}
 \layout LyX-Code
 
 
@@ -1732,7 +1717,7 @@ e editing facilities.
 \layout Enumerate
 
 Decision Support: Giving hints to the developer.
- These hints are either derived staticly from the java source code (section
+ These hints are either derived statically from the java source code (section
  
 \begin_inset LatexCommand \ref{Sec:ReverseEngineeringStatic}
 
@@ -1855,16 +1840,18 @@ The interactive tool presents the set of object types for every collection
  attribute.
  Additionally, the tool highlights all types, for which there is no super
  type in this set.
- Formally, this is local minima of the set respective to the generalization
+ Formally, this are the local minima of the set respective to the generalization
  partial order.
  These local minima are good candidates for a element type, especially if
- there are many types encountered in the collection attribute.
+ there is only one minimum.
+ Presenting minima simplifies the decision if there are many types encountered
+ in the collection attribute.
 \layout Paragraph
 
 Implementation.
 \layout Standard
 
-Basicly, the ocl injector makes a static method 
+The ocl injector makes a static method 
 \family typewriter 
 traceTypes
 \begin_float footnote 
@@ -1877,6 +1864,14 @@ tudresden.ocl.injection.lib.TypeTracer.traceTypes
 .
 \end_float 
  to be executed whenever a collection attribute changes it's contents.
+ Class 
+\family typewriter 
+TypeTracer
+\family default 
+ maintains a static data structure containing all element types and key
+ types for all attributes, as well as the minima of these type sets.
+ This information is continuesly written to a log file.
+ The interactive tool reads this log file on startup.
 \layout Chapter
 
 Maintaining the OCL Compiler
@@ -1885,37 +1880,109 @@ Maintaining the OCL Compiler
 This chapter describes all major changes to Frank Fingers OCL compiler.
  This includes bugfixes too, if they caused changes of internal or external
  interfaces.
+ It it some kind of update for 
+\begin_inset LatexCommand \cite{ff3}
+
+\end_inset 
+
+, listing everything changed since.
 \layout Section
 
-Using reflection in ReflectionFacade and ocl library
-\layout Enumerate
+Reflection Facade and OCL Library
+\layout Standard
 
-Added polymorphism of operation parameters (ReflectionFacade.\SpecialChar \-
-navigateParameterize
-d and OclAnyImpl.getFeature).
- This made ReflectionAdapter.getClassForType superfluous, so removed.
-\layout Enumerate
+Many changes occurred both in the reflection type facade and in the ocl
+ library.
+ This section groups these changes.
+\layout Subsection
 
-Now its mandatory to provide a NameAdapter to the ocl library.
- Otherwise NullPointerExceptions are thrown.
- The default functionality if no NameAdapter is given has been moved into
- a separate NameAdapter (SimpleNameAdapter) which is used in ReflectionFacade
- as well.
+Polymorphism of Operation Parameters
+\layout Standard
+
+Both 
+\family typewriter 
+ReflectionFacade.\SpecialChar \-
+navigateParameterized
+\family default 
+ and 
+\family typewriter 
+OclAnyImpl.\SpecialChar \-
+getFeature
+\family default 
+ lacked polymorphism of operation parameters.
+ This means, that a method is found only if actual parameter types match
+ formal parameter types exactly.
+ The correct behavior is, that actual parameter types may also be subtypes
+ of formal parameter types.
+ For a detailed description see 
+\begin_inset LatexCommand \cite{rw7}
+
+\end_inset 
+
+ section 3.1.5.
  
-\layout Enumerate
+\layout Standard
 
-Added a simplified form of qualified associations to ReflectionFacade and
- ocl library.
- Simplification means, that there may be only one qualifier attribute.
- Qualified associations are represented by java.util.Map.
- ReflectionAdapter.isMap.
-\layout Enumerate
+The new implementation made 
+\family typewriter 
+ReflectionAdapter.\SpecialChar \-
+getClassForType
+\family default 
+ superfluous, so it was removed from the interface.
+\layout Subsection
+
+Mandatory Name Adapters
+\layout Standard
+
+Previous versions of the ocl library provided a default functionality, if
+ no name adapter had been set explicitly.
+\layout Standard
+
+Now its mandatory to set a name adapter.
+ Otherwise a NullPointerException is thrown.
+ The default functionality has been moved into a separate name adapter (
+\family typewriter 
+SimpleNameAdapter
+\family default 
+) which is used in the reflection facade as well.
+ 
+\layout Subsection
+
+Qualified Associations
+\layout Standard
+
+The OCL support was enhanced by adding a simplified form of qualified associatio
+ns to the reflection facade and the ocl library.
+ 
+\begin_inset Quotes eld
+\end_inset 
+
+Simplified
+\begin_inset Quotes erd
+\end_inset 
+
+ means, that there may be only one qualifier attribute.
+ 
+\layout Standard
+
+Qualified associations are represented in java with 
+\family typewriter 
+java.util.Map
+\family default 
+ by default, but this may be changed by implementing 
+\family typewriter 
+ReflectionAdapter.isMap()
+\family default 
+.
+\layout Subsection
+
+Type Mapping from OCL to Java.
+\layout Standard
 
 New mapping beetween collections in OCL and Java conforming to JDK1.2.
  The special handling of Vector is used for older code generators.
  (DefaultOclFactory.getOclRepresentationFor(Object) and DefaultReflectionAdapter.g
 etClassForType)
-\begin_deeper 
 \layout Standard
 \added_space_top 0.3cm \added_space_bottom 0.3cm \align center \LyXTable
 multicol5
@@ -1983,10 +2050,9 @@ Map
 -
 \newline 
 Set (qualified)
-\end_deeper 
 \layout Section
 
-ocl lib
+Undefined Values in the OCL Library
 \layout Enumerate
 
 removed 
@@ -2117,4 +2183,12 @@ James Gosling, Bill Joy, Guy Steele.
 Holger Knublauch, Martin Sedlmayr, Thomas Rose.
  Design Patterns for the Implementation of Constraints on JavaBeans.
  TODO http://www.faw.uni-ulm.de/kbeans/
+\layout Bibliography
+\bibitem [RW00]{rw7}
+
+Ralf Wiebicke.
+ XML Query Languages for Repositories Based on XML Documents.
+ Groﬂer Beleg.
+ TU-Dresden 2000.
+ http://dresden-ocl.sourceforge.net/
 \the_end
