@@ -1,4 +1,4 @@
-#This file was created by <wiera> Thu Sep 28 12:44:57 2000
+#This file was created by <wiera> Thu Sep 28 17:55:12 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -110,6 +110,14 @@ Section
 \layout Chapter
 
 Introduction
+\layout Standard
+
+Wishlist in 
+\begin_inset LatexCommand \cite{ff3}
+
+\end_inset 
+
+ section 3.6.
 \layout Standard
 
 Simpler approach in 
