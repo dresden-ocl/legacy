@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Jul 19 13:52:32 2000
+#This file was created by <wiera> Wed Jul 19 18:59:03 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -299,6 +299,15 @@ Will be tested automatically by the injected code.
 
 Is a good help for further reengineering from Java to UML (Diplomarbeit
  Stefan Frisch?)
+\layout Section
+
+Major shortcomes
+\layout Itemize
+
+wann welche Constraints checken
+\layout Itemize
+
+wie weit bei @pre kopieren
 \layout Chapter
 
 Code Injection
