@@ -1,4 +1,4 @@
-#This file was created by <wiera> Wed Oct 11 16:25:25 2000
+#This file was created by <wiera> Thu Oct 12 17:10:21 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -240,6 +240,7 @@ iContract is a preprocessor for java.
 \end_inset 
 
 .
+ Binaries are available at no cost.
 \layout Standard
 
 For some applications OCL is just too powerful.
