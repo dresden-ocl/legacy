@@ -1,4 +1,4 @@
-#This file was created by <wiera> Mon Dec 11 14:28:18 2000
+#This file was created by <wiera> Mon Dec 11 23:20:28 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -7092,6 +7092,14 @@ us/\SpecialChar \-
 products/\SpecialChar \-
 vds/\SpecialChar \-
 index.html.
+\layout Bibliography
+\bibitem [TF]{cccc}
+
+Tim Littlefair.
+ CCCC - C and C++ Code Counter.
+ http://cccc.\SpecialChar \-
+sourceforge.\SpecialChar \-
+net/.
 \layout Bibliography
 \bibitem [RW00]{rw7}
 
