@@ -1,4 +1,4 @@
-#This file was created by <wiera> Mon Oct 16 18:21:26 2000
+#This file was created by <wiera> Thu Oct 19 15:39:23 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -33,6 +33,8 @@ Diploma Thesis:
 Utility Support for Checking OCL Business Rules in Java Programs
 \newline 
 ---DRAFT---
+\newline 
+---scheduled for 12/2000---
 \layout Author
 
 Ralf Wiebicke
@@ -85,7 +87,7 @@ This document is available at http://dresden-ocl.sourceforge.net/diploma_rw7/
 \backslash 
 LaTeX{}
 \latex default 
-, Postscript, PDF, Html and the original kLyx version.
+, PostScript, PDF, HTML and the original kLyX version.
  
 \layout Standard
 
@@ -97,53 +99,15 @@ New
 \layout Enumerate
 
 Section 
-\begin_inset LatexCommand \ref{Sec:WrapperLoop}
-
-\end_inset 
-
-.
- Avoiding the Wrapper Loop
-\layout Enumerate
-
-Chapter 2 
-\begin_inset Quotes eld
-\end_inset 
-
-Related Work
-\begin_inset Quotes erd
-\end_inset 
-
-
-\layout Enumerate
-
-Sections 
-\begin_inset LatexCommand \ref{sec: ReverseEngineeringWomble}
-
-\end_inset 
-
- and following.
-\layout Enumerate
-
-Sections 
-\begin_inset LatexCommand \ref{sec: compareJass}
-
-\end_inset 
-
-, 
-\begin_inset LatexCommand \ref{sec: compareIContract}
-
-\end_inset 
-
- and 
-\begin_inset LatexCommand \ref{sec: compareByteCodeInstr}
-
-\end_inset 
-
-.
-\layout Enumerate
-
-Section 
 \begin_inset LatexCommand \ref{Sec:detectingCollectionChanges}
+
+\end_inset 
+
+.
+\layout Enumerate
+
+Appendix 
+\begin_inset LatexCommand \ref{sec: VersantProblem}
 
 \end_inset 
 
@@ -193,7 +157,7 @@ JMSAssert (
  Binaries are available at no cost.
 \layout Standard
 
-Also Cybernetic Intelligence develops an OCL compiler (
+Cybernetic Intelligence develops an OCL compiler (
 \begin_inset LatexCommand \cite{Cybernetic}
 
 \end_inset 
@@ -229,8 +193,13 @@ Several approaches instrument java byte code to make constraints checked,
  Neither Handshake nor jContractor binaries are publicly available.
 \layout Standard
 
-Elixir claims OCL support in it's CASE tool and it's java IDE.
- The CASE tool provides an ocl text field only, without any syntax checking.
+Elixir (
+\begin_inset LatexCommand \cite{elixir}
+
+\end_inset 
+
+) claims OCL support in it's CASE tool and its java IDE.
+ The CASE tool provides an OCL text field only, without any syntax checking.
  For the IDE a plugin is provided to integrate iContract (
 \begin_inset LatexCommand \cite{iContract}
 
@@ -280,7 +249,7 @@ getAgeMinValue() {return
 0;}
 \family default 
 .
- Most OCL constraints I used in the development of the ocl toolkit also
+ Most OCL constraints I used in the development of the OCL toolkit also
  could have been expressed with such simple means.
  Constrained classes must be valid JavaBeans.
  Also, the class must announce the change of attributes manually.
@@ -347,7 +316,8 @@ A powerful approach to reverse engineering has been developed at the MIT
 \end_inset 
 
 .
- The tool superwomble extracts an object model from java byte code.
+ The tool Superwomble presented in this paper extracts an object model from
+ java byte code.
  Object models are roughly a subset of UML class diagrams, featuring inheritance
  and object associations.
  An important challenge for the analysis is the detection of element types
@@ -501,7 +471,7 @@ Result
 \protected_separator 
 variable 
 \newline 
-Specifies the boolean value, which contains the result of the ocl expression
+Specifies the boolean value, which contains the result of the OCL expression
  after code execution.
 \layout Standard
 
@@ -775,7 +745,7 @@ Configuration management must handle two source code trees.
 Developers must be careful to edit the original version only.
 \layout Enumerate
 
-Running the ocl injector is required after every change of the java source
+Running the OCL injector is required after every change of the java source
  code, not only when the constraints have been changed.
  
 \layout Enumerate
@@ -797,11 +767,11 @@ Method wrappers, explained detailed in section
 .
 \layout Enumerate
 
-Explicit package qualifiers for the ocl library in the generated code.
- Otherwise, an import statement for the ocl library would be necessary.
+Explicit package qualifiers for the OCL library in the generated code.
+ Otherwise, an import statement for the OCL library would be necessary.
  This would be just another spot, were the original source code had to be
  touched.
- Additionally, this may introduce name conflicts beetween ocl library and
+ Additionally, this may introduce name conflicts beetween OCL library and
  user code.
 \layout Subsection
 
@@ -906,7 +876,7 @@ The injected code must check, that collection attributes comply to the
  This is quite easily done just before checking invariants.
 \layout Standard
 
-Note, that this feature may be be used standalone, without ocl expressions
+Note, that this feature may be be used standalone, without OCL expressions
  at all.
  Then it provides a runtime check for typed collections.
 \layout Section
@@ -921,7 +891,7 @@ Code Insertion
 
 The main task of code injection is to have some code executed immediately
  before and after all methods (and after all constructors too).
- This section describes, how this is done by the ocl injector.
+ This section describes, how this is done by the OCL injector.
 \layout Standard
 
 At first, section 
@@ -1293,7 +1263,7 @@ Wrapping methods as described in section
 
  causes a problem for a special situation.
  This sections describes this situation and the solution provided by the
- ocl injector.
+ OCL injector.
 \layout Standard
 
 The critical situation is shown in the figure below:
@@ -1321,7 +1291,7 @@ super.method();
  somewhere.
 \layout Standard
 
-The ocl injector changes the structure as shown below:
+The OCL injector changes the structure as shown below:
 \layout Standard
 \added_space_top 0.3cm \added_space_bottom 0.3cm \align center 
 
@@ -1356,7 +1326,7 @@ method_wrappedbyocl()
 \family typewriter 
 Sub.method()
 \family default 
- does some ocl specific things, before it executes the statement 
+ does some OCL specific things, before it executes the statement 
 \family typewriter 
 method_wrappedbyocl()
 \family default 
@@ -1392,7 +1362,7 @@ Super.method()
 Super.method_wrappedbyocl()
 \family default 
  now.
- It does some ocl specific thing, before it executes the statement 
+ It does some OCL specific thing, before it executes the statement 
 \family typewriter 
 method_wrappedbyocl()
 \family default 
@@ -1544,7 +1514,7 @@ flags 15
 
 \layout Caption
 
-Design of Java Parser 
+Design of the Java Parser used by the OCL Injector
 \begin_inset LatexCommand \label{fig: JavaParser}
 
 \end_inset 
@@ -1657,7 +1627,7 @@ Jass performs a complex modification of the java source code.
 
 Jass cannot use wrapper methods, since this would not allow loop invariants
  and check statements to be implemented.
- But without these features as in ocl, method wrappers are much better than
+ But without these features as in OCL, method wrappers are much better than
  direct injection.
 \layout Subsection
 
@@ -1912,8 +1882,8 @@ Method wrappers cannot be used, if implementation constraints (assertions,
  the scope of this paper.
 \layout Standard
 
-Method wrappers aren't useful for instrumentation on byte code level.
- The biggest advantage of source instrumentation (if it's reversible) is,
+Method wrappers are not useful for instrumentation on byte code level.
+ The biggest advantage of source instrumentation (if it is reversible) is,
  that it doesn't need to be redone on each recompilation.
 \layout Section
 
@@ -2071,16 +2041,20 @@ The classes in the UML chart have the following meaning:
 \layout Standard
 \added_space_top 0.3cm \added_space_bottom 0.3cm \align center \LyXTable
 multicol5
-6 3 0 0 -1 -1 -1 -1
+10 3 0 0 -1 -1 -1 -1
 1 1 0 0
-1 1 0 0
+1 0 0 0
+0 1 0 0
+0 0 0 0
 0 1 0 0
 0 1 0 0
+0 0 0 0
 0 1 0 0
+0 0 0 0
 0 1 0 0
 2 1 0 "" ""
-2 1 0 "5cm" ""
-2 1 1 "3cm" ""
+2 1 0 "" ""
+2 1 1 "" ""
 0 8 0 1 0 0 0 "" ""
 0 2 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
@@ -2088,11 +2062,23 @@ multicol5
 0 2 0 1 0 0 0 "" ""
 0 2 0 1 0 0 0 "" ""
 0 2 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 2 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
 0 8 0 1 0 0 0 "" ""
@@ -2108,7 +2094,7 @@ Example
 \newline 
 Class
 \newline 
-An arbitrary class of the user model
+An arbitrary class of 
 \newline 
 
 \family typewriter 
@@ -2116,13 +2102,29 @@ class Person
 \family default 
 
 \newline 
+
+\newline 
+the user model
+\newline 
+
+\newline 
 Invariant
 \newline 
-An invariant in the context of a class
+An invariant in the 
 \newline 
 
 \family typewriter 
-context Person inv: age>=0
+context Person 
+\family default 
+
+\newline 
+
+\newline 
+context of a class
+\newline 
+
+\family typewriter 
+inv: age>=0
 \family default 
 
 \newline 
@@ -2132,17 +2134,29 @@ An instance of a class
 \newline 
 Person John
 \newline 
-InvariantInstance
+Invariant-
 \newline 
-An invariant in the context of an object.
+An invariant in the 
 \newline 
-Has John a positive age?
+Has John 
+\newline 
+Instance
+\newline 
+context of an object.
+\newline 
+a positive age?
 \newline 
 Feature
 \newline 
-A feature (attribute or query method) of an object.
+A feature (attribute or 
 \newline 
 John's age
+\newline 
+
+\newline 
+query method) of an object.
+\newline 
+
 \layout Standard
 
 For now, lets think of features as attributes only.
@@ -2270,7 +2284,7 @@ java.lang.reflect.Field
 \layout Standard
 
 Changes of object features are detected with polling.
- For each feature the ocl injector adds a backup to the class.
+ For each feature the OCL injector adds a backup to the class.
  
 \layout LyX-Code
 
@@ -3095,7 +3109,7 @@ Furthermore, UML specifies the unqualified association feature to be a set,
 \family typewriter 
 java.util.Map
 \family default 
- (only keys are guaranteed to be unique), the ocl library provides an appropriat
+ (only keys are guaranteed to be unique), the OCL library provides an appropriat
 e runtime check.
 \layout Paragraph
 
@@ -3345,7 +3359,7 @@ The interactive tool presents the set of object types for every collection
 Implementation.
 \layout Standard
 
-The ocl injector makes a static method 
+The OCL injector makes a static method 
 \family typewriter 
 traceTypes
 \begin_float footnote 
@@ -3472,7 +3486,7 @@ Person
 .
 \layout Standard
 
-Another highlight of superwomble is, that container classes are detected
+Another highlight of Superwomble is, that container classes are detected
  even if they don't implement 
 \family typewriter 
 java.util.Collection
@@ -3483,11 +3497,11 @@ java.util.Collection
  an object container or not.
 \layout Standard
 
-I used the tool on several parts of both the ocl toolkit and the net-linx
+I used the tool on several parts of both the OCL toolkit and the net-linx
  code, and it produced good and reliable results.
 \layout Standard
 
-Integration of superwomble results into the interactive tool should be possible.
+Integration of Superwomble results into the interactive tool should be possible.
  The object graph is exported to a human readable text file.
  However, this task is outside the scope of this paper.
 \layout Subsection
@@ -3741,14 +3755,14 @@ Summary
 There have been three approaches presented for acquiring type information.
  Source code and runtime analysis are implemented and fully integrated into
  the project.
- Experiences with byte code analysis where drawn from the tool superwomble
+ Experiences with byte code analysis where drawn from the tool Superwomble
  (
 \begin_inset LatexCommand \cite{womble}
 
 \end_inset 
 
 ).
- This is fully implemented but not integrated into the ocl toolkit, thus
+ This is fully implemented but not integrated into the OCL toolkit, thus
  not ready to use.
 \layout Standard
 
@@ -3760,7 +3774,7 @@ Adding up the scores, byte code analysis is probably the best.
 \layout Standard
 
 All approaches have one thing in common: they are not perfect.
- Thus, they cannot be used directly in the type checker of the ocl compiler.
+ Thus, they cannot be used directly in the type checker of the OCL compiler.
  The intermediate step of the 
 \family typewriter 
 @element-type
@@ -3768,7 +3782,10 @@ All approaches have one thing in common: they are not perfect.
  tags is necessary to allow correcting user intervention.
 \layout Chapter
 
-Maintaining the OCL Compiler
+Application of the OCL Injector on an Industrial Example
+\layout Chapter
+
+Maintance of the OCL Compiler
 \layout Standard
 
 This chapter describes all major changes to Frank Fingers OCL compiler.
@@ -3785,7 +3802,7 @@ This chapter describes all major changes to Frank Fingers OCL compiler.
 Reflection Facade and OCL Library
 \layout Standard
 
-Many changes occurred both in the reflection type facade and in the ocl
+Many changes occurred both in the reflection type facade and in the OCL
  library.
  This section groups these changes.
 \layout Subsection
@@ -3828,7 +3845,7 @@ getClassForType
 Mandatory Name Adapters
 \layout Standard
 
-Previous versions of the ocl library provided a default functionality, if
+Previous versions of the OCL library provided a default functionality, if
  no name adapter had been set explicitly.
 \layout Standard
 
@@ -3850,7 +3867,7 @@ Qualified Associations
 \layout Standard
 
 The OCL support was enhanced by adding a simplified form of qualified associatio
-ns to the reflection facade and the ocl library.
+ns to the reflection facade and the OCL library.
  
 \begin_inset Quotes eld
 \end_inset 
@@ -3877,7 +3894,7 @@ ReflectionAdapter.isMap()
 Type Mapping from OCL to Java.
 \layout Standard
 
-The mapping beetween ocl types and java types now supports the collections
+The mapping beetween OCL types and java types now supports the collections
  API introduced in JDK version 1.2.
  The changes concern 
 \family typewriter 
@@ -3982,10 +3999,16 @@ Furthermore, arrays are now supported.
  They are mapped into sequences of the appropriate element type.
 \layout Section
 
-Undefined Values in the OCL Library
+OCL Library
 \layout Standard
 
-Previous versions of the ocl library implemented undefined values as singletons
+Some modifications occurred in the OCL library only.
+\layout Subsection
+
+Undefined Values
+\layout Standard
+
+Previous versions of the OCL library implemented undefined values as singletons
  for each type.
  
 \layout Standard
@@ -4006,7 +4029,7 @@ Ocl.STRICT_CHECKING
  for the undefined value.
 \layout Standard
 
-Additionally some other parts 
+Undefined values were introduced at some other operations of OCL objects:
 \layout Enumerate
 
 Method 
@@ -4021,8 +4044,44 @@ The methods
 \family typewriter 
 Ocl.to<OclType>(OclRoot)
 \family default 
- now return a undefined value of the appropriate type, if argument is undefined.
+ now return an undefined value of the appropriate type, if argument is undefined.
  
+\layout Subsection
+
+Null Values
+\layout Standard
+
+Previous versions handled a special null value for OCL strings.
+ This null value behaved like an empty string for most cases (i.e.concatenation).
+ However a null string and an empty string were not equal.
+ This was removed.
+ Now a null string does exactly behave like an empty string.
+ 
+\layout Standard
+
+Previous versions returned an undefined OCL collection, if the java collection
+ field was null.
+ Now, null collections are treated exactly like empty collections.
+\layout Standard
+
+This behavior is achieved by introducing a new method 
+\family typewriter 
+getOcl\SpecialChar \-
+Representation\SpecialChar \-
+For\SpecialChar \-
+Null(Class)
+\family default 
+ in 
+\family typewriter 
+OclFactory
+\family default 
+.
+ This method is called in 
+\family typewriter 
+OclAnyImpl.\SpecialChar \-
+getFeature
+\family default 
+.
 \layout Section
 
 Type Checker
@@ -4059,7 +4118,7 @@ different meaning of Codefragments created for @pre expressions (TRANSFER,
 , TODO comparison to Franks example
 \layout Enumerate
 
-explicit package qualifier for ocl library is optionally prepended.
+explicit package qualifier for OCL library is optionally prepended.
  Replaces the import statement and therefore fulfills the corresponding
  requirement in section 
 \begin_inset LatexCommand \ref{Sec:injection_requirements}
@@ -4177,7 +4236,7 @@ context Person
 \family typewriter 
 import
 \family default 
- for ocl
+ for OCL
 \begin_inset Quotes erd
 \end_inset 
 
@@ -4703,6 +4762,11 @@ javap -c
 \layout Section
 
 The Problem with Versant Database
+\begin_inset LatexCommand \label{sec: VersantProblem}
+
+\end_inset 
+
+
 \layout Standard
 
 This appendix shows why Versant and the Dresden OCL Toolkit don't work together.
@@ -4837,7 +4901,7 @@ startOnline
 
 This bug prevents any code from accessing object fields via reflection,
  if the objects class inherits this field from a super class.
- This affects the runtime libraries of both the ocl code generator and the
+ This affects the runtime libraries of both the OCL code generator and the
  code injector.
 \layout Standard
 
@@ -4845,11 +4909,11 @@ A possible work-around is to wrap all field accesses with corresponding
  methods.
  These methods would access their field without reflection, thus would not
  be affected by the bug.
- These methods could be created automatically by the ocl injector.
+ These methods could be created automatically by the OCL injector.
  This would require a moderate implementation effort.
- However, the design of the ocl toolkit would suffer a much tighter dependency
- between the ocl library the injector.
- It's not planned to implement this work-around.
+ However, the design of the OCL toolkit would suffer a much tighter dependency
+ between the OCL library the injector.
+ The author does not plan to implement this work-around.
 \layout Standard
 
 On October 13, 2000 Versant support announced a bugfix 
