@@ -1,4 +1,4 @@
-#This file was created by <wiera> Fri Aug  4 15:47:21 2000
+#This file was created by <wiera> Fri Aug  4 17:31:49 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -1188,7 +1188,7 @@ void checkOclInvariants();
 This is quite simple and functional.
 \layout Section
 
-Temporal Scope of Invariants
+Scope of Invariants
 \begin_inset LatexCommand \label{Sec:temporalScope}
 
 \end_inset 
@@ -1196,31 +1196,39 @@ Temporal Scope of Invariants
 
 \layout Standard
 
-SEE Warmer/Kleppe sec 5.4.
-\layout Standard
-
-This section discusses the issue, when an invariant has to be fulfilled.
- When using databases this question is simple: invariants must be valid
- outside of transactions.
- Since the java system does not provide transactions, we have to think of
- a different criterion.
+This section discusses the issue, when an invariant is required to be fulfilled.
  
+\begin_inset LatexCommand \cite{Warmer}
+
+\end_inset 
+
+ section 5.4.2 suggests to check invariants immediately after an object has
+ changed.
+ This is not workable, even if runtime efficiency is ignored.
+ Modifications on the model often produce intermediate states, which are
+ not consistent according to the constraints.
 \layout Standard
 
-Possible solutions are, that invariants must be valid on:
+When using databases the answer is simple: invariants must be valid outside
+ of transactions.
+ Since the java system does not provide transactions, the code injector
+ must be flexible to various user requirements.
+\layout Standard
+
+Invariants may be required to be fulfilled on:
 \layout Itemize
 
-all methods.
+All methods.
  This may be too strict, since private methods may intentionally leave an
  object in an inconsistent state.
  
 \layout Itemize
 
-public methods (or any other access modifier).
+Public methods (or any other access modifier).
  This may be not strict enough.
 \layout Itemize
 
-tagged methods.
+Tagged methods.
  A special tag in the documentation comment declares, that a method promises
  to leave the system in a consistent state.
  This tag is then part of the interface contract.
@@ -1228,25 +1236,16 @@ tagged methods.
  developer.
 \layout Itemize
 
-explicit request.
+Explicit request.
  This is the way of choice, if the model is held in a database backend.
- Then the checking of invariants is simply done immediately before every
- 
-\begin_inset Quotes eld
-\end_inset 
-
-commit
-\begin_inset Quotes erd
-\end_inset 
-
-.
+ Then the checking of invariants is simply done immediately before committing.
 \layout Standard
 
 The current implementation provides checking on all methods only.
  TODO.
 \layout Section
 
-Structural Scope of Invariants
+Lazy Evaluation of Invariants
 \begin_inset LatexCommand \label{Sec:structuralScope}
 
 \end_inset 
@@ -1566,6 +1565,12 @@ Frank Finger.
  Diplomarbeit.
  TU-Dresden 2000.
  http://www-st.inf.tu-dresden.de/ocl/
+\layout Bibliography
+\bibitem [WK99]{Warmer}
+
+Jos Warmer, Anneke Kleppe.
+ The Object Constraint Language: Precise Modeling with UML.
+ Addison-Wesley, 1999.
 \layout Bibliography
 \bibitem [UML]{UML}
 
