@@ -21,8 +21,9 @@ DOCEPS=\
 	observingMethods.eps \
 	PersonCompany.eps
 
-# running twice because labels may have changed
+# running trice because labels may have changed
 %.dvi:	%.tex $(DOCEPS)
+		latex --interaction errorstopmode $<
 		latex --interaction errorstopmode $<
 		latex --interaction errorstopmode $<
 
