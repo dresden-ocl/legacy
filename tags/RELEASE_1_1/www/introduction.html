@@ -1,0 +1,212 @@
+<html>
+<head>
+	<title>Dresden OCL Toolkit - Introduction</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+	<style>
+	H1 {
+	 BORDER-TOP-WIDTH: 1px; PADDING-RIGHT: 2pt; PADDING-LEFT: 2pt; FONT-WEIGHT: bold; BORDER-LEFT-WIDTH: 1px; BORDER-LEFT-COLOR: #fff; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #fff; PADDING-BOTTOM: 2pt; WIDTH: 100%; BORDER-TOP-COLOR: #fff; PADDING-TOP: 2pt; FONT-FAMILY: Helvetica,Helv,Arial; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #fff
+	}
+	H2 {
+	 BORDER-TOP-WIDTH: 1px; PADDING-RIGHT: 2pt; PADDING-LEFT: 2pt; FONT-WEIGHT: bold; BORDER-LEFT-WIDTH: 1px; BORDER-LEFT-COLOR: #fff; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #fff; PADDING-BOTTOM: 2pt; WIDTH: 100%; BORDER-TOP-COLOR: #fff; PADDING-TOP: 2pt; FONT-FAMILY: Helvetica,Helv,Arial; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #fff
+	}
+	H3 {
+	 BORDER-TOP-WIDTH: 1px; PADDING-RIGHT: 2pt; PADDING-LEFT: 2pt; FONT-WEIGHT: bold; BORDER-LEFT-WIDTH: 1px; BORDER-LEFT-COLOR: #fff; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #fff; PADDING-BOTTOM: 2pt; WIDTH: 100%; BORDER-TOP-COLOR: #fff; PADDING-TOP: 2pt; FONT-FAMILY: Helvetica,Helv,Arial; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #fff
+	}
+	H4 {
+	 BORDER-TOP-WIDTH: 1px; PADDING-RIGHT: 2pt; PADDING-LEFT: 2pt; FONT-WEIGHT: bold; BORDER-LEFT-WIDTH: 1px; BORDER-LEFT-COLOR: #fff; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #fff; PADDING-BOTTOM: 2pt; WIDTH: 100%; BORDER-TOP-COLOR: #fff; PADDING-TOP: 2pt; FONT-FAMILY: Helvetica,Helv,Arial; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #fff
+	}
+	H1 {
+	 PADDING-RIGHT: 5pt; PADDING-LEFT: 5pt; FONT-SIZE: 24pt; BACKGROUND: #eef; PADDING-BOTTOM: 5pt; COLOR: #006; PADDING-TOP: 5pt
+	}
+	H2 {
+	 FONT-SIZE: 18pt; BACKGROUND: #eef
+	}
+	H3 {
+	 FONT-SIZE: 14pt; BACKGROUND: #eee
+	}
+	H4 {
+	 FONT-SIZE: 12pt
+	}
+	</style>
+
+</head>
+
+<body bgcolor="white">
+
+
+<H1>introduction</H1>
+<P>The purpose of the compiler is to generate code out of OCL expressions. The generated
+code evaluates the OCL constraint for a model instance, i.e. a program or data
+base, at runtime. Constraints formulated during analysis and design can then
+easily be checked in the implementation.
+
+<P>While the Java code generator that is being implemented makes certain
+restrictions to the OCL constructs that can be used, the other compiler modules
+are implemented as close to the OCL specification of UML 1.3 as possible.
+
+<H1>modules</H1>
+<P>The compiler is constructed of modules with separated responsibilities to
+allow easy reuse or replacement. The architecture is flexible enough to adapt
+the existing modules to a variety of purposes, such as code generation for other
+languages or OCL interpretation.</P>
+<P><IMG width=500 height=150 alt="module cooperation" src="images/modules.gif" ></P>
+
+<A name=parser></A>
+<H2>parser</H2>
+<P>The parser is built using the tool <A href="http://www.sablecc.org" target="top">SableCC</A>.
+It complies to OCL 1.3, with slight changes where inconsistencies in the specification where found (e.g.
+the specification grammar lacks some literals and the possiblity to express
+calls to the Collection operation "iterate").</P>
+
+<P>The parser can be examined with the <A href="download.html#demo">demo application</A>. Just enter an
+OCL expression into the text area on the tab "constraint" and click the "Parse"
+button.</P>
+
+<A name=semanticanalysis></A>
+<H2>semantic analysis</H2>
+<P>Semantic analysis consists of simple consistency checks and type checking. An
+example for a consistency check is that an expression must have an operation
+context (like <CODE>context Person::getAge()</CODE>) if and only if it has an
+<CODE>pre</CODE> or <CODE>post</CODE> stereotype. Besides assuring the
+correctness of an OCL expression with reference to some source of model
+information, the type checker adds type information to some abstract syntax
+nodes and to variables. This information is available to other modules.</P>
+
+<P>The compiler automatically type-checks any OCL expression that is
+parsed. Since type checking requires model information, that will only be
+successful if the entered OCL expression complies to one of the
+<a href="demodoc.html">UML diagrams</a>
+supported by the implemented type information component
+unless another model information source is selected on
+the tab "model". The source for such model information can of course be adapted
+in the compiler by implementing the interfaces <CODE>ModelFacade</CODE> and
+<CODE>Any</CODE> (see <A href="#interfaces">interfaces</A>).</p>
+
+<P>As a result of type checking some of the abstract syntax tree's nodes display
+their type in the tree view (after the second '-'). Basically, all
+<I>*Expression</I> nodes (<I>Expression</I>, <I>LogicalExpression</I>, ...), all
+literals and nodes of type <I>PostfixExpressionTail</I> carry type information.
+Type checking is successful if the top expression node(s) are found to be of
+type <I>Boolean</I>. This is indicated by a green mark under "Type Check" on the
+tab "AST". <A name=normalization></A></p>
+
+<H2>normalization</H2>
+<P>To pave the way for code generation, normalization steps can be applied to
+the abstract syntax tree. This reduces code generator complexity. Instead of
+defining one OCL normal form, a set of normalization steps can be fitted
+together to generate a normal form specific to the desired target language.
+Examples for normalization steps are:
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD vAlign=top><IMG height=15 src="images/dotgap.gif"
+      width=10></TD>
+    <TD>Explicit qualification of names (<CODE>age</CODE> becomes
+      <CODE>self.age</CODE>)</TD></TR>
+  <TR>
+    <TD vAlign=top><IMG height=15 src="images/dotgap.gif"
+      width=10></TD>
+    <TD>Insertion of iterators</TD></TR>
+  <TR>
+    <TD vAlign=top><IMG height=15 src="images/dotgap.gif"
+      width=10></TD>
+    <TD>Insertion of type information</TD></TR>
+  <TR>
+    <TD vAlign=top><IMG height=15 src="images/dotgap.gif"
+      width=10></TD>
+    <TD>Expansion of multiple iterators</TD></TR>
+  </TBODY>
+</TABLE>
+
+<P>The demo application normalizes the abstract syntax tree using a normalization
+pattern adapted for the Java code generator when the "Normalize" button on the
+tab "AST" is pressed. The "To Text" button then writes the normalized constraint
+back into the text field of tab "constraint".
+
+<A name=codegenerator></A>
+<H2>code generator</H2>
+<P>A Java code generator is part of the OCL compiler. The Java code generated by
+it uses an class libary that represents the OCL type system. The following two
+tables show examples of generated code, including the original OCL expression.
+<P>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD><CODE>context Company inv: manager.age &gt;= 18</CODE></TD></TR>
+  <TR>
+    <TD><CODE><PRE>final OclAnyImpl tuddOclNode0=Ocl.toOclAnyImpl( Ocl.getFor(this) );
+final OclAnyImpl tuddOclNode1=Ocl.toOclAnyImpl(tuddOclNode0.getFeature("manager"));
+final OclInteger tuddOclNode2=Ocl.toOclInteger(tuddOclNode1.getFeature("age"));
+final OclInteger tuddOclNode3=new OclInteger(18);
+final OclBoolean tuddOclNode4=tuddOclNode2.isGreaterEqual(tuddOclNode3);
+</PRE></CODE></TD></TR></TBODY></TABLE>
+<P>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD><CODE>context Company inv: employees-&gt;isUnique(name)</CODE></TD></TR>
+  <TR>
+    <TD><CODE><PRE>final OclAnyImpl tuddOclNode0=Ocl.toOclAnyImpl( Ocl.getFor(this) );
+final OclSet tuddOclNode1=Ocl.toOclSet(tuddOclNode0.getFeature("employees"));
+final OclIterator tuddOclIter0=tuddOclNode1.getIterator();
+final OclRootEvaluatable tuddOclEval0=new OclRootEvaluatable() {
+  public OclRoot evaluate() {
+    final OclString tuddOclNode2=Ocl.toOclString(Ocl.toOclAnyImpl(tuddOclIter0.getValue()).getFeature("name"));
+    return tuddOclNode2;
+  }
+};
+final OclBoolean tuddOclNode3=tuddOclNode1.isUnique(tuddOclIter0, tuddOclEval0);</PRE></CODE></TD></TR></TBODY></TABLE>
+<P>The demo application allows to generate code by clicking the "Generate" button on the
+tab "Java". <A name=library></A>
+<H2><CODE>library</CODE></H2>The OCL class library implements the predefined OCL
+types and operations and allows to access application types through Java
+reflection (see the calls to <CODE>getFeature</CODE> in the example code above).
+It is adaptable in some respects to different code generators.
+<P></P><A name=interfaces></A>
+<H2><CODE>interfaces</CODE></H2>There are three interfaces between the OCL
+compiler and its surrounding environment (e.g. a CASE tool).
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD vAlign=top><IMG height=15 src="images/dotgap.gif"
+      width=10></TD>
+    <TD>OCL constraint: the compiler is invoked with a simple String</TD></TR>
+  <TR>
+    <TD vAlign=top><IMG height=15 src="images/dotgap.gif"
+      width=10></TD>
+    <TD>Model information: information from the UML model is necessary for
+      type checking. This interface is described below.</TD></TR>
+  <TR>
+    <TD vAlign=top><IMG height=15 src="images/dotgap.gif"
+      width=10></TD>
+    <TD>Target code interface: The compiler will produce a String in the
+      target language (Java, SQL, ...) and will pass this String to the CASE
+      tool along with some other information (something like "this String is a
+      postcondition for <CODE>Person::getIncome()</CODE>")</TD></TR></TBODY></TABLE>
+<P>In the demo application, information for the first interface is entered into the
+text area. The second interface can be configured on the tab "model". By default
+it is implemented to return information for two
+<a href="demodoc.html">default models</a>.
+The demo application's implementation of the third interface
+displays the information on the tab "Java".
+<P>The following class diagrams shows the internal type representation classes
+of the type checker. To adapt this to a new source of model information (e.g. a
+CASE tool, or some "hard-wired" model like for the demo application) the interface
+<CODE>ModelFacade</CODE> has to be implemented to return objects fulfilling the
+<CODE>Any</CODE> interface which defines methods for access to attributes with
+and without parameters. An <CODE>ModelFacade</CODE> object is passed to the
+constructor of the <CODE>TypeChecker</CODE> class.
+<P><IMG height=258 alt="interfaces for model information access"
+src="images/modelfacade.gif" width=598>
+<P>An example of the communication between the OCL compiler's type checker and
+an implementation of these interfaces is shown in the following sequence
+diagram.
+<P><IMG height=507 alt="interfaces for model information access"
+src="images/seq_modelfacade.gif" width=705>
+
+
+
+
+</body>
+</html>
