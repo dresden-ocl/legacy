@@ -43,6 +43,8 @@ To keep yourself informed about new versions, please subscribe to our <a href="h
 <p>This software is published under the <a href="http://www.gnu.org/copyleft/lesser.html">GNU Lesser General Public License</a> (<a href="download/COPYING">txt</a>).</p>
 
 <h2><code>...snapshots</code></h2>
+
+
 <p>August 18, 2000</p>
 <dl>
 
@@ -73,6 +75,13 @@ java -cp .:dresden-ocl.jar:xml4j.jar tudresden.ocl.injection.Main \
   --modify tudresden/ocl/test/royloy/*.java
 </pre>
 The example java code has now been modified.
+<p>
+<b>NOTE for JDK1.3 Hotspots VM for Windows NT</b>:
+The ocl toolkit throws an <b>AbstractMethodError</b> with this VM.
+Probably this is not NT specific, but specific to Hotspots.
+Probably this is due to bug #4248990.
+To fix, recompile the <a href="download/dresden-ocl-src.tar.gz">sources</a> with JDK1.3
+</p>
 </li>
 <li>
 Compile the example:
@@ -114,6 +123,13 @@ Download <a href="download/dresden-ocl.jar">dresden-ocl.jar</a> and <a href="dow
 <li>Type <pre>java -cp dresden-ocl.jar:xml4j.jar tudresden.ocl.ConstraintEvaluation</pre> at the command prompt.</li>
 <li>A window pops up. There you can enter constraints, check them against a model and generate java code.</li>
 </ol>
+<p>
+<b>NOTE for JDK1.3 Hotspots VM for Windows NT</b>:
+The ocl toolkit throws an <b>AbstractMethodError</b> with this VM.
+Probably this is not NT specific, but specific to Hotspots.
+Probably this is due to bug #4248990.
+To fix, recompile the <a href="download/dresden-ocl-src.tar.gz">sources</a> with JDK1.3
+</p>
 </dd>
 
 <dt><b>Argo/UML</b></dt>
