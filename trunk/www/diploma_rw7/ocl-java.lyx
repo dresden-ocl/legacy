@@ -1,4 +1,4 @@
-#This file was created by <wiera> Tue Dec  5 13:53:30 2000
+#This file was created by <wiera> Tue Dec  5 14:27:47 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -40,7 +40,7 @@ Utility Support for Checking OCL Business Rules in Java Programs
 Ralf Wiebicke
 \layout Date
 
-October 2000
+December 2000
 \layout Section*
 
 Copyright
@@ -281,8 +281,8 @@ Value() {return
 0;}
 \family default 
 .
- Most OCL constraints I used in the development of the OCL toolkit also
- could have been expressed with such simple means.
+ Most OCL constraints used in the development of the OCL toolkit also could
+ have been expressed with such simple means.
  Constrained classes must be valid JavaBeans.
  Also, the class must announce the modification of attributes manually to
  have the constraints reevaluated.
@@ -1396,7 +1396,7 @@ Wrapping Methods
 
 \layout Standard
 
-Some code tells more than thousand words, so I use an example to explain.
+Some code tells more than thousand words, so an example is used to explain.
  Consider the following method.
 \layout LyX-Code
 
@@ -1517,8 +1517,16 @@ java signature level
  how easy it is.
 \layout Standard
 
-This kind of method wrapping still has a problem, which I called the wrapper
- loop.
+This kind of method wrapping still has a problem, which has been called
+ the 
+\begin_inset Quotes eld
+\end_inset 
+
+wrapper loop
+\begin_inset Quotes erd
+\end_inset 
+
+ in this paper.
  Section 
 \begin_inset LatexCommand \ref{Sec:WrapperLoop}
 
@@ -2033,12 +2041,12 @@ iContract (
 \layout Standard
 
 Just like Jass it uses direct insertion of generated code into user code.
- Once again I review the problems found in section 
+ Once again the problems found in section 
 \begin_inset LatexCommand \ref{sec: SimpleApproach}
 
 \end_inset 
 
-.
+ are reviewed.
 \layout Enumerate
 
 
@@ -2127,12 +2135,12 @@ This paper is focused on source code instrumentation.
  concept of method wrappers to byte code instrumentation.
 \layout Standard
 
-For the third time I review the problems found in section 
+For the third time the problems found in section 
 \begin_inset LatexCommand \ref{sec: SimpleApproach}
 
 \end_inset 
 
-.
+ are reviewed.
 \layout Enumerate
 
 
@@ -3216,29 +3224,29 @@ Collections
 \layout Standard
 
 Finally there is the question, which to choose.
- Probably you should start with 
+ Probably one should start with 
 \emph on 
 Exact
 \emph toggle 
  (the default).
  If this works, everything is fine.
- If the application slows down more, than you are willing to accept, try
+ If the application slows down more, than one is willing to accept, try
  
 \emph on 
 ModCount
 \emph toggle 
- (invoced with option 
+ (invoked with option 
 \family typewriter 
 --modcount-hash
 \family default 
 ).
  If this works, it's fine.
- Otherwise it will fail fast throwing a 
+ Otherwise it will fail-fast throwing a 
 \family typewriter 
 RuntimeException
 \family default 
 .
- Then you may try 
+ Then one may try 
 \emph on 
 Size
 \emph toggle 
@@ -3251,12 +3259,12 @@ Size
  
 \layout Standard
 
-If this is not acceptable to you, implement the 
+If this is not acceptable, one may implement the 
 \emph on 
 Iterator
 \emph toggle 
  method.
- Make sure, that all collections used in your application provide fail-fast
+ It is important, that all collections used in the application provide fail-fast
  iterators (JDK standard collections do).
  Otherwise modifications may be missed silently.
 \layout Chapter
@@ -3837,7 +3845,8 @@ This section describes how type information can be extracted from java byte
 
 \end_inset 
 
-) related to type information together with my experiences with the tool.
+) related to type information together with experiences from practical experimen
+ts with the tool.
 \layout Standard
 
 Superwomble is a powerful reverse engineering solution.
@@ -3935,7 +3944,7 @@ java.util.Collection
  an object container or not.
 \layout Standard
 
-I used the tool on several parts of both the OCL toolkit and the net-linx
+The tool was used on several parts of both the OCL toolkit and the net-linx
  code, and it produced good and reliable results.
 \layout Standard
 
@@ -4164,7 +4173,7 @@ implementation effort
  Both source code and runtime analysis require parsing and instrumenting
  of java source code, which was already built for runtime verification of
  OCL constraints.
- Thus the implementation effort for me was low.
+ Thus the implementation effort in this paper was low.
  Byte code analysis is something completely different.
 \layout Standard
 
@@ -5136,10 +5145,10 @@ Reference
 Synopsis is below.
 \layout LyX-Code
 
-java tudresden.ocl.injection.Main [options] file.java ...
+java tudresden.ocl.injection.Main [options] file.java ..
 \layout Standard
 
-Provide all java files, you want to modify.
+Provide all java files to be modified.
  
 \layout Standard
 
