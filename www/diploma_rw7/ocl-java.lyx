@@ -1,4 +1,4 @@
-#This file was created by <wiera> Mon Jul 31 19:24:35 2000
+#This file was created by <wiera> Tue Aug  1 19:09:47 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -892,6 +892,10 @@ void employ();
 It is necessary to put the constraints directly under the nose of the developer.
  The author is strongly convinced, that constraints stored in an extra text
  file are too far away from attention.
+\layout Standard
+
+This feature is not implemented yet.
+ TODO.
 \layout Subsection
 
 Checking the Element Type.
