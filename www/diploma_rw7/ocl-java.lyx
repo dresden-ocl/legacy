@@ -1,4 +1,4 @@
-#This file was created by <rw7> Sat Oct 14 20:06:32 2000
+#This file was created by <rw7> Sun Oct 15 01:23:04 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -31,12 +31,14 @@
 Diploma Thesis:
 \newline 
 Utility Support for Checking OCL Business Rules in Java Programs
+\newline 
+---DRAFT---
 \layout Author
 
 Ralf Wiebicke
 \layout Date
 
-May 2000
+October 2000
 \layout Section*
 
 Copyright
@@ -396,17 +398,7 @@ This is followed by an analysis of requirements for the code injection and
 \end_inset 
 
  describes the solution in detail.
- Section 
-\begin_inset LatexCommand \ref{sec: compareJass}
-
-\end_inset 
-
- compares this solution to Jass (
-\begin_inset LatexCommand \cite{jassWeb}
-
-\end_inset 
-
-) which approaches a similar task quite differently.
+ 
 \layout Standard
 
 Finally sections 
@@ -922,6 +914,68 @@ Code Insertion
 The main task of code injection is to have some code executed immediately
  before and after all methods (and after all constructors too).
  This section describes, how this is done by the ocl injector.
+\layout Standard
+
+At first, section 
+\begin_inset LatexCommand \ref{sec: SimpleApproach}
+
+\end_inset 
+
+ intoduces a simple approach, and why this would not work.
+ Sections 
+\begin_inset LatexCommand \ref{Sec:wrappingMethodsSub}
+
+\end_inset 
+
+ and 
+\begin_inset LatexCommand \ref{Sec:wrappingConstructors}
+
+\end_inset 
+
+ explain my approach.
+ A somewhat tricky caveat and how it is solved is worked out in 
+\begin_inset LatexCommand \ref{Sec:WrapperLoop}
+
+\end_inset 
+
+.
+ Section 
+\begin_inset LatexCommand \ref{Sec:cleaningCode}
+
+\end_inset 
+
+ shows, how the injector manages to undo all modifications it made.
+ The java parser used to do all this is outlined in 
+\begin_inset LatexCommand \ref{sec: JavaParser}
+
+\end_inset 
+
+.
+\layout Standard
+
+Sections 
+\begin_inset LatexCommand \ref{sec: compareJass}
+
+\end_inset 
+
+, 
+\begin_inset LatexCommand \ref{sec: compareIContract}
+
+\end_inset 
+
+, 
+\begin_inset LatexCommand \ref{sec: compareByteCodeInstr}
+
+\end_inset 
+
+ compare this solution to three other tools approaching a similar task quite
+ differently.
+ This is summarized in 
+\begin_inset LatexCommand \ref{Sec:CodeInsertionSummary}
+
+\end_inset 
+
+.
 \layout Subsection
 
 A Simple Approach
@@ -1133,6 +1187,11 @@ This kind of method wrapping still has a problem, I called the wrapper loop.
 \layout Subsection
 
 Wrapping Constructors
+\begin_inset LatexCommand \label{Sec:wrappingConstructors}
+
+\end_inset 
+
+
 \layout Standard
 
 Another transformation is used for constructors, since they cannot be renamed.
@@ -1602,7 +1661,12 @@ Comparison to iContract
 
 \layout Standard
 
-iContract is a precompiler for checking OCL constraints in java programs.
+iContract (
+\begin_inset LatexCommand \cite{iContract}
+
+\end_inset 
+
+) is a precompiler for checking OCL constraints in java programs.
  It extracts constraints from java doc comments and produces modified java
  source files checking these constraints.
  This is exactly the functionality, which the tool presented in this paper
@@ -1816,21 +1880,33 @@ In contrary to the approach presented in this paper, byte code instrumentation
 
 , which uses a proxy system library to intercept the JVM when opening class
  files.
+ Thus, Handshake buys total transparency to the JVM with platform dependency.
 \layout Subsection
 
 Summary
+\begin_inset LatexCommand \label{Sec:CodeInsertionSummary}
+
+\end_inset 
+
+
 \layout Standard
 
 Method wrappers proof to be the best choice when instrumenting source code
  for checking constraints.
  They solve several problems encountered with the simple approach of direct
  insertion.
- This approach seems to be completely new.
+ Method wrappers seem to be completely new.
 \layout Standard
 
-However, Method wrappers aren't useful, if implementation constraints (assertion
-s, loop invariants) are to be checked.
- TODO
+Method wrappers cannot be used, if implementation constraints (assertions,
+ loop invariants) are to be checked.
+ Since OCL does not support implementation constraints, this does not affect
+ the scope of this paper.
+\layout Standard
+
+Method wrappers aren't useful for instrumentation on byte code level.
+ The biggest advantage of source instrumentation (if it's reversible) is,
+ that it doesn't need to be redone on each recompilation.
 \layout Section
 
 Scope of Invariants
@@ -2284,7 +2360,10 @@ This method is called immediately before and after each method of the class.
 equals()
 \family default 
  method.
- For collections the backup stores a hashcode
+ 
+\layout Standard
+
+For collections the backup stores a hashcode
 \begin_float footnote 
 \layout Standard
 
@@ -2296,6 +2375,150 @@ tudresden.ocl.injection.HashExact.identityHashCode
 \end_float 
  of the collection to avoid the overhead of maintaining a complete backup
  collection.
+ Since comparison to backups is done very often, hashcode computation is
+ required to be lightweight.
+ The following section discusses this in detail.
+\layout Subsection
+
+Detecting Collection Changes
+\begin_inset LatexCommand \label{Sec:detectingCollectionChanges}
+
+\end_inset 
+
+
+\layout Standard
+
+Detecting changes of attributes is essential for caching of invariants as
+ described above.
+ For atomic attributes this is trivial: 
+\family typewriter 
+age!=age_backup
+\family default 
+ does it all.
+ For collection attributes it's not that easy.
+ The backup of a collection shouldn't be a collection as well, since this
+ would consume large amounts of memory.
+ Also, comparison beetween two collection isn't that fast.
+\layout Standard
+
+Thus, the backup for collection attributes stores a single integer value
+ only.
+ This value is computed from the collection.
+ When the collection changes, also the value is expected to change.
+ Such a value is commonly referred as hash value.
+ 
+\layout Standard
+
+However, the injector doesn't require these hash values to be uniformly
+ distributed.
+ Also, the hash value is required to be constant for unmodified collections
+ only, not generally for equal collections.
+ This means: if an element is added to the collection and removed immediately
+ afterwards, the collection is 
+\emph on 
+not
+\emph toggle 
+ required to have the same hash code as before.
+ This relaxion of requirements will be used below.
+ It has to be admitted, that the term 
+\begin_inset Quotes eld
+\end_inset 
+
+hash code
+\begin_inset Quotes erd
+\end_inset 
+
+ is used here mainly for historical reasons.
+\layout Standard
+
+A first try to implement the hash functions follows the implementation of
+ 
+\family typewriter 
+hashCode
+\family default 
+ methods in the Java Collection API.
+ These methods cannot be used directly, since they call method 
+\family typewriter 
+hashCode
+\family default 
+ for each of their elements.
+ This is not desired, since change detection covers object identity, not
+ object value.
+ To achieve the behavior intended, collection hash functions had to be rewritten
+ with calls to 
+\family typewriter 
+System.identityHashCode(Object)
+\family default 
+.
+ This has been implemented in class 
+\family typewriter 
+HashExact
+\begin_float footnote 
+\layout Standard
+
+all the source code is in package 
+\family typewriter 
+tudresden.injection.lib.Hash*.java
+\family default 
+.
+\end_float 
+.
+\layout Standard
+
+These hash functions are good at detecting changes.
+ However, they are too slow.
+ Each invocation involves an iteration over the whole collection.
+ For object populations of a few hundert instances with many relations beetween
+ them, this virtually causes the system to stop.
+\layout Standard
+
+A quick but incomplete fix is achieved with the hash functions in 
+\family typewriter 
+HashSize
+\family default 
+.
+ They simply return the size of the collection.
+ This is very quick of course.
+ But it does not detect changes which don't affect the collections size.
+\layout Standard
+
+Finally, 
+\family typewriter 
+HashModCount
+\family default 
+ performs a hash function which is a) nearly as fast as 
+\family typewriter 
+HashSize
+\family default 
+, but b) performs change detection even better than 
+\family typewriter 
+HashExact
+\family default 
+.
+ It uses the fact, that standard collections already provide a change detection
+ mechanism for implementing fail-fast iterators (TODO reference).
+ Each collection maintains a modification counter, which is incremented
+ whenever the collection is modified.
+ Iterators create a copy of this counter on creation, and check this copy
+ on every access.
+ Unfortunately, the counter isn't publicly available.
+ Thus, 
+\family typewriter 
+HashModCount
+\family default 
+ has to access the private counter attribute via reflection.
+ This is highly dependent on the internal details of collection classes.
+ One should better not expect it to work.
+\layout Standard
+
+There is a work-around for this.
+ The collection backup could be an iterator instead of an integer.
+ To detect a modification, just access the iterator and wait for a 
+\family typewriter 
+ConcurrentModificationException
+\family default 
+.
+ This has not been implemented yet.
 \layout Chapter
 
 Model Information
@@ -3464,7 +3687,7 @@ Ocl.to<OclType>(OclRoot)
  
 \layout Section
 
-Typechecker
+Type Checker
 \layout Enumerate
 
 added OclAny to TypeChecker (DefaultTypeFactory).
@@ -3474,7 +3697,7 @@ added OclAny to TypeChecker (DefaultTypeFactory).
 Bugfix, removed TypeFactory.getClassifier - replaced all calls by TypeFactory.get
 \layout Section
 
-JavaCodeGenerator: 
+Java Code Generator: 
 \begin_inset LatexCommand \label{Sec:maintainJavaCodeGenerator}
 
 \end_inset 
@@ -3766,7 +3989,7 @@ HashExact
 \family default 
 .
  Simple hash functions just return the size of the collection, so they will
- detect insertions/deletion only.
+ detect insertions/deletions only.
  Reduces CPU load for big models.
 \layout LyX-Code
 
