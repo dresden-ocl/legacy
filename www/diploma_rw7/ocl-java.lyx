@@ -1,4 +1,4 @@
-#This file was created by <wiera> Tue Aug 15 13:45:52 2000
+#This file was created by <wiera> Wed Aug 16 13:05:27 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -788,23 +788,23 @@ Reversable Modification
 
 \layout Standard
 
-The most important feature is the reversability of the code injection.
- It must be possible
+The most important feature is the reversability of code injection.
+ It must be possible to
 \layout Itemize
 
-to clean the code tracelessly from all injected fragments.
+Clean the code tracelessly from all injected fragments.
 \layout Itemize
 
-to redo the injection on source code that has already been modified (i.e.
- when constraints have been changed).
+Redo the injection on source code that has already been modified, for instance
+ when constraints have been changed.
+ 
 \layout Itemize
 
-to edit the modified source code without losing all changes at the next
- injection.
+Edit the modified source code without losing all changes at the next injection.
  
 \layout Standard
 
-This requirement makes things quite a bit more difficult, but there are
+These requirements makes things quite a bit more difficult, but there are
  serious reasons for this.
  Otherwise there would be two versions of source code: the original and
  the modified version.
@@ -963,13 +963,13 @@ The main task of code injection is to have some code executed immediately
 Simple Approach.
 \layout Standard
 
-The simple approach of adding the code directly into the method raises some
- severe problems.
+A straight-forward solution would add the code directly into the method.
+ But this raises some severe problems.
  
 \layout Enumerate
 
-The postcondition code to be executed after the method has to be inserted
- at any return statement.
+The code to be executed after the method (postcondition and invariants)
+ has to be inserted at any return statement.
 \layout Enumerate
 
 A return expression has to be computed in advance, if the post condition
@@ -978,13 +978,10 @@ A return expression has to be computed in advance, if the post condition
 \layout Enumerate
 
 There may be name conflicts beetween the original and the generated code.
-\layout Enumerate
+\layout Standard
 
-A complete java parser is needed.
-\layout Enumerate
-
-The original code has to be touched at many different places and in a complicate
-d way.
+An implementation would need a complete java parser, which touches the original
+ code at many different places and in a complicated way.
  This runs contrary to the strategy of minimally invasive modification as
  decided in section 
 \begin_inset LatexCommand \ref{Sec:injection_requirements_reversable}
@@ -992,9 +989,7 @@ d way.
 \end_inset 
 
 .
-\layout Standard
-
-Method wrappers solve all these problems in a nifty but simple way.
+ Method wrappers solve all these problems in a nifty but simple way.
 \layout Paragraph
 
 Wrapping Methods.
@@ -1067,17 +1062,44 @@ return result;
 }
 \layout Standard
 
-The reader may have a look back at the problems encountered for the simple
- approach.
+Now let's have a look back at the problems encountered for the simple approach.
  Non of them exists anymore.
- Especially, a very inchoate java parser is sufficient, which understands
- anything outside of method bodies and attribute initializers only.
+ 
+\layout Itemize
+
+The code to be executed after the method has to be inserted once only.
+\layout Itemize
+
+When the post condition code is executed, the return expression is already
+ evaluated and ready to use.
+\layout Itemize
+
+No name conflicts are possible, since user code and generated code are separated
+ into different methods.
+\layout Standard
+
+The user code is modified in a simple way: a suffix is appended to the method
+ name.
+ For an implementation a very inchoate java parser is sufficient, which
+ understands 
+\begin_inset Quotes eld
+\end_inset 
+
+java meta level
+\begin_inset Quotes erd
+\end_inset 
+
+ only.
+ This meta level covers anything outside of method bodies and attribute
+ initializers, which is a very small part of the java language and easily
+ to be parsed.
 \layout Paragraph
 
 Wrapping Constructors.
 \layout Standard
 
 Another transformation is used for constructors, since they cannot be renamed.
+ Suppose a example constructor
 \layout LyX-Code
 
 SomeClass(String x)
@@ -1141,8 +1163,8 @@ this(x, (Dummy)null);
 }
 \layout Standard
 
-If a class provides no explicit constructor, then there is the default construct
-or as specified in 
+A special case occurs if a class provides no explicit constructor.
+ Then there is the default constructor as specified in 
 \begin_inset LatexCommand \cite{JAVA}
 
 \end_inset 
