@@ -1,4 +1,4 @@
-#This file was created by <rw7> Sat Apr 28 21:05:42 2001
+#This file was created by <rw7> Sat Apr 28 21:25:20 2001
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -118,11 +118,11 @@ Versant provided a fix for the bug mentioned in chapter
 .
 \layout Itemize
 
-Removed
+Removed 
 \family typewriter 
 --xmi-model
 \family default 
- in
+ in 
 \begin_inset LatexCommand \ref{Sec:UsageReference}
 
 \end_inset 
