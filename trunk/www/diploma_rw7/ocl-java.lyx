@@ -1,4 +1,4 @@
-#This file was created by <wiera> Thu Nov 30 11:18:34 2000
+#This file was created by <wiera> Fri Dec  1 17:14:17 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -4786,7 +4786,207 @@ Usage of Injector
 \layout Standard
 
 This chapter describes, how to use the injector tool.
+ Section 
+\begin_inset LatexCommand \ref{Sec:UsageExample}
+
+\end_inset 
+
+ contains an example quickly demonstrating the main features of the ocl
+ injector.
+ Section 
+\begin_inset LatexCommand \ref{Sec:UsageReference}
+
+\end_inset 
+
+ provides a complete reference of the injectors command line options.
+\layout Section
+
+Example
+\begin_inset LatexCommand \label{Sec:UsageExample}
+
+\end_inset 
+
+
+\layout Paragraph
+
+Step 1:
+\layout Standard
+
+First, get the following files: dresden-ocl-injector.jar, xerces.jar and royloy.jar.
+ These files are available on our website at dresden-ocl.sourceforge.net or
+ may be produced from the sources using the 
+\family typewriter 
+makeJar
+\family default 
+ script.
+ Put these files into one directory and change into that directory.
+\layout Standard
+
+The file royloy.jar contains the example code.
+ To unzip it type:
+\layout LyX-Code
+
+jar -xf royloy.jar
+\layout Standard
+
+You may now have a look at the example code, its in tudresden/ocl/test/royloy/.
+ The java code already contains ocl expressions in java doc comments, for
+ an easy start see 
+\family typewriter 
+Person.java
+\family default 
+ and 
+\family typewriter 
+Company.java
+\family default 
+.
+ Additional ocl is in the file 
+\family typewriter 
+oclexpressions
+\family default 
+.
+\layout Paragraph
+
+Step 2:
+\layout Standard
+
+Now it's time to start the ocl injector.
+ Type the following command on a single line.
+ Note, that the wildcards require a Unix shell to be expanded.
+\layout LyX-Code
+
+java -jar dresden-ocl-injector.jar 
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+-r tudresden.ocl.test.royloy 
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+--modify tudresden/ocl/test/royloy/*.java 
+\layout Standard
+
+The example java code has now been modified.
+ The modified code will have the same behavior as the original code, but
+ will additionally check the ocl constraints embedded in the java doc comments.
+\layout Paragraph
+
+Step 3:
+\layout Standard
+
+To check this, compile the modified java code (again type everything on
+ a single line):
+\layout LyX-Code
+
+javac 
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+-classpath dresden-ocl-injector.jar 
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+tudresden/ocl/test/royloy/*.java
+\layout Standard
+
+and 
+\layout Paragraph
+
+Step 4:
+\layout Standard
+
+Run the test main function provided:
+\layout LyX-Code
+
+java 
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+-cp .:dresden-ocl-injector.jar 
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+tudresden.ocl.test.TestInjectionRoyloy 
+\layout Standard
+
+Enjoy the messages about violated ocl constraints running down the screen.
+ Messages contain information about the violated constraint and the object
+ involved.
+\layout Paragraph
+
+Step 5:
+\layout Standard
+
+Clean the code from the modifications the injector made.
+\layout LyX-Code
+
+java -jar dresden-ocl-injector.jar 
+\newline 
+
+\protected_separator 
+
+\protected_separator 
+
+\protected_separator 
+--clean --modify tudresden/ocl/test/royloy/*.java 
+\layout Standard
+
+The example code is now exactly the same as you downloaded it.
+\layout Standard
+
+Note, that the code actually was cleaned.
+ No backups involved.
+ To check this, try the following:
+\layout Enumerate
+
+Make a backup of one or more java files just before injection (step 2).
+\layout Enumerate
+
+After injection make some small modifications to the files, you made a backup
+ for.
+ For example just add a single System.out.println to a method body.
+\layout Enumerate
+
+Proceed until step 5.
+\layout Enumerate
+
+Compare the cleaned code to your backup.
  
+\layout Standard
+
+The difference will be just the small modifications you made.
+\layout Section
+
+Reference
+\begin_inset LatexCommand \label{Sec:UsageReference}
+
+\end_inset 
+
+
 \layout Standard
 
 Synopsis is below.
