@@ -1,4 +1,4 @@
-#This file was created by <wiera> Thu Jul 27 17:32:06 2000
+#This file was created by <wiera> Fri Jul 28 13:07:51 2000
 #LyX 0.12 (C) 1995-1998 Matthias Ettrich and the LyX Team
 \lyxformat 2.15
 \textclass report
@@ -135,34 +135,50 @@ Model Information
 
 \layout Standard
 
-Needed for Type Checking.
-\layout Standard
-
-See 
+The OCL compiler needs model information for type checking.
+ How this works is explained in 
 \begin_inset LatexCommand \cite{ff3}
 
 \end_inset 
 
- section 5.3.3
+ section 5.3.3.
+ The sources for model information may be a UML model exported from a CASE
+ tool, or the java source code, which is accessed through reflection API
+\begin_float footnote 
 \layout Standard
 
-There is already the Reflection Facade, which is pretty cool with two exception:
- 
-\layout Enumerate
-
-no element types of associations.
- 
-\layout Enumerate
-
-no isquery tag
-\layout Standard
-
-Solution: extend the java language.
- The new tag has a syntax like 
+see class 
 \family typewriter 
-@see
+tudresden.ocl.check.types.ReflectionFacade
 \family default 
-, but restricted to classes only.
+.
+\end_float 
+.
+ The latter approach is very convenient, since most java projects don't
+ have a (up to date) UML representation of their business model.
+ 
+\layout Standard
+
+However, java reflection lacks some model properties which are important
+ for type checking.
+\layout Enumerate
+
+Element types of collections, particularly collections representing associations.
+ 
+\layout Enumerate
+
+Qualifier types of maps, representing qualified associations.
+\layout Enumerate
+
+The isQuery tag of operations.
+ Note, that OCL expressions may use operations without side effects (queries)
+ only.
+\layout Standard
+
+The solution is to put the additional information needed into java documentation
+ comments.
+ See the example below.
+ 
 \layout LyX-Code
 
 class Company
@@ -212,8 +228,35 @@ by this company.
 }
 \layout Standard
 
-The this is extended to Maps, which represent qualified associations of
- the UML model.
+The new 
+\family typewriter 
+@element-type
+\family default 
+ tag has a syntax like 
+\family typewriter 
+@see
+\family default 
+ as defined in 
+\begin_inset LatexCommand \cite{JAVA}
+
+\end_inset 
+
+ section 18.4.1, but may refer to classes and interfaces only.
+ This tag is valid for attributes only, and there may be only one of such
+ tags per documentation comment.
+ The tag is not restricted to attributes of type 
+\family typewriter 
+java.util.Collection
+\family default 
+, since future implementations could use other collection API's as well.
+\layout Standard
+
+Analogously, the 
+\family typewriter 
+@key-type
+\family default 
+ tag is introduced for association qualifiers.
+ 
 \layout LyX-Code
 
 class Bank
@@ -277,12 +320,41 @@ their account number.
 }
 \layout Standard
 
-Cool implementation: an extension of the reflection API and the java compiler.
+Note, that the reflection model is restricted to qualified associations
+ with one qualifier only.
+ 
+\begin_inset LatexCommand \cite{UML}
+
+\end_inset 
+
+ allows multiple qualifiers, but there is no convenient representation for
+ this in java.
+\layout Paragraph
+
+Implementation.
 \layout Standard
 
-My implementation: An extension of the reflection facade scanning the source
- code for these comments.
- Encapsulated in tudresden.ocl.check.types.ReflectionExtender.
+A really comfortable implementation would let the java compiler do the parsing,
+ and provide the information through an extended reflection API.
+ This would be similar to the 
+\family typewriter 
+@deprecated
+\family default 
+ tag.
+ My implementation extends
+\begin_float footnote 
+\layout Standard
+
+Encapsulated in 
+\family typewriter 
+tudresden.ocl.check.types.ReflectionExtender
+\family default 
+.
+\end_float 
+ the reflection facade by scanning the source code for these comments on
+ demand.
+ This implies, that the java source code is necessary for type checking
+ OCL constraints in addition to the class files.
 \layout Paragraph
 
 Where comes the tag?
@@ -323,7 +395,7 @@ Code Injection
 Injection of generated code into java programs is the main subject of this
  paper.
  It covers anything beyond code generation, to get a java model checking
- it's own constraints.
+ its own constraints.
  For an idea, where code generation ends and injection starts, see section
  
 \begin_inset LatexCommand \ref{Sec:codegeneration_result}
@@ -381,39 +453,78 @@ The java code generator developed in
 
 \end_inset 
 
- produces a set of code fragments (
+ produces a set of code fragments
+\begin_float footnote 
+\layout Standard
+
+see class 
 \family typewriter 
-tudresden.ocl.codegen.CodeFragment
-\family default 
-).
+tudresden.ocl.codegen.CodeFragment.
+\end_float 
+.
  These code fragment have the following properties:
-\layout Description
+\layout Standard
+\added_space_top 0.3cm \added_space_bottom 0.3cm \align center \LyXTable
+multicol5
+6 2 0 0 -1 -1 -1 -1
+1 1 0 0
+1 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+0 1 0 0
+2 1 0 "" ""
+2 1 1 "70mm" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 2 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
+0 8 0 1 0 0 0 "" ""
 
+Property 
+\newline 
+
+\newline 
 Constrained
 \protected_separator 
-type is the default navigation context of this constraint.
-\layout Description
-
-Kind specifies, whether this constraint is an invariant, a pre- or a postconditi
-on.
- For each postcondition containing a @pre expression there are two additional
- codefragments called preparation and transfer.
- See below.
-\layout Description
-
+type 
+\newline 
+The default navigation context of this constraint.
+\newline 
+Kind 
+\newline 
+Specifies, whether this constraint is an invariant, a pre- or a postcondition.
+ 
+\newline 
 Constrained
 \protected_separator 
-operation is the operation, this constraint applies to (valid for pre- and
- postconditions only).
-\layout Description
-
-Code contains the actual java code to be executed.
-\layout Description
-
+operation 
+\newline 
+The operation, this constraint applies to (valid for pre- and postconditions
+ only).
+\newline 
+Code 
+\newline 
+Contains the actual java code to be executed.
+\newline 
 Result
 \protected_separator 
-variable specifies the boolean value, which contains the result of the ocl
- expression after code execution.
+variable 
+\newline 
+Specifies the boolean value, which contains the result of the ocl expression
+ after code execution.
+\layout Standard
+
+For each postcondition containing a @pre expression there are two additional
+ codefragments called preparation and transfer.
+ See below.
 \layout Subsection
 
 Preparation and Transfer Fragments
