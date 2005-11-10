@@ -32,10 +32,6 @@ for i in $OCL_HOME/lib/external/*.jar; do CLASSPATH=$i:$CLASSPATH;done
 for i in $OCL_HOME/lib/external/*/*.jar; do CLASSPATH=$i:$CLASSPATH;done
 for i in $OCL_HOME/lib/internal/*.jar; do CLASSPATH=$i:$CLASSPATH;done
 
-CLASSPATH=$CLASSPATH:$OCL_HOME/obj/generic
-CLASSPATH=$CLASSPATH:$OCL_HOME/obj/jmi-api
-CLASSPATH=$CLASSPATH:$OCL_HOME/obj/jmi-impl
-CLASSPATH=$CLASSPATH:$OCL_HOME/obj/sablecc-xt
 CLASSPATH=$CLASSPATH:$OCL_HOME/resources
 
 $JAVA -cp $CLASSPATH tudresden.ocl20.core.parser.OCL20CLI $*
