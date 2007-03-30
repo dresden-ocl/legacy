@@ -10,7 +10,7 @@
   
   <!--#include virtual="_header.ssi" -->
 
-       <h1>The project</h1>
+		<h1>About the project</h1>
 
  <!--#include virtual="_menu.html" -->
 
@@ -25,7 +25,7 @@ their representation in OCL constraints.</p>
 
 <p>So, where does the Dresden OCL Toolset come into play? As its name indicates it is
 not some standalone solution. Instead, many of these tools are meant to be used as a library,
-integrated into other tools, but there exist also some standalone tools in the toolkit.</p>
+integrated into other tools, but there exist also some standalone tools in the Toolkit.</p>
 
        <h2>Who did the work?</h2>
 
@@ -34,29 +34,150 @@ first implemented in Java. Since the first version of the OCL compiler was
 completed alongside a Diploma Thesis, continuous work on and around the Toolkit has
 led to quite a considerable number of modules, which are now available.</p>
 
-<p>The toolkit is enhanced and maintained mainly by students and scientific staff
-of the Software Engineering Group at Technische Universität Dresden, where the
+<p>The Toolkit is enhanced and maintained mainly by students and scientific staff
+of the Software Technology Group at Technische Universit&auml;t Dresden, where the
 project is also coordinated. Contribution is however not restricted to this group
 so feel free to get in touch.</p>
 
-       <h2>Some inspirational screenshots</h2>
+       <h2>The different applications in the Toolkit</h2>
 
 <p>Although this is not a stand-alone tool there is a demonstration
 module coming with the Toolkit which helps to understand the way the Toolkit works.
-<a href="http://sourceforge.net/project/screenshots.php?group_id=5840">More screenshots</a>
-can be found on our project's site on SourceForge. 
+<br/><br/>
+There are seven applications in the Toolkit by now. The different demonstration modules are
+listed below with some inspirational screenshots.
 
-<table style="border:0px;margin:0 auto;text-align:center;font-size:9pt;">
-  <tr>
-    <td><a href="images/demoapp_constraint.gif"><img src="images/demoapp_constraint_thumbnail.gif" alt="constraint input" style="margin:10px;" /></a></td>
-    <td><a href="images/ocl_constraint_evaluation.gif"><img src="images/ocl_constraint_evaluation_thumbnail.gif" alt="constraint evaluation" style="margin:10px;" /></a></td>
-    <td><a href="images/demoapp_javaCodeGeneration.gif"><img src="images/demoapp_javaCodeGeneration_thumbnail.gif" alt="Java code generation" style="margin:10px;" /></a></td>
-  </tr><tr>
-    <td width="180" style="vertical-align:top;">Enter OCL constraint</td>
-    <td width="180" style="vertical-align:top;">Parsing constraint results in Abstract Syntax tree</td>
-    <td width="180" style="vertical-align:top;">Automatically generating Java code for monitoring</td>
-  </tr>
-</table></p>
+  <h2>1. OCL2 Workbench</h2>
+  <p>This software was written by Stefan Ocke for his diploma thesis. It provides the
+     following functions:
+  	<ul>
+     <li>loading metamodels into the repository using XMI</li>
+     <li>creation of OCL invariants for loaded metamodels</li>
+     <li>generating code for those invariants</li>
+     <li>loading of models and execution of generated code to check for compliance
+        with invariants</li>
+     </ul>
+  <table style="border:0px;margin:0 auto;text-align:center;font-size:9pt;">
+  	<tr>
+    	<td><a href="images/screens/workbench/01.gif"><img src="images/screens/workbench/01small.gif" alt="meta model and OCL script" target="e"/></a></td>
+    	<td><a href="images/screens/workbench/02.gif"><img src="images/screens/workbench/02small.gif" alt="code generator" target="e"/></a></td>
+    </tr><tr>
+	    <td width="180" style="vertical-align:top;">Installed meta model<br/>and OCL script</td>
+	    <td width="180" style="vertical-align:top;">Generated code</td>
+    </tr>
+  </table>
+  </p>
+  <h2>2. OCL2 Parser GUI</h2>
+  <p>This software was written by Ansgar Konermann for his diploma thesis. It
+     provides a GUI to the OCL2 parser and allows:
+     <ul>
+     <li>editing, loading and saving of text files containing OCL2 constraints</li>
+     <li>parsing OCL2 constraints into a concrete syntax tree and visualizing
+        this tree</li>
+     <li>loading UML15 models
+to run attribute evaluation/AST generation against (using XMI)</li>
+     <li>browse UML models in the repository (very basic browsing only)</li>
+     <li>running an attribute evaluator over the concrete syntax tree to create
+        the abstract syntax tree</li>
+     </ul>
+  <table style="border:0px;margin:0 auto;text-align:center;font-size:9pt;">
+  	<tr>
+    	<td><a href="images/screens/parser/01.gif"><img src="images/screens/parser/01small.gif" alt="constraint input" target="e"/></a></td>
+    	<td><a href="images/screens/parser/02.gif"><img src="images/screens/parser/02small.gif" alt="concrete syntax tree" target="e"/></a></td>
+    	<td><a href="images/screens/parser/03.gif"><img src="images/screens/parser/03small.gif" alt="visualized concrete syntax tree" target="e"/></a></td>
+    </tr><tr>
+	    <td width="180" style="vertical-align:top;">Enter OCL constraint</td>
+	    <td width="180" style="vertical-align:top;">Parsing constraint results in concrete syntax tree</td>
+	    <td width="180" style="vertical-align:top;">Visualized concrete syntax tree</td>
+    </tr>
+  </table>
+  </p>
+
+  <h2>3. OCL22SQL</h2>
+  <p>This software was written as a prototype example for the OCL Declarative Code Generator
+  	  by Florian Heidenreich for his diploma thesis. It provides a GUI
+      to create integrity views from textual OCL invariants and allows:</p>
+     <ul>
+     <li>loading of OCL constraint files</li>
+     <li>loading UML1.5 models to run attribute evaluation/AST generation against
+         (using XMI)</li>
+     <li>choosing between different object-relational mapping schemes to create
+         DDL-scripts for table schemas and DDL-scripts for object views</li>
+     <li>generating of SQL integrity views from the AST</li>
+     </ul>
+  <p>
+      Please note, that this tool doesn't support association classes and OCL
+      constraints which use the class names instead of association ends for
+      navigation.
+  <table style="border:0px;margin:0 auto;text-align:center;font-size:9pt;">
+  	<tr>
+    	<td><a href="images/screens/2sql/01.gif"><img src="images/screens/2sql/01small.gif" alt="loading model and constraints" target="e"/></a></td>
+    	<td><a href="images/screens/2sql/02.gif"><img src="images/screens/2sql/02small.gif" alt="setting transformation parameters" target="e"/></a></td>
+    	<td><a href="images/screens/2sql/03.gif"><img src="images/screens/2sql/03small.gif" alt="generated SQL model" target="e"/></a></td>
+    	<td><a href="images/screens/2sql/04.gif"><img src="images/screens/2sql/04small.gif" alt="generated SQL integrity views" target="e"/></a></td>
+    </tr><tr>
+	    <td width="180" style="vertical-align:top;">Loading UML model and OCL constraints</td>
+	    <td width="180" style="vertical-align:top;">Setting transformation parameters</td>
+	    <td width="180" style="vertical-align:top;">Generated SQL model</td>
+	    <td width="180" style="vertical-align:top;">Generated SQL integrity views</td>
+    </tr>
+  </table>
+  </p>
+
+  <h2>4. UtilityTest</h2>
+  <p>This Software was written by Jordi Cabot Sagrera. It is an example
+   	  how to use the Class Utility which provides some helper methods. Take a
+   	  look at the classes UtilityTest and Utility if you plan to work directly on the
+   	  repository. It is a text-based application, which uses the CarWorld-Model
+   	  in /resources/PoseidonProjects.</p>
+
+  <h2>5. Transformation Framework</h2>
+  <p>This Software was written by Christian Wende for his student research project
+   	  (Gro&szlig;er Beleg). It provides a framework to implement, manage, configure and
+   	  execute metamodel based transformations.
+   	  The distribution comes with an implementation of transformations performing
+   	  a database-shema generation from uml models.
+  <table style="border:0px;margin:0 auto;text-align:center;font-size:9pt;">
+  	<tr>
+    	<td><a href="images/screens/transform/01.gif"><img src="images/screens/transform/01small.gif" alt="model selection" target="e"/></a></td>
+    	<td><a href="images/screens/transform/02.gif"><img src="images/screens/transform/02small.gif" alt="transformation" target="e"/></a></td>
+    	<td><a href="images/screens/transform/03.gif"><img src="images/screens/transform/03small.gif" alt="transformation configuration" target="e"/></a></td>
+    	<td><a href="images/screens/transform/04.gif"><img src="images/screens/transform/04small.gif" alt="transformation result" target="e"/></a></td>
+    </tr><tr>
+	    <td width="180" style="vertical-align:top;">Model selection</td>
+	    <td width="180" style="vertical-align:top;">Transformation</td>
+	    <td width="180" style="vertical-align:top;">Transformation configuration</td>
+	    <td width="180" style="vertical-align:top;">Transformation result</td>
+    </tr>
+  </table>
+  </p>
+
+  <h2>6. Eclipse Plugins</h2>
+  <p> There are three Eclipse plugins shipped with this Toolkit. The Base plugin and
+      the OCL Editor plugin were written by Mirko St&ouml;lzel. The Visualization plugin
+      was written by Kai-Uwe G&auml;rtner.
+      The OCL Editor plugin provides a text editor for OCL Constraints.
+      The Visualization plugin helps to see what is inside the Netbeans Repository.
+      The Base plugin provides the basic functions of the Toolkit to other plugins.</p>
+
+  <h2>7. Java Code Generator GUI</h2>
+  <p>This software was written by Ronny Brandt for his student research project
+      (Gro&szlig;er Beleg). It is an extension of the code generator written by
+      Stefan Ocke. With this software you can load UML-models provided as XMI files
+      and OCL-constraints and generate java code to check these constraints at runtime.
+      This generated code also can be injected in existing java files (instrumentation)
+      and they can be reverse engineered too.</p>
+  <table style="border:0px;margin:0 auto;text-align:center;font-size:9pt;">
+  	<tr>
+    	<td><a href="images/screens/codegen/01.gif"><img src="images/screens/codegen/01small.gif" alt="Java Code Generator" target="e"/></a></td>
+    	<td><a href="images/screens/codegen/02.gif"><img src="images/screens/codegen/02small.gif" alt="Java Code Injector" target="e"/></a></td>
+    	<td><a href="images/screens/codegen/03.gif"><img src="images/screens/codegen/03small.gif" alt="Reverse Engineering" target="e"/></a></td>
+    </tr><tr>
+	    <td width="180" style="vertical-align:top;">Java Code Generator</td>
+	    <td width="180" style="vertical-align:top;">Java Code Injector</td>
+	    <td width="180" style="vertical-align:top;">Reverse Engineering</td>
+    </tr>
+  </table>
 
 
 <!--#include virtual="_footer.ssi" -->
