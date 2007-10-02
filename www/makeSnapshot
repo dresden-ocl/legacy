@@ -1,3 +1,7 @@
+# THIS FILE IS OUTDATED THE CVS OF THE DRESDEN OCL2 TOOLKIT WILL BE NO LONGER SUPPORTED
+# FOR THE NEWEST FILES USE THE SVN OF THE DRESDEN OCL2 TOOLKIT
+# (https://dresden-ocl.svn.sourceforge.net/svnroot/dresden-ocl/)
+
 # 2001-10-17 [sz9 ] Adjusted directories to new directory structure
 
 rm -rf download/*
