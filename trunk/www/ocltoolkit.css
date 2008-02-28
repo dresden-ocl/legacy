@@ -3,7 +3,7 @@ body {
   font-family: Arial,Helvetica,Sans-Serif;
   font-size: 11pt;
   padding: 0px;
-  margin: 0px; 
+  margin: 0px;
 }
 
 img {
@@ -62,7 +62,12 @@ a.menu:active, a.menu:hover {
   color: #628996;
   background-color: #ffffff;
 }
-  
+
+a.rss {
+  text-decoration: none;
+  margin-left: 470px;
+}
+
 
 #panelCell {
   width: 760px;
@@ -102,7 +107,7 @@ a.menu:active, a.menu:hover {
   display:inline;
   width:604px;
   overflow:visible;
-}  
+}
 
 #informationCell {
   float:left;
