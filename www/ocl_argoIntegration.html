@@ -3,46 +3,53 @@
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-  <head>                                     
-    <title>Dresden OCL Toolkit - Integrations</title>
-    <link rel="stylesheet" type="text/css" href="../ocltoolkit.css" />
-  </head>
-  
-  <!--#include virtual="_header.ssi" -->
+<head>
+<title>Dresden OCL Toolkit - Integrations</title>
+<link rel="stylesheet" type="text/css" href="ocltoolkit.css" />
+</head>
 
-       <h1>Argo/UML integration</h1>
+<!--#include virtual="_header.ssi" -->
 
-  <!--#include virtual="_menu.html" -->
+<h1>Dresden OCL Toolkit - Argo/UML integration</h1>
 
-       <h2>step 1: create the project</h2>
+<!--#include virtual="_menu.html" -->
 
-<p><a href="../images/argo/screenshot_1.gif" target="blank"><img
-src="../images/argo/screenshot_1_small.gif" style="border:0px;margin:5px;"/></a><br/>
-After starting Argo/UML, create a UML diagramm and some additional OCL constraint:</p>
+<h2>step 1: create the project</h2>
 
-       <h2>step 2: generate Java code</h2>
+<p><a href="images/argo/screenshot_1.gif" target="blank"><img
+	src="images/argo/screenshot_1_small.gif"
+	style="border: 0px; margin: 5px;" /></a><br />
+After starting Argo/UML, create a UML diagramm and some additional OCL
+constraint:</p>
 
-<p><a href="../images/argo/screenshot_2.gif" target="blank"><img
-src="../images/argo/screenshot_2_small.gif" style="border:0px;margin:5px;"/></a><br/>
+<h2>step 2: generate Java code</h2>
+
+<p><a href="images/argo/screenshot_2.gif" target="blank"><img
+	src="images/argo/screenshot_2_small.gif"
+	style="border: 0px; margin: 5px;" /></a><br />
 Generate code for all classes by selecting the according menu item:</p>
 
-<p><a href="../images/argo/screenshot_3.gif" target="blank"><img
-src="../images/argo/screenshot_3_small.gif" style="border:0px;margin:5px;"/></a><br/>
-Specify the path where to store the generated classes and press "Generate":</p>
+<p><a href="images/argo/screenshot_3.gif" target="blank"><img
+	src="images/argo/screenshot_3_small.gif"
+	style="border: 0px; margin: 5px;" /></a><br />
+Specify the path where to store the generated classes and press
+"Generate":</p>
 
-<p>The code has been generated (<a href="java/Person1.java"
-target="blank">Person1.java</a>) and looks like this:<br/>
-<a href="../images/argo/screenshot_4.gif" target="blank"><img src="../images/argo/screenshot_4_small.gif" style="border:0px;margin:5px auto;"/></a></p>
+<p>The code has been generated (<a href="usage/java/Person1.java"
+	target="blank">Person1.java</a>) and looks like this:<br />
+<a href="images/argo/screenshot_4.gif" target="blank"><img
+	src="images/argo/screenshot_4_small.gif"
+	style="border: 0px; margin: 5px auto;" /></a></p>
 
-       <h2>step 3: personal modifications</h2>
+<h2>step 3: personal modifications</h2>
 
-<p>Modify the code for your purposes, e.g. add constructor and main methode (<a
-href="java/Person2.java" target="blank">Person2.java</a>):</p>
+<p>Modify the code for your purposes, e.g. add constructor and main
+methode (<a href="usage/java/Person2.java" target="blank">Person2.java</a>):</p>
 
 
-<table style="border:1px">
-	<tr><td>
-	<pre><code style="font-size:8pt;">
+<table style="border: 1px">
+	<tr>
+		<td><pre><code style="font-size: 8pt;">
 // FILE: /home/steffen/projects/ArgoUML/tests/test/Person.java
 
 package test;
@@ -93,27 +100,30 @@ class Person
     System.out.println (p);
   }
 } /* end class Person */
-	</code></pre>
-	</td></tr>
+	</code></pre></td>
+	</tr>
 </table>
 
-        <h2>step 4: run the example </h2>
+<h2>step 4: run the example</h2>
 
-<p><img src="../images/argo/screenshot_5.gif" style="border:0px;margin:5px auto;"/><br/>
+<p><img src="images/argo/screenshot_5.gif"
+	style="border: 0px; margin: 5px auto;" /><br />
 Compile the source and start the program.</p>
 
-        <h2>step 5: run the injector tool</h2>
+<h2>step 5: run the injector tool</h2>
 
-<p><a href="../images/argo/screenshot_6.gif" target="blank"><img src="../images/argo/screenshot_6_small.gif"  style="border:0px;margin:5px auto;"/></a><br/>
-Run the injector tool to modify the source according to the specified OCL
-invariant</p>
+<p><a href="images/argo/screenshot_6.gif" target="blank"><img
+	src="images/argo/screenshot_6_small.gif"
+	style="border: 0px; margin: 5px auto;" /></a><br />
+Run the injector tool to modify the source according to the specified
+OCL invariant</p>
 
-<p>The resulting code looks like this (<a href="java/Person3.java"
-target="blank">Person3.java</a>):</p>
+<p>The resulting code looks like this (<a
+	href="usage/java/Person3.java" target="blank">Person3.java</a>):</p>
 
-<table style="border:1px;">
-<tr><td>
-<pre><code style="font-size:8pt;">
+<table style="border: 1px;">
+	<tr>
+		<td><pre><code style="font-size: 8pt;">
 // FILE: /home/steffen/projects/ArgoUML/tests/test/Person.java
 
 package test;
@@ -254,15 +264,17 @@ tudresden.ocl.lib.OclAnyImpl.clearFeatureListener();
 if(!tudOclNode5.isTrue())System.out.println("violated ocl invariant
 'unnamedConstraint_0' on object '"+this+"'.");
 }} /* end class Person */
-	</code></pre>
-	</td></tr>
+	</code></pre></td>
+	</tr>
 </table>
 
-        <h2>step 6: run the example again</h2>
+<h2>step 6: run the example again</h2>
 
-<p><a href="../images/argo/screenshot_7.gif" target="blank"><img src="../images/argo/screenshot_7_small.gif"  style="border:0px;margin:5px auto;"/></a><br/>
+<p><a href="images/argo/screenshot_7.gif" target="blank"><img
+	src="images/argo/screenshot_7_small.gif"
+	style="border: 0px; margin: 5px auto;" /></a><br />
 Compile and start again.</p>
 
-  <!--#include virtual="_footer.ssi" -->
+<!--#include virtual="_footer.ssi" -->
 
 </html>
