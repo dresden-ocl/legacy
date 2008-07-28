@@ -3,87 +3,85 @@
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-  <head>                                     
-    <!-- MODIFIY TITLE IN BROWSER'S TITLE BAR -->
-    <title>Dresden OCL Toolkit - Projects</title>
-    <link rel="stylesheet" type="text/css" href="ocltoolkit.css" />
-  </head>
-  
-  <!--#include virtual="_header.ssi" -->
+<head>
+<!-- MODIFIY TITLE IN BROWSER'S TITLE BAR -->
+<title>Dresden OCL2 Toolkit - Projects</title>
+<link rel="stylesheet" type="text/css" href="ocltoolkit.css" />
+</head>
 
-  
-       <!-- MODIFY THE PAGE'S TITLE (DISPLAYED IN HEADER BESIDE OCL TOOLKIT LOGO) -->
-       <h1>Projects around the Toolkit</h1>
+<!--#include virtual="_header.ssi" -->
 
-  <!--#include virtual="_menu.html" -->
+<!-- MODIFY THE PAGE'S TITLE (DISPLAYED IN HEADER BESIDE OCL TOOLKIT LOGO) -->
+<h1>Projects around the Toolkit</h1>
 
-       <!-- ADD CONTENT FROM HERE: USE H2 AS HIGHEST ORDER HEADLINE -->
+<!--#include virtual="_menu.html" -->
 
-      <h2>Entre2Mers</h2>
+<!-- ADD CONTENT FROM HERE: USE H2 AS HIGHEST ORDER HEADLINE -->
 
-
-<p>Entre2Mers was a project of the <a href="http://www.edf.fr">Electricite de France</a> (EDF).
-In a EDF data warehouse, many historical databases should be reconstituted.
-This issue raises database quality problems of different categories like
-different name and addresses of the same person in different databases.
-In order to gain more confidence in information contained in relational
-databases, a database quality analysis tool was developed.</p>
-
-<p>After experiments with an own language, OCL was used to express the
-constraints. In order to implement it, the OCL2SQL module was integrated into the EDF
-database quality tool.</p>
+<h2>Entre2Mers</h2>
 
 
-     <h2>JEFF</h2>
+<p>Entre2Mers was a project of the <a href="http://www.edf.fr">Electricite
+de France</a> (EDF). In a EDF data warehouse, many historical databases
+should be reconstituted. This issue raises database quality problems of
+different categories like different name and addresses of the same
+person in different databases. In order to gain more confidence in
+information contained in relational databases, a database quality
+analysis tool was developed.</p>
+
+<p>After experiments with an own language, OCL was used to express
+the constraints. In order to implement it, the OCL2SQL module was
+integrated into the EDF database quality tool.</p>
+
+
+<h2>JEFF</h2>
 
 <p>JEFF is a framework for building business applications developed
-by <a href="http://www.sdm.de">sd&amp;m</a>. OCL was used to specify constraints
-(both invariants and pre and post conditions) on JEFF classes and
-components.
-Although the complexity of such specifications can grow very rapidly,
-it is possible that a (right) use of OCL can increase the quality of code
-and the performance of the software development process.
-Note that the JEFF specification is based on OCL 2.0 and thus could
-not yet be checked with Dresden OCL Toolkit modules.</p>
+by <a href="http://www.sdm.de">sd&amp;m</a>. OCL was used to specify
+constraints (both invariants and pre and post conditions) on JEFF
+classes and components. Although the complexity of such specifications
+can grow very rapidly, it is possible that a (right) use of OCL can
+increase the quality of code and the performance of the software
+development process. Note that the JEFF specification is based on OCL
+2.0 and thus could not yet be checked with Dresden OCL Toolkit modules.</p>
 
 
 
-       <h2>KeY Project</h2>
+<h2>KeY Project</h2>
 
-<p>The aim of the <a href="http://www.key-project.org/" target="blank">KeY Project</a>
-is to integrate formal software specification and verification into the industrial software
-engineering processes. The starting point is a commercial CASE tool, which is augmented by
-capabilities for formal specification and verification. The ultimate goal is to make the
-verification process transparent for the user with respect to the informal object-oriented model.
-</p>
-<p>KeY uses a modified version of the OCL Parser which is part of the Dresden OCL Toolkit.
-</p>
-
-
-
-       <h2>nxCom</h2>
-
-<p>nxCom is a commercial product providing a business directory service.
-During the development of the nxCom business logic module the OCL2Java
-and the OCLInjector4Java tool were tested (see Ralf Wiebicke's
-<a href="http://rw7.de/ralf/diplom00/intro.html">diploma thesis</a>
-for more information). The nxCom module was instrumented with Java code that checks
-invariants (mainly business rules) against test data. Many constraint violations
-could be detected in that way.</p>
+<p>The aim of the <a href="http://www.key-project.org/"
+	target="blank">KeY Project</a> is to integrate formal software
+specification and verification into the industrial software engineering
+processes. The starting point is a commercial CASE tool, which is
+augmented by capabilities for formal specification and verification. The
+ultimate goal is to make the verification process transparent for the
+user with respect to the informal object-oriented model.</p>
+<p>KeY uses a modified version of the OCL Parser which is part of
+the Dresden OCL Toolkit.</p>
 
 
 
-	<h2>Spatial OCL</h2>
+<h2>nxCom</h2>
 
-<p><a href="http://www.cemagref.fr/English/" target="blank">Cemagref (Agricultural and environmental engineering research)</a> develops environmental
-and agricultural  databases. That way the institute implemented  a checking mechanism for
-spatial constraints based on a specific extension of the OCL2SQL module ("Spatial OCL").
-This extension has been used to produce automatically Oracle Spatial SQL queries from spatial
-constraints. Several queries have been generated and have
-been used to check the consistency of an agricultural database for organic sewage management.
+<p>nxCom is a commercial product providing a business directory
+service. During the development of the nxCom business logic module the
+OCL2Java and the OCLInjector4Java tool were tested (see Ralf Wiebicke's
+<a href="http://rw7.de/ralf/diplom00/intro.html">diploma thesis</a> for
+more information). The nxCom module was instrumented with Java code that
+checks invariants (mainly business rules) against test data. Many
+constraint violations could be detected in that way.</p>
 
-       <!-- END OF CONTENT -->
 
-  <!--#include virtual="_footer.ssi" -->
 
+<h2>Spatial OCL</h2>
+
+<p><a href="http://www.cemagref.fr/English/" target="blank">Cemagref
+(Agricultural and environmental engineering research)</a> develops
+environmental and agricultural databases. That way the institute
+implemented a checking mechanism for spatial constraints based on a
+specific extension of the OCL2SQL module ("Spatial OCL"). This extension
+has been used to produce automatically Oracle Spatial SQL queries from
+spatial constraints. Several queries have been generated and have been
+used to check the consistency of an agricultural database for organic
+sewage management. <!-- END OF CONTENT --> <!--#include virtual="_footer.ssi" -->
 </html>
