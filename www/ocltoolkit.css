@@ -6,6 +6,18 @@ body {
   margin: 0px;
 }
 
+/* The images below the navigation */
+#informationCell {
+  width:120px;
+  text-align:center;
+  font-size:0.7em;
+}
+
+#informationCell img {
+  margin-bottom:10px;
+  text-align:center;
+}
+
 img {
   border:none;
 }
