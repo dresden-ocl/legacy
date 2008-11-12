@@ -61,10 +61,10 @@ SourceForge</a>.</p>
 	class="rss"> RSS <img src="images/rss.gif" border="0"
 	alt="Logo RSS-Feed" /> </a></h2>
 
-<h3>2008/06/19 - Release of Dresden OCL2 Toolkit for Eclipse released</h3>
+<h3>2008/06/19 - Release of Dresden Toolkit for Eclipse released</h3>
 
 <p>The team of the Dresden OCL Toolkit project is happy to announce the
-release of the Dresden OCL2 Toolkit for Eclipse supporting OCL 2.0.
+release of the Dresden Toolkit for Eclipse supporting OCL 2.0.
 The new version is available from the project download area at
 Sourceforge: <a
 	href="http://sourceforge.net/project/showfiles.php?group_id=5840&package_id=173625">http://sourceforge.net/project/showfiles.php?group_id=5840&package_id=173625</a></p>
