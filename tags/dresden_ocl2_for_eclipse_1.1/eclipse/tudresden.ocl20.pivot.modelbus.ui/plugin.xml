@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Dresden OCL2 Toolkit"
+            id="tudresden.ocl20.views.category">
+      </category>
+      <view
+            name="Model Browser"
+            icon="icons/models.gif"
+            category="tudresden.ocl20.views.category"
+            class="tudresden.ocl20.pivot.modelbus.ui.internal.views.ModelsView"
+            id="tudresden.ocl20.pivot.modelbus.ui.views.models">
+      </view>
+      <view
+            category="tudresden.ocl20.views.category"
+            class="tudresden.ocl20.pivot.modelbus.ui.internal.views.ModelInstancesView"
+            icon="icons/sample.gif"
+            id="tudresden.ocl20.pivot.modelbus.ui.internal.views.ModelInstancesView"
+            name="Model Instance Browser">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <category
+            id="tudresden.ocl20.pivot.modelbus.ui.importWizards.category"
+            name="Dresden OCL2 Toolkit">
+      </category>
+      <wizard
+            category="tudresden.ocl20.pivot.modelbus.ui.importWizards.category"
+            class="tudresden.ocl20.pivot.modelbus.ui.internal.wizards.LoadModelWizard"
+            icon="icons/models.gif"
+            id="tudresden.ocl20.pivot.modelbus.ui.importWizards.loadModelWizard"
+            name="Domain-Specific Model">
+         <description>
+            Load a domain-specific model into the Model Browser view.
+         </description>
+      </wizard>
+      <wizard
+            category="tudresden.ocl20.pivot.modelbus.ui.importWizards.category"
+            class="tudresden.ocl20.pivot.modelbus.ui.internal.wizards.LoadModelInstanceWizard"
+            icon="icons/models.gif"
+            id="tudresden.ocl20.pivot.modelbus.ui.importWizards.loadModelInstanceWizard"
+            name="Modelinstance">
+         <description>
+            Load a model instance for specific model.
+         </description>
+      </wizard>
+   </extension>
+   
+</plugin>
