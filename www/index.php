@@ -61,15 +61,24 @@ SourceForge</a>.</p>
 	class="rss"> RSS <img src="images/rss.gif" border="0"
 	alt="Logo RSS-Feed" /> </a></h2>
 
-<h3>2008/06/19 - Release of Dresden Toolkit for Eclipse released</h3>
+<h3>2008/12/10 - Release 1.1 of Dresden OCL2 for Eclipse released</h3>
+
+<p>The team of the Dresden OCL Toolkit project is happy to announce the release of version 1.1 of Dresden OCL2 for Eclipse supporting OCL 2.0. The project also decided to rename the newest version of the Dresden OCL2 toolkit into Dresden OCL2 for Eclipse. The new version is available from the project download area at Sourceforge: <a href="http://sourceforge.net/project/platformdownload.php?group_id=5840">http://sourceforge.net/project/platformdownload.php?group_id=5840</a>.</p>
+
+<p>The new release contains UML 2 as a newly provided meta model. Furthermore some bugs in the OCL2 Parser and the OCL2 Interpreter were fixed.</p>
+
+<p>We are happy to announce this release and look forward to your comments and feedback. You can find further information at our website at <a href="http://dresden-ocl.sourceforge.net/">http://dresden-ocl.sourceforge.net/</a> and <a href="http://sourceforge.net/projects/dresden-ocl/">http://sourceforge.net/projects/dresden-ocl/</a>.</p>
+
+
+<h3>2008/06/19 - First version of Dresden OCL2 for Eclipse released</h3>
 
 <p>The team of the Dresden OCL Toolkit project is happy to announce the
 release of the Dresden Toolkit for Eclipse supporting OCL 2.0.
 The new version is available from the project download area at
 Sourceforge: <a
-	href="http://sourceforge.net/project/showfiles.php?group_id=5840&package_id=173625">http://sourceforge.net/project/showfiles.php?group_id=5840&package_id=173625</a></p>
+	href="http://sourceforge.net/project/showfiles.php?group_id=5840">http://sourceforge.net/project/showfiles.php?group_id=5840</a></p>
 
-<p>The new Version of the Dresden OCL2 Toolkit is based on a new
+<p>The new Version of the Dresden OCL Toolkit is based on a new
 infrastructure, the so-called pivot model as exchange format for models
 and metamodels developed by Matthias Br&auml;uer. The aim of this new
 pivotal metamodel is to provide an abstraction to evaluate OCL queries
@@ -101,7 +110,7 @@ updated anymore. We strongly recommend to use SVN access instead. For
 more details about SVN and how to download the Dresden OCL2 Toolkit <a
 	href="download.html">visit the download section</a>.</p>
 
-<h3>2007/5/30 - New infrastructure for the Dresden OCL2 Toolkit</h3>
+<h3>2007/5/30 - New infrastructure for the Dresden OCL Toolkit</h3>
 
 <p>With the publication of Matthias Br&auml;uer's Gro&szlig;er Beleg <i>"Design
 and Prototypical Implementation of a Pivot Model as Exchange Format for
