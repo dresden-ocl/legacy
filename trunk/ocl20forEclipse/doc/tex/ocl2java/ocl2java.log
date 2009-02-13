@@ -1,7 +1,10 @@
-This is pdfTeX, Version 3.141592-1.40.3 (MiKTeX 2.6) (preloaded format=pdflatex 2008.5.31)  12 FEB 2009 16:46
+This is pdfTeX, Version 3.141592-1.40.3 (MiKTeX 2.6) (preloaded format=pdflatex 2008.5.31)  13 FEB 2009 10:09
 entering extended mode
-**F:/TU*Dresden/GB/Tutorial/PDF*und*Latex/ocl2java.tex
-("F:\TU Dresden\GB\Tutorial\PDF und Latex\ocl2java.tex"
+**F:/OCLSHK/Workspaces/WorkspaceSVN/ocl20forEclipse/doc/tex/ocl2java/ocl2java.t
+ex
+
+(F:\OCLSHK\Workspaces\WorkspaceSVN\ocl20forEclipse\doc\tex\ocl2java\ocl2java.te
+x
 LaTeX2e <2005/12/01>
 Babel <v3.8g> and hyphenation patterns for english, dumylang, nohyphenation, ge
 rman, ngerman, french, loaded.
@@ -365,12 +368,12 @@ es-den OCL
 ) [13 <figures/junit2.png (PNG copy)>] (ocl2java.aux) ) 
 Here is how much of TeX's memory you used:
  6760 strings out of 95305
- 85422 string characters out of 1185559
- 183742 words of memory out of 1177202
+ 85503 string characters out of 1185559
+ 183208 words of memory out of 1177180
  9660 multiletter control sequences out of 60000
  16679 words of font info for 42 fonts, out of 1000000 for 2000
  14 hyphenation exceptions out of 8191
- 30i,10n,41p,889b,1281s stack positions out of 5000i,500n,10000p,200000b,32768s
+ 30i,10n,41p,916b,1281s stack positions out of 5000i,500n,10000p,200000b,32768s
  <C:\Dokumente und Einst
 ellungen\All Users\Anwendungsdaten\MiKTeX\2.6\fonts\pk\ljfour\jknappen\ec\dpi60
 0\eccc1000.pk> <C:\Dokumente und Einstellungen\All Users\Anwendungsdaten\MiKTeX
@@ -390,9 +393,9 @@ rm1200.pk> <C:\Dokumente und Einstellungen\All Users\Anwendungsdaten\MiKTeX\2.6
 sky/cm/cmsy9.pfb><D:/MiKTeX 2.6/fonts/type1/bluesky/latex-fonts/lcircle1.pfb><D
 :/MiKTeX 2.6/fonts/type1/urw/courier/ucrb8a.pfb><D:/MiKTeX 2.6/fonts/type1/urw/
 courier/ucrr8a.pfb>
-Output written on ocl2java.pdf (13 pages, 548144 bytes).
+Output written on ocl2java.pdf (13 pages, 548527 bytes).
 PDF statistics:
- 552 PDF objects out of 300000 (max. 8388607)
+ 553 PDF objects out of 300000 (max. 8388607)
  50 named destinations out of 300000 (max. 131072)
  168 words of extra memory for PDF output out of 65536 (max. 10000000)
 
