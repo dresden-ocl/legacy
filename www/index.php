@@ -61,6 +61,26 @@ SourceForge</a>.</p>
 	class="rss"> RSS <img src="images/rss.gif" border="0"
 	alt="Logo RSS-Feed" /> </a></h2>
 
+<h3>2009/02/26 - Release 1.2 of Dresden OCL2 for Eclipse released</h3>
+
+<p>The team of the Dresden OCL Toolkit project is happy to announce the release
+  of version 1.2 of Dresden OCL2 for Eclipse. The new version is available from 
+  the project download area at Sourceforge: 
+  <a href="http://sourceforge.net/project/platformdownload.php?group_id=5840">http://sourceforge.net/project/platformdownload.php?group_id=5840</a>.
+
+<p>The new release contains the new developed Java code generator OCL2Java which 
+  supports AspectJ code generation for OCL2 constraints to constrain and enrich 
+  Java code for provided models. Additionally, a new big example plugin containing 
+  the 'royal and loyal' model of Warmer and Kleppe was added to the project.</p>
+
+<p>Furthermore some bugs in the OCL2 Parser, the OCL2 Interpreter, the Java Standard 
+  Library and the provided meta models were fixed.</p>
+
+<p>We are looking forward to your comments and feedback. You can find further 
+  information at our website at <a href="http://dresden-ocl.sourceforge.net/">http://dresden-ocl.sourceforge.net/</a>
+  and <a href="http://sourceforge.net/projects/dresden-ocl/">http://sourceforge.net/projects/dresden-ocl/</a>.</p> 
+
+
 <h3>2008/12/10 - Release 1.1 of Dresden OCL2 for Eclipse released</h3>
 
 <p>The team of the Dresden OCL Toolkit project is happy to announce the release of version 1.1 of Dresden OCL2 for Eclipse supporting OCL 2.0. The project also decided to rename the newest version of the Dresden OCL2 toolkit into Dresden OCL2 for Eclipse. The new version is available from the project download area at Sourceforge: <a href="http://sourceforge.net/project/platformdownload.php?group_id=5840">http://sourceforge.net/project/platformdownload.php?group_id=5840</a>.</p>
