@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <wizard
+            category="tudresden.ocl20.pivot.modelbus.ui.importWizards.category"
+            class="tudresden.ocl20.pivot.parser.ui.internal.wizards.ParseOCLWizard"
+            icon="icons/ocl.gif"
+            id="tudresden.ocl20.pivot.parser.ui.importWizards.loadOclWizard.LoadOCLWizard"
+            name="OCL Expressions">
+         <description>
+            Parse OCL expressions for the active model in the Model Browser.
+         </description>
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="tudresden.ocl20.pivot.parser.actionSet"
+            label="Tests"
+            visible="true">
+      </actionSet>
+   </extension>
+
+</plugin>

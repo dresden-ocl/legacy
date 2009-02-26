@@ -1,0 +1,242 @@
+This is pdfTeX, Version 3.141592-1.40.3 (MiKTeX 2.6) (preloaded format=pdflatex 2008.5.31)  10 FEB 2009 10:58
+entering extended mode
+**F:/OCLSHK/Workspaces/WorkspaceSVN/ocl20forEclipse/doc/tex/examples.tex
+(F:\OCLSHK\Workspaces\WorkspaceSVN\ocl20forEclipse\doc\tex\examples.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8g> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman, ngerman, french, loaded.
+("D:\MiKTeX 2.6\tex\latex\base\article.cls"
+Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
+("D:\MiKTeX 2.6\tex\latex\base\size10.clo"
+File: size10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("D:\MiKTeX 2.6\tex\latex\base\fontenc.sty"
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+("D:\MiKTeX 2.6\tex\latex\base\t1enc.def"
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+("D:\MiKTeX 2.6\tex\latex\base\inputenc.sty"
+Package: inputenc 2006/05/05 v1.1b Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+
+("D:\MiKTeX 2.6\tex\latex\base\latin1.def"
+File: latin1.def 2006/05/05 v1.1b Input encoding file
+))
+("D:\MiKTeX 2.6\tex\latex\listings\listings.sty"
+("D:\MiKTeX 2.6\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+\lst@mode=\count87
+\lst@gtempboxa=\box26
+\lst@token=\toks17
+\lst@length=\count88
+\lst@currlwidth=\dimen103
+\lst@column=\count89
+\lst@pos=\count90
+\lst@lostspace=\dimen104
+\lst@width=\dimen105
+\lst@newlines=\count91
+\lst@lineno=\count92
+\lst@maxwidth=\dimen106
+
+("D:\MiKTeX 2.6\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count93
+\lst@skipnumbers=\count94
+\lst@framebox=\box27
+)
+("D:\MiKTeX 2.6\tex\latex\listings\listings.cfg"
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
+("D:\MiKTeX 2.6\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("D:\MiKTeX 2.6\tex\latex\graphics\graphics.sty"
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("D:\MiKTeX 2.6\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("D:\MiKTeX 2.6\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2005/12/29 v1.2 MiKTeX 'graphics' configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 90.
+
+("D:\MiKTeX 2.6\tex\latex\graphics\pdftex.def"
+File: pdftex.def 2007/04/17 v0.04g Graphics/color for pdfTeX
+\Gread@gobject=\count95
+))
+\Gin@req@height=\dimen107
+\Gin@req@width=\dimen108
+)
+("D:\MiKTeX 2.6\tex\latex\eso-pic\eso-pic.sty"
+Package: eso-pic 2006/07/14 v1.1d eso-pic (RN)
+
+("D:\MiKTeX 2.6\tex\latex\ms\everyshi.sty"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+("D:\MiKTeX 2.6\tex\latex\pstricks\pstricks.sty"
+Package: pstricks 2006/08/10 v0.32 LaTeX wrapper for `PSTricks' (RN,HV)
+
+("D:\MiKTeX 2.6\tex\generic\pstricks\pstricks.tex"
+`PSTricks' v1.15  <2006/12/22> (tvz)
+\pst@dima=\dimen109
+\pst@dimb=\dimen110
+\pst@dimc=\dimen111
+\pst@dimd=\dimen112
+\pst@dimg=\dimen113
+\pst@dimh=\dimen114
+\pst@hbox=\box28
+\pst@boxg=\box29
+\pst@cnta=\count96
+\pst@cntb=\count97
+\pst@cntc=\count98
+\pst@cntd=\count99
+\pst@cntg=\count100
+\pst@cnth=\count101
+\pst@toks=\toks18
+("D:\MiKTeX 2.6\tex\generic\pstricks\pstricks.con")
+\psunit=\dimen115
+\psxunit=\dimen116
+\psyunit=\dimen117
+\pslinewidth=\dimen118
+\pst@customdefs=\toks19
+\pslinearc=\dimen119
+\everypsbox=\toks20
+\psframesep=\dimen120
+\pslabelsep=\dimen121
+\psk@shift=\dimen122
+\pst@shift=\dimen123
+\theoverlaybox=\box30
+)
+File: pstricks.tex 2006/12/22 v1.15 `PSTricks' (tvz)
+
+("D:\MiKTeX 2.6\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+("D:\MiKTeX 2.6\tex\latex\00miktex\color.cfg"
+File: color.cfg 2005/12/29 v1.1 MiKTeX 'color' configuration
+)
+Package xcolor Info: Package option `override' ignored on input line 216.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)) (examples.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+\c@lstlisting=\count102
+
+("D:\MiKTeX 2.6\tex\context\base\supp-pdf.tex"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count103
+\scratchdimen=\dimen124
+\scratchbox=\box31
+\nofMPsegments=\count104
+\nofMParguments=\count105
+\MPscratchCnt=\count106
+\MPscratchDim=\dimen125
+\MPnumerator=\count107
+\everyMPtoPDFconversion=\toks21
+) ABD: EveryShipout initializing macros
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 23.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 23.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 23.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 32.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 32.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 35.
+ ("D:\MiKTeX 2.6\tex\latex\base\t1cmtt.fd"
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
+[]\T1/cmtt/m/n/10 src/tudresden.ocl20.pivot.examples.living/
+ []
+
+
+Underfull \hbox (badness 1552) in paragraph at lines 60--60
+[]\T1/cmr/bx/n/10 Royal and Loyal
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
+[]\T1/cmtt/m/n/10 tudresden.ocl20.pivot.examples.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
+[]\T1/cmtt/m/n/10 src/tudresden.ocl20.pivot.examples.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
+[]\T1/cmtt/m/n/10 src/tudresden.ocl20.pivot.examples.simple/
+ []
+
+[1
+Non-PDF special ignored!
+Non-PDF special ignored!
+
+{psfonts.map}] [2] (examples.aux) ) 
+Here is how much of TeX's memory you used:
+ 4014 strings out of 95305
+ 48335 string characters out of 1185559
+ 120935 words of memory out of 1119003
+ 7112 multiletter control sequences out of 60000
+ 10446 words of font info for 29 fonts, out of 1000000 for 2000
+ 14 hyphenation exceptions out of 8191
+ 30i,10n,37p,501b,272s stack positions out of 5000i,500n,10000p,200000b,32768s
+ <C:\Dokumente und Einstellungen\All Users\A
+nwendungsdaten\MiKTeX\2.6\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk> <C:\D
+okumente und Einstellungen\All Users\Anwendungsdaten\MiKTeX\2.6\fonts\pk\ljfour
+\jknappen\ec\dpi600\ecbx1000.pk> <C:\Dokumente und Einstellungen\All Users\Anwe
+ndungsdaten\MiKTeX\2.6\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\Doku
+mente und Einstellungen\All Users\Anwendungsdaten\MiKTeX\2.6\fonts\pk\ljfour\jk
+nappen\ec\dpi600\ecrm1000.pk> <C:\Dokumente und Einstellungen\All Users\Anwendu
+ngsdaten\MiKTeX\2.6\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Dokumen
+te und Einstellungen\All Users\Anwendungsdaten\MiKTeX\2.6\fonts\pk\ljfour\jknap
+pen\ec\dpi600\ecrm1728.pk>
+Output written on examples.pdf (2 pages, 56806 bytes).
+PDF statistics:
+ 185 PDF objects out of 300000 (max. 8388607)
+ 0 named destinations out of 300000 (max. 131072)
+ 1 words of extra memory for PDF output out of 65536 (max. 10000000)
+

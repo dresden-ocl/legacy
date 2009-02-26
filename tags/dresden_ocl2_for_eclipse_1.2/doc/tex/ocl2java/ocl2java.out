@@ -1,0 +1,12 @@
+\BOOKMARK [1][-]{section.1}{1 How to run Dresden OCL2 for Eclipse}{}
+\BOOKMARK [1][-]{section.2}{2 The example used during this tutorial}{}
+\BOOKMARK [1][-]{section.3}{3 Prepare the Code Generation}{}
+\BOOKMARK [1][-]{section.4}{4 The Code Generation}{}
+\BOOKMARK [2][-]{subsection.4.1}{4.1 Selecting a Model}{section.4}
+\BOOKMARK [2][-]{subsection.4.2}{4.2 Selecting Constraints}{section.4}
+\BOOKMARK [2][-]{subsection.4.3}{4.3 Selecting a Target Directory}{section.4}
+\BOOKMARK [2][-]{subsection.4.4}{4.4 Specifying General Settings}{section.4}
+\BOOKMARK [2][-]{subsection.4.5}{4.5 Constraint Specific Settings}{section.4}
+\BOOKMARK [1][-]{section.5}{5 The Generated Code}{}
+\BOOKMARK [1][-]{section.6}{6 Conclusion}{}
+\BOOKMARK [1][-]{section*.1}{References}{}
