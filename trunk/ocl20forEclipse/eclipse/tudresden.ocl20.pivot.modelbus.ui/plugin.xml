@@ -3,6 +3,21 @@
 <plugin>
 
    <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="Dresden OCL2 Action Set"
+            visible="true"
+            id="tudresden.ocl20.pivot.modelbus.ui.actionSet">
+         <menu
+               label="Dresden OCL2"
+               id="tudresden.ocl20.pivot.modelbus.ui.menu">
+            <separator
+                  name="tudresden.ocl20.pivot.modelbus.ui.menu.tools">
+            </separator>
+         </menu>
+      </actionSet>
+   </extension>
+   <extension
          point="org.eclipse.ui.views">
       <category
             name="Dresden OCL2 Toolkit"
@@ -27,7 +42,7 @@
          point="org.eclipse.ui.importWizards">
       <category
             id="tudresden.ocl20.pivot.modelbus.ui.importWizards.category"
-            name="Dresden OCL2 Toolkit">
+            name="Dresden OCL2 for Eclipse">
       </category>
       <wizard
             category="tudresden.ocl20.pivot.modelbus.ui.importWizards.category"
@@ -49,6 +64,13 @@
             Load a model instance for specific model.
          </description>
       </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="tudresden.ocl20.pivot.modelbus.ui.newWizards.category"
+            name="Dresden OCL2 for Eclipse">
+      </category>
    </extension>
    
 </plugin>
