@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.3.8)  10 MAR 2009 18:56
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.3.8)  11 MAR 2009 10:56
 entering extended mode
 **C:/Users/Claas*Wilke/OCL*SHK/Workspaces/WorkspaceSVN/ocl20forEclipse/doc/tex/
-ocl2java/ocl2java.tex
+interpreter/interpreter.tex
 
 ("C:/Users/Claas Wilke/OCL SHK/Workspaces/WorkspaceSVN/ocl20forEclipse/doc/tex/
-ocl2java/ocl2java.tex"
+interpreter/interpreter.tex"
 LaTeX2e <2005/12/01>
 Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
 rman, ngerman, german-x-2008-06-18, ngerman-x-2008-06-18, french, loaded.
@@ -251,8 +251,8 @@ Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 File: hpdftex.def 2008/11/18 v6.78m Hyperref driver for pdfTeX
 \Fld@listcount=\count108
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 50.
- (ocl2java.aux)
+Package hyperref Info: Option `colorlinks' set `true' on input line 49.
+ (interpreter.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
 LaTeX Font Info:    ... okay on input line 58.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
@@ -268,8 +268,7 @@ LaTeX Font Info:    ... okay on input line 58.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
 LaTeX Font Info:    ... okay on input line 58.
 \c@lstlisting=\count109
-
-("C:\Program Files\MiKTeX 2.7\tex\context\base\supp-pdf.tex"
+ ("C:\Program Files\MiKTeX 2.7\tex\context\base\supp-pdf.tex"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count110
 \scratchdimen=\dimen126
@@ -294,7 +293,8 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 LaTeX Info: Redefining \ref on input line 58.
 LaTeX Info: Redefining \pageref on input line 58.
- (ocl2java.out) (ocl2java.out)
+
+(interpreter.out) (interpreter.out)
 \@outlinefile=\write3
 \AtBeginShipoutBox=\box32
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -313,25 +313,25 @@ Overfull \hbox (0.71384pt too wide) in paragraph at lines 79--80
  []
 
 
-Overfull \hbox (2.6578pt too wide) in paragraph at lines 83--84
+Overfull \hbox (2.6578pt too wide) in paragraph at lines 81--82
 []\T1/cmr/m/n/10 http://www.eclipse.org/modeling/mdt/| 
  []
 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 103.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 102.
 
 ("C:\Program Files\MiKTeX 2.7\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [1
+)
+<../figures/simpleExample.pdf, id=48, 301.125pt x 281.05pt>
+File: ../figures/simpleExample.pdf Graphic file (type pdf)
+
+<use ../figures/simpleExample.pdf> [1
 Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!
 
 {C:/ProgramData/MiKTeX/2.7/pdftex/config/pdftex.map}]
-<figures/simpleExample.pdf, id=77, 301.125pt x 281.05pt>
-File: figures/simpleExample.pdf Graphic file (type pdf)
-
-<use figures/simpleExample.pdf>
-<figures/packageExplorer.png, id=80, 254.9525pt x 528.97626pt>
+<figures/packageExplorer.png, id=68, 306.14375pt x 523.9575pt>
 File: figures/packageExplorer.png Graphic file (type png)
 
 <use figures/packageExplorer.png>
@@ -344,61 +344,68 @@ File: lstlang2.sty 2004/09/05 1.3 listings language file
 ("C:\Program Files\MiKTeX 2.7\tex\latex\listings\lstlang3.sty"
 File: lstlang3.sty 2004/09/05 1.3 listings language file
 )
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 130.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 127.
 
 ("C:\Program Files\MiKTeX 2.7\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 131.
+(Font)              <9> on input line 128.
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 132.
-
-Overfull \hbox (2.44293pt too wide) in paragraph at lines 136--137
-\T1/cmtt/m/n/10 les.simple.constraints.InvTest.java \T1/cmr/m/n/10 which con-ta
-ins a jU-nit test case which
- []
-
-[2 <figures/simpleExample.pdf>] [3 <figures/packageExplorer.png (PNG copy)>]
-<figures/junit1.png, id=133, 351.3125pt x 290.08376pt>
-File: figures/junit1.png Graphic file (type png)
-
-<use figures/junit1.png>
-<figures/modelBrowser.png, id=136, 319.1925pt x 316.18124pt>
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 129.
+ [2 <C:/Users/Claas Wilke/OCL SHK/Workspaces/WorkspaceSVN/ocl20forEclipse/doc/t
+ex/figures/simpleExample.pdf>] [3 <figures/packageExplorer.png>]
+<figures/modelBrowser.png, id=115, 452.69125pt x 488.82625pt>
 File: figures/modelBrowser.png Graphic file (type png)
 
 <use figures/modelBrowser.png>
-<figures/wizard1.png, id=138, 522.95375pt x 553.06625pt>
-File: figures/wizard1.png Graphic file (type png)
+<figures/modelInstanceBrowser.png, id=116, 409.53pt x 169.63374pt>
+File: figures/modelInstanceBrowser.png Graphic file (type png)
 
-<use figures/wizard1.png> [4 <figures/junit1.png (PNG copy)>]
-<figures/wizard2.png, id=148, 522.95375pt x 554.07pt>
-File: figures/wizard2.png Graphic file (type png)
+<use figures/modelInstanceBrowser.png>
+<figures/interpreter01.png, id=118, 940.51375pt x 292.09125pt>
+File: figures/interpreter01.png Graphic file (type png)
 
-<use figures/wizard2.png>
-<figures/wizard3.png, id=150, 522.95375pt x 554.07pt>
-File: figures/wizard3.png Graphic file (type png)
+<use figures/interpreter01.png> [4] [5 <figures/modelBrowser.png> <figures/mode
+lInstanceBrowser.png> <figures/interpreter01.png>]
+<figures/interpreter02.png, id=163, 149.55875pt x 26.0975pt>
+File: figures/interpreter02.png Graphic file (type png)
 
-<use figures/wizard3.png>
-<figures/wizard4.png, id=152, 522.95375pt x 554.07pt>
-File: figures/wizard4.png Graphic file (type png)
+<use figures/interpreter02.png>
+<figures/interpreter03.png, id=166, 439.6425pt x 385.44pt>
+File: figures/interpreter03.png Graphic file (type png)
 
-<use figures/wizard4.png>
-<figures/wizard5.png, id=153, 522.95375pt x 554.07pt>
-File: figures/wizard5.png Graphic file (type png)
+<use figures/interpreter03.png>
+<figures/interpreter04.png, id=167, 940.51375pt x 163.61125pt>
+File: figures/interpreter04.png Graphic file (type png)
 
-<use figures/wizard5.png> [5 <figures/modelBrowser.png (PNG copy)>] [6 <figures
-/wizard1.png (PNG copy)>] [7 <figures/wizard2.png (PNG copy)>] [8 <figures/wiza
-rd3.png (PNG copy)>] [9 <figures/wizard4.png (PNG copy)>] [10 <figures/wizard5.
-png (PNG copy)>]
-<figures/packageExplorer2.png, id=185, 254.9525pt x 556.0775pt>
-File: figures/packageExplorer2.png Graphic file (type png)
+<use figures/interpreter04.png> [6 <figures/interpreter02.png> <figures/interpr
+eter03.png> <figures/interpreter04.png>]
+<figures/interpreter05.png, id=179, 439.6425pt x 410.53375pt>
+File: figures/interpreter05.png Graphic file (type png)
 
-<use figures/packageExplorer2.png>
-<figures/junit2.png, id=187, 254.9525pt x 287.0725pt>
-File: figures/junit2.png Graphic file (type png)
- <use figures/junit2.png>
-[11] [12 <figures/packageExplorer2.png (PNG copy)>] (ocl2java.bbl
+<use figures/interpreter05.png> [7 <figures/interpreter05.png>]
+<figures/interpreter06.png, id=189, 439.6425pt x 459.7175pt>
+File: figures/interpreter06.png Graphic file (type png)
+
+<use figures/interpreter06.png>
+<figures/interpreter07.png, id=190, 940.51375pt x 163.61125pt>
+File: figures/interpreter07.png Graphic file (type png)
+
+<use figures/interpreter07.png> [8 <figures/interpreter06.png> <figures/interpr
+eter07.png>] <figures/interpreter08.png, id=200, 940.51375pt x 163.61125pt>
+File: figures/interpreter08.png Graphic file (type png)
+
+<use figures/interpreter08.png>
+<figures/interpreter09.png, id=201, 294.09875pt x 308.15125pt>
+File: figures/interpreter09.png Graphic file (type png)
+
+<use figures/interpreter09.png>
+<figures/interpreter10.png, id=202, 940.51375pt x 163.61125pt>
+File: figures/interpreter10.png Graphic file (type png)
+
+<use figures/interpreter10.png> [9 <figures/interpreter08.png> <figures/interpr
+eter09.png>] [10 <figures/interpreter10.png>] (interpreter.bbl
 Underfull \hbox (badness 3780) in paragraph at lines 21--25
 []\T1/cmr/m/sc/10 Wilke\T1/cmr/m/n/10 , Claas ; \T1/cmr/m/sc/10 Brandt\T1/cmr/m
 /n/10 , Ronny:  \T1/cmr/m/it/10 An in-tro-duc-tion into
@@ -416,33 +423,32 @@ Underfull \hbox (badness 1072) in paragraph at lines 21--25
 
  []
 
-) [13 <figures/junit2.png (PNG copy)>] (ocl2java.aux) ) 
+) [11] (interpreter.aux) ) 
 Here is how much of TeX's memory you used:
- 7636 strings out of 95304
- 101577 string characters out of 1183071
- 213620 words of memory out of 1500000
- 10682 multiletter control sequences out of 110000
+ 7672 strings out of 95304
+ 102681 string characters out of 1183071
+ 268799 words of memory out of 1500000
+ 10700 multiletter control sequences out of 110000
  16679 words of font info for 42 fonts, out of 3000000 for 5000
  14 hyphenation exceptions out of 8191
- 36i,10n,41p,935b,1283s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\ProgramData\MiKTeX\
-2.7\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1000.pk> <C:\ProgramData\MiKTeX\2.7\
-fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk>{C:/Program Files/MiKTeX 2.7/fon
-ts/enc/dvips/fontname/8r.enc} <C:\ProgramData\MiKTeX\2.7\fonts\pk\ljfour\jknapp
-en\ec\dpi600\ecrm0900.pk> <C:\ProgramData\MiKTeX\2.7\fonts\pk\ljfour\jknappen\e
-c\dpi600\ectt1000.pk> <C:\ProgramData\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dp
-i600\ecbx1440.pk> <C:\ProgramData\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600
-\ecbx1000.pk> <C:\ProgramData\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ect
-i1000.pk> <C:\ProgramData\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm100
-0.pk> <C:\ProgramData\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk
-> <C:\ProgramData\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk><C:
-/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmsy9.pfb><C:/Program Files/Mi
-KTeX 2.7/fonts/type1/bluesky/latex-fonts/lcircle1.pfb><C:/Program Files/MiKTeX 
-2.7/fonts/type1/urw/courier/ucrb8a.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1
-/urw/courier/ucrr8a.pfb>
-Output written on ocl2java.pdf (13 pages, 547779 bytes).
+ 36i,10n,41p,1160b,1283s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\ProgramData\MiKTeX\2.7\fonts\pk\ljfour\jknappen\
+ec\dpi600\eccc1000.pk> <C:\ProgramData\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\d
+pi600\ecbx1200.pk>{C:/Program Files/MiKTeX 2.7/fonts/enc/dvips/fontname/8r.enc}
+ <C:\ProgramData\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0900.pk> <C:
+\ProgramData\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk> <C:\Pro
+gramData\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Program
+Data\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1000.pk> <C:\ProgramData
+\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\ProgramData\MiK
+TeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C:\ProgramData\MiKTeX\
+2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\ProgramData\MiKTeX\2.7\
+fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk><C:/Program Files/MiKTeX 2.7/fon
+ts/type1/bluesky/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/
+latex-fonts/lcircle1.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/urw/courier/u
+crb8a.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on interpreter.pdf (11 pages, 520959 bytes).
 PDF statistics:
- 550 PDF objects out of 1000 (max. 8388607)
- 50 named destinations out of 1000 (max. 131072)
- 164 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 573 PDF objects out of 1000 (max. 8388607)
+ 64 named destinations out of 1000 (max. 131072)
+ 155 words of extra memory for PDF output out of 10000 (max. 10000000)
 
