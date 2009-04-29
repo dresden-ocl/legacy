@@ -1,1 +1,0 @@
-(aClass.program.levels.isEmpty() || aClass.program.levels.notEmpty())
