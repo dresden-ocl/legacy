@@ -30,17 +30,12 @@
  */
 package tudresden.ocl20.pivot.modelbus.ui.internal.views;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TreeSelection;
@@ -51,11 +46,7 @@ import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.part.ViewPart;
-import org.eclipse.ui.views.properties.IPropertySheetPage;
-import org.eclipse.ui.views.properties.PropertySheetPage;
 
-import tudresden.ocl20.pivot.essentialocl.expressions.provider.ExpressionsItemProviderAdapterFactory;
-import tudresden.ocl20.pivot.essentialocl.types.provider.TypesItemProviderAdapterFactory;
 import tudresden.ocl20.pivot.modelbus.IModel;
 import tudresden.ocl20.pivot.modelbus.IModelBusConstants;
 import tudresden.ocl20.pivot.modelbus.IModelInstance;
@@ -69,7 +60,6 @@ import tudresden.ocl20.pivot.modelbus.ui.internal.views.util.ModelInstanceSelect
 import tudresden.ocl20.pivot.modelbus.ui.internal.views.util.ModelObjectContentProvider;
 import tudresden.ocl20.pivot.modelbus.ui.internal.views.util.ModelObjectFilter;
 import tudresden.ocl20.pivot.modelbus.ui.internal.views.util.ModelObjectLabelProvider;
-import tudresden.ocl20.pivot.pivotmodel.provider.PivotModelItemProviderAdapterFactory;
 
 /**
  * <p>
@@ -84,11 +74,6 @@ public class ModelInstancesView extends ViewPart implements
 
 	/** The Constant ID of this class. */
 	public static final String ID = IModelBusConstants.MODEL_INSTANCES_VIEW_ID;
-
-	/**
-	 * The adapter factory that provides the view of the {@link IModelInstance}.
-	 */
-	private ComposedAdapterFactory myAdapterFactory;
 
 	/** The last {@link IModelInstance} which has been selected. */
 	private IModelInstance myLastModelInstance = null;
@@ -105,9 +90,6 @@ public class ModelInstancesView extends ViewPart implements
 	/** The actual filter to show {@link IModelObject}s. */
 	private ModelObjectFilter myModelObjectFilter = new ModelObjectFilter();
 
-	/** The property sheet page that displays {@link IModelObject} properties. */
-	private PropertySheetPage myPropertySheet;
-
 	/** The selected {@link ModelInstanceSelectionAction}. */
 	private Map<IModel, ModelInstanceSelectionAction> mySelectedAction;
 
@@ -122,22 +104,12 @@ public class ModelInstancesView extends ViewPart implements
 	public ModelInstancesView() {
 		super();
 
-		List<AdapterFactory> factories;
-
 		this.myModelInstanceSelectionActions = new HashMap<IModel, Map<IModelInstance, ModelInstanceSelectionAction>>();
 
 		/* Register the view as model and model instance listener. */
 		ModelBusPlugin.getModelRegistry().addModelRegistryListener(this);
 		ModelBusPlugin.getModelInstanceRegistry()
 				.addModelInstanceRegistryListener(this);
-
-		/* Create the adapter factory that renders the model. */
-		factories = new ArrayList<AdapterFactory>();
-
-		factories.add(new TypesItemProviderAdapterFactory());
-		factories.add(new ModelObjectProviderAdapterFactory());
-
-		this.myAdapterFactory = new ComposedAdapterFactory(factories);
 	}
 
 	/*
@@ -154,30 +126,6 @@ public class ModelInstancesView extends ViewPart implements
 
 		((ISelectionService) getSite().getService(ISelectionService.class))
 				.removeSelectionListener(this);
-	}
-
-	/**
-	 * <p>
-	 * Overridden to return the property sheet page if requested.
-	 * </p>
-	 * 
-	 * @see org.eclipse.ui.part.WorkbenchPart#getAdapter(java.lang.Class)
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public Object getAdapter(Class adapter) {
-
-		Object result;
-
-		if (adapter.equals(IPropertySheetPage.class)) {
-			result = this.getPropertySheetPage();
-		}
-
-		else {
-			result = super.getAdapter(adapter);
-		}
-
-		return result;
 	}
 
 	/*
@@ -418,25 +366,6 @@ public class ModelInstancesView extends ViewPart implements
 		// no else.
 
 		return this.myMenu;
-	}
-
-	/**
-	 * <p>
-	 * A helper method that lazily creates a cached version of the property
-	 * sheet.
-	 * </p>
-	 */
-	private IPropertySheetPage getPropertySheetPage() {
-
-		if (this.myPropertySheet == null) {
-			this.myPropertySheet = new PropertySheetPage();
-			this.myPropertySheet
-					.setPropertySourceProvider(new AdapterFactoryContentProvider(
-							this.myAdapterFactory));
-		}
-		// no else.
-
-		return this.myPropertySheet;
 	}
 
 	/**
