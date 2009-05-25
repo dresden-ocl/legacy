@@ -1,0 +1,23 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Adding an Eclipse Update Site.}}{8}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Adding the Dresden OCL2 for Eclipse Update Site.}}{8}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Selecting features of Dresden OCL2 for Eclipse.}}{9}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Adding an SVN repository.}}{10}{figure.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Checkout of the Dresden OCL2 Toolkit plug-in projects.}}{10}{figure.2.5}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Executing the OCL2 parser build script.}}{11}{figure.2.6}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Settings of the JRE for the Ant build script.}}{12}{figure.2.7}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Refreshing the project ``tudresden.ocl20.pivot.oclparser''.}}{12}{figure.2.8}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The class diagram described by the simple example model.}}{14}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Loading a domain specific model.}}{14}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The loaded Simple Example model in the model browser.}}{15}{figure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces You can switch between different models using the little triangle.}}{15}{figure.3.4}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Loading a simple model instance.}}{16}{figure.3.5}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces A simple model instance in the Model Instance Browser.}}{17}{figure.3.6}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces The import of OCL expressions.}}{17}{figure.3.7}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Parsed expressions and the model in the Model Browser.}}{18}{figure.3.8}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Setting up a simple SocketReceiver in Chainsaw.}}{21}{figure.5.1}
+\addvspace {10\p@ }
