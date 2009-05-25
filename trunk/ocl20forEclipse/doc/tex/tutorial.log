@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.5.17)  25 MAY 2009 16:01
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.5.17)  25 MAY 2009 16:27
 entering extended mode
 **C:/Users/Claas*Wilke/OCL*SHK/Workspaces/SVN/trunk/ocl20forEclipse/doc/tex/tut
 orial.tex
@@ -80,6 +80,32 @@ LaTeX Font Info:    Try loading font information for OT1+aun on input line 24.
 ("C:\Program Files\MiKTeX 2.7\tex\latex\univers\ot1aun.fd"
 File: ot1aun.fd 2009/05/20 Fontinst v1.929 font definitions for OT1/aun.
 ))
+("C:\Program Files\MiKTeX 2.7\tex\generic\babel\babel.sty"
+Package: babel 2008/07/06 v3.8l The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.7\tex\latex\00miktex\bblopts.cfg"
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+("C:\Program Files\MiKTeX 2.7\tex\generic\babel\ngermanb.ldf"
+Language: ngermanb 2008/07/06 v2.6n new German support from the babel system
+
+("C:\Program Files\MiKTeX 2.7\tex\generic\babel\babel.def"
+File: babel.def 2008/07/06 v3.8l Babel common definitions
+\babel@savecnt=\count89
+\U@D=\dimen105
+)
+\l@naustrian = a dialect from \language\l@ngerman 
+Package babel Info: Making " an active character on input line 92.
+)
+("C:\Program Files\MiKTeX 2.7\tex\generic\babel\english.ldf"
+Language: english 2005/03/30 v3.3o English support from the babel system
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+))
 ("C:\Program Files\MiKTeX 2.7\tex\latex\base\fontenc.sty"
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
@@ -96,23 +122,23 @@ Package: inputenc 2006/05/05 v1.1b Input encoding file
 File: latin1.def 2006/05/05 v1.1b Input encoding file
 ))
 ("C:\Program Files\MiKTeX 2.7\tex\latex\listings\listings.sty"
-\lst@mode=\count89
+\lst@mode=\count90
 \lst@gtempboxa=\box26
 \lst@token=\toks17
-\lst@length=\count90
-\lst@currlwidth=\dimen105
-\lst@column=\count91
-\lst@pos=\count92
-\lst@lostspace=\dimen106
-\lst@width=\dimen107
-\lst@newlines=\count93
-\lst@lineno=\count94
-\lst@maxwidth=\dimen108
+\lst@length=\count91
+\lst@currlwidth=\dimen106
+\lst@column=\count92
+\lst@pos=\count93
+\lst@lostspace=\dimen107
+\lst@width=\dimen108
+\lst@newlines=\count94
+\lst@lineno=\count95
+\lst@maxwidth=\dimen109
 
 ("C:\Program Files\MiKTeX 2.7\tex\latex\listings\lstmisc.sty"
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-\c@lstnumber=\count95
-\lst@skipnumbers=\count96
+\c@lstnumber=\count96
+\lst@skipnumbers=\count97
 \lst@framebox=\box27
 )
 ("C:\Program Files\MiKTeX 2.7\tex\latex\listings\listings.cfg"
@@ -130,32 +156,32 @@ Package: pstricks 2008/10/31 v0.39 LaTeX wrapper for `PSTricks' (RN,HV)
 
 ("C:\Program Files\MiKTeX 2.7\tex\generic\pstricks\pstricks.tex"
 `PSTricks' v1.26  <2008/07/31> (tvz)
-\pst@dima=\dimen109
-\pst@dimb=\dimen110
-\pst@dimc=\dimen111
-\pst@dimd=\dimen112
-\pst@dimg=\dimen113
-\pst@dimh=\dimen114
+\pst@dima=\dimen110
+\pst@dimb=\dimen111
+\pst@dimc=\dimen112
+\pst@dimd=\dimen113
+\pst@dimg=\dimen114
+\pst@dimh=\dimen115
 \pst@hbox=\box28
 \pst@boxg=\box29
-\pst@cnta=\count97
-\pst@cntb=\count98
-\pst@cntc=\count99
-\pst@cntd=\count100
-\pst@cntg=\count101
-\pst@cnth=\count102
+\pst@cnta=\count98
+\pst@cntb=\count99
+\pst@cntc=\count100
+\pst@cntd=\count101
+\pst@cntg=\count102
+\pst@cnth=\count103
 \pst@toks=\toks18
 ("C:\Program Files\MiKTeX 2.7\tex\generic\pstricks\pstricks.con")
-\psunit=\dimen115
-\psxunit=\dimen116
-\psyunit=\dimen117
-\pslinewidth=\dimen118
+\psunit=\dimen116
+\psxunit=\dimen117
+\psyunit=\dimen118
+\pslinewidth=\dimen119
 \pst@customdefs=\toks19
-\pslinearc=\dimen119
+\pslinearc=\dimen120
 \everypsbox=\toks20
-\psframesep=\dimen120
-\pslabelsep=\dimen121
-\pst@shift=\dimen122
+\psframesep=\dimen121
+\pslabelsep=\dimen122
+\pst@shift=\dimen123
 \theoverlaybox=\box30
 )
 File: pstricks.tex 2008/07/31 v1.26 `PSTricks' (tvz)
@@ -181,9 +207,9 @@ O)
 ("C:\Program Files\MiKTeX 2.7\tex\latex\oberdiek\xcolor-patch.sty"
 Package: xcolor-patch 2008/09/08 xcolor patch
 ))
-\@linkdim=\dimen123
-\Hy@linkcounter=\count103
-\Hy@pagecounter=\count104
+\@linkdim=\dimen124
+\Hy@linkcounter=\count104
+\Hy@pagecounter=\count105
 
 ("C:\Program Files\MiKTeX 2.7\tex\latex\hyperref\pd1enc.def"
 File: pd1enc.def 2008/11/18 v6.78m Hyperref: PDFDocEncoding definition (HO)
@@ -239,9 +265,9 @@ Package pdftexcmds Info: LuaTeX not detected on input line 139.
 Package: kvsetkeys 2007/09/29 v1.3 Key value parser with default handler suppor
 t (HO)
 )
-\Fld@menulength=\count105
-\Field@Width=\dimen124
-\Fld@charsize=\dimen125
+\Fld@menulength=\count106
+\Field@Width=\dimen125
+\Fld@charsize=\dimen126
 \Field@toks=\toks21
 Package hyperref Info: Hyper figures OFF on input line 4268.
 Package hyperref Info: Link nesting OFF on input line 4273.
@@ -254,52 +280,52 @@ Package hyperref Info: PDF/A mode OFF on input line 4298.
 ("C:\Program Files\MiKTeX 2.7\tex\generic\oberdiek\atbegshi.sty"
 Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 )
-\Hy@abspage=\count106
-\c@Item=\count107
-\c@Hfootnote=\count108
+\Hy@abspage=\count107
+\c@Item=\count108
+\c@Hfootnote=\count109
 )
 *hyperref using default driver hpdftex*
 ("C:\Program Files\MiKTeX 2.7\tex\latex\hyperref\hpdftex.def"
 File: hpdftex.def 2008/11/18 v6.78m Hyperref driver for pdfTeX
-\Fld@listcount=\count109
+\Fld@listcount=\count110
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 64.
+Package hyperref Info: Option `colorlinks' set `true' on input line 66.
  (tutorial.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Try loading font information for T1+aun on input line 67.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Try loading font information for T1+aun on input line 69.
 
 ("C:\Program Files\MiKTeX 2.7\tex\latex\univers\t1aun.fd"
 File: t1aun.fd 2009/05/20 Fontinst v1.929 font definitions for T1/aun.
 )
 ("C:\Program Files\MiKTeX 2.7\tex\context\base\supp-pdf.tex"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count110
-\scratchdimen=\dimen126
+\scratchcounter=\count111
+\scratchdimen=\dimen127
 \scratchbox=\box31
-\nofMPsegments=\count111
-\nofMParguments=\count112
+\nofMPsegments=\count112
+\nofMParguments=\count113
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count113
-\MPscratchDim=\dimen127
-\MPnumerator=\count114
+\MPscratchCnt=\count114
+\MPscratchDim=\dimen128
+\MPnumerator=\count115
 \everyMPtoPDFconversion=\toks23
 )
-\c@lstlisting=\count115
+\c@lstlisting=\count116
  ABD: EveryShipout initializing macros
-Package hyperref Info: Link coloring ON on input line 67.
+Package hyperref Info: Link coloring ON on input line 69.
 
 ("C:\Program Files\MiKTeX 2.7\tex\latex\hyperref\nameref.sty"
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
@@ -307,42 +333,37 @@ Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.7\tex\latex\oberdiek\refcount.sty"
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count116
+\c@section@level=\count117
 )
-LaTeX Info: Redefining \ref on input line 67.
-LaTeX Info: Redefining \pageref on input line 67.
+LaTeX Info: Redefining \ref on input line 69.
+LaTeX Info: Redefining \pageref on input line 69.
  (tutorial.out) (tutorial.out)
 \@outlinefile=\write3
 \AtBeginShipoutBox=\box32
 \GPT@outputbox=\box33
-LaTeX Font Info:    Try loading font information for OT1+din on input line 73.
+LaTeX Font Info:    Try loading font information for OT1+din on input line 75.
  ("C:\Program Files\MiKTeX 2.7\tex\latex\univers\ot1din.fd"
 File: ot1din.fd 2009/05/20 Fontinst v1.929 font definitions for OT1/din.
 )
 LaTeX Font Info:    Font shape `OT1/din/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/din/b/n' tried instead on input line 73.
+(Font)              Font shape `OT1/din/b/n' tried instead on input line 75.
 LaTeX Font Info:    Font shape `T1/aun/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/aun/b/n' tried instead on input line 73.
+(Font)              Font shape `T1/aun/b/n' tried instead on input line 75.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 73.
+(Font)              <17.28> on input line 75.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 73.
+(Font)              <12> on input line 75.
 LaTeX Font Info:    Font shape `T1/aun/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/aun/b/n' tried instead on input line 73.
-Missing character: There is no ä in font aunb7t!
-Missing character: There is no ü in font aunl7t!
+(Font)              Font shape `T1/aun/b/n' tried instead on input line 75.
 \@@professurComma=\box34
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 73.
+(Font)              <7> on input line 75.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 73.
+(Font)              <5> on input line 75.
 
 <TU_Logo_SW.pdf, id=70, 256.96pt x 75.28125pt>
 File: TU_Logo_SW.pdf Graphic file (type pdf)
  <use TU_Logo_SW.pdf>
-Missing character: There is no ä in font aunb7t!
-Missing character: There is no ü in font aunl7t!
-
 Overfull \hbox (28.45276pt too wide) has occurred while \output is active
 []| [] []
  []
@@ -357,7 +378,7 @@ Non-PDF special ignored!{C:/ProgramData/MiKTeX/2.7/pdftex/config/pdftex.map}
 
 ] (tutorial.toc
 LaTeX Font Info:    Font shape `T1/aun/bx/n' in size <10> not available
-(Font)              Font shape `T1/aun/b/n' tried instead on input line 1.
+(Font)              Font shape `T1/aun/b/n' tried instead on input line 2.
 )
 \tf@toc=\write4
  [3] [4
@@ -365,18 +386,18 @@ LaTeX Font Info:    Font shape `T1/aun/bx/n' in size <10> not available
 ]
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/aun/l/it' in size <10> not available
-(Font)              Font shape `T1/aun/l/sl' tried instead on input line 84.
+(Font)              Font shape `T1/aun/l/sl' tried instead on input line 86.
 [5] [6
 
 ]
 Chapter 2.
 LaTeX Font Info:    Font shape `OT1/din/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/din/b/n' tried instead on input line 98.
+(Font)              Font shape `OT1/din/b/n' tried instead on input line 100.
 <figures/updateSite01.png, id=135, 913.4125pt x 618.31pt>
 File: figures/updateSite01.png Graphic file (type png)
 
 <use figures/updateSite01.png>
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 111.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 113.
 
 
 ("C:\Program Files\MiKTeX 2.7\tex\latex\base\t1cmtt.fd"
@@ -386,61 +407,58 @@ File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 File: figures/updateSite02.png Graphic file (type png)
 
 <use figures/updateSite02.png>
-
-LaTeX Warning: Reference `ab:plugins' on page 7 undefined on input line 122.
-
-<figures/updateSite03.png, id=140, 914.41624pt x 619.31375pt>
+<figures/updateSite03.png, id=141, 914.41624pt x 619.31375pt>
 File: figures/updateSite03.png Graphic file (type png)
 
 <use figures/updateSite03.png> [7] [8 <figures/updateSite01.png> <figures/updat
-eSite02.png>] <figures/SVN.png, id=162, 331.2375pt x 127.47626pt>
+eSite02.png>] <figures/SVN.png, id=164, 331.2375pt x 127.47626pt>
 File: figures/SVN.png Graphic file (type png)
 
-<use figures/SVN.png> <figures/Checkout.png, id=163, 331.2375pt x 668.4975pt>
+<use figures/SVN.png> <figures/Checkout.png, id=165, 331.2375pt x 668.4975pt>
 File: figures/Checkout.png Graphic file (type png)
 
 <use figures/Checkout.png> [9 <figures/updateSite03.png>] [10 <figures/SVN.png>
  <figures/Checkout.png>]
-<figures/Build.png, id=181, 541.02126pt x 211.79124pt>
+<figures/Build.png, id=183, 541.02126pt x 211.79124pt>
 File: figures/Build.png Graphic file (type png)
  <use figures/Build.png>
-<figures/AntConfig.png, id=183, 803.0pt x 346.29375pt>
+<figures/AntConfig.png, id=185, 803.0pt x 346.29375pt>
 File: figures/AntConfig.png Graphic file (type png)
 
 <use figures/AntConfig.png>
-<figures/Refresh.png, id=185, 562.1pt x 149.55875pt>
+<figures/Refresh.png, id=187, 562.1pt x 149.55875pt>
 File: figures/Refresh.png Graphic file (type png)
  <use figures/Refresh.png>
 [11 <figures/Build.png>] [12 <figures/AntConfig.png> <figures/Refresh.png>]
 Chapter 3.
-<figures/simpleExample.pdf, id=202, 301.125pt x 281.05pt>
+<figures/simpleExample.pdf, id=203, 301.125pt x 281.05pt>
 File: figures/simpleExample.pdf Graphic file (type pdf)
 
 <use figures/simpleExample.pdf> [13
 
 ]
-<figures/LoadModel.png, id=213, 524.96124pt x 426.59375pt>
+<figures/LoadModel.png, id=214, 524.96124pt x 426.59375pt>
 File: figures/LoadModel.png Graphic file (type png)
 
 <use figures/LoadModel.png>
-<figures/MoBrOE.png, id=216, 284.06125pt x 259.97125pt>
+<figures/MoBrOE.png, id=217, 284.06125pt x 259.97125pt>
 File: figures/MoBrOE.png Graphic file (type png)
 
 <use figures/MoBrOE.png>
-<figures/SwitchModel.png, id=217, 336.25626pt x 254.9525pt>
+<figures/SwitchModel.png, id=218, 336.25626pt x 254.9525pt>
 File: figures/SwitchModel.png Graphic file (type png)
 
 <use figures/SwitchModel.png> [14 <figures/simpleExample.pdf> <figures/LoadMode
 l.png>] [15 <figures/MoBrOE.png> <figures/SwitchModel.png>]
-<figures/LoadInstance.png, id=263, 524.96124pt x 520.94624pt>
+<figures/LoadInstance.png, id=264, 524.96124pt x 520.94624pt>
 File: figures/LoadInstance.png Graphic file (type png)
 
 <use figures/LoadInstance.png>
-<figures/MoInBr.png, id=265, 300.12125pt x 154.5775pt>
+<figures/MoInBr.png, id=266, 300.12125pt x 154.5775pt>
 File: figures/MoInBr.png Graphic file (type png)
 
 <use figures/MoInBr.png>
-<figures/LoadExpressions.png, id=268, 524.96124pt x 427.5975pt>
+<figures/LoadExpressions.png, id=269, 524.96124pt x 427.5975pt>
 File: figures/LoadExpressions.png Graphic file (type png)
 
 <use figures/LoadExpressions.png>
@@ -453,23 +471,23 @@ File: lstlang2.sty 2004/09/05 1.3 listings language file
 ("C:\Program Files\MiKTeX 2.7\tex\latex\listings\lstlang3.sty"
 File: lstlang3.sty 2004/09/05 1.3 listings language file
 )
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 291.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 293.
 
 ("C:\Program Files\MiKTeX 2.7\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 
 LaTeX Font Warning: Font shape `T1/pcr/l/n' undefined
-(Font)              using `T1/pcr/m/n' instead on input line 291.
+(Font)              using `T1/pcr/m/n' instead on input line 293.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 294.
+(Font)              <9> on input line 296.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 294.
+(Font)              <6> on input line 296.
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 295.
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 297.
 [16 <figures/LoadInstance.png>] [17 <figures/MoInBr.png> <figures/LoadExpressio
-ns.png>] <figures/MoBrME.png, id=304, 236.885pt x 414.54875pt>
+ns.png>] <figures/MoBrME.png, id=305, 236.885pt x 414.54875pt>
 File: figures/MoBrME.png Graphic file (type png)
 
 <use figures/MoBrME.png> [18 <figures/MoBrME.png (PNG copy)>]
@@ -480,7 +498,7 @@ Chapter 4.
 
 ]
 Chapter 5.
-<figures/chainsaw.png, id=322, 597.23125pt x 275.0275pt>
+<figures/chainsaw.png, id=323, 597.23125pt x 275.0275pt>
 File: figures/chainsaw.png Graphic file (type png)
 
 <use figures/chainsaw.png> [21 <figures/chainsaw.png>] [22
@@ -488,37 +506,37 @@ File: figures/chainsaw.png Graphic file (type png)
 ]
 Appendix A.
 
-Underfull \hbox (badness 1917) in paragraph at lines 365--365
+Underfull \hbox (badness 1917) in paragraph at lines 367--367
 []\T1/aun/l/n/10 Eclipse Model De-vel-op-ment Tools (MDT)
  []
 
 
-Underfull \hbox (badness 1762) in paragraph at lines 367--367
+Underfull \hbox (badness 1762) in paragraph at lines 369--369
 []\T1/aun/l/n/10 Eclipse Plug-in De-vel-op-ment En-vi-ron-ment
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 381--396
+Underfull \hbox (badness 10000) in paragraph at lines 383--398
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 409--414
+Underfull \hbox (badness 10000) in paragraph at lines 411--416
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 429--436
+Underfull \hbox (badness 10000) in paragraph at lines 431--438
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 429--436
+Underfull \hbox (badness 10000) in paragraph at lines 431--438
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 439--445
+Underfull \hbox (badness 10000) in paragraph at lines 441--447
 
  []
 
@@ -532,18 +550,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 439--445
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 7964 strings out of 95304
- 105883 string characters out of 1183070
- 241201 words of memory out of 1500000
- 10934 multiletter control sequences out of 110000
+ 8303 strings out of 95304
+ 109998 string characters out of 1183070
+ 247653 words of memory out of 1500000
+ 11257 multiletter control sequences out of 110000
  76022 words of font info for 63 fonts, out of 3000000 for 5000
  14 hyphenation exceptions out of 8191
- 36i,15n,41p,915b,1293s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,15n,41p,915b,1292s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.7/fonts/enc/dvips/fontname/8r.enc} <C:\ProgramData
 \MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk><C:/Program Files/Mi
 KTeX 2.7/fonts/type1/public/univers/aunb8a.pfb><C:/Program Files/MiKTeX 2.7/fon
@@ -553,9 +568,9 @@ y9.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/public/univers/dinb8a.pfb><C:/P
 rogram Files/MiKTeX 2.7/fonts/type1/bluesky/latex-fonts/lcircle1.pfb><C:/Progra
 m Files/MiKTeX 2.7/fonts/type1/urw/courier/ucrb8a.pfb><C:/Program Files/MiKTeX 
 2.7/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on tutorial.pdf (27 pages, 729081 bytes).
+Output written on tutorial.pdf (27 pages, 728989 bytes).
 PDF statistics:
- 464 PDF objects out of 1000 (max. 8388607)
+ 465 PDF objects out of 1000 (max. 8388607)
  89 named destinations out of 1000 (max. 131072)
  231 words of extra memory for PDF output out of 10000 (max. 10000000)
 
