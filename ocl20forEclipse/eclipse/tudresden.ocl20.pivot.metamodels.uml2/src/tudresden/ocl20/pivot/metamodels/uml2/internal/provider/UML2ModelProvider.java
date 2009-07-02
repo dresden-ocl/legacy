@@ -45,7 +45,7 @@ public class UML2ModelProvider extends AbstractModelProvider implements
 		IModelProvider {
 
 	/** The {@link Logger} for this class. */
-	private static final Logger logger = Logger
+	private static final Logger LOGGER = Logger
 			.getLogger(UML2ModelProvider.class);
 
 	/** The resourceSet. */
@@ -59,8 +59,8 @@ public class UML2ModelProvider extends AbstractModelProvider implements
 	public IModel getModel(URL modelURL) throws ModelAccessException {
 
 		/* Eventually debug the entry of this method. */
-		if (logger.isDebugEnabled()) {
-			logger.debug("getModel(modelURL=" + modelURL + ") - enter");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("getModel(modelURL=" + modelURL + ") - enter");
 		}
 		// no else.
 
@@ -93,8 +93,8 @@ public class UML2ModelProvider extends AbstractModelProvider implements
 		result = new UML2Model(getResourceSet().getResource(modelURI, false));
 
 		/* Eventually debug the exit of this method. */
-		if (logger.isDebugEnabled()) {
-			logger.debug("getModel() - exit - return value=" + result); //$NON-NLS-1$
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("getModel() - exit - return value=" + result); //$NON-NLS-1$
 		}
 		// no else.
 
@@ -118,5 +118,4 @@ public class UML2ModelProvider extends AbstractModelProvider implements
 
 		return this.resourceSet;
 	}
-
 }
