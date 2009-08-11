@@ -1,0 +1,46 @@
+\BOOKMARK [0][-]{section*.1}{Abstract}{}
+\BOOKMARK [-1][-]{section*.3}{Using Dresden OCL2 for Eclipse}{}
+\BOOKMARK [0][-]{chapter.1}{1 Getting started with Dresden OCL2 for Eclipse}{section*.3}
+\BOOKMARK [1][-]{section.1.1}{1.1 How to Install Dresden OCL2 for Eclipse}{chapter.1}
+\BOOKMARK [2][-]{subsection.1.1.1}{1.1.1 Installing Dresden OCL2 for Eclipse using the Eclipse Update Site}{section.1.1}
+\BOOKMARK [2][-]{subsection.1.1.2}{1.1.2 Importing Dresden OCL2 for Eclipse from the SVN}{section.1.1}
+\BOOKMARK [2][-]{subsection.1.1.3}{1.1.3 Which Plug-ins do I need at least?}{section.1.1}
+\BOOKMARK [2][-]{subsection.1.1.4}{1.1.4 Building the OCL2 Parser}{section.1.1}
+\BOOKMARK [1][-]{section.1.2}{1.2 Loading Models, Model Instances and OCL Constraints}{chapter.1}
+\BOOKMARK [2][-]{subsection.1.2.1}{1.2.1 The Simple Example}{section.1.2}
+\BOOKMARK [2][-]{subsection.1.2.2}{1.2.2 Loading a Domain-Specific Model}{section.1.2}
+\BOOKMARK [2][-]{subsection.1.2.3}{1.2.3 Loading a Model Instance}{section.1.2}
+\BOOKMARK [2][-]{subsection.1.2.4}{1.2.4 Parsing OCL expressions}{section.1.2}
+\BOOKMARK [1][-]{section.1.3}{1.3 Summary}{chapter.1}
+\BOOKMARK [0][-]{chapter.2}{2 OCL Constraint Interpretation}{section*.3}
+\BOOKMARK [1][-]{section.2.1}{2.1 The Simple Example}{chapter.2}
+\BOOKMARK [1][-]{section.2.2}{2.2 Preparation of the Interpretation}{chapter.2}
+\BOOKMARK [1][-]{section.2.3}{2.3 OCL Interpretation}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.3.1}{2.3.1 Interpretation of Constraints}{section.2.3}
+\BOOKMARK [2][-]{subsection.2.3.2}{2.3.2 Preparation of Constraints}{section.2.3}
+\BOOKMARK [2][-]{subsection.2.3.3}{2.3.3 Adding Variables to the Environment}{section.2.3}
+\BOOKMARK [1][-]{section.2.4}{2.4 Summary}{chapter.2}
+\BOOKMARK [0][-]{chapter.3}{3 AspectJ Code Generation}{section*.3}
+\BOOKMARK [1][-]{section.3.1}{3.1 Code Generator Preparation}{chapter.3}
+\BOOKMARK [1][-]{section.3.2}{3.2 Code Generation}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.2.1}{3.2.1 Selecting a Model}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.2}{3.2.2 Selecting Constraints}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.3}{3.2.3 Selecting a Target Directory}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.4}{3.2.4 Specifying General Settings}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.5}{3.2.5 Constraint-Specific Settings}{section.3.2}
+\BOOKMARK [1][-]{section.3.3}{3.3 The Generated Code}{chapter.3}
+\BOOKMARK [1][-]{section.3.4}{3.4 Summary}{chapter.3}
+\BOOKMARK [-1][-]{section*.5}{Development with Dresden OCL2 for Eclipse}{}
+\BOOKMARK [0][-]{chapter.4}{4 The Architecture of Dresden OCL2 for Eclipse}{section*.5}
+\BOOKMARK [1][-]{section.4.1}{4.1 The Generic Three Layer Metadata Architecture}{chapter.4}
+\BOOKMARK [1][-]{section.4.2}{4.2 The Toolkit's Architecture}{chapter.4}
+\BOOKMARK [0][-]{chapter.5}{5 Adapting a Meta-Model to the Pivot Model}{section*.5}
+\BOOKMARK [0][-]{chapter.6}{6 The Logging Mechanism of Dresden OCL2 for Eclipse}{section*.5}
+\BOOKMARK [0][-]{chapter.7}{7 The General Test Suite of Dresden OCL2 for Eclipse}{section*.5}
+\BOOKMARK [0][-]{chapter.8}{8 The Meta-Model Test Suite of Dresden OCL2 for Eclipse}{section*.5}
+\BOOKMARK [-1][-]{section*.9}{Appendix}{}
+\BOOKMARK [0][-]{section*.10}{Tables}{section*.9}
+\BOOKMARK [0][-]{section*.12}{List of Figures}{section*.9}
+\BOOKMARK [0][-]{section*.14}{List of Listings}{section*.9}
+\BOOKMARK [0][-]{section*.16}{List of Abbreviations}{section*.9}
+\BOOKMARK [0][-]{section*.18}{References}{section*.9}

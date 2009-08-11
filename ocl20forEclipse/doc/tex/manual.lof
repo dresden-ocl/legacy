@@ -1,0 +1,55 @@
+\select@language {english}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Adding an Eclipse Update Site (Step 1).}}{12}{figure.1.1}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Adding an Eclipse Update Site (Step 2).}}{12}{figure.1.2}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Selecting features of Dresden OCL2 for Eclipse.}}{13}{figure.1.3}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Adding a SVN repository.}}{14}{figure.1.4}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Checkout of the Dresden OCL2 Toolkit plug-in projects.}}{14}{figure.1.5}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Executing the OCL2 parser build script.}}{15}{figure.1.6}
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Settings of the JRE for the Ant build script.}}{16}{figure.1.7}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Refreshing the project ``tudresden.ocl20.pivot.oclparser''.}}{16}{figure.1.8}
+\contentsline {figure}{\numberline {1.9}{\ignorespaces The class diagram described by the simple example model.}}{17}{figure.1.9}
+\contentsline {figure}{\numberline {1.10}{\ignorespaces Loading a domain specific model.}}{18}{figure.1.10}
+\contentsline {figure}{\numberline {1.11}{\ignorespaces The loaded Simple Example model in the model browser.}}{18}{figure.1.11}
+\contentsline {figure}{\numberline {1.12}{\ignorespaces You can switch between different models using the little triangle.}}{19}{figure.1.12}
+\contentsline {figure}{\numberline {1.13}{\ignorespaces Loading a simple model instance.}}{19}{figure.1.13}
+\contentsline {figure}{\numberline {1.14}{\ignorespaces A simple model instance in the Model Instance Browser.}}{20}{figure.1.14}
+\contentsline {figure}{\numberline {1.15}{\ignorespaces The import of OCL expressions.}}{21}{figure.1.15}
+\contentsline {figure}{\numberline {1.16}{\ignorespaces Parsed expressions and the model in the Model Browser.}}{21}{figure.1.16}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The package explorer containing the project which is needed to run this tutorial.}}{24}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces The model browser containing the simple model and its constraints.}}{26}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces The model instance browser containing the simple model instance.}}{26}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces The OCL2 Interpreter containing no results.}}{27}{figure.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces The buttons to control the OCL2 Interpreter.}}{27}{figure.2.5}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces The three age invariants selected in the Model Browser.}}{28}{figure.2.6}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces The results of the three age invariants for all model instances.}}{28}{figure.2.7}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces The definition constraint selected in the Model Browser.}}{29}{figure.2.8}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces The precondition selected in the Model Browser.}}{30}{figure.2.9}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces The results of the precondition for all model instances.}}{30}{figure.2.10}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces The results of the postcondition without preparing the result variable.}}{31}{figure.2.11}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces The window to add new variables to the environment.}}{31}{figure.2.12}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces The results of the postcondition with result variable preparation.}}{32}{figure.2.13}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The package explorer containing the two projects which are needed to run this tutorial.}}{34}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Selecting the properties settings.}}{35}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Adding a new library to the build path.}}{36}{figure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces The result of the JUnit test case.}}{36}{figure.3.4}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces The model browser containing the simple model and its constraints.}}{37}{figure.3.5}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces The first step: Selecting a model for code generation.}}{38}{figure.3.6}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces The second step: Selecting constraints for code generation.}}{39}{figure.3.7}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces The third step: Selecting a target directory for the generated code.}}{40}{figure.3.8}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces The fourth step: General settings for the code generation.}}{41}{figure.3.9}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces The fifth step: Constraint-specific settings for the code generation.}}{43}{figure.3.10}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces The package explorer containing the new generated aspect file.}}{44}{figure.3.11}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces The successfully finished jUnit test case.}}{45}{figure.3.12}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The MOF Four Layer Metadata Architecture.}}{50}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces The Generic Three Layer Metadata Architecture.}}{50}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces The architecture of Dresden OCL2 for Eclipse.}}{52}{figure.4.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces The architecture of Dresden OCL2 for Eclipse in respect to the Generic Three Layer Metadata Architecture.}}{52}{figure.4.4}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Setting up a simple SocketReceiver in Chainsaw.}}{55}{figure.6.1}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
