@@ -53,3 +53,5 @@
 \contentsline {figure}{\numberline {6.1}{\ignorespaces Setting up a simple SocketReceiver in Chainsaw.}}{55}{figure.6.1}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces The Generic Meta-Model Test Suite in respect to the Generic Three Layer Architeture}}{60}{figure.8.1}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces The required Test Model to test a Meta-Model adaptation. The grey parts are optional.}}{61}{figure.8.2}

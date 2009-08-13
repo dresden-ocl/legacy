@@ -39,10 +39,19 @@
 \contentsline {chapter}{\numberline {5}Adapting a Meta-Model to the Pivot Model}{53}{chapter.5}
 \contentsline {chapter}{\numberline {6}The Logging Mechanism of Dresden OCL2 for Eclipse}{55}{chapter.6}
 \contentsline {chapter}{\numberline {7}The General Test Suite of Dresden OCL2 for Eclipse}{57}{chapter.7}
-\contentsline {chapter}{\numberline {8}The Meta-Model Test Suite of Dresden OCL2 for Eclipse}{59}{chapter.8}
-\contentsline {part}{Appendix}{61}{section*.9}
-\contentsline {chapter}{Tables}{63}{section*.10}
-\contentsline {chapter}{List of Figures}{67}{section*.12}
-\contentsline {chapter}{List of Listings}{69}{section*.14}
-\contentsline {chapter}{List of Abbreviations}{71}{section*.16}
-\contentsline {chapter}{References}{73}{section*.18}
+\contentsline {chapter}{\numberline {8}The Generic Meta-Model Test Suite}{59}{chapter.8}
+\contentsline {section}{\numberline {8.1}The Test Suite Plug-in}{59}{section.8.1}
+\contentsline {section}{\numberline {8.2}The required Model to test a Meta-Model}{59}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}TestTypeClass1 and TestTypeClass2}{60}{subsection.8.2.1}
+\contentsline {subsection}{\numberline {8.2.2}TestTypeInterface1 and TestTypeInterface2}{60}{subsection.8.2.2}
+\contentsline {subsection}{\numberline {8.2.3}TestEnumeration}{60}{subsection.8.2.3}
+\contentsline {subsection}{\numberline {8.2.4}TestPrimitiveTypeClass}{62}{subsection.8.2.4}
+\contentsline {subsection}{\numberline {8.2.5}TestPropertyClass}{62}{subsection.8.2.5}
+\contentsline {subsection}{\numberline {8.2.6}TestOperationAndParameterClass}{62}{subsection.8.2.6}
+\contentsline {section}{\numberline {8.3}Instantiating the Generic Test Suite}{62}{section.8.3}
+\contentsline {part}{Appendix}{65}{section*.9}
+\contentsline {chapter}{Tables}{67}{section*.10}
+\contentsline {chapter}{List of Figures}{71}{section*.12}
+\contentsline {chapter}{List of Listings}{75}{section*.14}
+\contentsline {chapter}{List of Abbreviations}{77}{section*.16}
+\contentsline {chapter}{References}{79}{section*.18}
