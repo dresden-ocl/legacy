@@ -1,6 +1,6 @@
 \select@language {english}
-\contentsline {chapter}{Abstract}{3}{section*.1}
-\contentsline {part}{Using Dresden OCL2 for Eclipse}{9}{section*.3}
+\contentsline {chapter}{Abstract}{3}{section*.5}
+\contentsline {part}{Using Dresden OCL2 for Eclipse}{9}{section*.7}
 \contentsline {chapter}{\numberline {1}Getting started with Dresden OCL2 for Eclipse}{11}{chapter.1}
 \contentsline {section}{\numberline {1.1}How to Install Dresden OCL2 for Eclipse}{11}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}Installing Dresden OCL2 for Eclipse using the Eclipse Update Site}{11}{subsection.1.1.1}
@@ -31,11 +31,11 @@
 \contentsline {subsection}{\numberline {3.2.5}Constraint-Specific Settings}{43}{subsection.3.2.5}
 \contentsline {section}{\numberline {3.3}The Generated Code}{44}{section.3.3}
 \contentsline {section}{\numberline {3.4}Summary}{45}{section.3.4}
-\contentsline {part}{Development with Dresden OCL2 for Eclipse}{47}{section*.5}
+\contentsline {part}{Development with Dresden OCL2 for Eclipse}{47}{section*.9}
 \contentsline {chapter}{\numberline {4}The Architecture of Dresden OCL2 for Eclipse}{49}{chapter.4}
 \contentsline {section}{\numberline {4.1}The Generic Three Layer Metadata Architecture}{49}{section.4.1}
 \contentsline {section}{\numberline {4.2}The Toolkit's Architecture}{51}{section.4.2}
-\contentsline {subsubsection}{\acl {DOT4Eclipse} and The Generic Three Layer Metadata Architecture}{51}{section*.8}
+\contentsline {subsubsection}{\acl {DOT4Eclipse} and The Generic Three Layer Metadata Architecture}{51}{section*.12}
 \contentsline {chapter}{\numberline {5}Adapting a Meta-Model to the Pivot Model}{53}{chapter.5}
 \contentsline {chapter}{\numberline {6}The Logging Mechanism of Dresden OCL2 for Eclipse}{55}{chapter.6}
 \contentsline {chapter}{\numberline {7}The General Test Suite of Dresden OCL2 for Eclipse}{57}{chapter.7}
@@ -50,9 +50,9 @@
 \contentsline {subsection}{\numberline {8.2.6}TestOperationAndParameterClass}{62}{subsection.8.2.6}
 \contentsline {section}{\numberline {8.3}Instantiating the Generic Test Suite}{62}{section.8.3}
 \contentsline {section}{\numberline {8.4}Summary}{63}{section.8.4}
-\contentsline {part}{Appendix}{65}{section*.9}
-\contentsline {chapter}{Tables}{67}{section*.10}
-\contentsline {chapter}{List of Figures}{71}{section*.12}
-\contentsline {chapter}{List of Listings}{75}{section*.14}
-\contentsline {chapter}{List of Abbreviations}{77}{section*.16}
-\contentsline {chapter}{References}{79}{section*.18}
+\contentsline {part}{Appendix}{65}{section*.13}
+\contentsline {chapter}{Tables}{67}{section*.14}
+\contentsline {chapter}{List of Figures}{71}{section*.16}
+\contentsline {chapter}{List of Listings}{75}{section*.18}
+\contentsline {chapter}{List of Abbreviations}{77}{section*.20}
+\contentsline {chapter}{References}{79}{section*.22}
