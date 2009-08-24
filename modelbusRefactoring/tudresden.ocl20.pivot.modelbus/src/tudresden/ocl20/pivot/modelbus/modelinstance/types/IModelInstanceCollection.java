@@ -18,8 +18,8 @@ with Dresden OCL2 for Eclipse. If not, see <http://www.gnu.org/licenses/>.
  */
 package tudresden.ocl20.pivot.modelbus.modelinstance.types;
 
+import java.util.Collection;
 import java.util.Iterator;
-
 
 /**
  * <p>
@@ -28,9 +28,19 @@ import java.util.Iterator;
  * collection like instances.
  * </p>
  * 
+ * @param <T>
+ *          the type of the elements of the adapted collection
+ * 
  * @author Claas Wilke
  */
 public interface IModelInstanceCollection<T> extends IModelInstanceElement {
+
+	/**
+	 * Returns the underlying {@link Collection}.
+	 * 
+	 * @return the underlying {@link Collection}
+	 */
+	Collection<T> getCollection();
 
 	/**
 	 * <p>

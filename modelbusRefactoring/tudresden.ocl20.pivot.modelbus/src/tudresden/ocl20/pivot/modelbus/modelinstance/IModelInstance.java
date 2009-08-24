@@ -32,14 +32,20 @@
  */
 package tudresden.ocl20.pivot.modelbus.modelinstance;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
+import tudresden.ocl20.pivot.essentialocl.expressions.CollectionKind;
 import tudresden.ocl20.pivot.modelbus.IModel;
+import tudresden.ocl20.pivot.modelbus.modelinstance.types.IModelInstanceCollection;
 import tudresden.ocl20.pivot.modelbus.modelinstance.types.IModelInstanceElement;
 import tudresden.ocl20.pivot.modelbus.modelinstance.types.IModelInstanceEnumerationLiteral;
+import tudresden.ocl20.pivot.modelbus.modelinstance.types.IModelInstanceObject;
 import tudresden.ocl20.pivot.modelbus.modelinstance.types.IModelInstanceTypeObject;
 import tudresden.ocl20.pivot.pivotmodel.EnumerationLiteral;
+import tudresden.ocl20.pivot.pivotmodel.Operation;
+import tudresden.ocl20.pivot.pivotmodel.Property;
 import tudresden.ocl20.pivot.pivotmodel.Type;
 
 /**
@@ -75,9 +81,96 @@ public interface IModelInstance {
 	boolean isInstanceOf(IModel aModel);
 
 	/**
+	 * Adds a not adapted object to the {@link IModelInstance}. Before it is
+	 * added, the given object is adapted.
+	 * 
+	 * @param object
+	 *          the object to add to the {@link IModelInstance}
+	 * @return the adapted object
+	 */
+	IModelInstanceElement addModelInstanceElement(Object object);
+
+	/**
+	 * Adds a not adapted {@link Collection} to the {@link IModelInstance}. Before
+	 * it is added, the given {@link Collection} is adapted (but not its
+	 * elements).
+	 * 
+	 * @param <T>
+	 *          the type of the elements that this {@link Collection} contains
+	 * @param collection
+	 *          the {@link Collection} to add to the {@link IModelInstance}
+	 * @param collectionKind
+	 *          the kind of OCL collection the given {@link Collection} should be
+	 *          adapted to
+	 * @return the adapted collection
+	 */
+	<T> IModelInstanceCollection<T> addModelInstanceCollection(
+			Collection<T> collection, CollectionKind collectionKind);
+
+	/**
+	 * <p>
+	 * Invokes a static operation on the given type with the given arguments.
+	 * </p>
+	 * 
+	 * TODO: Exceptions?
+	 * 
+	 * @param type
+	 *          the {@link Type} on which the static operation should be invoked
+	 * @param operation
+	 *          the {@link Operation} is used to determine the name of the static
+	 *          operation and the {@link Type return type} of the invoked
+	 *          operation; if {@link Operation#isMultiple()} is <code>true</code>
+	 *          create an {@link IModelInstanceCollection} based on
+	 *          {@link Operation#isOrdered()} and {@link Operation#isUnique()}.
+	 * @param args
+	 *          the arguments of the static operation
+	 * @return the adapted return value of the static operation invocation
+	 */
+	IModelInstanceElement invokeStaticOperation(Type type, Operation operation,
+			List<IModelInstanceElement> args);
+
+	/**
+	 * <p>
+	 * Tries to fetch a static property of the given type with the given name.
+	 * </p>
+	 * 
+	 * TODO: Exceptions?
+	 * 
+	 * @param type
+	 *          the {@link Type} of which the static property should be fetched
+	 * @param name
+	 * 
+	 * @param property
+	 *          the {@link Property} is used to determine the name of the property
+	 *          and the {@link Type} of the fetched property; if
+	 *          {@link Property#isMultiple()} is <code>true</code> create an
+	 *          {@link IModelInstanceCollection} based on
+	 *          {@link Property#isOrdered()} and {@link Property#isUnique()}.
+	 * @return the adapted property value
+	 */
+	IModelInstanceElement getStaticProperty(Type type, Property property);
+
+	/**
+	 * <p>
+	 * Returns all instances of the given type.
+	 * </p>
+	 * 
+	 * <p>
+	 * <strong>Note: This operation can be really expensive! Try avoiding it at
+	 * any rate.</strong>
+	 * </p>
+	 * 
+	 * @param type
+	 *          the {@link Type} of which all instances should be returned
+	 * @return all adapted instances of the given type
+	 */
+	List<IModelInstanceObject> getAllInstances(Type type);
+
+	/**
 	 * <p>
 	 * Searches in this {@link IModelInstance} for a implementation of the given
 	 * {@link EnumerationLiteral}.
+	 * </p>
 	 * 
 	 * @param literal
 	 *          The {@link EnumerationLiteral} whose implementation shall be
@@ -133,8 +226,8 @@ public interface IModelInstance {
 	/**
 	 * Gets the object kinds.
 	 * 
-	 * @return the available types of {@link IModelInstanceElement}s for this model
-	 *         instance.
+	 * @return the available types of {@link IModelInstanceElement}s for this
+	 *         model instance.
 	 */
 	Set<Type> getObjectTypes();
 

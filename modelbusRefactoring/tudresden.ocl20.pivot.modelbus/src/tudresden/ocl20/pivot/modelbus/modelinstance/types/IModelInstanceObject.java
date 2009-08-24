@@ -37,6 +37,17 @@ public interface IModelInstanceObject extends IModelInstanceElement {
 
 	/**
 	 * <p>
+	 * Returns the run-time {@link Object} adapted by this
+	 * {@link IModelInstanceElement}.
+	 * </p>
+	 * 
+	 * @return The run-time {@link Object} adapted by this
+	 *         {@link IModelInstanceElement}.
+	 */
+	Object getObject();
+	
+	/**
+	 * <p>
 	 * Invokes a non-standard library operation on the
 	 * {@link IModelInstanceObject}. This method delegates to the adapted object
 	 * and tries to invoke the operation there. Note that this requires at least a
@@ -51,20 +62,18 @@ public interface IModelInstanceObject extends IModelInstanceElement {
 	 * 
 	 * TODO: Exceptions?
 	 * 
-	 * @param name
-	 *          the name of the function to call
+	 * @param operation
+	 *          the {@link Operation} is used to determine the name of the
+	 *          operation and the {@link Type return type} of the invoked
+	 *          operation; if {@link Operation#isMultiple()} is <code>true</code>
+	 *          create an {@link IModelInstanceCollection} based on
+	 *          {@link Operation#isOrdered()} and {@link Operation#isUnique()}.
 	 * @param args
 	 *          the arguments of the function to call
-	 * @param operation
-	 *          the {@link Operation} is used to determine the {@link Type return
-	 *          type} of the invoked operation; if {@link Operation#isMultiple()}
-	 *          is <code>true</code> create an {@link IModelInstanceCollection}
-	 *          based on {@link Operation#isOrdered()} and
-	 *          {@link Operation#isUnique()}.
 	 * @return the adapted return value of the executed funtion
 	 */
-	IModelInstanceElement invokeOperation(String name,
-			List<IModelInstanceElement> args, Operation operation);
+	IModelInstanceElement invokeOperation(Operation operation,
+			List<IModelInstanceElement> args);
 
 	/**
 	 * <p>
@@ -73,25 +82,14 @@ public interface IModelInstanceObject extends IModelInstanceElement {
 	 * 
 	 * TODO: Exceptions?
 	 * 
-	 * @param name
-	 *          the name of the property
 	 * @param property
-	 *          the {@link Property} is used to determine the {@link Type} of the
-	 *          fetched property; if {@link Property#isMultiple()} is
-	 *          <code>true</code> create an {@link IModelInstanceCollection} based
-	 *          on {@link Property#isOrdered()} and {@link Property#isUnique()}.
+	 *          the {@link Property} is used to determine the name of the property
+	 *          and the {@link Type} of the fetched property; if
+	 *          {@link Property#isMultiple()} is <code>true</code> create an
+	 *          {@link IModelInstanceCollection} based on
+	 *          {@link Property#isOrdered()} and {@link Property#isUnique()}.
 	 * @return the adapted property value
 	 */
-	IModelInstanceElement getProperty(String name, Property property);
+	IModelInstanceElement getProperty(Property property);
 
-	/**
-	 * <p>
-	 * Returns the run-time {@link Object} adapted by this
-	 * {@link IModelInstanceElement}.
-	 * </p>
-	 * 
-	 * @return The run-time {@link Object} adapted by this
-	 *         {@link IModelInstanceElement}.
-	 */
-	Object getObject();
 }
