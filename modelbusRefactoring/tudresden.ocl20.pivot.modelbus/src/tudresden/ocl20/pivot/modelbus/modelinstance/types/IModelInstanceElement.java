@@ -28,116 +28,92 @@
  * http://st.inf.tu-dresden.de/ocl                                           *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  */
-package tudresden.ocl20.pivot.modelbus.base;
+package tudresden.ocl20.pivot.modelbus.modelinstance.types;
 
 import java.util.Set;
 
 import tudresden.ocl20.pivot.modelbus.IModel;
-import tudresden.ocl20.pivot.modelbus.modelinstance.types.IModelInstanceElement;
 import tudresden.ocl20.pivot.pivotmodel.Type;
 
 /**
  * <p>
- * An abstract implementation of {@link IModelInstanceElement}.
+ * Represents an instance of a domain specific type in an {@link IModel}.
  * </p>
  * 
- * @author Ronny Brandt: Built the first version.
+ * @author Ronny Brandt: Developed the first version.
  * @author Claas Wilke: Did refactoring and added Javadoc.
  */
-public abstract class AbstractModelObject implements IModelInstanceElement {
-
-	/** The name of this {@link IModelInstanceElement}. */
-	protected String myName;
+public interface IModelInstanceElement {
 
 	/**
-	 * The {@link Type}s of the {@link IModel} of which this IModelInstanceElement is an
+	 * <p>
+	 * Returns the {@link Type}s of that this IModelInstanceElement is an
 	 * instance.
+	 * </p>
+	 * <p>
+	 * <strong>Note:</strong> Only directly implemented types are returned; not
+	 * their supertypes!
+	 * </p>
+	 * 
+	 * <p>
+	 * <strong>Please be aware, that the {@link Type}s of an
+	 * {@link IModelInstanceElement} are only set, if the
+	 * {@link IModelInstanceElement} represents at least one Type in the
+	 * {@link IModel}. The {@link IModelInstanceElement}s of the kinds
+	 * {@link IModelInstanceCollection}, {@link IModelInstanceBoolean},
+	 * {@link IModelInstanceInteger}, {@link IModelInstanceReal}, and
+	 * {@link IModelInstanceString} do not have a {@link Type}.</strong>
+	 * </p>
+	 * 
+	 * @return The {@link Type}s of which this IModelInstanceElement is an
+	 *         instance. </p>
 	 */
-	protected Set<Type> myTypes;
+	Set<Type> getTypes();
 
-	/*
-	 * (non-Javadoc)
-	 * @see tudresden.ocl20.pivot.modelbus.IModelInstanceElement#getName()
+	/**
+	 * <p>
+	 * Returns the name of the {@link IModelInstanceElement}.
+	 * </p>
+	 * 
+	 * @return The name of the {@link IModelInstanceElement}.
 	 */
-	public String getName() {
+	String getName();
 
-		StringBuffer result;
-
-		/* Construct a name of all implemented types. */
-		result = new StringBuffer();
-		result.append("[");
-
-		for (Type aType : this.getTypes()) {
-
-			if (result.length() == 1) {
-				result.append(",");
-			}
-			// no else.
-
-			result.append(aType.getName());
-		}
-
-		result.append("]");
-
-		return result.toString();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see tudresden.ocl20.pivot.modelbus.IModelInstanceElement#getQualifiedName()
+	/**
+	 * <p>
+	 * Returns true if this {@link IModelInstanceElement} is an instance of the
+	 * given {@link Type} in the {@link IModel}.
+	 * </p>
+	 * 
+	 * @param aType
+	 *          The {@link Type} which shall be checked.
+	 * @return True, if this {@link IModelInstanceElement} is an instance of the
+	 *         given {@link Type}.
 	 */
-	public String getQualifiedName() {
+	boolean isInstanceOf(Type aType);
 
-		StringBuffer result;
-
-		/* Construct a name of all implemented types. */
-		result = new StringBuffer();
-		result.append("[");
-
-		for (Type aType : this.getTypes()) {
-
-			if (result.length() == 1) {
-				result.append(",");
-			}
-			// no else.
-
-			result.append(aType.getName());
-		}
-
-		result.append("]");
-
-		return result.toString();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see tudresden.ocl20.pivot.modelbus.IModelInstanceElement#getTypes()
+	/**
+	 * <p>
+	 * Performs a deep copy of the adapted element and returns it. The adapted
+	 * element is determined by the specific implementations of this interface.
+	 * </p>
+	 * 
+	 * @return a deep copy of the adapted element
 	 */
-	public Set<Type> getTypes() {
+	Object deepCopy();
 
-		return this.myTypes;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see
-	 * tudresden.ocl20.pivot.modelbus.IModelInstanceElement#isInstanceOf(tudresden.ocl20
-	 * .pivot.pivotmodel.Type)
+	/**
+	 * <p>
+	 * Copies this wrapper and sets the {@link #getTypes() type} to the
+	 * given type if an upcast is possible. Downcasts are not necessary, since the
+	 * execution of standard library methods always returns the most specific
+	 * type.
+	 * </p>
+	 * 
+	 * @param type
+	 *          the {@link Type} to cast this {@link IModelInstanceElement} to
+	 * @return the new {@link IModelInstanceElement} that has the given type
 	 */
-	public boolean isInstanceOf(Type type) {
+	IModelInstanceElement asType(Type type);
 
-		boolean result;
-
-		result = false;
-
-		for (Type aType : this.myTypes) {
-
-			if (aType.conformsTo(type)) {
-				result = true;
-				break;
-			}
-		}
-
-		return result;
-	}
 }

@@ -30,10 +30,13 @@
  *
  * $Id$
  */
-package tudresden.ocl20.pivot.modelbus;
+package tudresden.ocl20.pivot.modelbus.modelinstance;
 
 import java.io.File;
 import java.net.URL;
+
+import tudresden.ocl20.pivot.modelbus.IModel;
+import tudresden.ocl20.pivot.modelbus.ModelAccessException;
 
 /**
  * <p>
