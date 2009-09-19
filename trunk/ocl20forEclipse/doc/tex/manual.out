@@ -6,7 +6,7 @@
 \BOOKMARK [2][-]{subsection.1.1.2}{1.1.2 Importing Dresden OCL2 for Eclipse from the SVN}{section.1.1}
 \BOOKMARK [2][-]{subsection.1.1.3}{1.1.3 Which Plug-ins do I need at least?}{section.1.1}
 \BOOKMARK [2][-]{subsection.1.1.4}{1.1.4 Building the OCL2 Parser}{section.1.1}
-\BOOKMARK [1][-]{section.1.2}{1.2 Loading Models, Model Instances and OCL Constraints}{chapter.1}
+\BOOKMARK [1][-]{section.1.2}{1.2 Loading Models, Model Instances and Constraints}{chapter.1}
 \BOOKMARK [2][-]{subsection.1.2.1}{1.2.1 The Simple Example}{section.1.2}
 \BOOKMARK [2][-]{subsection.1.2.2}{1.2.2 Loading a Domain-Specific Model}{section.1.2}
 \BOOKMARK [2][-]{subsection.1.2.3}{1.2.3 Loading a Model Instance}{section.1.2}
@@ -36,7 +36,7 @@
 \BOOKMARK [1][-]{section.4.2}{4.2 The Toolkit's Architecture}{chapter.4}
 \BOOKMARK [0][-]{chapter.5}{5 Adapting a Meta-Model to the Pivot Model}{section*.9}
 \BOOKMARK [0][-]{chapter.6}{6 The Logging Mechanism of Dresden OCL2 for Eclipse}{section*.9}
-\BOOKMARK [0][-]{chapter.7}{7 The General Test Suite of Dresden OCL2 for Eclipse}{section*.9}
+\BOOKMARK [0][-]{chapter.7}{7 The Extensible Test Suite of Dresden OCL2 for Eclipse}{section*.9}
 \BOOKMARK [0][-]{chapter.8}{8 The Generic Meta-Model Test Suite}{section*.9}
 \BOOKMARK [1][-]{section.8.1}{8.1 The Test Suite Plug-in}{chapter.8}
 \BOOKMARK [1][-]{section.8.2}{8.2 The required Model to test a Meta-Model}{chapter.8}

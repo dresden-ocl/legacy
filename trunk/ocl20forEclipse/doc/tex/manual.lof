@@ -49,9 +49,19 @@
 \contentsline {figure}{\numberline {4.3}{\ignorespaces The architecture of Dresden OCL2 for Eclipse.}}{52}{figure.4.3}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces The architecture of Dresden OCL2 for Eclipse in respect to the Generic Three Layer Metadata Architecture.}}{52}{figure.4.4}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces The Ecore model opened in Eclipse.}}{54}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Create an annotation for the Ecore package.}}{54}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces The Properties View for the annotation.}}{55}{figure.5.3}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Create annotation details for the annotation.}}{55}{figure.5.4}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces The Properties View for the annotation details.}}{55}{figure.5.5}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces The EClass annotation.}}{56}{figure.5.6}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces The genmodel of the Ecore model.}}{57}{figure.5.7}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Right-click on Ecore and select 'Generate Pivot Model adapters'.}}{57}{figure.5.8}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces The structure of the generated plug-in.}}{58}{figure.5.9}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Setting up a simple SocketReceiver in Chainsaw.}}{55}{figure.6.1}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Setting up a simple SocketReceiver in Chainsaw.}}{59}{figure.6.1}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Run the extensible test suite.}}{62}{figure.7.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces The Generic Meta-Model Test Suite in respect to the Generic Three Layer Architeture}}{60}{figure.8.1}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces The required Test Model to test a Meta-Model's adaptation. The gray parts are optional.}}{61}{figure.8.2}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces The Generic Meta-Model Test Suite in respect to the Generic Three Layer Ar\discretionary {-}{}{}chi\discretionary {-}{}{}tec\discretionary {-}{}{}ture}}{64}{figure.8.1}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces The required Test Model to test a Meta-Model's adaptation. The gray parts are optional.}}{65}{figure.8.2}
