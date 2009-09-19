@@ -1,5 +1,5 @@
 <?php
-/* Home page of the Webseite of the Dresden OCL2 Toolkit
+/* The home page of the Website of the Dresden OCL2 Toolkit
  * Uses the sourceforge rss feed to print the latest news.
  *
  * Written by Claas Wilke in 2007
@@ -9,24 +9,31 @@
 /* Include an external library for fetching the rss feed */
 require_once("magpierss/rss_fetch.inc");
 
+/*
+ * Prints all news from the RSS feed of the sourceforge project as news entries. 
+ */
 function print_feed() {
-/* The path of the RSS feed */
-$rss_path = "http://sourceforge.net/export/rss2_projnews.php?group_id=5840&rss_fulltext=1";
+  
+  /* The path of the RSS feed */
+  $rss_path = "http://sourceforge.net/export/rss2_projnews.php?group_id=5840&rss_fulltext=1";
 
-$rss = fetch_rss( $rss_path );
+  /* Get all entries of the feed. */
+  $rss = fetch_rss( $rss_path );
+  
+  $items = $rss->items;
 
-foreach ($rss->items as $item) {
-//$pubdate = parse_w3cdtf($item['dc']['pubdate']);
-
-$pubdate = $item['pubdate'];
-$parseddate = getdate(strtotime($pubdate));
-$title = $item['title'];
-$description = $item['description'];
-echo "<h3>$parseddate[year]/$parseddate[mon]/$parseddate[mday] - $title</h3>\n";
-echo "<p>$description</p>\n";
+  for($index = 0; $index < sizeof($rss->items) - 2; $index++) {
+    $item = $items[$index];
+    
+    $pubdate = $item['pubdate'];
+    $parseddate = getdate(strtotime($pubdate));
+    $title = $item['title'];
+    $description = $item['description'];
+  
+    echo "<h3>$parseddate[year]/$parseddate[mon]/$parseddate[mday] - $title</h3>\n";
+    echo "<p>$description</p>\n";
+  }
 }
-}
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -60,35 +67,11 @@ SourceForge</a>.</p>
 	href="http://sourceforge.net/export/rss2_projnews.php?group_id=5840"
 	class="rss"> RSS <img src="images/rss.gif" border="0"
 	alt="Logo RSS-Feed" /> </a></h2>
+	
+<?php print_feed(); ?>
 
-<h3>2009/02/26 - Release 1.2 of Dresden OCL2 for Eclipse released</h3>
-
-<p>The team of the Dresden OCL Toolkit project is happy to announce the release
-  of version 1.2 of Dresden OCL2 for Eclipse. The new version is available from 
-  the project download area at Sourceforge: 
-  <a href="http://sourceforge.net/project/platformdownload.php?group_id=5840">http://sourceforge.net/project/platformdownload.php?group_id=5840</a>.
-
-<p>The new release contains the new developed Java code generator OCL2Java which 
-  supports AspectJ code generation for OCL2 constraints to constrain and enrich 
-  Java code for provided models. Additionally, a new big example plugin containing 
-  the 'royal and loyal' model of Warmer and Kleppe was added to the project.</p>
-
-<p>Furthermore some bugs in the OCL2 Parser, the OCL2 Interpreter, the Java Standard 
-  Library and the provided meta models were fixed.</p>
-
-<p>We are looking forward to your comments and feedback. You can find further 
-  information at our website at <a href="http://dresden-ocl.sourceforge.net/">http://dresden-ocl.sourceforge.net/</a>
-  and <a href="http://sourceforge.net/projects/dresden-ocl/">http://sourceforge.net/projects/dresden-ocl/</a>.</p> 
-
-
-<h3>2008/12/10 - Release 1.1 of Dresden OCL2 for Eclipse released</h3>
-
-<p>The team of the Dresden OCL Toolkit project is happy to announce the release of version 1.1 of Dresden OCL2 for Eclipse supporting OCL 2.0. The project also decided to rename the newest version of the Dresden OCL2 toolkit into Dresden OCL2 for Eclipse. The new version is available from the project download area at Sourceforge: <a href="http://sourceforge.net/project/platformdownload.php?group_id=5840">http://sourceforge.net/project/platformdownload.php?group_id=5840</a>.</p>
-
-<p>The new release contains UML 2 as a newly provided meta model. Furthermore some bugs in the OCL2 Parser and the OCL2 Interpreter were fixed.</p>
-
-<p>We are happy to announce this release and look forward to your comments and feedback. You can find further information at our website at <a href="http://dresden-ocl.sourceforge.net/">http://dresden-ocl.sourceforge.net/</a> and <a href="http://sourceforge.net/projects/dresden-ocl/">http://sourceforge.net/projects/dresden-ocl/</a>.</p>
-
+<!-- The following news are older than the news contained in the feed and will be 
+     displayed additionally. -->
 
 <h3>2008/06/19 - First version of Dresden OCL2 for Eclipse released</h3>
 
@@ -178,7 +161,12 @@ OCL2.0. You can obtain this release from our files section on
 SourceForge: <a
 	href="https://sourceforge.net/project/showfiles.php?group_id=5840">https://sourceforge.net/project/showfiles.php?group_id=5840</a></p>
 
-<?php include "_footer.ssi"; ?>
 
+<p align="center"><small>
+Display of RSS Feed powered by <a href="http://magpierss.sourceforge.net/" target="e">Magpie RSS</a>.
+</small></p>
+
+
+<?php include "_footer.ssi"; ?>
 </body>
 </html>
