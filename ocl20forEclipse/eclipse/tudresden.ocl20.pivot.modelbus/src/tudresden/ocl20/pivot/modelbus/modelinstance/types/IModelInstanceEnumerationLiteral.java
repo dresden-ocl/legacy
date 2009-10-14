@@ -16,27 +16,29 @@ for more details.
 You should have received a copy of the GNU Lesser General Public License along 
 with Dresden OCL2 for Eclipse. If not, see <http://www.gnu.org/licenses/>.
  */
-package tudresden.ocl20.pivot.modelbus.modelinstance;
+package tudresden.ocl20.pivot.modelbus.modelinstance.types;
 
-import tudresden.ocl20.pivot.modelbus.IModelInstance;
-import tudresden.ocl20.pivot.modelbus.IModelObject;
+import tudresden.ocl20.pivot.modelbus.modelinstance.IModelInstance;
+import tudresden.ocl20.pivot.pivotmodel.EnumerationLiteral;
 
 /**
  * <p>
- * Represents an {@link IModelObject} that adapts a non-primitive or collection
- * {@link Object} of a {@link IModelInstance}.
+ * Represents an {@link IModelInstanceElement} that adapts a EnumerationLiteral
+ * value from the {@link IModelInstance}.
  * </p>
  * 
  * @author Claas Wilke
  */
-public interface IModelInstanceObject extends IModelObject {
+public interface IModelInstanceEnumerationLiteral extends IModelInstanceElement {
 
 	/**
 	 * <p>
-	 * Returns the run-time {@link Object} adapted by this {@link IModelObject}.
+	 * Returns the {@link EnumerationLiteral} value of this
+	 * {@link IModelInstanceEnumerationLiteral}.
 	 * </p>
 	 * 
-	 * @return The run-time {@link Object} adapted by this {@link IModelObject}.
+	 * @return The {@link EnumerationLiteral} value of this
+	 *         {@link IModelInstanceEnumerationLiteral}.
 	 */
-	public Object getAdaptedObject();
+	EnumerationLiteral getLiteral();
 }

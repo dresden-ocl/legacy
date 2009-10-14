@@ -16,27 +16,26 @@ for more details.
 You should have received a copy of the GNU Lesser General Public License along 
 with Dresden OCL2 for Eclipse. If not, see <http://www.gnu.org/licenses/>.
  */
-package tudresden.ocl20.pivot.modelbus.modelinstance;
+package tudresden.ocl20.pivot.modelbus.modelinstance.types;
 
-import tudresden.ocl20.pivot.modelbus.IModelInstance;
-import tudresden.ocl20.pivot.modelbus.IModelObject;
+import tudresden.ocl20.pivot.modelbus.modelinstance.IModelInstance;
 
 /**
  * <p>
- * Represents an {@link IModelObject} that adapts a real (or BigDecimal) value
- * from the {@link IModelInstance}.
+ * Represents an {@link IModelInstanceElement} that adapts a boolean value from the
+ * {@link IModelInstance}.
  * </p>
  * 
  * @author Claas Wilke
  */
-public interface IModelInstanceReal extends IModelObject {
+public interface IModelInstanceBoolean extends IModelInstancePrimitiveType {
 
 	/**
 	 * <p>
-	 * Returns the {@link Double} value of this {@link IModelInstanceReal}.
+	 * Returns the {@link Boolean} value of this {@link IModelInstanceBoolean}.
 	 * </p>
 	 * 
-	 * @return The {@link Double} value of this {@link IModelInstanceReal}.
+	 * @return The {@link Boolean} value of this {@link IModelInstanceBoolean}.
 	 */
-	Double getReal();
+	Boolean getBoolean();
 }
