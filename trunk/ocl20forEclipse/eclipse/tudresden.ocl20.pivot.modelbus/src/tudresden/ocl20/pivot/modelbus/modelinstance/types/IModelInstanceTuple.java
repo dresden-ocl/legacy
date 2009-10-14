@@ -16,27 +16,38 @@ for more details.
 You should have received a copy of the GNU Lesser General Public License along 
 with Dresden OCL2 for Eclipse. If not, see <http://www.gnu.org/licenses/>.
  */
-package tudresden.ocl20.pivot.modelbus.modelinstance;
+package tudresden.ocl20.pivot.modelbus.modelinstance.types;
 
-import tudresden.ocl20.pivot.modelbus.IModelInstance;
-import tudresden.ocl20.pivot.modelbus.IModelObject;
+import tudresden.ocl20.pivot.modelbus.modelinstance.IModelInstance;
 
 /**
  * <p>
- * Represents an {@link IModelObject} that adapts a {@link String} value from
+ * Represents an {@link IModelInstanceElement} that adapts a Tuple value from
  * the {@link IModelInstance}.
+ * </p>
+ * 
+ * <p>
+ * <strong>Tuple values cannot be part of the {@link IModelInstance} itself,
+ * they can be only created by the standard library!</strong> Thus,
+ * {@link IModelInstance}s should not implement this {@link Class}.
  * </p>
  * 
  * @author Claas Wilke
  */
-public interface IModelInstanceString extends IModelObject {
+public interface IModelInstanceTuple extends IModelInstanceElement {
 
 	/**
 	 * <p>
-	 * Returns the {@link String} value of this {@link IModelInstanceString}.
+	 * Returns the value for a given key (as a {@link IModelInstanceString}).
 	 * </p>
 	 * 
-	 * @return The {@link String} value of this {@link IModelInstanceString}.
+	 * @param The
+	 *          key, whose value shall be returned.
+	 * @return The value of the given key.
+	 * 
+	 * @throws IllegalArgumentException
+	 *           Thrown, if a given key is not contained in this tuple, or thew
+	 *           given key is <code>null</code>.
 	 */
-	String getString();
+	IModelInstanceElement get(IModelInstanceString key);
 }

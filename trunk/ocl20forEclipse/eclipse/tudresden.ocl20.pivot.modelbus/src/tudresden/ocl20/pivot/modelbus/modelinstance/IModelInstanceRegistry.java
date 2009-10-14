@@ -28,74 +28,81 @@
  * http://st.inf.tu-dresden.de/ocl                                           *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  */
-package tudresden.ocl20.pivot.modelbus;
+package tudresden.ocl20.pivot.modelbus.modelinstance;
 
-import java.util.Set;
-
-import tudresden.ocl20.pivot.modelbus.modelinstance.IModelInstanceBoolean;
-import tudresden.ocl20.pivot.modelbus.modelinstance.IModelInstanceCollection;
-import tudresden.ocl20.pivot.modelbus.modelinstance.IModelInstanceInteger;
-import tudresden.ocl20.pivot.modelbus.modelinstance.IModelInstanceReal;
-import tudresden.ocl20.pivot.modelbus.modelinstance.IModelInstanceString;
-import tudresden.ocl20.pivot.pivotmodel.Type;
+import tudresden.ocl20.pivot.modelbus.IModel;
+import tudresden.ocl20.pivot.modelbus.event.IModelInstanceRegistryListener;
 
 /**
- * <p>
- * Represents an instance of a domain specific type in an {@link IModel}.
- * </p>
  * 
- * @author Ronny Brandt: Developed the first version.
- * @author Claas Wilke: Did refactoring and added Javadoc.
+ *
+ * @author Ronny Brandt
+ * @version 1.0 31.08.2007
  */
-public interface IModelObject {
+public interface IModelInstanceRegistry {
 
 	/**
-	 * <p>
-	 * Returns the {@link Type}s of that this IModelObject is an instance.
-	 * </p>
+	 * Adds a {@link IModelInstance}.
 	 * 
-	 * <p>
-	 * <strong>Please be aware, that the {@link Type}s of an {@link IModelObject}
-	 * are only set, if the {@link IModelObject} represents at least one Type in
-	 * the {@link IModel}. The {@link IModelObject}s of the kinds
-	 * {@link IModelInstanceCollection}, {@link IModelInstanceBoolean},
-	 * {@link IModelInstanceInteger}, {@link IModelInstanceReal}, and
-	 * {@link IModelInstanceString} do not have a {@link Type}.</strong>
-	 * </p>
-	 * 
-	 * @return The {@link Type}s of which this IModelObject is an instance. </p>
+	 * @param model
+	 *            the {@link IModel} the {@link IModelInstance} belongs to
+	 * @param modelInstance
+	 *            the {@link IModelInstance} to add
 	 */
-	Set<Type> getTypes();
+	void addModelInstance(IModel model, IModelInstance modelInstance);
 
 	/**
-	 * <p>
-	 * Returns the name of the {@link IModelObject}.
-	 * </p>
+	 * Gets the {@link IModelInstance}s that belong to the given {@link IModel}.
 	 * 
-	 * @return The name of the {@link IModelObject}.
+	 * @param model
+	 *            the {@link IModel} the {@link IModelInstance}s are asked for
+	 * 
+	 * @return the {@link IModelInstance}s for the given {@link IModel}
 	 */
-	String getName();
+	IModelInstance[] getModelInstances(IModel model);
 
 	/**
-	 * <p>
-	 * Returns the qualified name as of the {@link IModelObject} as {@link String}
-	 * . Needed for more efficiently use in InterpreterView.
-	 * </p>
+	 * Gets the active {@link IModelInstance} for the given {@link IModel}.
 	 * 
-	 * @return The qualified name of the {@link IModelObject} as {@link String}.
+	 * @param model
+	 *            the {@link IModel} whose active {@link IModelInstance} is
+	 *            searched
+	 * 
+	 * @return the active {@link IModelInstance} for the given {@link IModel}
 	 */
-	String getQualifiedName();
+	IModelInstance getActiveModelInstance(IModel model);
 
 	/**
-	 * <p>
-	 * Returns true if this {@link IModelObject} is an instance of the given
-	 * {@link Type} in the {@link IModel}.
-	 * </p>
+	 * Sets the active {@link IModelInstance} for the given {@link IModel}.
 	 * 
-	 * @param aType
-	 *          The {@link Type} which shall be checked.
-	 * @return True, if this {@link IModelObject} is an instance of the given
-	 *         {@link Type}.
+	 * @param model
+	 *            the {@link IModel} for which the active {@link IModelInstance}
+	 *            shall be set
+	 * @param modelInstance
+	 *            the new active {@link IModelInstance}
 	 */
-	boolean isInstanceOf(Type aType);
+	void setActiveModelInstance(IModel model, IModelInstance modelInstance);
+
+	/**
+	 * Adds an {@link IModelInstanceRegistryListener}
+	 * 
+	 * @param listener
+	 *            the listener
+	 */
+	void addModelInstanceRegistryListener(
+			IModelInstanceRegistryListener listener);
+
+	/**
+	 * Removes an {@link IModelInstanceRegistryListener}.
+	 * 
+	 * @param listener
+	 *            the listener
+	 */
+	void removeModelInstanceRegistryListener(
+			IModelInstanceRegistryListener listener);
+
+	/**
+	 * Dispose.
+	 */
+	void dispose();
 }

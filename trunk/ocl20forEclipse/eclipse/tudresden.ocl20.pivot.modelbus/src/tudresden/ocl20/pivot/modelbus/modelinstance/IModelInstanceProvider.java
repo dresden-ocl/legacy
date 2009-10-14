@@ -30,10 +30,14 @@
  *
  * $Id$
  */
-package tudresden.ocl20.pivot.modelbus;
+package tudresden.ocl20.pivot.modelbus.modelinstance;
 
 import java.io.File;
 import java.net.URL;
+
+import tudresden.ocl20.pivot.modelbus.IModel;
+import tudresden.ocl20.pivot.modelbus.ModelAccessException;
+import tudresden.ocl20.pivot.modelbus.modelinstance.types.IModelInstanceElement;
 
 /**
  * <p>
@@ -48,11 +52,28 @@ public interface IModelInstanceProvider {
 
 	/**
 	 * <p>
+	 * Creates an empty {@link IModelInstance} for a given {@link IModel}.
+	 * </p>
+	 * 
+	 * <p>
+	 * The {@link IModelInstance} can be filled with {@link IModelInstanceElement}
+	 * later, using the method
+	 * {@link IModelInstance#addModelInstanceElement(Object)}.
+	 * </p>
+	 * 
+	 * @param model
+	 *          The {@link IModel} for that an empty {@link IModelInstance} shall
+	 *          be created.
+	 * @return The created, empty {@link IModelInstance}.
+	 */
+	IModelInstance createEmptyModelInstance(IModel model);
+
+	/**
+	 * <p>
 	 * Loads an IModelInstance for a given name and a given {@link IModel}.
 	 * 
 	 * @param modelInstanceName
-	 *            The name of the {@link IModelInstance} which shall be
-	 *            returned.
+	 *          The name of the {@link IModelInstance} which shall be returned.
 	 * @return An {@link IModelInstance}.
 	 */
 	IModelInstance getModelInstance(String modelInstanceName, IModel model)
@@ -63,8 +84,8 @@ public interface IModelInstanceProvider {
 	 * Loads an IModelInstance for a given name and a given {@link IModel}.
 	 * 
 	 * @param modelInstanceFile
-	 *            The {@link File} of the {@link IModelInstance} which shall be
-	 *            returned.
+	 *          The {@link File} of the {@link IModelInstance} which shall be
+	 *          returned.
 	 * @return An {@link IModelInstance}.
 	 */
 	IModelInstance getModelInstance(File modelInstanceFile, IModel model)
@@ -75,8 +96,8 @@ public interface IModelInstanceProvider {
 	 * Loads an IModelInstance for a given name and a given {@link IModel}.
 	 * 
 	 * @param modelInstanceUrl
-	 *            The {@link URL} of the {@link IModelInstance} which shall be
-	 *            returned.
+	 *          The {@link URL} of the {@link IModelInstance} which shall be
+	 *          returned.
 	 * @return An {@link IModelInstance}.
 	 */
 	IModelInstance getModelInstance(URL modelInstanceUrl, IModel model)
