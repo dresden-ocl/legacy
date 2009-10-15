@@ -1,1 +1,0 @@
-((Object) java.lang.Math.max(new Integer(33), new Integer(12))).equals(new Integer(33))

@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Simple Example Generated Java Code and Test Cases
-Bundle-SymbolicName: tudresden.ocl20.pivot.examples.simple.ocl22javacode
-Bundle-Version: 2.0.0
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Require-Bundle: org.junit4,
- org.aspectj.runtime
-Bundle-Vendor: TU Dresden, Software Technology Group

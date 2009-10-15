@@ -1,1 +1,0 @@
-((Object) "Anneke".length()).equals(new Integer(6))

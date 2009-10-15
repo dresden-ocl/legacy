@@ -1,1 +1,0 @@
-((Object) Float.parseFloat("1.5")).equals(new Float(1.5))

@@ -1,1 +1,0 @@
-((Object) aClass.program.levels.count(aClass.currentLevel)).equals(new Integer(1))
