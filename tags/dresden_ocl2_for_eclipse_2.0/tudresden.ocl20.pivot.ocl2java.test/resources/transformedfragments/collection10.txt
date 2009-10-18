@@ -1,1 +1,0 @@
-(aClass.participants.size() < new Integer(10000))
