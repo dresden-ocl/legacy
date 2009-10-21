@@ -36,23 +36,31 @@
 \contentsline {section}{\numberline {4.1}The Generic Three Layer Metadata Architecture}{49}{section.4.1}
 \contentsline {section}{\numberline {4.2}The Toolkit's Architecture}{51}{section.4.2}
 \contentsline {subsubsection}{\acl {DOT4Eclipse} and The Generic Three Layer Metadata Architecture}{51}{section*.12}
-\contentsline {chapter}{\numberline {5}Adapting a Meta-Model to the Pivot Model}{53}{chapter.5}
-\contentsline {chapter}{\numberline {6}The Logging Mechanism of Dresden OCL2 for Eclipse}{59}{chapter.6}
-\contentsline {chapter}{\numberline {7}The Extensible Test Suite of Dresden OCL2 for Eclipse}{61}{chapter.7}
-\contentsline {chapter}{\numberline {8}The Generic Meta-Model Test Suite}{63}{chapter.8}
-\contentsline {section}{\numberline {8.1}The Test Suite Plug-in}{63}{section.8.1}
-\contentsline {section}{\numberline {8.2}The required Model to test a Meta-Model}{63}{section.8.2}
-\contentsline {subsection}{\numberline {8.2.1}TestTypeClass1 and TestTypeClass2}{64}{subsection.8.2.1}
-\contentsline {subsection}{\numberline {8.2.2}TestTypeInterface1 and TestTypeInterface2}{64}{subsection.8.2.2}
-\contentsline {subsection}{\numberline {8.2.3}TestEnumeration}{64}{subsection.8.2.3}
-\contentsline {subsection}{\numberline {8.2.4}TestPrimitiveTypeClass}{66}{subsection.8.2.4}
-\contentsline {subsection}{\numberline {8.2.5}TestPropertyClass}{66}{subsection.8.2.5}
-\contentsline {subsection}{\numberline {8.2.6}TestOperationAndParameterClass}{66}{subsection.8.2.6}
-\contentsline {section}{\numberline {8.3}Instantiating the Generic Test Suite}{66}{section.8.3}
-\contentsline {section}{\numberline {8.4}Summary}{67}{section.8.4}
-\contentsline {part}{Appendix}{69}{section*.13}
-\contentsline {chapter}{Tables}{71}{section*.14}
-\contentsline {chapter}{List of Figures}{75}{section*.16}
-\contentsline {chapter}{List of Listings}{79}{section*.18}
-\contentsline {chapter}{List of Abbreviations}{81}{section*.20}
-\contentsline {chapter}{References}{83}{section*.22}
+\contentsline {chapter}{\numberline {5}How to integrate Dresden OCL2 for Eclipse}{53}{chapter.5}
+\contentsline {section}{\numberline {5.1}How to access Meta-Models, Models and Instances}{53}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}The Meta-Model Registry}{53}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}How to load a Model}{54}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}The Model Instance Type Registry}{55}{subsection.5.1.3}
+\contentsline {subsection}{\numberline {5.1.4}How to load a Model Instance}{55}{subsection.5.1.4}
+\contentsline {section}{\numberline {5.2}How to access the OCL2 Parser}{56}{section.5.2}
+\contentsline {section}{\numberline {5.3}How to access the OCL2 Interpreter}{56}{section.5.3}
+\contentsline {chapter}{\numberline {6}Adapting a Meta-Model to the Pivot Model}{59}{chapter.6}
+\contentsline {chapter}{\numberline {7}The Logging Mechanism of Dresden OCL2 for Eclipse}{65}{chapter.7}
+\contentsline {chapter}{\numberline {8}The Extensible Test Suite of Dresden OCL2 for Eclipse}{67}{chapter.8}
+\contentsline {chapter}{\numberline {9}The Generic Meta-Model Test Suite}{69}{chapter.9}
+\contentsline {section}{\numberline {9.1}The Test Suite Plug-in}{69}{section.9.1}
+\contentsline {section}{\numberline {9.2}The required Model to test a Meta-Model}{69}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}TestTypeClass1 and TestTypeClass2}{70}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}TestTypeInterface1 and TestTypeInterface2}{70}{subsection.9.2.2}
+\contentsline {subsection}{\numberline {9.2.3}TestEnumeration}{70}{subsection.9.2.3}
+\contentsline {subsection}{\numberline {9.2.4}TestPrimitiveTypeClass}{72}{subsection.9.2.4}
+\contentsline {subsection}{\numberline {9.2.5}TestPropertyClass}{72}{subsection.9.2.5}
+\contentsline {subsection}{\numberline {9.2.6}TestOperationAndParameterClass}{72}{subsection.9.2.6}
+\contentsline {section}{\numberline {9.3}Instantiating the Generic Test Suite}{72}{section.9.3}
+\contentsline {section}{\numberline {9.4}Summary}{73}{section.9.4}
+\contentsline {part}{Appendix}{75}{section*.13}
+\contentsline {chapter}{Tables}{77}{section*.14}
+\contentsline {chapter}{List of Figures}{81}{section*.16}
+\contentsline {chapter}{List of Listings}{85}{section*.18}
+\contentsline {chapter}{List of Abbreviations}{87}{section*.20}
+\contentsline {chapter}{References}{89}{section*.22}
