@@ -34,20 +34,28 @@
 \BOOKMARK [0][-]{chapter.4}{4 The Architecture of Dresden OCL2 for Eclipse}{section*.9}
 \BOOKMARK [1][-]{section.4.1}{4.1 The Generic Three Layer Metadata Architecture}{chapter.4}
 \BOOKMARK [1][-]{section.4.2}{4.2 The Toolkit's Architecture}{chapter.4}
-\BOOKMARK [0][-]{chapter.5}{5 Adapting a Meta-Model to the Pivot Model}{section*.9}
-\BOOKMARK [0][-]{chapter.6}{6 The Logging Mechanism of Dresden OCL2 for Eclipse}{section*.9}
-\BOOKMARK [0][-]{chapter.7}{7 The Extensible Test Suite of Dresden OCL2 for Eclipse}{section*.9}
-\BOOKMARK [0][-]{chapter.8}{8 The Generic Meta-Model Test Suite}{section*.9}
-\BOOKMARK [1][-]{section.8.1}{8.1 The Test Suite Plug-in}{chapter.8}
-\BOOKMARK [1][-]{section.8.2}{8.2 The required Model to test a Meta-Model}{chapter.8}
-\BOOKMARK [2][-]{subsection.8.2.1}{8.2.1 TestTypeClass1 and TestTypeClass2}{section.8.2}
-\BOOKMARK [2][-]{subsection.8.2.2}{8.2.2 TestTypeInterface1 and TestTypeInterface2}{section.8.2}
-\BOOKMARK [2][-]{subsection.8.2.3}{8.2.3 TestEnumeration}{section.8.2}
-\BOOKMARK [2][-]{subsection.8.2.4}{8.2.4 TestPrimitiveTypeClass}{section.8.2}
-\BOOKMARK [2][-]{subsection.8.2.5}{8.2.5 TestPropertyClass}{section.8.2}
-\BOOKMARK [2][-]{subsection.8.2.6}{8.2.6 TestOperationAndParameterClass}{section.8.2}
-\BOOKMARK [1][-]{section.8.3}{8.3 Instantiating the Generic Test Suite}{chapter.8}
-\BOOKMARK [1][-]{section.8.4}{8.4 Summary}{chapter.8}
+\BOOKMARK [0][-]{chapter.5}{5 How to integrate Dresden OCL2 for Eclipse}{section*.9}
+\BOOKMARK [1][-]{section.5.1}{5.1 How to access Meta-Models, Models and Instances}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.1.1}{5.1.1 The Meta-Model Registry}{section.5.1}
+\BOOKMARK [2][-]{subsection.5.1.2}{5.1.2 How to load a Model}{section.5.1}
+\BOOKMARK [2][-]{subsection.5.1.3}{5.1.3 The Model Instance Type Registry}{section.5.1}
+\BOOKMARK [2][-]{subsection.5.1.4}{5.1.4 How to load a Model Instance}{section.5.1}
+\BOOKMARK [1][-]{section.5.2}{5.2 How to access the OCL2 Parser}{chapter.5}
+\BOOKMARK [1][-]{section.5.3}{5.3 How to access the OCL2 Interpreter}{chapter.5}
+\BOOKMARK [0][-]{chapter.6}{6 Adapting a Meta-Model to the Pivot Model}{section*.9}
+\BOOKMARK [0][-]{chapter.7}{7 The Logging Mechanism of Dresden OCL2 for Eclipse}{section*.9}
+\BOOKMARK [0][-]{chapter.8}{8 The Extensible Test Suite of Dresden OCL2 for Eclipse}{section*.9}
+\BOOKMARK [0][-]{chapter.9}{9 The Generic Meta-Model Test Suite}{section*.9}
+\BOOKMARK [1][-]{section.9.1}{9.1 The Test Suite Plug-in}{chapter.9}
+\BOOKMARK [1][-]{section.9.2}{9.2 The required Model to test a Meta-Model}{chapter.9}
+\BOOKMARK [2][-]{subsection.9.2.1}{9.2.1 TestTypeClass1 and TestTypeClass2}{section.9.2}
+\BOOKMARK [2][-]{subsection.9.2.2}{9.2.2 TestTypeInterface1 and TestTypeInterface2}{section.9.2}
+\BOOKMARK [2][-]{subsection.9.2.3}{9.2.3 TestEnumeration}{section.9.2}
+\BOOKMARK [2][-]{subsection.9.2.4}{9.2.4 TestPrimitiveTypeClass}{section.9.2}
+\BOOKMARK [2][-]{subsection.9.2.5}{9.2.5 TestPropertyClass}{section.9.2}
+\BOOKMARK [2][-]{subsection.9.2.6}{9.2.6 TestOperationAndParameterClass}{section.9.2}
+\BOOKMARK [1][-]{section.9.3}{9.3 Instantiating the Generic Test Suite}{chapter.9}
+\BOOKMARK [1][-]{section.9.4}{9.4 Summary}{chapter.9}
 \BOOKMARK [-1][-]{section*.13}{Appendix}{}
 \BOOKMARK [0][-]{section*.14}{Tables}{section*.13}
 \BOOKMARK [0][-]{section*.16}{List of Figures}{section*.13}
