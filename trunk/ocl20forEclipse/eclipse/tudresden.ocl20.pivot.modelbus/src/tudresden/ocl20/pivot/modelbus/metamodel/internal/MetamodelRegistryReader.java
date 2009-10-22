@@ -30,37 +30,76 @@
  *
  * $Id$
  */
-package tudresden.ocl20.pivot.modelbus;
+package tudresden.ocl20.pivot.modelbus.metamodel.internal;
 
-import java.io.File;
-import java.net.URL;
+import org.apache.log4j.Logger;
 
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtension;
+import org.eclipse.core.runtime.IExtensionPoint;
 
+import tudresden.ocl20.pivot.modelbus.IModelBusConstants;
+import tudresden.ocl20.pivot.modelbus.ModelBusPlugin;
+import tudresden.ocl20.pivot.modelbus.metamodel.IMetamodelRegistry;
 
 /**
+ * A simple helper class that can fill an {@link IMetamodelRegistry} with metamodels read from
+ * extensions of the 'metamodels' extension point.
  * 
- *
  * @author Matthias Braeuer
- * @version 1.0 30.03.2007
+ * @version 1.0 03.04.2007
  */
-public interface IModelProvider {
+public class MetamodelRegistryReader {
+
+  // a Logger for this class
+  private static final Logger logger = ModelBusPlugin.getLogger(MetamodelRegistryReader.class);
 
   /**
-   * @param modelName
-   * @return
+   * @param extensionPoint
+   * @param registry
    */
-  IModel getModel(String modelName) throws ModelAccessException;
-  
+  public void read(IExtensionPoint extensionPoint, IMetamodelRegistry registry) {
+    IExtension[] extensions = extensionPoint.getExtensions();
+
+    for (int i = 0; i < extensions.length; i++) {
+      read(extensions[i],registry);
+    }
+  }
+
   /**
-   * @param modelFile
-   * @return
+   * @param extension
+   * @param registry
    */
-  IModel getModel(File modelFile) throws ModelAccessException;
-  
+  public void read(IExtension extension, IMetamodelRegistry registry) {
+    IConfigurationElement[] elements = extension.getConfigurationElements();
+
+    for (int i = 0; i < elements.length; i++) {
+      read(elements[i],registry);
+    }
+  }
+
   /**
-   * @param modelURL
-   * @return
+   * @param configElement
+   * @param registry
    */
-  IModel getModel(URL modelURL) throws ModelAccessException;
-  
+  public void read(IConfigurationElement configElement, IMetamodelRegistry registry) {
+
+    if (configElement.getName().equals(IModelBusConstants.TAG_METAMODEL)) {
+
+      try {
+        registry.addMetamodel(new MetamodelDescriptor(configElement));
+      }
+
+      catch (Exception e) {
+        logger.warn("An error was encountered when reading config element " + configElement,e); //$NON-NLS-1$
+      }
+
+    }
+
+    else {
+      logger.warn("Unable to read config element " + configElement //$NON-NLS-1$
+          + " because its tag name is not recognized."); //$NON-NLS-1$
+    }
+
+  }
 }

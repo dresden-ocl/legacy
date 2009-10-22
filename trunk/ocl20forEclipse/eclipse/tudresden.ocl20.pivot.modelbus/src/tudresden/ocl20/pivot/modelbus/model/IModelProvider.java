@@ -30,37 +30,39 @@
  *
  * $Id$
  */
-package tudresden.ocl20.pivot.modelbus;
+package tudresden.ocl20.pivot.modelbus.model;
+
+import java.io.File;
+import java.net.URL;
+
+import tudresden.ocl20.pivot.modelbus.ModelAccessException;
+
+
 
 /**
  * 
- * 
+ *
  * @author Matthias Braeuer
  * @version 1.0 30.03.2007
  */
-public interface IMetamodel {
+public interface IModelProvider {
 
   /**
-   * Returns a unique identifier for this metamodel under which it can be registered in an
-   * {@link IMetamodelRegistry}.
-   * 
-   * @return a <code>String</code> identifier
+   * @param modelName
+   * @return
    */
-  String getId();
-
+  IModel getModel(String modelName) throws ModelAccessException;
+  
   /**
-   * Returns a human-readable and possibly translatable name of this metamodel that may be used to
-   * display it in a user interface.
-   * 
-   * @return a <code>String</code> representing the name of the metamodel
+   * @param modelFile
+   * @return
    */
-  String getName();
-
+  IModel getModel(File modelFile) throws ModelAccessException;
+  
   /**
-   * Returns the {@link IModelProvider} that can be used to load instances of this metamodel.
-   * 
-   * @return an <code>IModelProvider</code> instance
+   * @param modelURL
+   * @return
    */
-  IModelProvider getModelProvider();
-
+  IModel getModel(URL modelURL) throws ModelAccessException;
+  
 }

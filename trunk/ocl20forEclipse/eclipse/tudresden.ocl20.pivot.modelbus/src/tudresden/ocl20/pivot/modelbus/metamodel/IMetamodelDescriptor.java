@@ -30,7 +30,7 @@
  *
  * $Id$
  */
-package tudresden.ocl20.pivot.modelbus;
+package tudresden.ocl20.pivot.modelbus.metamodel;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 
