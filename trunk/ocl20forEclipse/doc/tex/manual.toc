@@ -45,22 +45,35 @@
 \contentsline {section}{\numberline {5.2}How to access the OCL2 Parser}{56}{section.5.2}
 \contentsline {section}{\numberline {5.3}How to access the OCL2 Interpreter}{56}{section.5.3}
 \contentsline {chapter}{\numberline {6}Adapting a Meta-Model to the Pivot Model}{59}{chapter.6}
-\contentsline {chapter}{\numberline {7}The Logging Mechanism of Dresden OCL2 for Eclipse}{65}{chapter.7}
-\contentsline {chapter}{\numberline {8}The Extensible Test Suite of Dresden OCL2 for Eclipse}{67}{chapter.8}
-\contentsline {chapter}{\numberline {9}The Generic Meta-Model Test Suite}{69}{chapter.9}
-\contentsline {section}{\numberline {9.1}The Test Suite Plug-in}{69}{section.9.1}
-\contentsline {section}{\numberline {9.2}The required Model to test a Meta-Model}{69}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}TestTypeClass1 and TestTypeClass2}{70}{subsection.9.2.1}
-\contentsline {subsection}{\numberline {9.2.2}TestTypeInterface1 and TestTypeInterface2}{70}{subsection.9.2.2}
-\contentsline {subsection}{\numberline {9.2.3}TestEnumeration}{70}{subsection.9.2.3}
-\contentsline {subsection}{\numberline {9.2.4}TestPrimitiveTypeClass}{72}{subsection.9.2.4}
-\contentsline {subsection}{\numberline {9.2.5}TestPropertyClass}{72}{subsection.9.2.5}
-\contentsline {subsection}{\numberline {9.2.6}TestOperationAndParameterClass}{72}{subsection.9.2.6}
-\contentsline {section}{\numberline {9.3}Instantiating the Generic Test Suite}{72}{section.9.3}
-\contentsline {section}{\numberline {9.4}Summary}{73}{section.9.4}
-\contentsline {part}{Appendix}{75}{section*.13}
-\contentsline {chapter}{Tables}{77}{section*.14}
-\contentsline {chapter}{List of Figures}{81}{section*.16}
-\contentsline {chapter}{List of Listings}{85}{section*.18}
-\contentsline {chapter}{List of Abbreviations}{87}{section*.20}
-\contentsline {chapter}{References}{89}{section*.22}
+\contentsline {chapter}{\numberline {7}Adapting a Model Instance Type to Dresden OCL2 for Eclipse}{65}{chapter.7}
+\contentsline {chapter}{\numberline {8}The Logging Mechanism of Dresden OCL2 for Eclipse}{67}{chapter.8}
+\contentsline {chapter}{\numberline {9}The Extensible Test Suite of Dresden OCL2 for Eclipse}{69}{chapter.9}
+\contentsline {chapter}{\numberline {10}The Generic Meta-Model Test Suite}{71}{chapter.10}
+\contentsline {section}{\numberline {10.1}The Test Suite Plug-in}{71}{section.10.1}
+\contentsline {section}{\numberline {10.2}The required Model to test a Meta-Model}{71}{section.10.2}
+\contentsline {subsection}{\numberline {10.2.1}TestTypeClass1 and TestTypeClass2}{72}{subsection.10.2.1}
+\contentsline {subsection}{\numberline {10.2.2}TestTypeInterface1 and TestTypeInterface2}{72}{subsection.10.2.2}
+\contentsline {subsection}{\numberline {10.2.3}TestEnumeration}{74}{subsection.10.2.3}
+\contentsline {subsection}{\numberline {10.2.4}TestPrimitiveTypeClass}{74}{subsection.10.2.4}
+\contentsline {subsection}{\numberline {10.2.5}TestPropertyClass}{74}{subsection.10.2.5}
+\contentsline {subsection}{\numberline {10.2.6}TestOperationAndParameterClass}{74}{subsection.10.2.6}
+\contentsline {section}{\numberline {10.3}Instantiating the Generic Test Suite}{75}{section.10.3}
+\contentsline {section}{\numberline {10.4}Summary}{76}{section.10.4}
+\contentsline {chapter}{\numberline {11}The Generic Model Instance Type Test Suite}{77}{chapter.11}
+\contentsline {section}{\numberline {11.1}The Test Suite Plug-in}{77}{section.11.1}
+\contentsline {section}{\numberline {11.2}The required Model Instance to test a Meta-Model}{77}{section.11.2}
+\contentsline {subsection}{\numberline {11.2.1}The ContainerClass}{78}{subsection.11.2.1}
+\contentsline {subsection}{\numberline {11.2.2}Class1}{78}{subsection.11.2.2}
+\contentsline {subsection}{\numberline {11.2.3}Class2}{81}{subsection.11.2.3}
+\contentsline {subsection}{\numberline {11.2.4}Interface1, Interface2 and Interface3}{81}{subsection.11.2.4}
+\contentsline {subsection}{\numberline {11.2.5}PrimitiveTypeProviderClass, CollectionTypeProviderClass and E\discretionary {-}{}{}nu\discretionary {-}{}{}me\discretionary {-}{}{}ra\discretionary {-}{}{}tion\discretionary {-}{}{}Li\discretionary {-}{}{}te\discretionary {-}{}{}ral\discretionary {-}{}{}ProviderClass}{81}{subsection.11.2.5}
+\contentsline {subsection}{\numberline {11.2.6}StaticPropertyAndOperationClass}{81}{subsection.11.2.6}
+\contentsline {subsection}{\numberline {11.2.7}Copyable and NonCopyableClass}{82}{subsection.11.2.7}
+\contentsline {section}{\numberline {11.3}Instantiating the Generic Test Suite}{82}{section.11.3}
+\contentsline {section}{\numberline {11.4}Summary}{82}{section.11.4}
+\contentsline {part}{Appendix}{85}{section*.13}
+\contentsline {chapter}{Tables}{87}{section*.14}
+\contentsline {chapter}{List of Figures}{91}{section*.16}
+\contentsline {chapter}{List of Listings}{95}{section*.18}
+\contentsline {chapter}{List of Abbreviations}{97}{section*.20}
+\contentsline {chapter}{References}{99}{section*.22}
