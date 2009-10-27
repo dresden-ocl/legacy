@@ -43,19 +43,32 @@
 \BOOKMARK [1][-]{section.5.2}{5.2 How to access the OCL2 Parser}{chapter.5}
 \BOOKMARK [1][-]{section.5.3}{5.3 How to access the OCL2 Interpreter}{chapter.5}
 \BOOKMARK [0][-]{chapter.6}{6 Adapting a Meta-Model to the Pivot Model}{section*.9}
-\BOOKMARK [0][-]{chapter.7}{7 The Logging Mechanism of Dresden OCL2 for Eclipse}{section*.9}
-\BOOKMARK [0][-]{chapter.8}{8 The Extensible Test Suite of Dresden OCL2 for Eclipse}{section*.9}
-\BOOKMARK [0][-]{chapter.9}{9 The Generic Meta-Model Test Suite}{section*.9}
-\BOOKMARK [1][-]{section.9.1}{9.1 The Test Suite Plug-in}{chapter.9}
-\BOOKMARK [1][-]{section.9.2}{9.2 The required Model to test a Meta-Model}{chapter.9}
-\BOOKMARK [2][-]{subsection.9.2.1}{9.2.1 TestTypeClass1 and TestTypeClass2}{section.9.2}
-\BOOKMARK [2][-]{subsection.9.2.2}{9.2.2 TestTypeInterface1 and TestTypeInterface2}{section.9.2}
-\BOOKMARK [2][-]{subsection.9.2.3}{9.2.3 TestEnumeration}{section.9.2}
-\BOOKMARK [2][-]{subsection.9.2.4}{9.2.4 TestPrimitiveTypeClass}{section.9.2}
-\BOOKMARK [2][-]{subsection.9.2.5}{9.2.5 TestPropertyClass}{section.9.2}
-\BOOKMARK [2][-]{subsection.9.2.6}{9.2.6 TestOperationAndParameterClass}{section.9.2}
-\BOOKMARK [1][-]{section.9.3}{9.3 Instantiating the Generic Test Suite}{chapter.9}
-\BOOKMARK [1][-]{section.9.4}{9.4 Summary}{chapter.9}
+\BOOKMARK [0][-]{chapter.7}{7 Adapting a Model Instance Type to Dresden OCL2 for Eclipse}{section*.9}
+\BOOKMARK [0][-]{chapter.8}{8 The Logging Mechanism of Dresden OCL2 for Eclipse}{section*.9}
+\BOOKMARK [0][-]{chapter.9}{9 The Extensible Test Suite of Dresden OCL2 for Eclipse}{section*.9}
+\BOOKMARK [0][-]{chapter.10}{10 The Generic Meta-Model Test Suite}{section*.9}
+\BOOKMARK [1][-]{section.10.1}{10.1 The Test Suite Plug-in}{chapter.10}
+\BOOKMARK [1][-]{section.10.2}{10.2 The required Model to test a Meta-Model}{chapter.10}
+\BOOKMARK [2][-]{subsection.10.2.1}{10.2.1 TestTypeClass1 and TestTypeClass2}{section.10.2}
+\BOOKMARK [2][-]{subsection.10.2.2}{10.2.2 TestTypeInterface1 and TestTypeInterface2}{section.10.2}
+\BOOKMARK [2][-]{subsection.10.2.3}{10.2.3 TestEnumeration}{section.10.2}
+\BOOKMARK [2][-]{subsection.10.2.4}{10.2.4 TestPrimitiveTypeClass}{section.10.2}
+\BOOKMARK [2][-]{subsection.10.2.5}{10.2.5 TestPropertyClass}{section.10.2}
+\BOOKMARK [2][-]{subsection.10.2.6}{10.2.6 TestOperationAndParameterClass}{section.10.2}
+\BOOKMARK [1][-]{section.10.3}{10.3 Instantiating the Generic Test Suite}{chapter.10}
+\BOOKMARK [1][-]{section.10.4}{10.4 Summary}{chapter.10}
+\BOOKMARK [0][-]{chapter.11}{11 The Generic Model Instance Type Test Suite}{section*.9}
+\BOOKMARK [1][-]{section.11.1}{11.1 The Test Suite Plug-in}{chapter.11}
+\BOOKMARK [1][-]{section.11.2}{11.2 The required Model Instance to test a Meta-Model}{chapter.11}
+\BOOKMARK [2][-]{subsection.11.2.1}{11.2.1 The ContainerClass}{section.11.2}
+\BOOKMARK [2][-]{subsection.11.2.2}{11.2.2 Class1}{section.11.2}
+\BOOKMARK [2][-]{subsection.11.2.3}{11.2.3 Class2}{section.11.2}
+\BOOKMARK [2][-]{subsection.11.2.4}{11.2.4 Interface1, Interface2 and Interface3}{section.11.2}
+\BOOKMARK [2][-]{subsection.11.2.5}{11.2.5 PrimitiveTypeProviderClass, CollectionTypeProviderClass and EnumerationLiteralProviderClass}{section.11.2}
+\BOOKMARK [2][-]{subsection.11.2.6}{11.2.6 StaticPropertyAndOperationClass}{section.11.2}
+\BOOKMARK [2][-]{subsection.11.2.7}{11.2.7 Copyable and NonCopyableClass}{section.11.2}
+\BOOKMARK [1][-]{section.11.3}{11.3 Instantiating the Generic Test Suite}{chapter.11}
+\BOOKMARK [1][-]{section.11.4}{11.4 Summary}{chapter.11}
 \BOOKMARK [-1][-]{section*.13}{Appendix}{}
 \BOOKMARK [0][-]{section*.14}{Tables}{section*.13}
 \BOOKMARK [0][-]{section*.16}{List of Figures}{section*.13}
