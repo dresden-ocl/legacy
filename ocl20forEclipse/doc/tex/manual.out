@@ -33,7 +33,14 @@
 \BOOKMARK [-1][-]{section*.9}{Development with Dresden OCL2 for Eclipse}{}
 \BOOKMARK [0][-]{chapter.4}{4 The Architecture of Dresden OCL2 for Eclipse}{section*.9}
 \BOOKMARK [1][-]{section.4.1}{4.1 The Generic Three Layer Metadata Architecture}{chapter.4}
-\BOOKMARK [1][-]{section.4.2}{4.2 The Toolkit's Architecture}{chapter.4}
+\BOOKMARK [1][-]{section.4.2}{4.2 The Toolkit's Package Architecture}{chapter.4}
+\BOOKMARK [1][-]{section.4.3}{4.3 Dresden OCL2 for Eclipse and the Generic Three Layer Metadata Architecture}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.3.1}{4.3.1 The Adaptation of Meta-Models, Models and Model Instances}{section.4.3}
+\BOOKMARK [2][-]{subsection.4.3.2}{4.3.2 How Meta-Models and Models are Adapted}{section.4.3}
+\BOOKMARK [2][-]{subsection.4.3.3}{4.3.3 How Model Instances are Adapted}{section.4.3}
+\BOOKMARK [2][-]{subsection.4.3.4}{4.3.4 Essential OCL and OCL Constraints}{section.4.3}
+\BOOKMARK [2][-]{subsection.4.3.5}{4.3.5 The OCL Standard Library}{section.4.3}
+\BOOKMARK [1][-]{section.4.4}{4.4 Summary}{chapter.4}
 \BOOKMARK [0][-]{chapter.5}{5 How to integrate Dresden OCL2 for Eclipse}{section*.9}
 \BOOKMARK [1][-]{section.5.1}{5.1 How to access Meta-Models, Models and Instances}{chapter.5}
 \BOOKMARK [2][-]{subsection.5.1.1}{5.1.1 The Meta-Model Registry}{section.5.1}
@@ -69,9 +76,9 @@
 \BOOKMARK [2][-]{subsection.11.2.7}{11.2.7 Copyable and NonCopyableClass}{section.11.2}
 \BOOKMARK [1][-]{section.11.3}{11.3 Instantiating the Generic Test Suite}{chapter.11}
 \BOOKMARK [1][-]{section.11.4}{11.4 Summary}{chapter.11}
-\BOOKMARK [-1][-]{section*.13}{Appendix}{}
-\BOOKMARK [0][-]{section*.14}{Tables}{section*.13}
-\BOOKMARK [0][-]{section*.16}{List of Figures}{section*.13}
-\BOOKMARK [0][-]{section*.18}{List of Listings}{section*.13}
-\BOOKMARK [0][-]{section*.20}{List of Abbreviations}{section*.13}
-\BOOKMARK [0][-]{section*.22}{References}{section*.13}
+\BOOKMARK [-1][-]{section*.11}{Appendix}{}
+\BOOKMARK [0][-]{section*.12}{Tables}{section*.11}
+\BOOKMARK [0][-]{section*.14}{List of Figures}{section*.11}
+\BOOKMARK [0][-]{section*.16}{List of Listings}{section*.11}
+\BOOKMARK [0][-]{section*.18}{List of Abbreviations}{section*.11}
+\BOOKMARK [0][-]{section*.20}{References}{section*.11}
