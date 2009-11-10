@@ -22,6 +22,7 @@ package tudresden.ocl20.pivot.ocl2parser.test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
+import tudresden.ocl20.pivot.ocl2parser.test.constrainttypes.AllConstraintTypeTests;
 import tudresden.ocl20.pivot.ocl2parser.test.context.AllContextTests;
 
 /**
@@ -32,7 +33,7 @@ import tudresden.ocl20.pivot.ocl2parser.test.context.AllContextTests;
  * @author Claas Wilke
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses( { AllContextTests.class })
+@Suite.SuiteClasses( { AllConstraintTypeTests.class, AllContextTests.class })
 public class AllTests {
 	/*
 	 * This class remains completely empty, being used only as a holder for the

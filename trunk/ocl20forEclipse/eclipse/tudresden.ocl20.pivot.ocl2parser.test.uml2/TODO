@@ -1,17 +1,23 @@
 Implemented Test Packages:
-
+==========================
 * Namespace and Context
-  + Package Expression
-    - Positives and Negatives
   + Context Expressions
     - Positives and Negatives (Types and Operation contexts)
-    
-    TODO
     - Multiple result context unique/ordered -> Set, OrderedSet etc.
+  + Package Expression
+    - Positives and Negatives
+* Constraint Types
+  + Invariants
 
+TODO
+  + Preconditions
+  + Postconditions
+  + Definitions
+  + Bodies
+  + Derives
 
 Planned Test Packages:
-
+======================
 * Expressions
   - Literal Expressions
     + Collection Literal Expressions
@@ -28,10 +34,3 @@ Planned Test Packages:
   - VariableExpressions
     + Special Postcondtions Variables
       - result
-* Constraint Types
-  + Preconditions
-  + Postconditions
-  + Invariants
-  + Definitions
-  + Bodies
-  + Derives

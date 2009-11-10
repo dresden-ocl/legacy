@@ -17,7 +17,7 @@ You should have received a copy of the GNU Lesser General Public License along
 with Dresden OCL2 for Eclipse. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package tudresden.ocl20.pivot.ocl2parser.test.context;
+package tudresden.ocl20.pivot.ocl2parser.test.constrainttypes;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -36,8 +36,8 @@ import tudresden.ocl20.pivot.modelbus.model.IModel;
 /* Specify a runner class: Suite.class. */
 @RunWith(Suite.class)
 /* Specify an array of test classes. */
-@Suite.SuiteClasses( { TestContext.class, TestPackage.class })
-public class AllContextTests {
+@Suite.SuiteClasses( { TestInvariant.class })
+public class AllConstraintTypeTests {
 
 	/**
 	 * The name of the {@link Bundle} that provides the model used during testing.
