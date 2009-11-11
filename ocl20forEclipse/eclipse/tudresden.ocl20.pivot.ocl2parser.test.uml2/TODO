@@ -7,18 +7,19 @@ Implemented Test Packages:
   + Package Expression
     - Positives and Negatives
 * Constraint Types
-  + Invariants
-
-TODO
-  + Preconditions
-  + Postconditions
+  + Body Expressions
   + Definitions
-  + Bodies
-  + Derives
+  + Derive Expressions
+  + Init Expressions
+  + Invariants
+  + Postconditions
+  + Preconditions
+
 
 Planned Test Packages:
 ======================
 * Expressions
+  - LetExpressions
   - Literal Expressions
     + Collection Literal Expressions
   - OperationCallExpressions
@@ -28,9 +29,19 @@ Planned Test Packages:
     + Operations of the standard library
     + Static operations
       - allInstances()
+    + Infix Operators (Spec Section 7.4.8)
   - PropertyCallExpressions
     + static properties
   ...
   - VariableExpressions
-    + Special Postcondtions Variables
+    + Special Postcondition Variables
       - result
+    + self
+    + parameter variables
+    
+
+    
+StandardLibrary:
+================
+False IMPLIES anything is True
+• anything IMPLIES True is True

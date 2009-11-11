@@ -117,6 +117,77 @@ public class TestInvariant {
 
 	/**
 	 * <p>
+	 * A test case to parse an invariant that should be parsed appropriately.
+	 * </p>
+	 */
+	@Test
+	public void testInvariantPositive02() {
+	
+		TestPerformer testPerformer;
+	
+		String modelFileName;
+		String oclFileName;
+	
+		oclFileName = "constrainttypes/invariantPositive02.ocl";
+		modelFileName = "testmodel.uml";
+	
+		/* Try to get the TestPerformer. */
+		try {
+	
+			testPerformer =
+					TestPerformer.getInstance(AllConstraintTypeTests.META_MODEL_ID,
+							AllConstraintTypeTests.MODEL_BUNDLE,
+							AllConstraintTypeTests.MODEL_DIRECTORY);
+			testPerformer.setModel(modelFileName);
+	
+			/* Try to parse the constraint file. */
+			try {
+				testPerformer.parseFile(oclFileName);
+			}
+	
+			catch (FileNotFoundException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (ParsingException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (LexException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (IOException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (BuildingASTException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (SemanticException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+			// end catch.
+		}
+		// end try.
+	
+		catch (MetaModelNotFoundException e) {
+			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
+		}
+	
+		catch (FileNotFoundException e) {
+			fail("Lacking file resources. Reason: " + e.getMessage());
+		}
+	
+		catch (ModelAccessException e) {
+			fail("Couldn't set Model. Reason: " + e.getMessage());
+		}
+		// end catch.
+	}
+
+	/**
+	 * <p>
 	 * A test case to parse an invariant that should not be parsed appropriately.
 	 * </p>
 	 */
@@ -255,6 +326,79 @@ public class TestInvariant {
 			fail("Lacking file resources. Reason: " + e.getMessage());
 		}
 
+		catch (ModelAccessException e) {
+			fail("Couldn't set Model. Reason: " + e.getMessage());
+		}
+		// end catch.
+	}
+
+	/**
+	 * <p>
+	 * A test case to parse an invariant that should not be parsed appropriately.
+	 * </p>
+	 */
+	@Test
+	public void testInvariantNegative03() {
+	
+		TestPerformer testPerformer;
+	
+		String modelFileName;
+		String oclFileName;
+	
+		oclFileName = "constrainttypes/invariantNegative03.ocl";
+		modelFileName = "testmodel.uml";
+	
+		/* Try to get the TestPerformer. */
+		try {
+	
+			testPerformer =
+					TestPerformer.getInstance(AllConstraintTypeTests.META_MODEL_ID,
+							AllConstraintTypeTests.MODEL_BUNDLE,
+							AllConstraintTypeTests.MODEL_DIRECTORY);
+			testPerformer.setModel(modelFileName);
+	
+			/* Try to parse the constraint file. */
+			try {
+				testPerformer.parseFile(oclFileName);
+	
+				fail("Expected SemanticException was not thrown.");
+			}
+	
+			catch (FileNotFoundException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (ParsingException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (LexException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (IOException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (BuildingASTException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (SemanticException e) {
+				/* Expected Exception. */
+			}
+			// end catch.
+		}
+		// end try.
+	
+		catch (MetaModelNotFoundException e) {
+			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
+		}
+	
+		catch (FileNotFoundException e) {
+			fail("Lacking file resources. Reason: " + e.getMessage());
+		}
+	
 		catch (ModelAccessException e) {
 			fail("Couldn't set Model. Reason: " + e.getMessage());
 		}

@@ -1669,4 +1669,220 @@ public class TestContext {
 		}
 		// end catch.
 	}
+
+	/**
+	 * <p>
+	 * A test case to parse a context that should not be parsed appropriately.
+	 * </p>
+	 */
+	@Test
+	public void testContextNegative09() {
+	
+		TestPerformer testPerformer;
+	
+		String modelFileName;
+		String oclFileName;
+	
+		oclFileName = "context/contextNegative09.ocl";
+		modelFileName = "testmodel.uml";
+	
+		/* Try to get the TestPerformer. */
+		try {
+	
+			testPerformer =
+					TestPerformer.getInstance(AllContextTests.META_MODEL_ID,
+							AllContextTests.MODEL_BUNDLE, AllContextTests.MODEL_DIRECTORY);
+			testPerformer.setModel(modelFileName);
+	
+			/* Try to parse the constraint file. */
+			try {
+				testPerformer.parseFile(oclFileName);
+	
+				fail("Expected SemanticException was not thrown.");
+			}
+	
+			catch (FileNotFoundException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (ParsingException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (LexException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (IOException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (BuildingASTException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (SemanticException e) {
+				/* Expected Exception. */
+			}
+			// end catch.
+		}
+		// end try.
+	
+		catch (MetaModelNotFoundException e) {
+			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
+		}
+	
+		catch (FileNotFoundException e) {
+			fail("Lacking file resources. Reason: " + e.getMessage());
+		}
+	
+		catch (ModelAccessException e) {
+			fail("Couldn't set Model. Reason: " + e.getMessage());
+		}
+		// end catch.
+	}
+
+	/**
+	 * <p>
+	 * A test case to parse a context that should not be parsed appropriately.
+	 * </p>
+	 */
+	@Test
+	public void testContextNegative10() {
+	
+		TestPerformer testPerformer;
+	
+		String modelFileName;
+		String oclFileName;
+	
+		oclFileName = "context/contextNegative10.ocl";
+		modelFileName = "testmodel.uml";
+	
+		/* Try to get the TestPerformer. */
+		try {
+	
+			testPerformer =
+					TestPerformer.getInstance(AllContextTests.META_MODEL_ID,
+							AllContextTests.MODEL_BUNDLE, AllContextTests.MODEL_DIRECTORY);
+			testPerformer.setModel(modelFileName);
+	
+			/* Try to parse the constraint file. */
+			try {
+				testPerformer.parseFile(oclFileName);
+	
+				fail("Expected SemanticException was not thrown.");
+			}
+	
+			catch (FileNotFoundException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (ParsingException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (LexException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (IOException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (BuildingASTException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (SemanticException e) {
+				/* Expected Exception. */
+			}
+			// end catch.
+		}
+		// end try.
+	
+		catch (MetaModelNotFoundException e) {
+			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
+		}
+	
+		catch (FileNotFoundException e) {
+			fail("Lacking file resources. Reason: " + e.getMessage());
+		}
+	
+		catch (ModelAccessException e) {
+			fail("Couldn't set Model. Reason: " + e.getMessage());
+		}
+		// end catch.
+	}
+
+	/**
+	 * <p>
+	 * A test case to parse a context that should not be parsed appropriately.
+	 * </p>
+	 */
+	@Test
+	public void testContextNegative11() {
+	
+		TestPerformer testPerformer;
+	
+		String modelFileName;
+		String oclFileName;
+	
+		oclFileName = "context/contextNegative11.ocl";
+		modelFileName = "testmodel.uml";
+	
+		/* Try to get the TestPerformer. */
+		try {
+	
+			testPerformer =
+					TestPerformer.getInstance(AllContextTests.META_MODEL_ID,
+							AllContextTests.MODEL_BUNDLE, AllContextTests.MODEL_DIRECTORY);
+			testPerformer.setModel(modelFileName);
+	
+			/* Try to parse the constraint file. */
+			try {
+				testPerformer.parseFile(oclFileName);
+	
+				fail("Expected SemanticException was not thrown.");
+			}
+	
+			catch (FileNotFoundException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (ParsingException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (LexException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (IOException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (BuildingASTException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+	
+			catch (SemanticException e) {
+				/* Expected Exception. */
+			}
+			// end catch.
+		}
+		// end try.
+	
+		catch (MetaModelNotFoundException e) {
+			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
+		}
+	
+		catch (FileNotFoundException e) {
+			fail("Lacking file resources. Reason: " + e.getMessage());
+		}
+	
+		catch (ModelAccessException e) {
+			fail("Couldn't set Model. Reason: " + e.getMessage());
+		}
+		// end catch.
+	}
 }
