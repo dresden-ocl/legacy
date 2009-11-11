@@ -36,7 +36,9 @@ import tudresden.ocl20.pivot.modelbus.model.IModel;
 /* Specify a runner class: Suite.class. */
 @RunWith(Suite.class)
 /* Specify an array of test classes. */
-@Suite.SuiteClasses( { TestInvariant.class })
+@Suite.SuiteClasses( { TestBody.class, TestDefinition.class, TestDerive.class,
+		TestInit.class, TestInvariant.class, TestPostcondition.class,
+		TestPrecondition.class })
 public class AllConstraintTypeTests {
 
 	/**

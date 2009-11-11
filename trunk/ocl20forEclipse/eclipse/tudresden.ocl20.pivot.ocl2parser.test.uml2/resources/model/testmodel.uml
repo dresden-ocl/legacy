@@ -65,4 +65,5 @@
       <ownedOperation xmi:id="_W3BXcM20Ed62LvZ-4azseA" name="getVoid"/>
     </packagedElement>
   </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_m086EM6AEd6qLaARTezfFw" name="Type2"/>
 </uml:Package>
