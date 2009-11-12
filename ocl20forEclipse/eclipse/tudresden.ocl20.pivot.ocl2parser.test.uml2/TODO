@@ -1,11 +1,5 @@
 Implemented Test Packages:
 ==========================
-* Namespace and Context
-  + Context Expressions
-    - Positives and Negatives (Types and Operation contexts)
-    - Multiple result context unique/ordered -> Set, OrderedSet etc.
-  + Package Expression
-    - Positives and Negatives
 * Constraint Types
   + Body Expressions
   + Definitions
@@ -14,34 +8,59 @@ Implemented Test Packages:
   + Invariants
   + Postconditions
   + Preconditions
+* Namespace and Context
+  + Context Expressions
+    - Positives and Negatives (Types and Operation contexts)
+    - Multiple result context unique/ordered -> Set, OrderedSet etc.
+  + Package Expression
+    - Positives and Negatives
+* Expressions
+  + BooleanLiteralExp
+  + CollectionLiteralExpression
+    - Standard Init
+    - Ranges
+  + EnumLiteralExp
+  + IntegerLiteralExp
+  + RealLiteralExp
+  + StringLiteralExp
+  + TupleLiteralExp
 
 
 Planned Test Packages:
 ======================
 * Expressions
-  - LetExpressions
-  - Literal Expressions
-    + Collection Literal Expressions
-  - OperationCallExpressions
+  + IfExp
+  + IterateExp
+  + IteratorExp
+  + LetExp
+  + OperationCallExp
     + Special Postcondition Operations
       - @pre
       - oclIsNew()
     + Operations of the standard library
     + Static operations
-      - allInstances()
+      - allInstances() (uses . Operator!!!)
     + Infix Operators (Spec Section 7.4.8)
-  - PropertyCallExpressions
+  + PropertyCallExp
     + static properties
+    + When the name of an association-end is missing at one of the ends of an association, the name of the type at the
+association end starting with a lowercase character is used as the rolename.
   ...
-  - VariableExpressions
+  + TypeLiteralExp
+  + VariableExp
     + Special Postcondition Variables
       - result
     + self
     + parameter variables
+* StandardLibraryOperations      
     
+
+Continue reading Standard from Chapter 8
 
     
 StandardLibrary:
 ================
-False IMPLIES anything is True
-• anything IMPLIES True is True
+False IMPLIES anything is True, anything IMPLIES True is True
+
+The IF-expression is another exception. It will be valid as long as 
+the chosen branch is valid, irrespective of the value of the other branch.

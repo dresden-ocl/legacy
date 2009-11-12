@@ -1,4 +1,4 @@
-package tudresden::ocl20::pivot::examples::royalsandloyals
+package package1::package2
 
 -- Parsing should fail. Range expression is only valid for Integers.
 context Customer
