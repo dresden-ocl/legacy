@@ -20,15 +20,22 @@
       <ownedAttribute xmi:id="_SKm5YM25Ed62LvZ-4azseA" name="anOrderedSet" type="_RZqW4M20Ed62LvZ-4azseA" isOrdered="true">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SKm5Yc25Ed62LvZ-4azseA" value="*"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_anMDAM9MEd6fXa3ug6sYeg" name="aReal">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_METAMODELS/Ecore.metamodel.uml#EFloat"/>
+      </ownedAttribute>
       <ownedAttribute xmi:id="_Qe2iMM25Ed62LvZ-4azseA" name="aSequence" type="_RZqW4M20Ed62LvZ-4azseA" isOrdered="true" isUnique="false">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Qe2iMc25Ed62LvZ-4azseA" value="*"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_OwKLwM25Ed62LvZ-4azseA" name="aSet" type="_RZqW4M20Ed62LvZ-4azseA">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OwKLwc25Ed62LvZ-4azseA" value="*"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_uCRtQM9NEd6fXa3ug6sYeg" name="aString">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
       <ownedAttribute xmi:id="_0BVjQM25Ed62LvZ-4azseA" name="aType1" type="_RZqW4M20Ed62LvZ-4azseA">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0BVjQc25Ed62LvZ-4azseA" value="1"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_119E8M9NEd6fXa3ug6sYeg" name="anEnumeration1" type="_eotpoM9KEd6fXa3ug6sYeg"/>
       <ownedOperation xmi:id="_G5vUAM23Ed62LvZ-4azseA" name="addInteger">
         <ownedParameter xmi:id="_JjTXQM23Ed62LvZ-4azseA" name="anInt">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
@@ -63,6 +70,10 @@
         <ownedParameter xmi:id="_uoawEM20Ed62LvZ-4azseA" type="_RZqW4M20Ed62LvZ-4azseA" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:id="_W3BXcM20Ed62LvZ-4azseA" name="getVoid"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_eotpoM9KEd6fXa3ug6sYeg" name="Enumeration1">
+      <ownedLiteral xmi:id="_fPZPIM9KEd6fXa3ug6sYeg" name="Literal1"/>
+      <ownedLiteral xmi:id="_fmbPEM9KEd6fXa3ug6sYeg" name="Literal2"/>
     </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_m086EM6AEd6qLaARTezfFw" name="Type2"/>
