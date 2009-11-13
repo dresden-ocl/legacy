@@ -21,41 +21,44 @@ Implemented Test Packages:
     - Ranges
   + EnumLiteralExp
   + IntegerLiteralExp
+  + IfExp
+  + LetExp
+  + PropertyCallExp
+    + obligatory self
+    + static properties
+    + When the name of an association-end is missing at one of the ends of an
+      association, the name of the type at the association end starting with a
+      lower case character is used as the role name.
   + RealLiteralExp
   + StringLiteralExp
   + TupleLiteralExp
+  + TypeLiteralExp
+  + VariableExp
+    + self
+    + argument variables if context is operation
+    + result variable
 
 
 Planned Test Packages:
 ======================
 * Expressions
-  + IfExp
   + IterateExp
   + IteratorExp
-  + LetExp
   + OperationCallExp
     + Special Postcondition Operations
       - @pre
+        + wenn ein statisches Attribut aufgerufen wird, darf dahinter kein @pre stehen. Diese Prüfung wurde noch nicht durchgeführt.
       - oclIsNew()
     + Operations of the standard library
     + Static operations
       - allInstances() (uses . Operator!!!)
     + Infix Operators (Spec Section 7.4.8)
-  + PropertyCallExp
-    + static properties
-    + When the name of an association-end is missing at one of the ends of an association, the name of the type at the
-association end starting with a lowercase character is used as the rolename.
-  ...
-  + TypeLiteralExp
-  + VariableExp
-    + Special Postcondition Variables
-      - result
-    + self
-    + parameter variables
+    + Obligatory self
+
 * StandardLibraryOperations      
     
 
-Continue reading Standard from Chapter 8
+Continue reading Standard from Chapter 9
 
     
 StandardLibrary:

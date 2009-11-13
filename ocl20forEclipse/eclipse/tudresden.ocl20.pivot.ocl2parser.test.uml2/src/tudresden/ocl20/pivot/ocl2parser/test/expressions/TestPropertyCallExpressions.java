@@ -36,29 +36,28 @@ import tudresden.ocl20.pivot.ocl2parser.test.exception.MetaModelNotFoundExceptio
 
 /**
  * <p>
- * Contains test cases that check that CollectionLiteralExpressions are parsed
+ * Contains test cases that check that PropertyCallExpressions are parsed
  * appropriately.
  * </p>
  * 
  * @author Claas Wilke
  */
-public class TestCollectionLiterals {
+public class TestPropertyCallExpressions {
 
 	/**
 	 * <p>
-	 * A test case to check that a CollectionLiteralExpression is parsed
-	 * appropriately.
+	 * A test case to check that a PropertyCallExpression is parsed appropriately.
 	 * </p>
 	 */
 	@Test
-	public void testCollectionPositive01() {
+	public void testPropertyCallExpressionPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "expressions/literals/collectionPositive01.ocl";
+		oclFileName = "expressions/calls/propertyPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -118,19 +117,18 @@ public class TestCollectionLiterals {
 
 	/**
 	 * <p>
-	 * A test case to check that a CollectionLiteralExpression is parsed
-	 * appropriately.
+	 * A test case to check that a PropertyCallExpression is parsed appropriately.
 	 * </p>
 	 */
 	@Test
-	public void testCollectionPositive02() {
+	public void testPropertyCallExpressionPositive02() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "expressions/literals/collectionPositive02.ocl";
+		oclFileName = "expressions/calls/propertyPositive02.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -190,19 +188,18 @@ public class TestCollectionLiterals {
 
 	/**
 	 * <p>
-	 * A test case to check that a CollectionLiteralExpression is parsed
-	 * appropriately.
+	 * A test case to check that a PropertyCallExpression is parsed appropriately.
 	 * </p>
 	 */
 	@Test
-	public void testCollectionPositive03() {
+	public void testPropertyCallExpressionPositive03() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "expressions/literals/collectionPositive03.ocl";
+		oclFileName = "expressions/calls/propertyPositive03.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -262,19 +259,18 @@ public class TestCollectionLiterals {
 
 	/**
 	 * <p>
-	 * A test case to check that a CollectionLiteralExpression is parsed
-	 * appropriately.
+	 * A test case to check that a PropertyCallExpression is parsed appropriately.
 	 * </p>
 	 */
 	@Test
-	public void testCollectionPositive04() {
+	public void testPropertyCallExpressionPositive04() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "expressions/literals/collectionPositive04.ocl";
+		oclFileName = "expressions/calls/propertyPositive04.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -334,307 +330,19 @@ public class TestCollectionLiterals {
 
 	/**
 	 * <p>
-	 * A test case to check that a CollectionLiteralExpression is parsed
+	 * A test case to check that a PropertyCallExpression is not parsed
 	 * appropriately.
 	 * </p>
 	 */
 	@Test
-	public void testCollectionPositive05() {
+	public void testPropertyCallExpressionNegative01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "expressions/literals/collectionPositive05.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllExpressionTests.META_MODEL_ID,
-							AllExpressionTests.MODEL_BUNDLE,
-							AllExpressionTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case to check that a CollectionLiteralExpression is parsed
-	 * appropriately.
-	 * </p>
-	 */
-	@Test
-	public void testCollectionPositive06() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "expressions/literals/collectionPositive06.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllExpressionTests.META_MODEL_ID,
-							AllExpressionTests.MODEL_BUNDLE,
-							AllExpressionTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case to check that a CollectionLiteralExpression is parsed
-	 * appropriately.
-	 * </p>
-	 */
-	@Test
-	public void testCollectionPositive07() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "expressions/literals/collectionPositive07.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllExpressionTests.META_MODEL_ID,
-							AllExpressionTests.MODEL_BUNDLE,
-							AllExpressionTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case to check that a CollectionLiteralExpression is parsed
-	 * appropriately.
-	 * </p>
-	 */
-	@Test
-	public void testCollectionPositive08() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "expressions/literals/collectionPositive08.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllExpressionTests.META_MODEL_ID,
-							AllExpressionTests.MODEL_BUNDLE,
-							AllExpressionTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case to check that a CollectionLiteralExpression is not parsed
-	 * appropriately.
-	 * </p>
-	 */
-	@Test
-	public void testCollectionNegative01() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "expressions/literals/collectionNegative01.ocl";
+		oclFileName = "expressions/calls/propertyNegative01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -696,19 +404,19 @@ public class TestCollectionLiterals {
 
 	/**
 	 * <p>
-	 * A test case to check that a CollectionLiteralExpression is not parsed
+	 * A test case to check that a PropertyCallExpression is not parsed
 	 * appropriately.
 	 * </p>
 	 */
 	@Test
-	public void testCollectionNegative02() {
+	public void testPropertyCallExpressionNegative02() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "expressions/literals/collectionNegative02.ocl";
+		oclFileName = "expressions/calls/propertyNegative02.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -770,167 +478,19 @@ public class TestCollectionLiterals {
 
 	/**
 	 * <p>
-	 * A test case to check that a CollectionLiteralExpression is not parsed
+	 * A test case to check that a PropertyCallExpression is not parsed
 	 * appropriately.
 	 * </p>
 	 */
 	@Test
-	public void testCollectionNegative03() {
+	public void testPropertyCallExpressionNegative03() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "expressions/literals/collectionNegative03.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllExpressionTests.META_MODEL_ID,
-							AllExpressionTests.MODEL_BUNDLE,
-							AllExpressionTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-
-				fail("Expected SemanticException was not thrown.");
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				/* Expected exception. */
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case to check that a CollectionLiteralExpression is not parsed
-	 * appropriately.
-	 * </p>
-	 */
-	@Test
-	public void testCollectionNegative04() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "expressions/literals/collectionNegative04.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllExpressionTests.META_MODEL_ID,
-							AllExpressionTests.MODEL_BUNDLE,
-							AllExpressionTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-
-				fail("Expected SemanticException was not thrown.");
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				/* Expected exception. */
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case to check that a CollectionLiteralExpression is not parsed
-	 * appropriately.
-	 * </p>
-	 */
-	@Test
-	public void testCollectionNegative05() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "expressions/literals/collectionNegative05.ocl";
+		oclFileName = "expressions/calls/propertyNegative03.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
