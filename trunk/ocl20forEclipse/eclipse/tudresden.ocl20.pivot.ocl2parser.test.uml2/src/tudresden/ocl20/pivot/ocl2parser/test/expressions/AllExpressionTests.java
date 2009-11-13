@@ -37,8 +37,11 @@ import tudresden.ocl20.pivot.modelbus.model.IModel;
 @RunWith(Suite.class)
 /* Specify an array of test classes. */
 @Suite.SuiteClasses( { TestBooleanLiterals.class, TestCollectionLiterals.class,
-		TestEnumerationLiterals.class, TestIntegerLiterals.class,
-		TestRealLiterals.class, TestStringLiterals.class, TestTupleLiterals.class })
+		TestEnumerationLiterals.class, TestIfExpressions.class,
+		TestIntegerLiterals.class, TestLetExpressions.class,
+		TestPropertyCallExpressions.class, TestRealLiterals.class,
+		TestStringLiterals.class, TestTupleLiterals.class,
+		TestTypeExpressions.class, TestVariableExpressions.class })
 public class AllExpressionTests {
 
 	/**

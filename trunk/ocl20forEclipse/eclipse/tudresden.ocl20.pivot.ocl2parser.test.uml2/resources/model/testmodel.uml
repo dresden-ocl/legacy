@@ -11,6 +11,9 @@
       <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </elementImport>
     <packagedElement xmi:type="uml:Class" xmi:id="_RZqW4M20Ed62LvZ-4azseA" name="Type1">
+      <ownedAttribute xmi:id="_kwpasNAaEd6PYac_wyQCoQ" name="aStaticInteger" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
       <ownedAttribute xmi:id="_1lAK4M24Ed62LvZ-4azseA" name="anInteger">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
@@ -74,6 +77,10 @@
     <packagedElement xmi:type="uml:Enumeration" xmi:id="_eotpoM9KEd6fXa3ug6sYeg" name="Enumeration1">
       <ownedLiteral xmi:id="_fPZPIM9KEd6fXa3ug6sYeg" name="Literal1"/>
       <ownedLiteral xmi:id="_fmbPEM9KEd6fXa3ug6sYeg" name="Literal2"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_ITxU8NAbEd6PYac_wyQCoQ" name="type1type2association" memberEnd="_LCLb8NAbEd6PYac_wyQCoQ _NYbhoNAbEd6PYac_wyQCoQ">
+      <ownedEnd xmi:id="_LCLb8NAbEd6PYac_wyQCoQ" name="" type="_RZqW4M20Ed62LvZ-4azseA" association="_ITxU8NAbEd6PYac_wyQCoQ"/>
+      <ownedEnd xmi:id="_NYbhoNAbEd6PYac_wyQCoQ" type="_m086EM6AEd6qLaARTezfFw" association="_ITxU8NAbEd6PYac_wyQCoQ"/>
     </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_m086EM6AEd6qLaARTezfFw" name="Type2"/>
