@@ -8,12 +8,6 @@ Implemented Test Packages:
   + Invariants
   + Postconditions
   + Preconditions
-* Namespace and Context
-  + Context Expressions
-    - Positives and Negatives (Types and Operation contexts)
-    - Multiple result context unique/ordered -> Set, OrderedSet etc.
-  + Package Expression
-    - Positives and Negatives
 * Expressions
   + BooleanLiteralExp
   + CollectionLiteralExpression
@@ -22,9 +16,20 @@ Implemented Test Packages:
   + EnumLiteralExp
   + IntegerLiteralExp
   + IfExp
+  + IterateExp
+  + (IteratorExp are tested with the standard library, because they are just
+     predefined IterateExpressions)
   + LetExp
+  + OperationCallExp
+    + obligatory self variable
+    + obligatory asSet() operation for non-collection types
+    + static operations
+    + special operation allInstances() (uses . Operator!!!)
+    + special operation @pre
+      * non allowed on static properties
+      * only allowed in postconditions.
   + PropertyCallExp
-    + obligatory self
+    + obligatory self variable
     + static properties
     + When the name of an association-end is missing at one of the ends of an
       association, the name of the type at the association end starting with a
@@ -37,29 +42,24 @@ Implemented Test Packages:
     + self
     + argument variables if context is operation
     + result variable
+* Namespace and Context
+  + Context Expressions
+    - Positives and Negatives (Types and Operation contexts)
+    - Multiple result context unique/ordered -> Set, OrderedSet etc.
+  + Package Expression
+    - Positives and Negatives
 
 
 Planned Test Packages:
 ======================
-* Expressions
-  + IterateExp
-  + IteratorExp
-  + OperationCallExp
-    + Special Postcondition Operations
-      - @pre
-        + wenn ein statisches Attribut aufgerufen wird, darf dahinter kein @pre stehen. Diese Prüfung wurde noch nicht durchgeführt.
-      - oclIsNew()
-    + Operations of the standard library
-    + Static operations
-      - allInstances() (uses . Operator!!!)
+* StandardLibrary      
     + Infix Operators (Spec Section 7.4.8)
-    + Obligatory self
-
-* StandardLibraryOperations      
     
-
 Continue reading Standard from Chapter 9
 
+Readme?
+Manifest
+Add to general test suite?
     
 StandardLibrary:
 ================
