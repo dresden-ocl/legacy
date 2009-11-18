@@ -48,14 +48,37 @@ Implemented Test Packages:
     - Multiple result context unique/ordered -> Set, OrderedSet etc.
   + Package Expression
     - Positives and Negatives
-
-
-Planned Test Packages:
-======================
 * StandardLibrary      
+  + OclAny
+    - a.=(b), a = b
+    - a.<>(b), a <> b
+    - oclAsType(Type)
+    - oclIsInvalid()
+    - oclIsKindOf(Type)
+    - oclIsNew()
+      * only in postconditions valid
+    - oclIsTypeOf(Type)
+    - oclIsUndefined()
+
+
+Planned Test Cases:
+===================
+* StandardLibrary      
+  + OclInvalid
+    - oclType() (OCL 2.1)
+...    
+  
     + Infix Operators (Spec Section 7.4.8)
+      - +
+      - -
+      - *
+      - /
+      - <
+      - >
+      - <=
+      - >=
     
-Continue reading Standard from Chapter 9
+Continue reading Standard from Chapter 11.4
 
 Readme?
 Manifest
