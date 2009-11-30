@@ -36,28 +36,28 @@ import tudresden.ocl20.pivot.ocl2parser.test.exception.MetaModelNotFoundExceptio
 
 /**
  * <p>
- * Contains test cases that check that all operations defined on the type OclAny
+ * Contains test cases that check that all operations defined on the type Real
  * are parsed appropriately.
  * </p>
  * 
  * @author Claas Wilke
  */
-public class TestOclAny {
+public class TestReal {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.=()</code>.
+	 * A test case testing the method <code>Real.abs()</code>.
 	 * </p>
 	 */
 	@Test
-	public void testEqualsPositive01() {
+	public void testAbsPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/equalsPositive01.ocl";
+		oclFileName = "standardlibrary/real/absPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -117,18 +117,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.=()</code>.
+	 * A test case testing the method <code>Real.+(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testEqualsPositive02() {
+	public void testAddPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/equalsPositive02.ocl";
+		oclFileName = "standardlibrary/real/addPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -188,18 +188,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.=()</code>.
+	 * A test case testing the method <code>Real.+(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testEqualsPositive03() {
+	public void testAddPositive02() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/equalsPositive03.ocl";
+		oclFileName = "standardlibrary/real/addPositive02.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -259,18 +259,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.=()</code>.
+	 * A test case testing the method <code>Real./(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testEqualsPositive04() {
+	public void testDivisionPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/equalsPositive04.ocl";
+		oclFileName = "standardlibrary/real/divisionPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -330,18 +330,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.=()</code>.
+	 * A test case testing the method <code>Real./(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testEqualsPositive05() {
+	public void testDivisionPositive02() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/equalsPositive05.ocl";
+		oclFileName = "standardlibrary/real/divisionPositive02.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -401,18 +401,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.<>()</code>.
+	 * A test case testing the method <code>Real.floor()</code>.
 	 * </p>
 	 */
 	@Test
-	public void testNotEqualsPositive01() {
+	public void testFloorPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/notequalsPositive01.ocl";
+		oclFileName = "standardlibrary/real/floorPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -472,18 +472,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.<>()</code>.
+	 * A test case testing the method <code>Real.>=(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testNotEqualsPositive02() {
+	public void testGreaterThanEqualPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/notequalsPositive02.ocl";
+		oclFileName = "standardlibrary/real/greaterThanEqualPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -543,18 +543,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.<>()</code>.
+	 * A test case testing the method <code>Real.>=(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testNotEqualsPositive03() {
+	public void testGreaterThanEqualPositive02() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/notequalsPositive03.ocl";
+		oclFileName = "standardlibrary/real/greaterThanEqualPositive02.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -614,18 +614,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.<>()</code>.
+	 * A test case testing the method <code>Real.>(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testNotEqualsPositive04() {
+	public void testGreaterThanPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/notequalsPositive04.ocl";
+		oclFileName = "standardlibrary/real/greaterThanPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -685,18 +685,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.<>()</code>.
+	 * A test case testing the method <code>Real.>(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testNotEqualsPositive05() {
+	public void testGreaterThanPositive02() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/notequalsPositive05.ocl";
+		oclFileName = "standardlibrary/real/greaterThanPositive02.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -756,18 +756,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.<>()</code>.
+	 * A test case testing the method <code>Real.<=(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testNotEqualsPositive06() {
+	public void testLessThanEqualPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/notequalsPositive06.ocl";
+		oclFileName = "standardlibrary/real/lessThanEqualPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -827,18 +827,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.oclAsType()</code>.
+	 * A test case testing the method <code>Real.<=(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testOclAsTypePositive01() {
+	public void testLessThanEqualPositive02() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/asTypePositive01.ocl";
+		oclFileName = "standardlibrary/real/lessThanEqualPositive02.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -898,18 +898,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.oclAsType()</code>.
+	 * A test case testing the method <code>Real.<(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testOclAsTypePositive02() {
+	public void testLessThanPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/asTypePositive02.ocl";
+		oclFileName = "standardlibrary/real/lessThanPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -969,18 +969,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.oclAsType()</code>.
+	 * A test case testing the method <code>Real.<(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testOclAsTypePositive03() {
+	public void testLessThanPositive02() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/asTypePositive03.ocl";
+		oclFileName = "standardlibrary/real/lessThanPositive02.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -1040,18 +1040,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.oclIsInvalid()</code>.
+	 * A test case testing the method <code>Real.max(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testOclIsInvalidPositive01() {
+	public void testMaxPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/isInvalidPositive01.ocl";
+		oclFileName = "standardlibrary/real/maxPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -1111,18 +1111,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.oclIsInvalid()</code>.
+	 * A test case testing the method <code>Real.min(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testOclIsInvalidPositive02() {
+	public void testMinPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/isInvalidPositive02.ocl";
+		oclFileName = "standardlibrary/real/minPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -1182,18 +1182,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.oclIsInvalid()</code>.
+	 * A test case testing the method <code>Real.-(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testOclIsInvalidPositive03() {
+	public void testMinusPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/isInvalidPositive03.ocl";
+		oclFileName = "standardlibrary/real/minusPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -1253,18 +1253,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.oclIsKindOf(Type)</code>.
+	 * A test case testing the method <code>Real.-(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testOclIsKindOfPositive01() {
+	public void testMinusPositive02() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/isKindOfPositive01.ocl";
+		oclFileName = "standardlibrary/real/minusPositive02.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -1324,18 +1324,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.oclIsKindOf(Type)</code>.
+	 * A test case testing the method <code>Real.*(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testOclIsKindOfPositive02() {
+	public void testMultiplyPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/isKindOfPositive02.ocl";
+		oclFileName = "standardlibrary/real/multiplyPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -1395,18 +1395,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.oclIsKindOf(Type)</code>.
+	 * A test case testing the method <code>Real.*(Real)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testOclIsKindOfPositive03() {
+	public void testMultiplyPositive02() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/isKindOfPositive03.ocl";
+		oclFileName = "standardlibrary/real/multiplyPositive02.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -1466,18 +1466,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.oclIsNew()</code>.
+	 * A test case testing the method <code>Real.-()</code>.
 	 * </p>
 	 */
 	@Test
-	public void testOclIsNewPositive01() {
+	public void testNegationPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/isNewPositive01.ocl";
+		oclFileName = "standardlibrary/real/negationPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -1537,18 +1537,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.oclIsNew()</code>.
+	 * A test case testing the method <code>Real.-()</code>.
 	 * </p>
 	 */
 	@Test
-	public void testOclIsNewPositive02() {
+	public void testNegationPositive02() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/isNewPositive02.ocl";
+		oclFileName = "standardlibrary/real/negationPositive02.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -1608,18 +1608,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.oclIsNew()</code>.
+	 * A test case testing the method <code>Real.round()</code>.
 	 * </p>
 	 */
 	@Test
-	public void testOclIsNewPositive03() {
+	public void testRoundPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/oclany/isNewPositive03.ocl";
+		oclFileName = "standardlibrary/real/roundPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -1679,590 +1679,18 @@ public class TestOclAny {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>OclAny.oclIsNew()</code>.
+	 * A test case testing the method <code>Real.toString()</code>.
 	 * </p>
 	 */
 	@Test
-	public void testOclIsNewNegative01() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "standardlibrary/oclany/isNewNegative01.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
-							AllStandardLibraryTests.MODEL_BUNDLE,
-							AllStandardLibraryTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-
-				fail("Expected SemanticException was not thrown.");
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				/* Expected Exception. */
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case testing the method <code>OclAny.oclIsNew()</code>.
-	 * </p>
-	 */
-	@Test
-	public void testOclIsNewNegative02() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "standardlibrary/oclany/isNewNegative02.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
-							AllStandardLibraryTests.MODEL_BUNDLE,
-							AllStandardLibraryTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-
-				fail("Expected SemanticException was not thrown.");
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				/* Expected Exception. */
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case testing the method <code>OclAny.oclIsTypeOf(Type)</code>.
-	 * </p>
-	 */
-	@Test
-	public void testOclIsTypeOfPositive01() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "standardlibrary/oclany/isTypeOfPositive01.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
-							AllStandardLibraryTests.MODEL_BUNDLE,
-							AllStandardLibraryTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case testing the method <code>OclAny.oclIsTypeOf(Type)</code>.
-	 * </p>
-	 */
-	@Test
-	public void testOclIsTypeOfPositive02() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "standardlibrary/oclany/isTypeOfPositive02.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
-							AllStandardLibraryTests.MODEL_BUNDLE,
-							AllStandardLibraryTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case testing the method <code>OclAny.oclIsTypeOf(Type)</code>.
-	 * </p>
-	 */
-	@Test
-	public void testOclIsTypeOfPositive03() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "standardlibrary/oclany/isTypeOfPositive03.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
-							AllStandardLibraryTests.MODEL_BUNDLE,
-							AllStandardLibraryTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case testing the method <code>OclAny.oclIsUndefined()</code>.
-	 * </p>
-	 */
-	@Test
-	public void testOclIsUndefinedPositive01() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "standardlibrary/oclany/isUndefinedPositive01.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
-							AllStandardLibraryTests.MODEL_BUNDLE,
-							AllStandardLibraryTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case testing the method <code>OclAny.oclIsUndefined()</code>.
-	 * </p>
-	 */
-	@Test
-	public void testOclIsUndefinedPositive02() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "standardlibrary/oclany/isUndefinedPositive01.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
-							AllStandardLibraryTests.MODEL_BUNDLE,
-							AllStandardLibraryTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case testing the method <code>OclAny.oclIsUndefined()</code>.
-	 * </p>
-	 */
-	@Test
-	public void testOclIsUndefinedPositive03() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "standardlibrary/oclany/isUndefinedPositive01.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
-							AllStandardLibraryTests.MODEL_BUNDLE,
-							AllStandardLibraryTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case testing the method <code>OclAny.oclType()</code>.
-	 * </p>
-	 */
-	@Test
-	public void testOclTypePositive01() {
+	public void testToStringPositive01() {
 	
 		TestPerformer testPerformer;
 	
 		String modelFileName;
 		String oclFileName;
 	
-		oclFileName = "standardlibrary/oclany/typePositive01.ocl";
+		oclFileName = "standardlibrary/real/toStringPositive01.ocl";
 		modelFileName = "testmodel.uml";
 	
 		/* Try to get the TestPerformer. */

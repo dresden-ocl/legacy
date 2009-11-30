@@ -49,6 +49,18 @@ Implemented Test Packages:
   + Package Expression
     - Positives and Negatives
 * StandardLibrary      
+  + Integer
+    - a.-(), -a
+    - a.+(b), a + b
+    - a.-(b), a - b
+    - a.*(b), a * b
+    - a./(b), a / b (result type is real)
+    - abs()
+    - a.div(b) (result type is integer)
+    - a.mod(b)
+    - a.max(b)
+    - a.min(b)
+    - toString() (OCL 2.1)
   + OclAny
     - a.=(b), a = b
     - a.<>(b), a <> b
@@ -59,26 +71,46 @@ Implemented Test Packages:
       * only in postconditions valid
     - oclIsTypeOf(Type)
     - oclIsUndefined()
+    - oclType() (OCL 2.1)
+  + Real
+    - a.+(b), a + b
+    - a.-(b), a - b
+    - a.*(b), a * b
+    - a.-(), -a
+    - a./(b), a / b
+    - a.<(b), a < b
+    - a.>(b), a > b 
+    - a.<=(b), a <= b
+    - a.>=(b), a >= b
+    - abs()
+    - floor()
+    - a.max(b)
+    - a.min(b)
+    - round()
+    - toString() (OCL 2.1)
 
 
 Planned Test Cases:
 ===================
 * StandardLibrary      
-  + OclInvalid
-    - oclType() (OCL 2.1)
+  + String
+    a.(b), a + b
+    at(Integer) (OCL 2.1)
+    characters(): Sequence(String) (OCL 2.1)
+    concat(String)
+    equalsIgnoreCase(String) (OCL 2.1)
+    indexOf(String) (OCL 2.1) (index starts with 1)
+    size()
+    substring(lower, upper), (lower starts with 1)
+    toBoolean() (OCL 2.1)
+    toInteger()
+    toReal()
+    toLowerCase() (OCL 2.1)
+    toUpperCase() (OCL 2.1)
 ...    
   
-    + Infix Operators (Spec Section 7.4.8)
-      - +
-      - -
-      - *
-      - /
-      - <
-      - >
-      - <=
-      - >=
     
-Continue reading Standard from Chapter 11.4
+Continue reading Standard from Chapter 11.5.4
 
 Readme?
 Manifest
@@ -90,3 +122,5 @@ False IMPLIES anything is True, anything IMPLIES True is True
 
 The IF-expression is another exception. It will be valid as long as 
 the chosen branch is valid, irrespective of the value of the other branch.
+OclVoid = object is true, if object is undefined (Spec 2.1 p. 140)
+OclInvalid = object is true, if object is invalid (Spec 2.1 p. 140)

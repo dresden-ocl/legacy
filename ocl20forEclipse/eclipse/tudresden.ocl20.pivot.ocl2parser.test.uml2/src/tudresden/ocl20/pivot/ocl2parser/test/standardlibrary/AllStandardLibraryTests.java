@@ -36,7 +36,7 @@ import tudresden.ocl20.pivot.modelbus.model.IModel;
 /* Specify a runner class: Suite.class. */
 @RunWith(Suite.class)
 /* Specify an array of test classes. */
-@Suite.SuiteClasses( { TestOclAny.class })
+@Suite.SuiteClasses( { TestOclAny.class, TestInteger.class, TestReal.class })
 public class AllStandardLibraryTests {
 
 	/**
