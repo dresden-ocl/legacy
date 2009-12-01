@@ -37,27 +37,27 @@ import tudresden.ocl20.pivot.ocl2parser.test.exception.MetaModelNotFoundExceptio
 /**
  * <p>
  * Contains test cases that check that all operations defined on the type
- * Integer are parsed appropriately.
+ * Boolean are parsed appropriately.
  * </p>
  * 
  * @author Claas Wilke
  */
-public class TestInteger {
+public class TestBoolean {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.abs()</code>.
+	 * A test case testing the method <code>Boolean.and(Boolean)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testAbsPositive01() {
+	public void testAndPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/absPositive01.ocl";
+		oclFileName = "standardlibrary/boolean/andPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -117,18 +117,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.+(Integer)</code>.
+	 * A test case testing the method <code>Boolean.and(Boolean)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testAddPositive01() {
+	public void testAndPositive02() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/addPositive01.ocl";
+		oclFileName = "standardlibrary/boolean/andPositive02.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -188,18 +188,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.+(Integer)</code>.
+	 * A test case testing the method <code>Boolean.implies(Boolean)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testAddPositive02() {
+	public void testImpliesPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/addPositive02.ocl";
+		oclFileName = "standardlibrary/boolean/impliesPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -259,18 +259,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.div(Integer)</code>.
+	 * A test case testing the method <code>Boolean.implies(Boolean)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testDivPositive01() {
+	public void testImpliesPositive02() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/divPositive01.ocl";
+		oclFileName = "standardlibrary/boolean/impliesPositive02.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -330,18 +330,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer./(Integer)</code>.
+	 * A test case testing the method <code>not Boolean</code>.
 	 * </p>
 	 */
 	@Test
-	public void testDivisionPositive01() {
+	public void testNotPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/divisionPositive01.ocl";
+		oclFileName = "standardlibrary/boolean/notPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -401,18 +401,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer./(Integer)</code>.
+	 * A test case testing the method <code>not Boolean</code>.
 	 * </p>
 	 */
 	@Test
-	public void testDivisionPositive02() {
+	public void testNotPositive02() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/divisionPositive02.ocl";
+		oclFileName = "standardlibrary/boolean/notPositive02.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -472,18 +472,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.max(Integer)</code>.
+	 * A test case testing the method <code>Boolean.or(Boolean)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testMaxPositive01() {
+	public void testOrPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/maxPositive01.ocl";
+		oclFileName = "standardlibrary/boolean/orPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -543,18 +543,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.min(Integer)</code>.
+	 * A test case testing the method <code>Boolean.or(Boolean)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testMinPositive01() {
+	public void testOrPositive02() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/minPositive01.ocl";
+		oclFileName = "standardlibrary/boolean/orPositive02.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -614,18 +614,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.-(Integer)</code>.
+	 * A test case testing the method <code>Boolean.toString()</code>.
 	 * </p>
 	 */
 	@Test
-	public void testMinusPositive01() {
+	public void testToStringPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/minusPositive01.ocl";
+		oclFileName = "standardlibrary/boolean/toStringPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -685,18 +685,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.-(Integer)</code>.
+	 * A test case testing the method <code>Boolean.xor(Boolean)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testMinusPositive02() {
+	public void testXorPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/minusPositive02.ocl";
+		oclFileName = "standardlibrary/boolean/xorPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -756,373 +756,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.mod(Integer)</code>.
+	 * A test case testing the method <code>Boolean.xor(Boolean)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testModPositive01() {
+	public void testXorPositive02() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/modPositive01.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
-							AllStandardLibraryTests.MODEL_BUNDLE,
-							AllStandardLibraryTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case testing the method <code>Integer.*(Integer)</code>.
-	 * </p>
-	 */
-	@Test
-	public void testMultiplyPositive01() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "standardlibrary/integer/multiplyPositive01.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
-							AllStandardLibraryTests.MODEL_BUNDLE,
-							AllStandardLibraryTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case testing the method <code>Integer.*(Integer)</code>.
-	 * </p>
-	 */
-	@Test
-	public void testMultiplyPositive02() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "standardlibrary/integer/multiplyPositive02.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
-							AllStandardLibraryTests.MODEL_BUNDLE,
-							AllStandardLibraryTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case testing the method <code>Integer.-()</code>.
-	 * </p>
-	 */
-	@Test
-	public void testNegationPositive01() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "standardlibrary/integer/negationPositive01.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
-							AllStandardLibraryTests.MODEL_BUNDLE,
-							AllStandardLibraryTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case testing the method <code>Integer.-()</code>.
-	 * </p>
-	 */
-	@Test
-	public void testNegationPositive02() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "standardlibrary/integer/negationPositive02.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
-							AllStandardLibraryTests.MODEL_BUNDLE,
-							AllStandardLibraryTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case testing the method <code>Integer.toString()</code>.
-	 * </p>
-	 */
-	@Test
-	public void testToStringPositive02() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "standardlibrary/integer/toStringPositive02.ocl";
+		oclFileName = "standardlibrary/boolean/xorPositive02.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */

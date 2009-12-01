@@ -36,88 +36,17 @@ import tudresden.ocl20.pivot.ocl2parser.test.exception.MetaModelNotFoundExceptio
 
 /**
  * <p>
- * Contains test cases that check that all operations defined on the type
- * Integer are parsed appropriately.
+ * Contains test cases that check that all operations defined on the type String
+ * are parsed appropriately.
  * </p>
  * 
  * @author Claas Wilke
  */
-public class TestInteger {
+public class TestString {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.abs()</code>.
-	 * </p>
-	 */
-	@Test
-	public void testAbsPositive01() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "standardlibrary/integer/absPositive01.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
-							AllStandardLibraryTests.MODEL_BUNDLE,
-							AllStandardLibraryTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case testing the method <code>Integer.+(Integer)</code>.
+	 * A test case testing the method <code>String.+(String)</code>.
 	 * </p>
 	 */
 	@Test
@@ -128,7 +57,7 @@ public class TestInteger {
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/addPositive01.ocl";
+		oclFileName = "standardlibrary/string/addPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -188,7 +117,7 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.+(Integer)</code>.
+	 * A test case testing the method <code>String.+(String)</code>.
 	 * </p>
 	 */
 	@Test
@@ -199,7 +128,7 @@ public class TestInteger {
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/addPositive02.ocl";
+		oclFileName = "standardlibrary/string/addPositive02.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -259,18 +188,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.div(Integer)</code>.
+	 * A test case testing the method <code>String.at(Integer)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testDivPositive01() {
+	public void testAtPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/divPositive01.ocl";
+		oclFileName = "standardlibrary/string/atPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -330,18 +259,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer./(Integer)</code>.
+	 * A test case testing the method <code>String.characters()</code>.
 	 * </p>
 	 */
 	@Test
-	public void testDivisionPositive01() {
+	public void testCharactersPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/divisionPositive01.ocl";
+		oclFileName = "standardlibrary/string/charactersPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -401,18 +330,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer./(Integer)</code>.
+	 * A test case testing the method <code>String.concat(String)</code>.
 	 * </p>
 	 */
 	@Test
-	public void testDivisionPositive02() {
+	public void testConcatPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/divisionPositive02.ocl";
+		oclFileName = "standardlibrary/string/concatPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -472,18 +401,19 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.max(Integer)</code>.
+	 * A test case testing the method <code>String.equalsIgnoreCase(String)</code>
+	 * .
 	 * </p>
 	 */
 	@Test
-	public void testMaxPositive01() {
+	public void testEqualsIgnoreCasePositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/maxPositive01.ocl";
+		oclFileName = "standardlibrary/string/equalsIgnoreCasePositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -543,18 +473,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.min(Integer)</code>.
+	 * A test case testing the method <code>String.indexOf(String)</code> .
 	 * </p>
 	 */
 	@Test
-	public void testMinPositive01() {
+	public void testIndexOfPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/minPositive01.ocl";
+		oclFileName = "standardlibrary/string/indexOfPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -614,18 +544,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.-(Integer)</code>.
+	 * A test case testing the method <code>String.size()</code> .
 	 * </p>
 	 */
 	@Test
-	public void testMinusPositive01() {
+	public void testSizePositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/minusPositive01.ocl";
+		oclFileName = "standardlibrary/string/sizePositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -685,18 +615,19 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.-(Integer)</code>.
+	 * A test case testing the method
+	 * <code>String.substring(Integer, Integer)</code> .
 	 * </p>
 	 */
 	@Test
-	public void testMinusPositive02() {
+	public void testSubstringPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/minusPositive02.ocl";
+		oclFileName = "standardlibrary/string/substringPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -756,18 +687,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.mod(Integer)</code>.
+	 * A test case testing the method <code>String.toBoolean()</code> .
 	 * </p>
 	 */
 	@Test
-	public void testModPositive01() {
+	public void testToBooleanPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/modPositive01.ocl";
+		oclFileName = "standardlibrary/string/toBooleanPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -827,18 +758,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.*(Integer)</code>.
+	 * A test case testing the method <code>String.toInteger()</code> .
 	 * </p>
 	 */
 	@Test
-	public void testMultiplyPositive01() {
+	public void testToIntegerPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/multiplyPositive01.ocl";
+		oclFileName = "standardlibrary/string/toIntegerPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -898,18 +829,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.*(Integer)</code>.
+	 * A test case testing the method <code>String.toLowerCase()</code> .
 	 * </p>
 	 */
 	@Test
-	public void testMultiplyPositive02() {
+	public void testToLowerCasePositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/multiplyPositive02.ocl";
+		oclFileName = "standardlibrary/string/toLowerCasePositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -969,18 +900,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.-()</code>.
+	 * A test case testing the method <code>String.toReal()</code> .
 	 * </p>
 	 */
 	@Test
-	public void testNegationPositive01() {
+	public void testToRealPositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/negationPositive01.ocl";
+		oclFileName = "standardlibrary/string/toRealPositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
@@ -1040,89 +971,18 @@ public class TestInteger {
 
 	/**
 	 * <p>
-	 * A test case testing the method <code>Integer.-()</code>.
+	 * A test case testing the method <code>String.toUpperCase()</code> .
 	 * </p>
 	 */
 	@Test
-	public void testNegationPositive02() {
+	public void testToUpperCasePositive01() {
 
 		TestPerformer testPerformer;
 
 		String modelFileName;
 		String oclFileName;
 
-		oclFileName = "standardlibrary/integer/negationPositive02.ocl";
-		modelFileName = "testmodel.uml";
-
-		/* Try to get the TestPerformer. */
-		try {
-
-			testPerformer =
-					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
-							AllStandardLibraryTests.MODEL_BUNDLE,
-							AllStandardLibraryTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
-	}
-
-	/**
-	 * <p>
-	 * A test case testing the method <code>Integer.toString()</code>.
-	 * </p>
-	 */
-	@Test
-	public void testToStringPositive02() {
-
-		TestPerformer testPerformer;
-
-		String modelFileName;
-		String oclFileName;
-
-		oclFileName = "standardlibrary/integer/toStringPositive02.ocl";
+		oclFileName = "standardlibrary/string/toUpperCasePositive01.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
