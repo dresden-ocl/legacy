@@ -49,6 +49,20 @@ Implemented Test Packages:
   + Package Expression
     - Positives and Negatives
 * StandardLibrary      
+  + Bag
+    - excluding(T)
+    - including(T)
+    - intersection(Bag) (does not include Sequence)
+    - intersection(Set) (does include OrderedSet)
+    - union(Bag) (does not include Sequence)
+    - union(Set) (does include OrderedSet)
+  + Boolean
+    - and(Boolean)
+    - implies(Boolean)
+    - not Boolean
+    - or(Boolean)
+    - toString() (OCL 2.1)
+    - xor(Boolean)
   + Collection
     - asBag()
     - asOrderedSet()
@@ -90,6 +104,16 @@ Implemented Test Packages:
     - oclIsTypeOf(Type)
     - oclIsUndefined()
     - oclType() (OCL 2.1)
+  + OrderedSet
+    - append(T)
+    - at(Integer) (lowest index is 1)
+    - first()
+    - indexOf(Integer) (lowest index is 1)
+    - insertAt(Integer, T) (lowest index is 1)
+    - last()
+    - prepend(T)
+    - reverse() (OCL 2.1)
+    - subOrderedSet(Integer, Integer) (lowest index is 1)
   + Real
     - a.+(b), a + b
     - a.-(b), a - b
@@ -106,6 +130,28 @@ Implemented Test Packages:
     - a.min(b)
     - round()
     - toString() (OCL 2.1)
+  + Set
+    - excluding(T)
+    - including(T)
+    - -(Set(T))
+    - intersection(Bag(T)) (includes Sequence)
+    - intersection(Set(T)) (does not include OrderedSet)
+    - symmetricDifference(Set(T))    
+    - union(Bag(T)) (includes Sequence)
+    - union(Set(T)) (does not include OrderedSet)
+  + Sequence
+    - append(T)
+    - at(Integer) (lowest index is 1)
+    - excluding(T)
+    - first()
+    - including(T)
+    - indexOf(Integer) (lowest index is 1)
+    - insertAt(Integer, T)
+    - last()
+    - prepend(T)
+    - reverse() (OCL 2.1)
+    - union(Sequence)
+    - subSequence(Integer, Integer) (lowest index is 1)
   + String
     - a.+(b), a + b
     - at(Integer) (OCL 2.1)
@@ -120,33 +166,14 @@ Implemented Test Packages:
     - toLowerCase() (OCL 2.1)
     - toReal()
     - toUpperCase() (OCL 2.1)
-  + Boolean
-    - and(Boolean)
-    - implies(Boolean)
-    - not Boolean
-    - or(Boolean)
-    - toString() (OCL 2.1)
-    - xor(Boolean)
 
 
 Planned Test Cases:
 ===================
 * StandardLibrary      
-  + Set
-    - union(Set(T))
-    - union(Bag(T))
-    - intersection(Set(T))
-    - intersection(Bag(T))
-    - -(Set(T))
-    - including(T)
-    - excluding(T)
-    - symmetricDifference(Set(T))
-    - count(T)
-    
-...    
   
     
-Continue reading Standard from Chapter 11.7.3
+Continue reading Standard from Chapter 11.8
 
 Readme?
 Manifest

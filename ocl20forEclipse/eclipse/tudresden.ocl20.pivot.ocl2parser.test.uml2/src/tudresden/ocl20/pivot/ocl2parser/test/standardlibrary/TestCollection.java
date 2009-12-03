@@ -1751,6 +1751,80 @@ public class TestCollection {
 	/**
 	 * <p>
 	 * A test case testing the method
+	 * <code>Collection->excludes(Collection(T))</code>.
+	 * </p>
+	 */
+	@Test
+	public void testExcludesNegative01() {
+
+		TestPerformer testPerformer;
+
+		String modelFileName;
+		String oclFileName;
+
+		oclFileName = "standardlibrary/collection/excludesNegative01.ocl";
+		modelFileName = "testmodel.uml";
+
+		/* Try to get the TestPerformer. */
+		try {
+
+			testPerformer =
+					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
+							AllStandardLibraryTests.MODEL_BUNDLE,
+							AllStandardLibraryTests.MODEL_DIRECTORY);
+			testPerformer.setModel(modelFileName);
+
+			/* Try to parse the constraint file. */
+			try {
+				testPerformer.parseFile(oclFileName);
+
+				fail("Expected SemanticException was not thrown.");
+			}
+
+			catch (FileNotFoundException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (ParsingException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (LexException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (IOException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (BuildingASTException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (SemanticException e) {
+				/* Expected Exception. */
+			}
+			// end catch.
+		}
+		// end try.
+
+		catch (MetaModelNotFoundException e) {
+			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
+		}
+
+		catch (FileNotFoundException e) {
+			fail("Lacking file resources. Reason: " + e.getMessage());
+		}
+
+		catch (ModelAccessException e) {
+			fail("Couldn't set Model. Reason: " + e.getMessage());
+		}
+		// end catch.
+	}
+
+	/**
+	 * <p>
+	 * A test case testing the method
 	 * <code>Collection->excludesAll(Collection(T))</code>.
 	 * </p>
 	 */
@@ -2902,6 +2976,80 @@ public class TestCollection {
 
 	/**
 	 * <p>
+	 * A test case testing the method
+	 * <code>Collection->excludesAll(Collection(T))</code>.
+	 * </p>
+	 */
+	@Test
+	public void testExcludesAllNegative01() {
+
+		TestPerformer testPerformer;
+
+		String modelFileName;
+		String oclFileName;
+
+		oclFileName = "standardlibrary/collection/excludesAllNegative01.ocl";
+		modelFileName = "testmodel.uml";
+
+		/* Try to get the TestPerformer. */
+		try {
+
+			testPerformer =
+					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
+							AllStandardLibraryTests.MODEL_BUNDLE,
+							AllStandardLibraryTests.MODEL_DIRECTORY);
+			testPerformer.setModel(modelFileName);
+
+			/* Try to parse the constraint file. */
+			try {
+				testPerformer.parseFile(oclFileName);
+
+				fail("Expected SemanticException was not thrown.");
+			}
+
+			catch (FileNotFoundException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (ParsingException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (LexException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (IOException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (BuildingASTException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (SemanticException e) {
+				/* Expected Exception. */
+			}
+			// end catch.
+		}
+		// end try.
+
+		catch (MetaModelNotFoundException e) {
+			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
+		}
+
+		catch (FileNotFoundException e) {
+			fail("Lacking file resources. Reason: " + e.getMessage());
+		}
+
+		catch (ModelAccessException e) {
+			fail("Couldn't set Model. Reason: " + e.getMessage());
+		}
+		// end catch.
+	}
+
+	/**
+	 * <p>
 	 * A test case testing the method <code>Collection->flatten()</code>.
 	 * </p>
 	 */
@@ -3449,6 +3597,79 @@ public class TestCollection {
 
 			catch (SemanticException e) {
 				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+			// end catch.
+		}
+		// end try.
+
+		catch (MetaModelNotFoundException e) {
+			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
+		}
+
+		catch (FileNotFoundException e) {
+			fail("Lacking file resources. Reason: " + e.getMessage());
+		}
+
+		catch (ModelAccessException e) {
+			fail("Couldn't set Model. Reason: " + e.getMessage());
+		}
+		// end catch.
+	}
+
+	/**
+	 * <p>
+	 * A test case testing the method <code>Collection->includes(T)</code>.
+	 * </p>
+	 */
+	@Test
+	public void testIncludesNegative01() {
+
+		TestPerformer testPerformer;
+
+		String modelFileName;
+		String oclFileName;
+
+		oclFileName = "standardlibrary/collection/includesNegative01.ocl";
+		modelFileName = "testmodel.uml";
+
+		/* Try to get the TestPerformer. */
+		try {
+
+			testPerformer =
+					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
+							AllStandardLibraryTests.MODEL_BUNDLE,
+							AllStandardLibraryTests.MODEL_DIRECTORY);
+			testPerformer.setModel(modelFileName);
+
+			/* Try to parse the constraint file. */
+			try {
+				testPerformer.parseFile(oclFileName);
+
+				fail("Expected SemanticException was not thrown.");
+			}
+
+			catch (FileNotFoundException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (ParsingException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (LexException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (IOException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (BuildingASTException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (SemanticException e) {
+				/* Expected Exception. */
 			}
 			// end catch.
 		}
@@ -4601,6 +4822,80 @@ public class TestCollection {
 
 			catch (SemanticException e) {
 				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+			// end catch.
+		}
+		// end try.
+
+		catch (MetaModelNotFoundException e) {
+			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
+		}
+
+		catch (FileNotFoundException e) {
+			fail("Lacking file resources. Reason: " + e.getMessage());
+		}
+
+		catch (ModelAccessException e) {
+			fail("Couldn't set Model. Reason: " + e.getMessage());
+		}
+		// end catch.
+	}
+
+	/**
+	 * <p>
+	 * A test case testing the method
+	 * <code>Collection->includesAll(Collection(T))</code>.
+	 * </p>
+	 */
+	@Test
+	public void testIncludesAllNegative01() {
+
+		TestPerformer testPerformer;
+
+		String modelFileName;
+		String oclFileName;
+
+		oclFileName = "standardlibrary/collection/includesAllNegative01.ocl";
+		modelFileName = "testmodel.uml";
+
+		/* Try to get the TestPerformer. */
+		try {
+
+			testPerformer =
+					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
+							AllStandardLibraryTests.MODEL_BUNDLE,
+							AllStandardLibraryTests.MODEL_DIRECTORY);
+			testPerformer.setModel(modelFileName);
+
+			/* Try to parse the constraint file. */
+			try {
+				testPerformer.parseFile(oclFileName);
+
+				fail("Expected SemanticException was not thrown.");
+			}
+
+			catch (FileNotFoundException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (ParsingException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (LexException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (IOException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (BuildingASTException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (SemanticException e) {
+				/* Expected Exception. */
 			}
 			// end catch.
 		}
@@ -6889,6 +7184,80 @@ public class TestCollection {
 
 			catch (SemanticException e) {
 				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+			// end catch.
+		}
+		// end try.
+
+		catch (MetaModelNotFoundException e) {
+			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
+		}
+
+		catch (FileNotFoundException e) {
+			fail("Lacking file resources. Reason: " + e.getMessage());
+		}
+
+		catch (ModelAccessException e) {
+			fail("Couldn't set Model. Reason: " + e.getMessage());
+		}
+		// end catch.
+	}
+
+	/**
+	 * <p>
+	 * A test case testing the method
+	 * <code>Collection->product(Collection(T))</code>.
+	 * </p>
+	 */
+	@Test
+	public void testProductNegative01() {
+
+		TestPerformer testPerformer;
+
+		String modelFileName;
+		String oclFileName;
+
+		oclFileName = "standardlibrary/collection/productNegative01.ocl";
+		modelFileName = "testmodel.uml";
+
+		/* Try to get the TestPerformer. */
+		try {
+
+			testPerformer =
+					TestPerformer.getInstance(AllStandardLibraryTests.META_MODEL_ID,
+							AllStandardLibraryTests.MODEL_BUNDLE,
+							AllStandardLibraryTests.MODEL_DIRECTORY);
+			testPerformer.setModel(modelFileName);
+
+			/* Try to parse the constraint file. */
+			try {
+				testPerformer.parseFile(oclFileName);
+
+				fail("Expected SemanticException was not thrown.");
+			}
+
+			catch (FileNotFoundException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (ParsingException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (LexException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (IOException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (BuildingASTException e) {
+				fail("Failed to parse File. Reason: " + e.getMessage());
+			}
+
+			catch (SemanticException e) {
+				/* Expected Exception. */
 			}
 			// end catch.
 		}
