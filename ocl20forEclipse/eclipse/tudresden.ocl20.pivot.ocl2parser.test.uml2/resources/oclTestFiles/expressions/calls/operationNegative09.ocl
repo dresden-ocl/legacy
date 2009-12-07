@@ -2,6 +2,6 @@ package package1::package2
 
 -- Should fail. allInstances() is not a static operation.
 context Type1
-inv: Type1::allInstaces()->contains(self)
+inv: Type1::allInstances()->contains(self)
 
 endpackage

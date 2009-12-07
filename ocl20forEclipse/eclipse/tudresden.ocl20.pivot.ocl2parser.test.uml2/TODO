@@ -167,13 +167,23 @@ Implemented Test Packages:
     - toReal()
     - toUpperCase() (OCL 2.1)
 
+  + Iterators on Collection
+    - any(..)
+    - collect(..)
+    - exists(..)
 
 Planned Test Cases:
 ===================
 * StandardLibrary      
+ 
+  + Iterators on Collection
+    - forAll(..)
+    - isUnique(..)
+    - one(..)
+  + Iterators on Set (OrderedSet included)
   
     
-Continue reading Standard from Chapter 11.8
+Continue reading Standard from Chapter 11.9.2
 
 Readme?
 Manifest
