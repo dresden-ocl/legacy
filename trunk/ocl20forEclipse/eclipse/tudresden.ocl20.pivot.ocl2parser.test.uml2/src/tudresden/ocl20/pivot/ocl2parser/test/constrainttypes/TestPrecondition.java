@@ -19,20 +19,11 @@ with Dresden OCL2 for Eclipse. If not, see <http://www.gnu.org/licenses/>.
 
 package tudresden.ocl20.pivot.ocl2parser.test.constrainttypes;
 
-import static org.junit.Assert.fail;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import org.junit.Test;
 
-import tudresden.ocl20.pivot.modelbus.ModelAccessException;
-import tudresden.ocl20.pivot.ocl2parser.parser.exceptions.BuildingASTException;
-import tudresden.ocl20.pivot.ocl2parser.parser.exceptions.LexException;
 import tudresden.ocl20.pivot.ocl2parser.parser.exceptions.ParsingException;
 import tudresden.ocl20.pivot.ocl2parser.parser.exceptions.SemanticException;
 import tudresden.ocl20.pivot.ocl2parser.test.TestPerformer;
-import tudresden.ocl20.pivot.ocl2parser.test.exception.MetaModelNotFoundException;
 
 /**
  * <p>
@@ -50,7 +41,7 @@ public class TestPrecondition {
 	 * </p>
 	 */
 	@Test
-	public void testPreconditionPositive01() {
+	public void testPreconditionPositive01() throws Exception {
 
 		TestPerformer testPerformer;
 
@@ -61,58 +52,14 @@ public class TestPrecondition {
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
-		try {
+		testPerformer =
+				TestPerformer.getInstance(AllConstraintTypeTests.META_MODEL_ID,
+						AllConstraintTypeTests.MODEL_BUNDLE,
+						AllConstraintTypeTests.MODEL_DIRECTORY);
+		testPerformer.setModel(modelFileName);
 
-			testPerformer =
-					TestPerformer.getInstance(AllConstraintTypeTests.META_MODEL_ID,
-							AllConstraintTypeTests.MODEL_BUNDLE,
-							AllConstraintTypeTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
+		/* Try to parse the constraint file. */
+		testPerformer.parseFile(oclFileName);
 	}
 
 	/**
@@ -121,7 +68,7 @@ public class TestPrecondition {
 	 * </p>
 	 */
 	@Test
-	public void testPreconditionPositive02() {
+	public void testPreconditionPositive02() throws Exception {
 
 		TestPerformer testPerformer;
 
@@ -132,58 +79,14 @@ public class TestPrecondition {
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
-		try {
+		testPerformer =
+				TestPerformer.getInstance(AllConstraintTypeTests.META_MODEL_ID,
+						AllConstraintTypeTests.MODEL_BUNDLE,
+						AllConstraintTypeTests.MODEL_DIRECTORY);
+		testPerformer.setModel(modelFileName);
 
-			testPerformer =
-					TestPerformer.getInstance(AllConstraintTypeTests.META_MODEL_ID,
-							AllConstraintTypeTests.MODEL_BUNDLE,
-							AllConstraintTypeTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
+		/* Try to parse the constraint file. */
+		testPerformer.parseFile(oclFileName);
 	}
 
 	/**
@@ -192,8 +95,8 @@ public class TestPrecondition {
 	 * appropriately.
 	 * </p>
 	 */
-	@Test
-	public void testPreconditionNegative01() {
+	@Test(expected = ParsingException.class)
+	public void testPreconditionNegative01() throws Exception {
 
 		TestPerformer testPerformer;
 
@@ -204,60 +107,14 @@ public class TestPrecondition {
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
-		try {
+		testPerformer =
+				TestPerformer.getInstance(AllConstraintTypeTests.META_MODEL_ID,
+						AllConstraintTypeTests.MODEL_BUNDLE,
+						AllConstraintTypeTests.MODEL_DIRECTORY);
+		testPerformer.setModel(modelFileName);
 
-			testPerformer =
-					TestPerformer.getInstance(AllConstraintTypeTests.META_MODEL_ID,
-							AllConstraintTypeTests.MODEL_BUNDLE,
-							AllConstraintTypeTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-
-				fail("Expected ParsingException was not thrown.");
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				/* Expected Exception. */
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
+		/* Try to parse the constraint file. */
+		testPerformer.parseFile(oclFileName);
 	}
 
 	/**
@@ -266,8 +123,8 @@ public class TestPrecondition {
 	 * appropriately.
 	 * </p>
 	 */
-	@Test
-	public void testPreconditionNegative02() {
+	@Test(expected = ParsingException.class)
+	public void testPreconditionNegative02() throws Exception {
 
 		TestPerformer testPerformer;
 
@@ -278,60 +135,14 @@ public class TestPrecondition {
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
-		try {
+		testPerformer =
+				TestPerformer.getInstance(AllConstraintTypeTests.META_MODEL_ID,
+						AllConstraintTypeTests.MODEL_BUNDLE,
+						AllConstraintTypeTests.MODEL_DIRECTORY);
+		testPerformer.setModel(modelFileName);
 
-			testPerformer =
-					TestPerformer.getInstance(AllConstraintTypeTests.META_MODEL_ID,
-							AllConstraintTypeTests.MODEL_BUNDLE,
-							AllConstraintTypeTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-
-				fail("Expected ParsingException was not thrown.");
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				/* Expected Exception. */
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
+		/* Try to parse the constraint file. */
+		testPerformer.parseFile(oclFileName);
 	}
 
 	/**
@@ -340,8 +151,8 @@ public class TestPrecondition {
 	 * appropriately.
 	 * </p>
 	 */
-	@Test
-	public void testPreconditionNegative03() {
+	@Test(expected = SemanticException.class)
+	public void testPreconditionNegative03() throws Exception {
 
 		TestPerformer testPerformer;
 
@@ -352,59 +163,13 @@ public class TestPrecondition {
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
-		try {
+		testPerformer =
+				TestPerformer.getInstance(AllConstraintTypeTests.META_MODEL_ID,
+						AllConstraintTypeTests.MODEL_BUNDLE,
+						AllConstraintTypeTests.MODEL_DIRECTORY);
+		testPerformer.setModel(modelFileName);
 
-			testPerformer =
-					TestPerformer.getInstance(AllConstraintTypeTests.META_MODEL_ID,
-							AllConstraintTypeTests.MODEL_BUNDLE,
-							AllConstraintTypeTests.MODEL_DIRECTORY);
-			testPerformer.setModel(modelFileName);
-
-			/* Try to parse the constraint file. */
-			try {
-				testPerformer.parseFile(oclFileName);
-
-				fail("Expected SemanticException was not thrown.");
-			}
-
-			catch (FileNotFoundException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (ParsingException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (LexException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (IOException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (BuildingASTException e) {
-				fail("Failed to parse File. Reason: " + e.getMessage());
-			}
-
-			catch (SemanticException e) {
-				/* Expected Exception. */
-			}
-			// end catch.
-		}
-		// end try.
-
-		catch (MetaModelNotFoundException e) {
-			fail("Unable to get TestPerformer. Reason: " + e.getMessage());
-		}
-
-		catch (FileNotFoundException e) {
-			fail("Lacking file resources. Reason: " + e.getMessage());
-		}
-
-		catch (ModelAccessException e) {
-			fail("Couldn't set Model. Reason: " + e.getMessage());
-		}
-		// end catch.
+		/* Try to parse the constraint file. */
+		testPerformer.parseFile(oclFileName);
 	}
 }
