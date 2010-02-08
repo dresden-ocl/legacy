@@ -51,6 +51,24 @@
 \BOOKMARK [1][-]{section.5.3}{5.3 How to access the OCL2 Interpreter}{chapter.5}
 \BOOKMARK [0][-]{chapter.6}{6 Adapting a Meta-Model to the Pivot Model}{section*.9}
 \BOOKMARK [0][-]{chapter.7}{7 Adapting a Model Instance Type to Dresden OCL2 for Eclipse}{section*.9}
+\BOOKMARK [1][-]{section.7.1}{7.1 The different types of Model Instance Elements}{chapter.7}
+\BOOKMARK [2][-]{subsection.7.1.1}{7.1.1 The IModelInstanceElement Interface}{section.7.1}
+\BOOKMARK [2][-]{subsection.7.1.2}{7.1.2 The Adaptation of Model Instance Objects}{section.7.1}
+\BOOKMARK [2][-]{subsection.7.1.3}{7.1.3 The Adaptation of Primitive Type Instances}{section.7.1}
+\BOOKMARK [2][-]{subsection.7.1.4}{7.1.4 The Adaptation of Collections}{section.7.1}
+\BOOKMARK [2][-]{subsection.7.1.5}{7.1.5 IModelInstanceEnumerationLiteral}{section.7.1}
+\BOOKMARK [2][-]{subsection.7.1.6}{7.1.6 IModelInstanceTuple}{section.7.1}
+\BOOKMARK [2][-]{subsection.7.1.7}{7.1.7 IModelInstanceVoid and IModelInstanceInvalid}{section.7.1}
+\BOOKMARK [1][-]{section.7.2}{7.2 The IModelInstanceProvider Interface}{chapter.7}
+\BOOKMARK [2][-]{subsection.7.2.1}{7.2.1 getModelInstance\(URL, IModel\)}{section.7.2}
+\BOOKMARK [2][-]{subsection.7.2.2}{7.2.2 createEmptyModelInstance\(IModel\)}{section.7.2}
+\BOOKMARK [1][-]{section.7.3}{7.3 The IModelInstance Interface}{chapter.7}
+\BOOKMARK [2][-]{subsection.7.3.1}{7.3.1 The Constructor}{section.7.3}
+\BOOKMARK [2][-]{subsection.7.3.2}{7.3.2 addModelInstanceElement\(IModelInstanceElement\)}{section.7.3}
+\BOOKMARK [2][-]{subsection.7.3.3}{7.3.3 getStaticProperty\(Property\)}{section.7.3}
+\BOOKMARK [2][-]{subsection.7.3.4}{7.3.4 invokeStaticOperation\(Operation, List<IModelInstanceElement>\)}{section.7.3}
+\BOOKMARK [1][-]{section.7.4}{7.4 The IModelInstanceFactory Interface}{chapter.7}
+\BOOKMARK [1][-]{section.7.5}{7.5 Adapting an own Model Instance Type}{chapter.7}
 \BOOKMARK [0][-]{chapter.8}{8 The Logging Mechanism of Dresden OCL2 for Eclipse}{section*.9}
 \BOOKMARK [0][-]{chapter.9}{9 The Extensible Test Suite of Dresden OCL2 for Eclipse}{section*.9}
 \BOOKMARK [0][-]{chapter.10}{10 The Generic Meta-Model Test Suite}{section*.9}
@@ -76,9 +94,9 @@
 \BOOKMARK [2][-]{subsection.11.2.7}{11.2.7 Copyable and NonCopyableClass}{section.11.2}
 \BOOKMARK [1][-]{section.11.3}{11.3 Instantiating the Generic Test Suite}{chapter.11}
 \BOOKMARK [1][-]{section.11.4}{11.4 Summary}{chapter.11}
-\BOOKMARK [-1][-]{section*.11}{Appendix}{}
-\BOOKMARK [0][-]{section*.12}{Tables}{section*.11}
-\BOOKMARK [0][-]{section*.14}{List of Figures}{section*.11}
-\BOOKMARK [0][-]{section*.16}{List of Listings}{section*.11}
-\BOOKMARK [0][-]{section*.18}{List of Abbreviations}{section*.11}
-\BOOKMARK [0][-]{section*.20}{References}{section*.11}
+\BOOKMARK [-1][-]{section*.22}{Appendix}{}
+\BOOKMARK [0][-]{section*.23}{Tables}{section*.22}
+\BOOKMARK [0][-]{section*.25}{List of Figures}{section*.22}
+\BOOKMARK [0][-]{section*.27}{List of Listings}{section*.22}
+\BOOKMARK [0][-]{section*.29}{List of Abbreviations}{section*.22}
+\BOOKMARK [0][-]{section*.31}{References}{section*.22}
