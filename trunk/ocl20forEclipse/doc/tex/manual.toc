@@ -3,16 +3,16 @@
 \contentsline {part}{Using Dresden OCL2 for Eclipse}{11}{section*.7}
 \contentsline {chapter}{\numberline {1}Getting started with Dresden OCL2 for Eclipse}{13}{chapter.1}
 \contentsline {section}{\numberline {1.1}How to Install Dresden OCL2 for Eclipse}{13}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}Installing Dresden OCL2 for Eclipse using the Eclipse Update Site}{13}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Installing Dresden OCL2 for Eclipse using the Eclipse Update Site}{14}{subsection.1.1.1}
 \contentsline {subsection}{\numberline {1.1.2}Importing Dresden OCL2 for Eclipse from the SVN}{15}{subsection.1.1.2}
-\contentsline {subsection}{\numberline {1.1.3}Which Plug-ins do I need at least?}{17}{subsection.1.1.3}
+\contentsline {subsection}{\numberline {1.1.3}Which Plug-ins do I need at least?}{16}{subsection.1.1.3}
 \contentsline {subsection}{\numberline {1.1.4}Building the OCL2 Parser}{17}{subsection.1.1.4}
-\contentsline {section}{\numberline {1.2}Loading Models, Model Instances and Constraints}{18}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}The Simple Example}{18}{subsection.1.2.1}
+\contentsline {section}{\numberline {1.2}Loading Models, Model Instances and Constraints}{17}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}The Simple Example}{17}{subsection.1.2.1}
 \contentsline {subsection}{\numberline {1.2.2}Loading a Domain-Specific Model}{19}{subsection.1.2.2}
 \contentsline {subsection}{\numberline {1.2.3}Loading a Model Instance}{19}{subsection.1.2.3}
 \contentsline {subsection}{\numberline {1.2.4}Parsing OCL expressions}{22}{subsection.1.2.4}
-\contentsline {section}{\numberline {1.3}Summary}{22}{section.1.3}
+\contentsline {section}{\numberline {1.3}Summary}{24}{section.1.3}
 \contentsline {chapter}{\numberline {2}OCL Constraint Interpretation}{25}{chapter.2}
 \contentsline {section}{\numberline {2.1}The Simple Example}{25}{section.2.1}
 \contentsline {section}{\numberline {2.2}Preparation of the Interpretation}{27}{section.2.2}
@@ -103,7 +103,7 @@
 \contentsline {subsection}{\numberline {11.2.4}Interface1, Interface2 and Interface3}{93}{subsection.11.2.4}
 \contentsline {subsection}{\numberline {11.2.5}PrimitiveTypeProviderClass, CollectionTypeProviderClass and E\discretionary {-}{}{}nu\discretionary {-}{}{}me\discretionary {-}{}{}ra\discretionary {-}{}{}tion\discretionary {-}{}{}Li\discretionary {-}{}{}te\discretionary {-}{}{}ral\discretionary {-}{}{}ProviderClass}{93}{subsection.11.2.5}
 \contentsline {subsection}{\numberline {11.2.6}StaticPropertyAndOperationClass}{93}{subsection.11.2.6}
-\contentsline {subsection}{\numberline {11.2.7}Copyable and NonCopyableClass}{94}{subsection.11.2.7}
+\contentsline {subsection}{\numberline {11.2.7}Copyable- and NonCopyableClass}{94}{subsection.11.2.7}
 \contentsline {section}{\numberline {11.3}Instantiating the Generic Test Suite}{94}{section.11.3}
 \contentsline {section}{\numberline {11.4}Summary}{94}{section.11.4}
 \contentsline {part}{Appendix}{97}{section*.22}
