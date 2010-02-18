@@ -31,51 +31,51 @@
 \contentsline {figure}{\numberline {2.12}{\ignorespaces The window to add new variables to the environment.}}{32}{figure.2.12}
 \contentsline {figure}{\numberline {2.13}{\ignorespaces The results of the postcondition with result variable preparation.}}{32}{figure.2.13}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces The package explorer containing the two projects which are needed to run this tutorial.}}{36}{figure.3.1}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The two projects which are required to run this tutorial.}}{36}{figure.3.1}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Selecting the properties settings.}}{37}{figure.3.2}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Adding a new library to the build path.}}{38}{figure.3.3}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces The result of the JUnit test case.}}{39}{figure.3.4}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces The model browser containing the simple model and its constraints.}}{40}{figure.3.5}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces The first step: Selecting a model for code generation.}}{41}{figure.3.6}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces The second step: Selecting constraints for code generation.}}{42}{figure.3.7}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces The third step: Selecting a target directory for the generated code.}}{43}{figure.3.8}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces The fourth step: General settings for the code generation.}}{44}{figure.3.9}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces The fifth step: Constraint-specific settings for the code generation.}}{45}{figure.3.10}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces The package explorer containing the new generated aspect file.}}{47}{figure.3.11}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces The successfully finished jUnit test case.}}{48}{figure.3.12}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces The result of the JUnit test case.}}{38}{figure.3.4}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces The model browser containing the simple model and its constraints.}}{39}{figure.3.5}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces The first step: Selecting a model for code generation.}}{40}{figure.3.6}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces The second step: Selecting constraints for code generation.}}{41}{figure.3.7}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces The third step: Selecting a target directory for the generated code.}}{42}{figure.3.8}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces The fourth step: General settings for the code generation.}}{43}{figure.3.9}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces The fifth step: Constraint-specific settings for the code generation.}}{44}{figure.3.10}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces The package explorer containing the new generated aspect file.}}{45}{figure.3.11}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces The successfully finished jUnit test case.}}{46}{figure.3.12}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces The MOF Four Layer Metadata Architecture.}}{52}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces The Generic Three Layer Metadata Architecture.}}{52}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces The architecture of Dresden OCL2 for Eclipse.}}{53}{figure.4.3}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces The architecture of Dresden OCL2 for Eclipse in respect to the Generic Three Layer Metadata Architecture.}}{55}{figure.4.4}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The MOF Four Layer Metadata Architecture.}}{50}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces The Generic Three Layer Metadata Architecture.}}{50}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces The architecture of Dresden OCL2 for Eclipse.}}{51}{figure.4.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces The architecture of Dresden OCL2 for Eclipse in respect to the Generic Three Layer Metadata Architecture.}}{53}{figure.4.4}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces The main class of the Model-Bus plug-in.}}{59}{figure.5.1}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces The Meta-Model Registry.}}{60}{figure.5.2}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces The Model Registry.}}{60}{figure.5.3}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces The Model Instance Type Registry.}}{61}{figure.5.4}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces The Model Instance Registry.}}{62}{figure.5.5}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces The main class of the Model-Bus plug-in.}}{57}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces The Meta-Model Registry.}}{58}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces The Model Registry.}}{58}{figure.5.3}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces The Model Instance Type Registry.}}{59}{figure.5.4}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces The Model Instance Registry.}}{60}{figure.5.5}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces The Ecore model opened in Eclipse.}}{66}{figure.6.1}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Create an annotation for the Ecore package.}}{66}{figure.6.2}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces The Properties View for the annotation.}}{67}{figure.6.3}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Create annotation details for the annotation.}}{67}{figure.6.4}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces The Properties View for the annotation details.}}{67}{figure.6.5}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces The EClass annotation.}}{68}{figure.6.6}
-\contentsline {figure}{\numberline {6.7}{\ignorespaces The genmodel of the Ecore model.}}{69}{figure.6.7}
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Right-click on Ecore and select 'Generate Pivot Model adapters'.}}{69}{figure.6.8}
-\contentsline {figure}{\numberline {6.9}{\ignorespaces The structure of the generated plug-in.}}{70}{figure.6.9}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces The Ecore model opened in Eclipse.}}{64}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Create an annotation for the Ecore package.}}{64}{figure.6.2}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces The Properties View for the annotation.}}{65}{figure.6.3}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Create annotation details for the annotation.}}{65}{figure.6.4}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces The Properties View for the annotation details.}}{65}{figure.6.5}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces The EClass annotation.}}{66}{figure.6.6}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces The genmodel of the Ecore model.}}{67}{figure.6.7}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Right-click on Ecore and select 'Generate Pivot Model adapters'.}}{67}{figure.6.8}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces The structure of the generated plug-in.}}{68}{figure.6.9}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces The different types of IModelInstanceElements.}}{72}{figure.7.1}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces The IModelInstance Interface.}}{76}{figure.7.2}
-\contentsline {figure}{\numberline {7.3}{\ignorespaces The IModelInstance Interface.}}{77}{figure.7.3}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces The different types of IModelInstanceElements.}}{70}{figure.7.1}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces The IModelInstance Interface.}}{74}{figure.7.2}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces The IModelInstance Interface.}}{75}{figure.7.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Setting up a simple SocketReceiver in Chainsaw.}}{79}{figure.8.1}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Setting up a simple SocketReceiver in Chainsaw.}}{77}{figure.8.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Run the extensible test suite.}}{82}{figure.9.1}
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Run the extensible test suite.}}{80}{figure.9.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {10.1}{\ignorespaces The Generic Meta-Model Test Suite in respect to the Generic Three Layer Ar\discretionary {-}{}{}chi\discretionary {-}{}{}tec\discretionary {-}{}{}ture}}{84}{figure.10.1}
-\contentsline {figure}{\numberline {10.2}{\ignorespaces The required Test Model to test a Meta-Model's adaptation. The gray parts are optional.}}{85}{figure.10.2}
+\contentsline {figure}{\numberline {10.1}{\ignorespaces The Generic Meta-Model Test Suite in respect to the Generic Three Layer Ar\discretionary {-}{}{}chi\discretionary {-}{}{}tec\discretionary {-}{}{}ture}}{82}{figure.10.1}
+\contentsline {figure}{\numberline {10.2}{\ignorespaces The required Test Model to test a Meta-Model's adaptation. The gray parts are optional.}}{83}{figure.10.2}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {11.1}{\ignorespaces The Generic Model Instance Type Test Suite in respect to the Generic Three Layer Ar\discretionary {-}{}{}chi\discretionary {-}{}{}tec\discretionary {-}{}{}ture}}{90}{figure.11.1}
-\contentsline {figure}{\numberline {11.2}{\ignorespaces The required Test Model to test a Model Instance Type's adaptation (part 1).}}{91}{figure.11.2}
-\contentsline {figure}{\numberline {11.3}{\ignorespaces The required Test Model to test a Model Instance Type's adaptation (part 2).}}{92}{figure.11.3}
+\contentsline {figure}{\numberline {11.1}{\ignorespaces The Generic Model Instance Type Test Suite in respect to the Generic Three Layer Ar\discretionary {-}{}{}chi\discretionary {-}{}{}tec\discretionary {-}{}{}ture}}{88}{figure.11.1}
+\contentsline {figure}{\numberline {11.2}{\ignorespaces The required Test Model to test a Model Instance Type's adaptation (part 1).}}{89}{figure.11.2}
+\contentsline {figure}{\numberline {11.3}{\ignorespaces The required Test Model to test a Model Instance Type's adaptation (part 2).}}{90}{figure.11.3}
