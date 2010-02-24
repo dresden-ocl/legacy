@@ -38,8 +38,9 @@
 \BOOKMARK [2][-]{subsection.4.3.1}{4.3.1 The Adaptation of Meta-Models, Models and Model Instances}{section.4.3}
 \BOOKMARK [2][-]{subsection.4.3.2}{4.3.2 How Meta-Models and Models are Adapted}{section.4.3}
 \BOOKMARK [2][-]{subsection.4.3.3}{4.3.3 How Model Instances are Adapted}{section.4.3}
-\BOOKMARK [2][-]{subsection.4.3.4}{4.3.4 Essential OCL and OCL Constraints}{section.4.3}
-\BOOKMARK [2][-]{subsection.4.3.5}{4.3.5 The OCL Standard Library}{section.4.3}
+\BOOKMARK [2][-]{subsection.4.3.4}{4.3.4 Coupling between Models and their Instances}{section.4.3}
+\BOOKMARK [2][-]{subsection.4.3.5}{4.3.5 Essential OCL and OCL Constraints}{section.4.3}
+\BOOKMARK [2][-]{subsection.4.3.6}{4.3.6 The OCL Standard Library}{section.4.3}
 \BOOKMARK [1][-]{section.4.4}{4.4 Summary}{chapter.4}
 \BOOKMARK [0][-]{chapter.5}{5 How to integrate Dresden OCL2 for Eclipse}{section*.9}
 \BOOKMARK [1][-]{section.5.1}{5.1 How to access Meta-Models, Models and Instances}{chapter.5}

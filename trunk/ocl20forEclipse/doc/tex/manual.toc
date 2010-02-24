@@ -39,8 +39,9 @@
 \contentsline {subsection}{\numberline {4.3.1}The Adaptation of Meta-Models, Models and Model Instances}{52}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}How Meta-Models and Models are Adapted}{52}{subsection.4.3.2}
 \contentsline {subsection}{\numberline {4.3.3}How Model Instances are Adapted}{54}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}Essential OCL and OCL Constraints}{54}{subsection.4.3.4}
-\contentsline {subsection}{\numberline {4.3.5}The OCL Standard Library}{55}{subsection.4.3.5}
+\contentsline {subsection}{\numberline {4.3.4}Coupling between Models and their Instances}{54}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.5}Essential OCL and OCL Constraints}{54}{subsection.4.3.5}
+\contentsline {subsection}{\numberline {4.3.6}The OCL Standard Library}{55}{subsection.4.3.6}
 \contentsline {section}{\numberline {4.4}Summary}{55}{section.4.4}
 \contentsline {chapter}{\numberline {5}How to integrate Dresden OCL2 for Eclipse}{57}{chapter.5}
 \contentsline {section}{\numberline {5.1}How to access Meta-Models, Models and Instances}{57}{section.5.1}
