@@ -28,6 +28,8 @@
 <ul>
   <li><a href="#01">Is the source code of Dresden OCL2 for Eclipse available?</a></li>
   <li><a href="#02">Is there any documentation available for the source code?</a></li>
+  <li><a href="#03">In which file are the regular expressions for lexical analyzer and the grammar for syntax
+ analyzer of the OCL2 Parser defined?</a></li>
 </ul>
 
 <h2><a name="01">Is the source code of Dresden OCL2 for Eclipse available?</h2>
@@ -41,6 +43,15 @@
   in the theses. Publications, theses and further literature is available in our 
   <a href="publications.html">publications section</a>. Furthermore, most parts of Dresden OCL2 for Eclipse
   are documented using JavaDoc and further source code comments.</p>
+
+<h2><a name="03">In which file are the regular expressions for lexical analyzer and the grammar for syntax
+ analyzer of the OCL2 Parser defined?</h2>
+
+<p>In the <code>src</code>-folder of the plug-in <code>tudresden.ocl20.pivot.ocl2parser</code> is a folder
+<code>spec</code>. There you find all files from which the parser is generated. There is the file 
+<code>ocl2.parser</code> which contains all information on tokens and EBNF rules. The folder 
+<code>jastadd</code> contains JastAdd files (<a href="http://jastadd.org/" target="e">http://jastadd.org/</a>) 
+to weave in transformation information (OCL ASTree to EssentialOCL ASModel) in the AST classes.</p>
 
 <!-- END OF CONTENT -->
 
