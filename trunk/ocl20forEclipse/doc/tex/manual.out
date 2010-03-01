@@ -55,7 +55,7 @@
 \BOOKMARK [0][-]{chapter.6}{6 Adapting a Meta-Model to the Pivot Model}{section*.9}
 \BOOKMARK [1][-]{section.6.1}{6.1 The Adapter Code generation}{chapter.6}
 \BOOKMARK [1][-]{section.6.2}{6.2 Summary}{chapter.6}
-\BOOKMARK [0][-]{chapter.7}{7 Adapting a Model Instance Type to Dresden OCL2 for Eclipse}{section*.9}
+\BOOKMARK [0][-]{chapter.7}{7 Adapting a Model Implementation Type to Dresden OCL2 for Eclipse}{section*.9}
 \BOOKMARK [1][-]{section.7.1}{7.1 The different types of Model Instance Elements}{chapter.7}
 \BOOKMARK [2][-]{subsection.7.1.1}{7.1.1 The IModelInstanceElement Interface}{section.7.1}
 \BOOKMARK [2][-]{subsection.7.1.2}{7.1.2 The Adaptation of Model Instance Objects}{section.7.1}
@@ -73,7 +73,7 @@
 \BOOKMARK [2][-]{subsection.7.3.3}{7.3.3 getStaticProperty\(Property\)}{section.7.3}
 \BOOKMARK [2][-]{subsection.7.3.4}{7.3.4 invokeStaticOperation\(Operation, List<IModelInstanceElement>\)}{section.7.3}
 \BOOKMARK [1][-]{section.7.4}{7.4 The IModelInstanceFactory Interface}{chapter.7}
-\BOOKMARK [1][-]{section.7.5}{7.5 Adapting an own Model Instance Type}{chapter.7}
+\BOOKMARK [1][-]{section.7.5}{7.5 Adapting an own Model Implementation Type}{chapter.7}
 \BOOKMARK [0][-]{chapter.8}{8 The Logging Mechanism of Dresden OCL2 for Eclipse}{section*.9}
 \BOOKMARK [0][-]{chapter.9}{9 The Extensible Test Suite of Dresden OCL2 for Eclipse}{section*.9}
 \BOOKMARK [0][-]{chapter.10}{10 The Generic Meta-Model Test Suite}{section*.9}
