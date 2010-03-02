@@ -93,12 +93,12 @@
 \contentsline {section}{\numberline {10.2}The required Model to test a Meta-Model}{81}{section.10.2}
 \contentsline {subsection}{\numberline {10.2.1}TestTypeClass1 and TestTypeClass2}{82}{subsection.10.2.1}
 \contentsline {subsection}{\numberline {10.2.2}TestTypeInterface1 and TestTypeInterface2}{82}{subsection.10.2.2}
-\contentsline {subsection}{\numberline {10.2.3}TestEnumeration}{84}{subsection.10.2.3}
+\contentsline {subsection}{\numberline {10.2.3}TestEnumeration}{82}{subsection.10.2.3}
 \contentsline {subsection}{\numberline {10.2.4}TestPrimitiveTypeClass}{84}{subsection.10.2.4}
 \contentsline {subsection}{\numberline {10.2.5}TestPropertyClass}{84}{subsection.10.2.5}
 \contentsline {subsection}{\numberline {10.2.6}TestOperationAndParameterClass}{84}{subsection.10.2.6}
-\contentsline {section}{\numberline {10.3}Instantiating the Generic Test Suite}{85}{section.10.3}
-\contentsline {section}{\numberline {10.4}Summary}{86}{section.10.4}
+\contentsline {section}{\numberline {10.3}Instantiating the Generic Test Suite}{84}{section.10.3}
+\contentsline {section}{\numberline {10.4}Summary}{85}{section.10.4}
 \contentsline {chapter}{\numberline {11}The Generic Model Instance Type Test Suite}{87}{chapter.11}
 \contentsline {section}{\numberline {11.1}The Test Suite Plug-in}{87}{section.11.1}
 \contentsline {section}{\numberline {11.2}The required Model Instance to test a Meta-Model}{87}{section.11.2}
