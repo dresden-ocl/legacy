@@ -73,7 +73,7 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {9.1}{\ignorespaces Run the extensible test suite.}}{80}{figure.9.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {10.1}{\ignorespaces The Generic Meta-Model Test Suite in respect to the Generic Three Layer Ar\discretionary {-}{}{}chi\discretionary {-}{}{}tec\discretionary {-}{}{}ture}}{82}{figure.10.1}
+\contentsline {figure}{\numberline {10.1}{\ignorespaces The Generic Meta-Model Test Suite in respect to the Generic Three Layer Ar\discretionary {-}{}{}chi\discretionary {-}{}{}tec\discretionary {-}{}{}ture (as presented in Section \ref {architecture:genericLayers}).}}{82}{figure.10.1}
 \contentsline {figure}{\numberline {10.2}{\ignorespaces The required Test Model to test a Meta-Model's adaptation. The gray parts are optional.}}{83}{figure.10.2}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {11.1}{\ignorespaces The Generic Model Instance Type Test Suite in respect to the Generic Three Layer Ar\discretionary {-}{}{}chi\discretionary {-}{}{}tec\discretionary {-}{}{}ture}}{88}{figure.11.1}
