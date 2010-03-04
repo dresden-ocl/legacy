@@ -87,7 +87,7 @@
 \BOOKMARK [2][-]{subsection.10.2.6}{10.2.6 TestOperationAndParameterClass}{section.10.2}
 \BOOKMARK [1][-]{section.10.3}{10.3 Instantiating the Generic Test Suite}{chapter.10}
 \BOOKMARK [1][-]{section.10.4}{10.4 Summary}{chapter.10}
-\BOOKMARK [0][-]{chapter.11}{11 The Generic Model Instance Type Test Suite}{section*.9}
+\BOOKMARK [0][-]{chapter.11}{11 The Generic Model Implementation Type Test Suite}{section*.9}
 \BOOKMARK [1][-]{section.11.1}{11.1 The Test Suite Plug-in}{chapter.11}
 \BOOKMARK [1][-]{section.11.2}{11.2 The required Model Instance to test a Meta-Model}{chapter.11}
 \BOOKMARK [2][-]{subsection.11.2.1}{11.2.1 The ContainerClass}{section.11.2}
