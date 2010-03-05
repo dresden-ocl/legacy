@@ -12,18 +12,18 @@ public privileged aspect DefAspect3 {
     declare parents : testpackage.Class1 extends testpackage.constraints.ExtendedClass1;
     
     /**
-     * <p>Pointcut for all calls on {@link testpackage.Class1#testBooleanToString(Boolean source)}.</p>
+     * <p>Pointcut for all calls on {@link testpackage.Class1#defOperation02(Integer anInt)}.</p>
      */
-    protected pointcut testBooleanToStringCaller(testpackage.Class1 aClass, Boolean source):
-    	call(* testpackage.Class1.testBooleanToString(Boolean))
-    	&& target(aClass) && args(source);
+    protected pointcut defOperation02Caller(testpackage.Class1 aClass, Integer anInt):
+    	call(* testpackage.Class1.defOperation02(Integer))
+    	&& target(aClass) && args(anInt);
     
     /**
-     * <p>Defines the method testBooleanToString(Boolean source) defined by the constraint
+     * <p>Defines the method defOperation02(Integer anInt) defined by the constraint
      * <code>context Class1
-     *       def: testBooleanToString = source[].toString()</code></p>
+     *       def: defOperation02 = anInt[].-()</code></p>
      */
-    String around(testpackage.Class1 aClass, Boolean source): testBooleanToStringCaller(aClass, source) {
-        return source.toString();
+    Integer around(testpackage.Class1 aClass, Integer anInt): defOperation02Caller(aClass, anInt) {
+        return -(anInt);
     }
 }
