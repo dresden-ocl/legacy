@@ -41,8 +41,8 @@
 \contentsline {figure}{\numberline {3.8}{\ignorespaces The third step: Selecting a target directory for the generated code.}}{42}{figure.3.8}
 \contentsline {figure}{\numberline {3.9}{\ignorespaces The fourth step: General settings for the code generation.}}{43}{figure.3.9}
 \contentsline {figure}{\numberline {3.10}{\ignorespaces The fifth step: Constraint-specific settings for the code generation.}}{44}{figure.3.10}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces The package explorer containing the new generated aspect file.}}{45}{figure.3.11}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces The successfully finished jUnit test case.}}{46}{figure.3.12}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces The package explorer containing the newly generated aspect file.}}{45}{figure.3.11}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces The successfully executed jUnit test case.}}{46}{figure.3.12}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces The MOF Four Layer Metadata Architecture.}}{50}{figure.4.1}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces The Generic Three Layer Metadata Architecture.}}{50}{figure.4.2}
@@ -71,7 +71,7 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {8.1}{\ignorespaces Setting up a simple SocketReceiver in Chainsaw.}}{77}{figure.8.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Run the extensible test suite.}}{80}{figure.9.1}
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Run the Extensible Test Suite.}}{80}{figure.9.1}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {10.1}{\ignorespaces The Generic Meta-Model Test Suite in respect to the Generic Three Layer Ar\discretionary {-}{}{}chi\discretionary {-}{}{}tec\discretionary {-}{}{}ture (as presented in Section \ref {architecture:genericLayers}).}}{82}{figure.10.1}
 \contentsline {figure}{\numberline {10.2}{\ignorespaces The required Test Model to test a Meta-Model's adaptation. The gray parts are optional.}}{83}{figure.10.2}
