@@ -30,6 +30,8 @@
   <li><a href="#02">Is there any documentation available for the source code?</a></li>
   <li><a href="#03">In which file are the regular expressions for lexical analyzer and the grammar for syntax
  analyzer of the OCL2 Parser defined?</a></li>
+  <li><a href="#04">Error message during installation: Cannot complete the install because one or more required items 
+  could not be found.</a></li>
 </ul>
 
 <h2><a name="01">Is the source code of Dresden OCL2 for Eclipse available?</h2>
@@ -52,6 +54,22 @@
 <code>ocl2.parser</code> which contains all information on tokens and EBNF rules. The folder 
 <code>jastadd</code> contains JastAdd files (<a href="http://jastadd.org/" target="e">http://jastadd.org/</a>) 
 to weave in transformation information (OCL ASTree to EssentialOCL ASModel) in the AST classes.</p>
+
+<h2><a name="04">Error message during installation: Cannot complete the install because one or more required items 
+  could not be found.</h2>
+
+<p>During installation of Dresden OCL2 for Eclipse 2.0.1 the following error message occurs:</p>
+
+<p><code>Cannot complete the install because one or more required items could not be found.<br/>
+  Software being installed: Dresden OCL2 for Eclipse Examples 2.0.1 (tudresden.ocl20.feature.examples.feature.group 2.0.1)<br/>
+  Missing requirement: Simple Example Generated Java Code and Test Cases 2.0.0 (tudresden.ocl20.pivot.examples.simple.ocl22javacode 2.0.0) requires 'bundle org.aspectj.runtime 0.0.0' but it could not be found<br/>
+  Cannot satisfy dependency:<br/>
+    From: Dresden OCL2 for Eclipse Examples 2.0.1 (tudresden.ocl20.feature.examples.feature.group 2.0.1)<br/>
+    To: tudresden.ocl20.pivot.examples.simple.ocl22javacode [2.0.0]</code></p>
+    
+<p>Solution: You have either to install the <a href="http://www.eclipse.org/ajdt/" target="e">AspectJ Development Tolls (AJDT)</a>
+  before installing Dresden OCL2 for Eclipse or you have to disable the Dresden OCL2 for Eclipse Examples feature during the 
+  installation.</p>
 
 <!-- END OF CONTENT -->
 
