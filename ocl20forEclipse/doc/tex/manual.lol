@@ -5,5 +5,5 @@
 \contentsline {lstlisting}{\numberline {5.2}How to load a model instance.}{60}{lstlisting.5.2}
 \contentsline {lstlisting}{\numberline {5.3}How to parse constraints.}{61}{lstlisting.5.3}
 \contentsline {lstlisting}{\numberline {5.4}How to interpret constraints.}{61}{lstlisting.5.4}
-\contentsline {lstlisting}{\numberline {10.1}An instantiation of the generic meta-model test suite.}{85}{lstlisting.10.1}
-\contentsline {lstlisting}{\numberline {11.1}An instantiation of the generic model instance test suite.}{93}{lstlisting.11.1}
+\contentsline {lstlisting}{\numberline {11.1}An instantiation of the generic meta-model test suite.}{89}{lstlisting.11.1}
+\contentsline {lstlisting}{\numberline {12.1}An instantiation of the generic model instance test suite.}{97}{lstlisting.12.1}
