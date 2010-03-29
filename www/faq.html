@@ -32,21 +32,22 @@
  analyzer of the OCL2 Parser defined?</a></li>
   <li><a href="#04">Error message during installation: Cannot complete the install because one or more required items 
   could not be found.</a></li>
+  <li><a href="#05">How can I create an own Model that can be imported into Dresden OCL2 for Eclipse?</a></li>
 </ul>
 
-<h2><a name="01">Is the source code of Dresden OCL2 for Eclipse available?</h2>
+<h2><a name="01"/>Is the source code of Dresden OCL2 for Eclipse available?</h2>
 
 <p>Yes, Dresden OCL2 for Eclipse is open source. The latest version of our source code can be accessed from
   our SVN repository. <a href="download.html">More information about the SVN is available via this link.</a></p>
 
-<h2><a name="02">Is there any documentation available for the source code?</h2>
+<h2><a name="02"/>Is there any documentation available for the source code?</h2>
 
 <p>Yes. Most parts of Dresden OCL2 for Eclipse have been developed as student theses and thus are documented
   in the theses. Publications, theses and further literature is available in our 
   <a href="publications.html">publications section</a>. Furthermore, most parts of Dresden OCL2 for Eclipse
   are documented using JavaDoc and further source code comments.</p>
 
-<h2><a name="03">In which file are the regular expressions for lexical analyzer and the grammar for syntax
+<h2><a name="03"/>In which file are the regular expressions for lexical analyzer and the grammar for syntax
  analyzer of the OCL2 Parser defined?</h2>
 
 <p>In the <code>src</code>-folder of the plug-in <code>tudresden.ocl20.pivot.ocl2parser</code> is a folder
@@ -55,7 +56,7 @@
 <code>jastadd</code> contains JastAdd files (<a href="http://jastadd.org/" target="e">http://jastadd.org/</a>) 
 to weave in transformation information (OCL ASTree to EssentialOCL ASModel) in the AST classes.</p>
 
-<h2><a name="04">Error message during installation: Cannot complete the install because one or more required items 
+<h2><a name="04"/>Error message during installation: Cannot complete the install because one or more required items 
   could not be found.</h2>
 
 <p>During installation of Dresden OCL2 for Eclipse 2.0.1 the following error message occurs:</p>
@@ -70,6 +71,34 @@ to weave in transformation information (OCL ASTree to EssentialOCL ASModel) in t
 <p>Solution: You have either to install the <a href="http://www.eclipse.org/ajdt/" target="e">AspectJ Development Tolls (AJDT)</a>
   before installing Dresden OCL2 for Eclipse or you have to disable the Dresden OCL2 for Eclipse Examples feature during the 
   installation.</p>
+
+<h2><a name="05"/>How can I create an own Model that can be imported into Dresden OCL2 for Eclipse?</h2>
+
+<p>Which tool you can use depends on the question what kind of model you want to create. Below, some tools
+  are enlisted that can be used for model creation and editing:</p>
+
+<ul>
+  <li>EMF Ecore Meta-Model:
+    <ul>
+      <li>EMF Ecore Tree Editor (included in Eclipse when installed with EMF tools as required for Dresden OCL2 for
+        Eclipse).
+    </ul>
+  </li>
+  <li>Java Meta-Model:
+    <ul>
+      <li>Java Text Editor (included in Eclipse).
+    </ul>
+  </li>
+  <li>UML2 Meta-Model:
+    <ul>
+      <li>MDT UML2 Tree Editor (included in Eclipse when installed with modeling tools as required for Dresden OCL2 for
+        Eclipse).
+      <li>GMF UML Class Diagram Editor (<a href="http://www.eclipse.org/gmf/" target="e">http://www.eclipse.org/gmf/</a>).</li>
+      <li>Topcased (<a href="http://www.topcased.org/" target="e">http://www.topcased.org/</a>).</li>
+    </ul>
+  </li>
+</ul>
+
 
 <!-- END OF CONTENT -->
 
