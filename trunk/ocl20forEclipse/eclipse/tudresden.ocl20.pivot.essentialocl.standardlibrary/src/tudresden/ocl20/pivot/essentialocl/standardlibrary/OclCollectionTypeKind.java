@@ -32,31 +32,36 @@
  */
 package tudresden.ocl20.pivot.essentialocl.standardlibrary;
 
-import tudresden.ocl20.pivot.modelinstancetype.types.IModelInstanceTuple;
+import tudresden.ocl20.pivot.essentialocl.expressions.CollectionKind;
+import tudresden.ocl20.pivot.modelinstance.IModelInstance;
 
 /**
- * 
+ * <p>
+ * This enumeration contains constants that represent the various OCL collection
+ * types. It is required during evaluation of OCL expressions when concrete
+ * collection types are requested from an {@link IModelInstance} by a compiler
+ * or interpreter. It should not be mixed up with the enumeration
+ * {@link CollectionKind} in the Essential OCL Expressions package because that
+ * one is used in the abstract syntax (i.e., one layer higer up in the meta
+ * hierachy).
+ * </p>
  * 
  * @author Matthias Braeuer
- * @version 1.0 30.03.2007
  */
-public interface OclTuple extends OclAny {
+public enum OclCollectionTypeKind {
 
-	/**
-	 * Returns the adapted {@link IModelInstanceTuple}.
-	 * 
-	 * @return the adapted {@link IModelInstanceTuple}
-	 */
-	public IModelInstanceTuple getModelInstanceTuple();
+	/** Enum constant representing the OCL Collection type. */
+	COLLECTION,
 
-	/**
-	 * Returns the value associated by the given key/pathname. If the key does not
-	 * exist, return OclUndefined.
-	 * 
-	 * @param pathname
-	 *          a key of the {@link OclTuple}.
-	 * @return the value associated by the given key/pathname
-	 */
-	public OclAny getPropertyValue(OclString pathname);
+	/** Enum constant representing the OCL Sequence type. */
+	SEQUENCE,
 
+	/** Enum constant representing the OCL Bag type. */
+	BAG,
+
+	/** Enum constant representing the OCL Set type. */
+	SET,
+
+	/** Enum constant representing the OCL OrderedSet type. */
+	ORDEREDSET
 }

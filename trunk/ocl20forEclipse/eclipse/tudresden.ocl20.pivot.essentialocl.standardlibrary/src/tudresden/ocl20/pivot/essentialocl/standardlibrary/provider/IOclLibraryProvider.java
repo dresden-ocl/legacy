@@ -30,33 +30,37 @@
  *
  * $Id$
  */
-package tudresden.ocl20.pivot.essentialocl.standardlibrary;
+package tudresden.ocl20.pivot.essentialocl.standardlibrary.provider;
 
-import tudresden.ocl20.pivot.modelinstancetype.types.IModelInstanceTuple;
+import tudresden.ocl20.pivot.essentialocl.types.OclLibrary;
+import tudresden.ocl20.pivot.essentialocl.types.util.TypeResolver;
+import tudresden.ocl20.pivot.model.IModel;
 
 /**
- * 
+ * <p>
+ * The {@link IOclLibraryProvider} provides access to the {@link OclLibrary}.
+ * </p>
  * 
  * @author Matthias Braeuer
- * @version 1.0 30.03.2007
  */
-public interface OclTuple extends OclAny {
+public interface IOclLibraryProvider {
 
 	/**
-	 * Returns the adapted {@link IModelInstanceTuple}.
+	 * <p>
+	 * Returns the {@link OclLibrary}.
+	 * </p>
 	 * 
-	 * @return the adapted {@link IModelInstanceTuple}
+	 * @return The {@link OclLibrary}.
 	 */
-	public IModelInstanceTuple getModelInstanceTuple();
+	OclLibrary getOclLibrary();
 
 	/**
-	 * Returns the value associated by the given key/pathname. If the key does not
-	 * exist, return OclUndefined.
+	 * <p>
+	 * Returns a {@link TypeResolver} object that can be used to find types in the
+	 * OCL standard library and in this {@link IModel}.
+	 * </p>
 	 * 
-	 * @param pathname
-	 *          a key of the {@link OclTuple}.
-	 * @return the value associated by the given key/pathname
+	 * @return An {@link TypeResolver} instance.
 	 */
-	public OclAny getPropertyValue(OclString pathname);
-
+	TypeResolver getTypeResolver();
 }
