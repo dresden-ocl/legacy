@@ -30,33 +30,37 @@
  *
  * $Id$
  */
-package tudresden.ocl20.pivot.essentialocl.standardlibrary;
+package tudresden.ocl20.pivot.essentialocl.internal;
 
-import tudresden.ocl20.pivot.modelinstancetype.types.IModelInstanceTuple;
+import org.eclipse.osgi.util.NLS;
 
 /**
- * 
+ * <p>
+ * Constants to access localized messages for the Standard Library plug-in.
+ * </p>
  * 
  * @author Matthias Braeuer
- * @version 1.0 30.03.2007
  */
-public interface OclTuple extends OclAny {
+public class StandardLibraryMessages extends NLS {
+
+	public static String OclLibraryProvider_LoadOclLibrary;
+
+	/** The location of the messages file. */
+	private static final String MESSAGES_FILE_LOCATION =
+			"tudresden.ocl20.pivot.essentialocl.standardlibrary.internal.messages"; //$NON-NLS-1$
+
+	static {
+		/* Initialize resource bundle. */
+		NLS.initializeMessages(MESSAGES_FILE_LOCATION, StandardLibraryMessages.class);
+	}
 
 	/**
-	 * Returns the adapted {@link IModelInstanceTuple}.
-	 * 
-	 * @return the adapted {@link IModelInstanceTuple}
+	 * <p>
+	 * Initializes the {@link StandardLibraryMessages}.
+	 * </p>
 	 */
-	public IModelInstanceTuple getModelInstanceTuple();
+	private StandardLibraryMessages() {
 
-	/**
-	 * Returns the value associated by the given key/pathname. If the key does not
-	 * exist, return OclUndefined.
-	 * 
-	 * @param pathname
-	 *          a key of the {@link OclTuple}.
-	 * @return the value associated by the given key/pathname
-	 */
-	public OclAny getPropertyValue(OclString pathname);
-
+		/* no implementaton necessary. */
+	}
 }
