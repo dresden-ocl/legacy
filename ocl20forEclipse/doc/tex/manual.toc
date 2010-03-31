@@ -54,10 +54,10 @@
 \contentsline {section}{\numberline {5.3}How to access the OCL2 Parser}{60}{section.5.3}
 \contentsline {section}{\numberline {5.4}How to access the OCL2 Interpreter}{60}{section.5.4}
 \contentsline {section}{\numberline {5.5}Summary}{61}{section.5.5}
-\contentsline {chapter}{\numberline {6}Standalone -- Using DresdenOCL outside of Eclipse}{63}{chapter.6}
+\contentsline {chapter}{\numberline {6}Standalone -- Using Dresden OCL outside of Eclipse}{63}{chapter.6}
 \contentsline {section}{\numberline {6.1}The Example Application}{63}{section.6.1}
 \contentsline {subsection}{\numberline {6.1.1}Classpath}{63}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Resources}{64}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.2}Resources}{63}{subsection.6.1.2}
 \contentsline {subsection}{\numberline {6.1.3}Logging}{64}{subsection.6.1.3}
 \contentsline {subsection}{\numberline {6.1.4}Using the Example}{64}{subsection.6.1.4}
 \contentsline {paragraph}{Royals \& Loyals}{64}{section*.11}
