@@ -1,133 +1,152 @@
 \select@language {english}
 \contentsline {chapter}{Abstract}{3}{section*.5}
-\contentsline {part}{Using Dresden OCL2 for Eclipse}{11}{section*.7}
-\contentsline {chapter}{\numberline {1}Getting started with Dresden OCL2 for Eclipse}{13}{chapter.1}
-\contentsline {section}{\numberline {1.1}How to Install Dresden OCL2 for Eclipse}{13}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}Installing Dresden OCL2 for Eclipse using the Eclipse Update Site}{14}{subsection.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}Importing Dresden OCL2 for Eclipse from the SVN}{15}{subsection.1.1.2}
-\contentsline {subsection}{\numberline {1.1.3}Which Plug-ins do I need at least?}{16}{subsection.1.1.3}
-\contentsline {subsection}{\numberline {1.1.4}Building the OCL2 Parser}{17}{subsection.1.1.4}
-\contentsline {section}{\numberline {1.2}Loading Models, Model Instances and Constraints}{17}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}The Simple Example}{17}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Loading a Domain-Specific Model}{19}{subsection.1.2.2}
-\contentsline {subsection}{\numberline {1.2.3}Loading a Model Instance}{19}{subsection.1.2.3}
-\contentsline {subsection}{\numberline {1.2.4}Parsing OCL expressions}{22}{subsection.1.2.4}
-\contentsline {section}{\numberline {1.3}Standalone Application}{24}{section.1.3}
-\contentsline {section}{\numberline {1.4}Summary}{24}{section.1.4}
-\contentsline {chapter}{\numberline {2}OCL Constraint Interpretation}{25}{chapter.2}
-\contentsline {section}{\numberline {2.1}The Simple Example}{25}{section.2.1}
-\contentsline {section}{\numberline {2.2}Preparation of the Interpretation}{27}{section.2.2}
-\contentsline {section}{\numberline {2.3}OCL Interpretation}{27}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Interpretation of Constraints}{27}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Preparation of Constraints}{30}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Adding Variables to the Environment}{31}{subsection.2.3.3}
-\contentsline {section}{\numberline {2.4}Summary}{33}{section.2.4}
-\contentsline {chapter}{\numberline {3}AspectJ Code Generation}{35}{chapter.3}
-\contentsline {section}{\numberline {3.1}Code Generator Preparation}{35}{section.3.1}
-\contentsline {section}{\numberline {3.2}Code Generation}{39}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Selecting a Model}{39}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Selecting Constraints}{39}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Selecting a Target Directory}{39}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Specifying General Settings}{42}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}Constraint-Specific Settings}{44}{subsection.3.2.5}
-\contentsline {section}{\numberline {3.3}The Generated Code}{45}{section.3.3}
-\contentsline {section}{\numberline {3.4}Summary}{46}{section.3.4}
-\contentsline {part}{Development with Dresden OCL2 for Eclipse}{47}{section*.9}
-\contentsline {chapter}{\numberline {4}The Architecture of Dresden OCL2 for Eclipse}{49}{chapter.4}
-\contentsline {section}{\numberline {4.1}The Generic Three Layer Metadata Architecture}{49}{section.4.1}
-\contentsline {section}{\numberline {4.2}The Toolkit's Package Architecture}{51}{section.4.2}
-\contentsline {section}{\numberline {4.3}Dresden OCL2 for Eclipse and the Generic Three La\discretionary {-}{}{}yer Me\discretionary {-}{}{}ta\discretionary {-}{}{}da\discretionary {-}{}{}ta Architecture}{52}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}The Adaptation of Meta-Models, Models and Model Instances}{52}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}How Meta-Models and Models are Adapted}{52}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}How Model Instances are Adapted}{54}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}Coupling between Models and their Instances}{54}{subsection.4.3.4}
-\contentsline {subsection}{\numberline {4.3.5}Essential OCL and OCL Constraints}{54}{subsection.4.3.5}
-\contentsline {subsection}{\numberline {4.3.6}The OCL Standard Library}{55}{subsection.4.3.6}
-\contentsline {section}{\numberline {4.4}Summary}{55}{section.4.4}
-\contentsline {chapter}{\numberline {5}How to integrate Dresden OCL2 for Eclipse}{57}{chapter.5}
-\contentsline {section}{\numberline {5.1}The Integration Facade of Dresden OCL2 for Eclipse}{57}{section.5.1}
-\contentsline {section}{\numberline {5.2}How to access Meta-Models, Models and Instances}{57}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}The Meta-Model Registry}{58}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}How to load a Model}{58}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}The Model Instance Type Registry}{59}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}How to load a Model Instance}{59}{subsection.5.2.4}
-\contentsline {section}{\numberline {5.3}How to access the OCL2 Parser}{60}{section.5.3}
-\contentsline {section}{\numberline {5.4}How to access the OCL2 Interpreter}{60}{section.5.4}
-\contentsline {section}{\numberline {5.5}Summary}{61}{section.5.5}
-\contentsline {chapter}{\numberline {6}Standalone -- Using Dresden OCL outside of Eclipse}{63}{chapter.6}
-\contentsline {section}{\numberline {6.1}The Example Application}{63}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Classpath}{63}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Resources}{63}{subsection.6.1.2}
-\contentsline {subsection}{\numberline {6.1.3}Logging}{64}{subsection.6.1.3}
-\contentsline {subsection}{\numberline {6.1.4}Using the Example}{64}{subsection.6.1.4}
-\contentsline {paragraph}{Royals \& Loyals}{64}{section*.11}
-\contentsline {paragraph}{PML}{65}{section*.12}
-\contentsline {paragraph}{Simple}{65}{section*.13}
-\contentsline {section}{\numberline {6.2}The Standalone Facade}{65}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Classpath and OCL Standard Library}{65}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Adding and Removing Methods}{65}{subsection.6.2.2}
-\contentsline {section}{\numberline {6.3}Summary}{65}{section.6.3}
-\contentsline {chapter}{\numberline {7}Adapting a Meta-Model to the Pivot Model}{67}{chapter.7}
-\contentsline {section}{\numberline {7.1}The Adapter Code generation}{67}{section.7.1}
-\contentsline {section}{\numberline {7.2}Summary}{70}{section.7.2}
-\contentsline {chapter}{\numberline {8}Adapting a Model Implementation Type to Dresden OCL2 for Eclipse}{73}{chapter.8}
-\contentsline {section}{\numberline {8.1}The different types of Model Instance Elements}{73}{section.8.1}
-\contentsline {subsection}{\numberline {8.1.1}The IModelInstanceElement Interface}{73}{subsection.8.1.1}
-\contentsline {subsubsection}{asType(Type)}{75}{section*.14}
-\contentsline {subsubsection}{copyForAtPre()}{75}{section*.15}
-\contentsline {subsubsection}{getName()}{75}{section*.16}
-\contentsline {subsubsection}{getType()}{75}{section*.17}
-\contentsline {subsubsection}{isKindOf(Type) and isTypeOf(Type)}{75}{section*.18}
-\contentsline {subsubsection}{isUndefined()}{75}{section*.19}
-\contentsline {subsection}{\numberline {8.1.2}The Adaptation of Model Instance Objects}{76}{subsection.8.1.2}
-\contentsline {subsubsection}{getObject()}{76}{section*.20}
-\contentsline {subsubsection}{getProperty(Property)}{76}{section*.21}
-\contentsline {subsubsection}{invokeOperation(Operation, List<IModelInstanceElement>)}{76}{section*.22}
-\contentsline {subsection}{\numberline {8.1.3}The Adaptation of Primitive Type Instances}{76}{subsection.8.1.3}
-\contentsline {subsection}{\numberline {8.1.4}The Adaptation of Collections}{77}{subsection.8.1.4}
-\contentsline {subsubsection}{getCollection()}{77}{section*.23}
-\contentsline {subsubsection}{isMultiple() and isOrdered()}{77}{section*.24}
-\contentsline {subsection}{\numberline {8.1.5}IModelInstanceEnumerationLiteral}{77}{subsection.8.1.5}
-\contentsline {subsection}{\numberline {8.1.6}IModelInstanceTuple}{77}{subsection.8.1.6}
-\contentsline {subsection}{\numberline {8.1.7}IModelInstanceVoid and IModelInstanceInvalid}{77}{subsection.8.1.7}
-\contentsline {section}{\numberline {8.2}The IModelInstanceProvider Interface}{78}{section.8.2}
-\contentsline {subsection}{\numberline {8.2.1}getModelInstance(URL, IModel)}{78}{subsection.8.2.1}
-\contentsline {subsection}{\numberline {8.2.2}createEmptyModelInstance(IModel)}{78}{subsection.8.2.2}
-\contentsline {section}{\numberline {8.3}The IModelInstance Interface}{78}{section.8.3}
-\contentsline {subsection}{\numberline {8.3.1}The Constructor}{78}{subsection.8.3.1}
-\contentsline {subsection}{\numberline {8.3.2}addModelInstanceElement(IModelInstanceElement)}{79}{subsection.8.3.2}
-\contentsline {subsection}{\numberline {8.3.3}getStaticProperty(Property)}{79}{subsection.8.3.3}
-\contentsline {subsection}{\numberline {8.3.4}invokeStaticOperation(Operation, List<IModelInstanceElement>)}{79}{subsection.8.3.4}
-\contentsline {section}{\numberline {8.4}The IModelInstanceFactory Interface}{79}{section.8.4}
-\contentsline {section}{\numberline {8.5}Adapting an own Model Implementation Type}{80}{section.8.5}
-\contentsline {chapter}{\numberline {9}The Logging Mechanism of Dresden OCL2 for Eclipse}{81}{chapter.9}
-\contentsline {chapter}{\numberline {10}The Extensible Test Suite of Dresden OCL2 for Eclipse}{83}{chapter.10}
-\contentsline {chapter}{\numberline {11}The Generic Meta-Model Test Suite}{85}{chapter.11}
-\contentsline {section}{\numberline {11.1}The Test Suite Plug-in}{85}{section.11.1}
-\contentsline {section}{\numberline {11.2}The required Model to test a Meta-Model}{85}{section.11.2}
-\contentsline {subsection}{\numberline {11.2.1}TestTypeClass1 and TestTypeClass2}{86}{subsection.11.2.1}
-\contentsline {subsection}{\numberline {11.2.2}TestTypeInterface1 and TestTypeInterface2}{86}{subsection.11.2.2}
-\contentsline {subsection}{\numberline {11.2.3}TestEnumeration}{88}{subsection.11.2.3}
-\contentsline {subsection}{\numberline {11.2.4}TestPrimitiveTypeClass}{88}{subsection.11.2.4}
-\contentsline {subsection}{\numberline {11.2.5}TestPropertyClass}{88}{subsection.11.2.5}
-\contentsline {subsection}{\numberline {11.2.6}TestOperationAndParameterClass}{88}{subsection.11.2.6}
-\contentsline {section}{\numberline {11.3}Instantiating the Generic Test Suite}{89}{section.11.3}
-\contentsline {section}{\numberline {11.4}Summary}{90}{section.11.4}
-\contentsline {chapter}{\numberline {12}The Generic Model Implementation Type Test Suite}{91}{chapter.12}
+\contentsline {part}{Using Dresden OCL}{11}{section*.7}
+\contentsline {chapter}{\numberline {1}About Dresden OCL}{13}{chapter.1}
+\contentsline {section}{\numberline {1.1}Supported Version of OCL}{13}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Missing Features of OCL 2.2 in DresdenOCL}{13}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Different Semantics of OCL Expressions in DresdenOCL}{13}{subsection.1.1.2}
+\contentsline {subsubsection}{Boolean Operators}{14}{section*.8}
+\contentsline {subsubsection}{Collections}{14}{section*.9}
+\contentsline {subsubsection}{Iterators}{14}{section*.10}
+\contentsline {subsubsection}{Handling of Null values}{15}{section*.11}
+\contentsline {subsubsection}{Handling of Invalid values}{15}{section*.12}
+\contentsline {section}{\numberline {1.2}Supported Meta-Models and Models In DresdenOCL}{15}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}EMF Ecore Models}{15}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Java Classes as Models}{15}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}MDT UML Class Diagrams}{16}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}XML Schemas as Models}{17}{subsection.1.2.4}
+\contentsline {section}{\numberline {1.3}Supported Model Instance Types and Model Intances In DresdenOCL}{17}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}EMF Ecore-Based Model Instances}{17}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Java Model Instances}{17}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}XML Model Instances}{18}{subsection.1.3.3}
+\contentsline {section}{\numberline {1.4}Summary}{18}{section.1.4}
+\contentsline {chapter}{\numberline {2}Getting started with Dresden OCL2 for Eclipse}{19}{chapter.2}
+\contentsline {section}{\numberline {2.1}How to Install Dresden OCL2 for Eclipse}{19}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Installing Dresden OCL2 for Eclipse using the Eclipse Update Site}{20}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Importing Dresden OCL2 for Eclipse from the SVN}{21}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Which Plug-ins do I need at least?}{22}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Building the OCL2 Parser}{23}{subsection.2.1.4}
+\contentsline {section}{\numberline {2.2}Loading Models, Model Instances and Constraints}{23}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}The Simple Example}{23}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Loading a Domain-Specific Model}{25}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Loading a Model Instance}{25}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Parsing OCL expressions}{28}{subsection.2.2.4}
+\contentsline {section}{\numberline {2.3}Standalone Application}{30}{section.2.3}
+\contentsline {section}{\numberline {2.4}Summary}{30}{section.2.4}
+\contentsline {chapter}{\numberline {3}OCL Constraint Interpretation}{31}{chapter.3}
+\contentsline {section}{\numberline {3.1}The Simple Example}{31}{section.3.1}
+\contentsline {section}{\numberline {3.2}Preparation of the Interpretation}{33}{section.3.2}
+\contentsline {section}{\numberline {3.3}OCL Interpretation}{33}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Interpretation of Constraints}{33}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Preparation of Constraints}{36}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Adding Variables to the Environment}{37}{subsection.3.3.3}
+\contentsline {section}{\numberline {3.4}Summary}{39}{section.3.4}
+\contentsline {chapter}{\numberline {4}AspectJ Code Generation}{41}{chapter.4}
+\contentsline {section}{\numberline {4.1}Code Generator Preparation}{41}{section.4.1}
+\contentsline {section}{\numberline {4.2}Code Generation}{45}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Selecting a Model}{45}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Selecting Constraints}{45}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Selecting a Target Directory}{45}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Specifying General Settings}{48}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Constraint-Specific Settings}{50}{subsection.4.2.5}
+\contentsline {section}{\numberline {4.3}The Generated Code}{51}{section.4.3}
+\contentsline {section}{\numberline {4.4}Summary}{52}{section.4.4}
+\contentsline {part}{Development with Dresden OCL}{53}{section*.17}
+\contentsline {chapter}{\numberline {5}The Architecture of Dresden OCL2 for Eclipse}{55}{chapter.5}
+\contentsline {section}{\numberline {5.1}The Generic Three Layer Metadata Architecture}{55}{section.5.1}
+\contentsline {section}{\numberline {5.2}The Toolkit's Package Architecture}{57}{section.5.2}
+\contentsline {section}{\numberline {5.3}Dresden OCL2 for Eclipse and the Generic Three La\discretionary {-}{}{}yer Me\discretionary {-}{}{}ta\discretionary {-}{}{}da\discretionary {-}{}{}ta Architecture}{58}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}The Adaptation of Meta-Models, Models and Model Instances}{58}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}How Meta-Models and Models are Adapted}{58}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}How Model Instances are Adapted}{60}{subsection.5.3.3}
+\contentsline {subsection}{\numberline {5.3.4}Coupling between Models and their Instances}{60}{subsection.5.3.4}
+\contentsline {subsection}{\numberline {5.3.5}Essential OCL and OCL Constraints}{60}{subsection.5.3.5}
+\contentsline {subsection}{\numberline {5.3.6}The OCL Standard Library}{61}{subsection.5.3.6}
+\contentsline {section}{\numberline {5.4}Summary}{61}{section.5.4}
+\contentsline {chapter}{\numberline {6}How to integrate Dresden OCL2 for Eclipse}{63}{chapter.6}
+\contentsline {section}{\numberline {6.1}The Integration Facade of Dresden OCL2 for Eclipse}{63}{section.6.1}
+\contentsline {section}{\numberline {6.2}How to access Meta-Models, Models and Instances}{63}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}The Meta-Model Registry}{64}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}How to load a Model}{64}{subsection.6.2.2}
+\contentsline {subsection}{\numberline {6.2.3}The Model Instance Type Registry}{65}{subsection.6.2.3}
+\contentsline {subsection}{\numberline {6.2.4}How to load a Model Instance}{65}{subsection.6.2.4}
+\contentsline {section}{\numberline {6.3}How to access the OCL2 Parser}{66}{section.6.3}
+\contentsline {section}{\numberline {6.4}How to access the OCL2 Interpreter}{66}{section.6.4}
+\contentsline {section}{\numberline {6.5}Summary}{67}{section.6.5}
+\contentsline {chapter}{\numberline {7}Standalone -- Using Dresden OCL outside of Eclipse}{69}{chapter.7}
+\contentsline {section}{\numberline {7.1}The Example Application}{69}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Classpath}{69}{subsection.7.1.1}
+\contentsline {subsection}{\numberline {7.1.2}Resources}{69}{subsection.7.1.2}
+\contentsline {subsection}{\numberline {7.1.3}Logging}{70}{subsection.7.1.3}
+\contentsline {subsection}{\numberline {7.1.4}Using the Example}{70}{subsection.7.1.4}
+\contentsline {paragraph}{Royals \& Loyals}{70}{section*.19}
+\contentsline {paragraph}{PML}{71}{section*.20}
+\contentsline {paragraph}{Simple}{71}{section*.21}
+\contentsline {section}{\numberline {7.2}The Standalone Facade}{71}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Classpath and OCL Standard Library}{71}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Adding and Removing Methods}{71}{subsection.7.2.2}
+\contentsline {section}{\numberline {7.3}Summary}{71}{section.7.3}
+\contentsline {chapter}{\numberline {8}Adapting a Meta-Model to the Pivot Model}{73}{chapter.8}
+\contentsline {section}{\numberline {8.1}The Adapter Code generation}{73}{section.8.1}
+\contentsline {section}{\numberline {8.2}Summary}{76}{section.8.2}
+\contentsline {chapter}{\numberline {9}Adapting a Model Implementation Type to Dresden OCL2 for Eclipse}{79}{chapter.9}
+\contentsline {section}{\numberline {9.1}The different types of Model Instance Elements}{79}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}The IModelInstanceElement Interface}{79}{subsection.9.1.1}
+\contentsline {subsubsection}{asType(Type)}{81}{section*.22}
+\contentsline {subsubsection}{copyForAtPre()}{81}{section*.23}
+\contentsline {subsubsection}{getName()}{81}{section*.24}
+\contentsline {subsubsection}{getType()}{81}{section*.25}
+\contentsline {subsubsection}{isKindOf(Type) and isTypeOf(Type)}{81}{section*.26}
+\contentsline {subsubsection}{isUndefined()}{81}{section*.27}
+\contentsline {subsection}{\numberline {9.1.2}The Adaptation of Model Instance Objects}{82}{subsection.9.1.2}
+\contentsline {subsubsection}{getObject()}{82}{section*.28}
+\contentsline {subsubsection}{getProperty(Property)}{82}{section*.29}
+\contentsline {subsubsection}{invokeOperation(Operation, List<IModelInstanceElement>)}{82}{section*.30}
+\contentsline {subsection}{\numberline {9.1.3}The Adaptation of Primitive Type Instances}{82}{subsection.9.1.3}
+\contentsline {subsection}{\numberline {9.1.4}The Adaptation of Collections}{83}{subsection.9.1.4}
+\contentsline {subsubsection}{getCollection()}{83}{section*.31}
+\contentsline {subsubsection}{isMultiple() and isOrdered()}{83}{section*.32}
+\contentsline {subsection}{\numberline {9.1.5}IModelInstanceEnumerationLiteral}{83}{subsection.9.1.5}
+\contentsline {subsection}{\numberline {9.1.6}IModelInstanceTuple}{83}{subsection.9.1.6}
+\contentsline {subsection}{\numberline {9.1.7}IModelInstanceVoid and IModelInstanceInvalid}{83}{subsection.9.1.7}
+\contentsline {section}{\numberline {9.2}The IModelInstanceProvider Interface}{84}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}getModelInstance(URL, IModel)}{84}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}createEmptyModelInstance(IModel)}{84}{subsection.9.2.2}
+\contentsline {section}{\numberline {9.3}The IModelInstance Interface}{84}{section.9.3}
+\contentsline {subsection}{\numberline {9.3.1}The Constructor}{84}{subsection.9.3.1}
+\contentsline {subsection}{\numberline {9.3.2}addModelInstanceElement(IModelInstanceElement)}{85}{subsection.9.3.2}
+\contentsline {subsection}{\numberline {9.3.3}getStaticProperty(Property)}{85}{subsection.9.3.3}
+\contentsline {subsection}{\numberline {9.3.4}invokeStaticOperation(Operation, List<IModelInstanceElement>)}{85}{subsection.9.3.4}
+\contentsline {section}{\numberline {9.4}The IModelInstanceFactory Interface}{85}{section.9.4}
+\contentsline {section}{\numberline {9.5}Adapting an own Model Implementation Type}{86}{section.9.5}
+\contentsline {chapter}{\numberline {10}The Logging Mechanism of Dresden OCL2 for Eclipse}{87}{chapter.10}
+\contentsline {chapter}{\numberline {11}The Extensible Test Suite of Dresden OCL2 for Eclipse}{89}{chapter.11}
+\contentsline {chapter}{\numberline {12}The Generic Meta-Model Test Suite}{91}{chapter.12}
 \contentsline {section}{\numberline {12.1}The Test Suite Plug-in}{91}{section.12.1}
-\contentsline {section}{\numberline {12.2}The required Model Instance to test a Meta-Model}{91}{section.12.2}
-\contentsline {subsection}{\numberline {12.2.1}The ContainerClass}{92}{subsection.12.2.1}
-\contentsline {subsection}{\numberline {12.2.2}Class1}{92}{subsection.12.2.2}
-\contentsline {subsection}{\numberline {12.2.3}Class2}{95}{subsection.12.2.3}
-\contentsline {subsection}{\numberline {12.2.4}Interface1, Interface2 and Interface3}{95}{subsection.12.2.4}
-\contentsline {subsection}{\numberline {12.2.5}PrimitiveTypeProviderClass, CollectionTypeProviderClass and E\discretionary {-}{}{}nu\discretionary {-}{}{}me\discretionary {-}{}{}ra\discretionary {-}{}{}tion\discretionary {-}{}{}Li\discretionary {-}{}{}te\discretionary {-}{}{}ral\discretionary {-}{}{}ProviderClass}{95}{subsection.12.2.5}
-\contentsline {subsection}{\numberline {12.2.6}StaticPropertyAndOperationClass}{95}{subsection.12.2.6}
-\contentsline {subsection}{\numberline {12.2.7}Copyable- and NonCopyableClass}{96}{subsection.12.2.7}
-\contentsline {section}{\numberline {12.3}Instantiating the Generic Test Suite}{96}{section.12.3}
-\contentsline {section}{\numberline {12.4}Summary}{96}{section.12.4}
-\contentsline {part}{Appendix}{99}{section*.25}
-\contentsline {chapter}{Tables}{101}{section*.26}
-\contentsline {chapter}{List of Figures}{105}{section*.28}
-\contentsline {chapter}{List of Listings}{109}{section*.30}
-\contentsline {chapter}{List of Abbreviations}{111}{section*.32}
-\contentsline {chapter}{References}{113}{section*.34}
+\contentsline {section}{\numberline {12.2}The required Model to test a Meta-Model}{91}{section.12.2}
+\contentsline {subsection}{\numberline {12.2.1}TestTypeClass1 and TestTypeClass2}{92}{subsection.12.2.1}
+\contentsline {subsection}{\numberline {12.2.2}TestTypeInterface1 and TestTypeInterface2}{92}{subsection.12.2.2}
+\contentsline {subsection}{\numberline {12.2.3}TestEnumeration}{92}{subsection.12.2.3}
+\contentsline {subsection}{\numberline {12.2.4}TestPrimitiveTypeClass}{94}{subsection.12.2.4}
+\contentsline {subsection}{\numberline {12.2.5}TestPropertyClass}{94}{subsection.12.2.5}
+\contentsline {subsection}{\numberline {12.2.6}TestOperationAndParameterClass}{94}{subsection.12.2.6}
+\contentsline {section}{\numberline {12.3}Instantiating the Generic Test Suite}{94}{section.12.3}
+\contentsline {section}{\numberline {12.4}Summary}{95}{section.12.4}
+\contentsline {chapter}{\numberline {13}The Generic Model Implementation Type Test Suite}{97}{chapter.13}
+\contentsline {section}{\numberline {13.1}The Test Suite Plug-in}{97}{section.13.1}
+\contentsline {section}{\numberline {13.2}The required Model Instance to test a Meta-Model}{97}{section.13.2}
+\contentsline {subsection}{\numberline {13.2.1}The ContainerClass}{98}{subsection.13.2.1}
+\contentsline {subsection}{\numberline {13.2.2}Class1}{98}{subsection.13.2.2}
+\contentsline {subsection}{\numberline {13.2.3}Class2}{101}{subsection.13.2.3}
+\contentsline {subsection}{\numberline {13.2.4}Interface1, Interface2 and Interface3}{101}{subsection.13.2.4}
+\contentsline {subsection}{\numberline {13.2.5}PrimitiveTypeProviderClass, CollectionTypeProviderClass and E\discretionary {-}{}{}nu\discretionary {-}{}{}me\discretionary {-}{}{}ra\discretionary {-}{}{}tion\discretionary {-}{}{}Li\discretionary {-}{}{}te\discretionary {-}{}{}ral\discretionary {-}{}{}ProviderClass}{101}{subsection.13.2.5}
+\contentsline {subsection}{\numberline {13.2.6}StaticPropertyAndOperationClass}{101}{subsection.13.2.6}
+\contentsline {subsection}{\numberline {13.2.7}Copyable- and NonCopyableClass}{102}{subsection.13.2.7}
+\contentsline {section}{\numberline {13.3}Instantiating the Generic Test Suite}{102}{section.13.3}
+\contentsline {section}{\numberline {13.4}Summary}{102}{section.13.4}
+\contentsline {part}{Appendix}{105}{section*.33}
+\contentsline {chapter}{Tables}{107}{section*.34}
+\contentsline {chapter}{List of Figures}{111}{section*.36}
+\contentsline {chapter}{List of Listings}{115}{section*.38}
+\contentsline {chapter}{List of Abbreviations}{117}{section*.40}
+\contentsline {chapter}{References}{119}{section*.42}
