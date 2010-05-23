@@ -102,9 +102,30 @@ public class GenerateAspectJCode extends AbstractDiffTest {
 
 		constraints.add(new String[] { "sltest/boolean", "toString01" });
 
+		/* FIXME Claas: Add additional test cases when parsing bugs are fixed. */
+		// constraints.add(new String[] { "sltest/collection", "asBag01" });
+		// constraints.add(new String[] { "sltest/collection", "asOrderedSet01"
+		// });
+		// constraints.add(new String[] { "sltest/collection", "asSequence01"
+		// });
+		// constraints.add(new String[] { "sltest/collection", "asSet01" });
+		constraints.add(new String[] { "sltest/collection", "count01" });
+		constraints.add(new String[] { "sltest/collection", "equals01" });
+		constraints.add(new String[] { "sltest/collection", "excludes01" });
+		constraints.add(new String[] { "sltest/collection", "excludesAll01" });
+		/* FIXME Claas: Add additional test cases when parsing bugs are fixed. */
+		// constraints.add(new String[] { "sltest/collection", "flatten01" });
+		constraints.add(new String[] { "sltest/collection", "includes01" });
+		constraints.add(new String[] { "sltest/collection", "includesAll01" });
+		constraints.add(new String[] { "sltest/collection", "isEmpty01" });
 		constraints.add(new String[] { "sltest/collection", "min01" });
 		constraints.add(new String[] { "sltest/collection", "max01" });
+		constraints.add(new String[] { "sltest/collection", "notEmpty01" });
+		/* FIXME Claas: Add additional test cases when parsing bugs are fixed. */
+		// constraints.add(new String[] { "sltest/collection", "notEquals01" });
 		constraints.add(new String[] { "sltest/collection", "product01" });
+		constraints.add(new String[] { "sltest/collection", "size01" });
+		constraints.add(new String[] { "sltest/collection", "sum01" });
 
 		constraints.add(new String[] { "sltest/integer", "toString01" });
 

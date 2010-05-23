@@ -165,7 +165,7 @@ $sourceExp$.concat($argsExp$)
 
 // --- Collection.count(T) ---
 countOperationOnCollection(sourceExp, argsExp) ::= <<
-$collectionUtility()$($sourceExp$, $argsExp$)
+$collectionUtility()$.count($sourceExp$, $argsExp$)
 >>
 
 // --- Bag.count(T) ---

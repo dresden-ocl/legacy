@@ -1337,12 +1337,6 @@ public final class Ocl22Java extends ExpressionsSwitch<ITransformedCode>
 
 			anOperation = anOperationCallExp.getReferredOperation();
 			operationName = anOperation.getName();
-
-			/* Probably rename the operation. */
-			if (renamedOperationNames.containsKey(operationName)) {
-				operationName = renamedOperationNames.get(operationName);
-			}
-			// no else.
 		}
 
 		resultExp = null;
@@ -1505,6 +1499,14 @@ public final class Ocl22Java extends ExpressionsSwitch<ITransformedCode>
 
 				if (operation != null
 						&& operation.getOwningType().equals(collectionType)) {
+
+					/* FIXME Probably rename the operation. */
+					if (renamedOperationNames.containsKey(operationName)) {
+						operationName = renamedOperationNames
+								.get(operationName);
+					}
+					// no else.
+
 					template = this.myTemplateGroup.getTemplate(operationName
 							+ "OperationOnCollection");
 				}
@@ -1522,7 +1524,13 @@ public final class Ocl22Java extends ExpressionsSwitch<ITransformedCode>
 			}
 			// no else.
 
-			if (sourceType instanceof Type) {
+			/* FIXME Probably rename the operation. */
+			if (renamedOperationNames.containsKey(operationName)) {
+				operationName = renamedOperationNames.get(operationName);
+			}
+			// no else.
+
+			if (template == null && sourceType instanceof Type) {
 
 				if (operationName.equals("oclIsNew")) {
 					template = this.myTemplateGroup
