@@ -1,84 +1,84 @@
 \select@language {english}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Transitive Import of Java Classes as a Model onto DresdenOCL.}}{16}{figure.1.1}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Transitive Import of Java Classes as a Model into DresdenOCL.}}{16}{figure.1.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Adding an Eclipse Update Site (Step 1).}}{20}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Adding an Eclipse Update Site (Step 2).}}{20}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Selecting features of Dresden OCL2 for Eclipse.}}{21}{figure.2.3}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Adding an SVN repository.}}{21}{figure.2.4}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Checkout of the Dresden OCL2 Toolkit plug-in projects.}}{22}{figure.2.5}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Executing the OCL2 Parser build script.}}{24}{figure.2.6}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Settings of the JRE for the Ant build script.}}{24}{figure.2.7}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Refreshing the project ``tudresden.ocl20.pivot.oclparser''.}}{24}{figure.2.8}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces A class diagram describing the Simple Example model.}}{25}{figure.2.9}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Loading a domain-specific model.}}{26}{figure.2.10}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces The Simple Example model in the model browser.}}{26}{figure.2.11}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces You can switch between different models using the little triangle.}}{27}{figure.2.12}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Loading a simple model instance.}}{27}{figure.2.13}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces A simple model instance in the Model Instance Browser.}}{28}{figure.2.14}
-\contentsline {figure}{\numberline {2.15}{\ignorespaces The import of OCL expressions.}}{29}{figure.2.15}
-\contentsline {figure}{\numberline {2.16}{\ignorespaces Parsed expressions and the model in the Model Browser.}}{29}{figure.2.16}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Adding an Eclipse Update Site (Step 1).}}{22}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Adding an Eclipse Update Site (Step 2).}}{22}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Selecting features of Dresden OCL2 for Eclipse.}}{23}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Adding an SVN repository.}}{23}{figure.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Checkout of the Dresden OCL2 Toolkit plug-in projects.}}{24}{figure.2.5}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Executing the OCL2 Parser build script.}}{26}{figure.2.6}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Settings of the JRE for the Ant build script.}}{26}{figure.2.7}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Refreshing the project ``tudresden.ocl20.pivot.oclparser''.}}{26}{figure.2.8}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces A class diagram describing the Simple Example model.}}{27}{figure.2.9}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Loading a domain-specific model.}}{28}{figure.2.10}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces The Simple Example model in the model browser.}}{28}{figure.2.11}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces You can switch between different models using the little triangle.}}{29}{figure.2.12}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Loading a simple model instance.}}{29}{figure.2.13}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces A simple model instance in the Model Instance Browser.}}{30}{figure.2.14}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces The import of OCL expressions.}}{31}{figure.2.15}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Parsed expressions and the model in the Model Browser.}}{31}{figure.2.16}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces The package explorer containing the project which is required to run this tutorial.}}{32}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces The model browser containing the simple model and its constraints.}}{34}{figure.3.2}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces The model instance browser containing the simple model instance.}}{34}{figure.3.3}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces The OCL2 Interpreter View containing no results.}}{35}{figure.3.4}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces The buttons to control the OCL2 Interpreter.}}{35}{figure.3.5}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces The three invariants selected in the Model Browser.}}{35}{figure.3.6}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces The results of the three invariants for all model instances.}}{35}{figure.3.7}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces The definition constraint selected in the Model Browser.}}{36}{figure.3.8}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces The precondition selected in the Model Browser.}}{37}{figure.3.9}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces The results of the precondition for all instance objects.}}{37}{figure.3.10}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces The results of the postcondition without preparing the result variable.}}{38}{figure.3.11}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces The window to add new variables to the environment.}}{38}{figure.3.12}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces The results of the postcondition with result variable preparation.}}{38}{figure.3.13}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The package explorer containing the project which is required to run this tutorial.}}{34}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces The model browser containing the simple model and its constraints.}}{36}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The model instance browser containing the simple model instance.}}{36}{figure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces The OCL2 Interpreter View containing no results.}}{37}{figure.3.4}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces The buttons to control the OCL2 Interpreter.}}{37}{figure.3.5}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces The three invariants selected in the Model Browser.}}{37}{figure.3.6}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces The results of the three invariants for all model instances.}}{37}{figure.3.7}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces The definition constraint selected in the Model Browser.}}{38}{figure.3.8}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces The precondition selected in the Model Browser.}}{39}{figure.3.9}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces The results of the precondition for all instance objects.}}{39}{figure.3.10}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces The results of the postcondition without preparing the result variable.}}{40}{figure.3.11}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces The window to add new variables to the environment.}}{40}{figure.3.12}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces The results of the postcondition with result variable preparation.}}{40}{figure.3.13}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces The two projects which are required to run this tutorial.}}{42}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Selecting the properties settings.}}{43}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Adding a new library to the build path.}}{44}{figure.4.3}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces The result of the JUnit test case.}}{44}{figure.4.4}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces The model browser containing the simple model and its constraints.}}{45}{figure.4.5}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces The first step: Selecting a model for code generation.}}{46}{figure.4.6}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces The second step: Selecting constraints for code generation.}}{47}{figure.4.7}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces The third step: Selecting a target directory for the generated code.}}{48}{figure.4.8}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces The fourth step: General settings for the code generation.}}{49}{figure.4.9}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces The fifth step: Constraint-specific settings for the code generation.}}{50}{figure.4.10}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces The package explorer containing the newly generated aspect file.}}{51}{figure.4.11}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces The successfully executed jUnit test case.}}{52}{figure.4.12}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The two projects which are required to run this tutorial.}}{44}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Selecting the properties settings.}}{45}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Adding a new library to the build path.}}{46}{figure.4.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces The result of the JUnit test case.}}{46}{figure.4.4}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces The model browser containing the simple model and its constraints.}}{47}{figure.4.5}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces The first step: Selecting a model for code generation.}}{48}{figure.4.6}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces The second step: Selecting constraints for code generation.}}{49}{figure.4.7}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces The third step: Selecting a target directory for the generated code.}}{50}{figure.4.8}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces The fourth step: General settings for the code generation.}}{51}{figure.4.9}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces The fifth step: Constraint-specific settings for the code generation.}}{52}{figure.4.10}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces The package explorer containing the newly generated aspect file.}}{53}{figure.4.11}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces The successfully executed jUnit test case.}}{54}{figure.4.12}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces The MOF Four Layer Metadata Architecture.}}{56}{figure.5.1}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces The Generic Three Layer Metadata Architecture.}}{56}{figure.5.2}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces The architecture of Dresden OCL2 for Eclipse.}}{57}{figure.5.3}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces The architecture of Dresden OCL2 for Eclipse in respect to the Generic Three Layer Metadata Architecture.}}{59}{figure.5.4}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces The MOF Four Layer Metadata Architecture.}}{58}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces The Generic Three Layer Metadata Architecture.}}{58}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces The architecture of Dresden OCL2 for Eclipse.}}{59}{figure.5.3}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces The architecture of Dresden OCL2 for Eclipse in respect to the Generic Three Layer Metadata Architecture.}}{61}{figure.5.4}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces The main class of the Model-Bus plug-in.}}{64}{figure.6.1}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces The Meta-Model Registry.}}{64}{figure.6.2}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces The Model Registry.}}{65}{figure.6.3}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces The Model Instance Type Registry.}}{65}{figure.6.4}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces The Model Instance Registry.}}{66}{figure.6.5}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces The main class of the Model-Bus plug-in.}}{66}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces The Meta-Model Registry.}}{66}{figure.6.2}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces The Model Registry.}}{67}{figure.6.3}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces The Model Instance Type Registry.}}{67}{figure.6.4}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces The Model Instance Registry.}}{68}{figure.6.5}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces The Ecore model opened in Eclipse.}}{74}{figure.8.1}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Create an annotation for the Ecore package.}}{74}{figure.8.2}
-\contentsline {figure}{\numberline {8.3}{\ignorespaces The Properties View for the annotation.}}{75}{figure.8.3}
-\contentsline {figure}{\numberline {8.4}{\ignorespaces Create annotation details for the annotation.}}{75}{figure.8.4}
-\contentsline {figure}{\numberline {8.5}{\ignorespaces The Properties View for the annotation details.}}{75}{figure.8.5}
-\contentsline {figure}{\numberline {8.6}{\ignorespaces The EClass annotation.}}{76}{figure.8.6}
-\contentsline {figure}{\numberline {8.7}{\ignorespaces The genmodel of the Ecore model.}}{77}{figure.8.7}
-\contentsline {figure}{\numberline {8.8}{\ignorespaces Right-click on Ecore and select 'Generate Pivot Model adapters'.}}{77}{figure.8.8}
-\contentsline {figure}{\numberline {8.9}{\ignorespaces The structure of the generated plug-in.}}{78}{figure.8.9}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces The Ecore model opened in Eclipse.}}{76}{figure.8.1}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Create an annotation for the Ecore package.}}{76}{figure.8.2}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces The Properties View for the annotation.}}{77}{figure.8.3}
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Create annotation details for the annotation.}}{77}{figure.8.4}
+\contentsline {figure}{\numberline {8.5}{\ignorespaces The Properties View for the annotation details.}}{77}{figure.8.5}
+\contentsline {figure}{\numberline {8.6}{\ignorespaces The EClass annotation.}}{78}{figure.8.6}
+\contentsline {figure}{\numberline {8.7}{\ignorespaces The genmodel of the Ecore model.}}{79}{figure.8.7}
+\contentsline {figure}{\numberline {8.8}{\ignorespaces Right-click on Ecore and select 'Generate Pivot Model adapters'.}}{79}{figure.8.8}
+\contentsline {figure}{\numberline {8.9}{\ignorespaces The structure of the generated plug-in.}}{80}{figure.8.9}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces The different types of IModelInstanceElements.}}{80}{figure.9.1}
-\contentsline {figure}{\numberline {9.2}{\ignorespaces The IModelInstance Interface.}}{84}{figure.9.2}
-\contentsline {figure}{\numberline {9.3}{\ignorespaces The IModelInstance Interface.}}{85}{figure.9.3}
+\contentsline {figure}{\numberline {9.1}{\ignorespaces The different types of IModelInstanceElements.}}{82}{figure.9.1}
+\contentsline {figure}{\numberline {9.2}{\ignorespaces The IModelInstance Interface.}}{86}{figure.9.2}
+\contentsline {figure}{\numberline {9.3}{\ignorespaces The IModelInstance Interface.}}{87}{figure.9.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Setting up a simple SocketReceiver in Chainsaw.}}{87}{figure.10.1}
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Setting up a simple SocketReceiver in Chainsaw.}}{89}{figure.10.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {11.1}{\ignorespaces Run the Extensible Test Suite.}}{90}{figure.11.1}
+\contentsline {figure}{\numberline {11.1}{\ignorespaces Run the Extensible Test Suite.}}{92}{figure.11.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {12.1}{\ignorespaces The Generic Meta-Model Test Suite in respect to the Generic Three Layer Ar\discretionary {-}{}{}chi\discretionary {-}{}{}tec\discretionary {-}{}{}ture (as presented in Section \ref {architecture:genericLayers}).}}{92}{figure.12.1}
-\contentsline {figure}{\numberline {12.2}{\ignorespaces The required Test Model to test a Meta-Model's adaptation. The gray parts are optional.}}{93}{figure.12.2}
+\contentsline {figure}{\numberline {12.1}{\ignorespaces The Generic Meta-Model Test Suite in respect to the Generic Three Layer Ar\discretionary {-}{}{}chi\discretionary {-}{}{}tec\discretionary {-}{}{}ture (as presented in Section \ref {architecture:genericLayers}).}}{94}{figure.12.1}
+\contentsline {figure}{\numberline {12.2}{\ignorespaces The required Test Model to test a Meta-Model's adaptation. The gray parts are optional.}}{95}{figure.12.2}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {13.1}{\ignorespaces The Generic model implementation type Test Suite in respect to the Generic Three Layer Ar\discretionary {-}{}{}chi\discretionary {-}{}{}tec\discretionary {-}{}{}ture (as presented in Section \ref {architecture:genericLayers}).}}{98}{figure.13.1}
-\contentsline {figure}{\numberline {13.2}{\ignorespaces The required Test Model to test a model implementation type's adaptation (part 1).}}{99}{figure.13.2}
-\contentsline {figure}{\numberline {13.3}{\ignorespaces The required Test Model to test a model implementation type's adaptation (part 2).}}{100}{figure.13.3}
+\contentsline {figure}{\numberline {13.1}{\ignorespaces The Generic model implementation type Test Suite in respect to the Generic Three Layer Ar\discretionary {-}{}{}chi\discretionary {-}{}{}tec\discretionary {-}{}{}ture (as presented in Section \ref {architecture:genericLayers}).}}{100}{figure.13.1}
+\contentsline {figure}{\numberline {13.2}{\ignorespaces The required Test Model to test a model implementation type's adaptation (part 1).}}{101}{figure.13.2}
+\contentsline {figure}{\numberline {13.3}{\ignorespaces The required Test Model to test a model implementation type's adaptation (part 2).}}{102}{figure.13.3}

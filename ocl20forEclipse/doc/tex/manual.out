@@ -4,12 +4,12 @@
 \BOOKMARK [1][-]{section.1.1}{1.1 Supported Version of OCL}{chapter.1}
 \BOOKMARK [2][-]{subsection.1.1.1}{1.1.1 Missing Features of OCL 2.2 in DresdenOCL}{section.1.1}
 \BOOKMARK [2][-]{subsection.1.1.2}{1.1.2 Different Semantics of OCL Expressions in DresdenOCL}{section.1.1}
-\BOOKMARK [1][-]{section.1.2}{1.2 Supported Meta-Models and Models In DresdenOCL}{chapter.1}
+\BOOKMARK [1][-]{section.1.2}{1.2 Supported Models In Dresden OCL}{chapter.1}
 \BOOKMARK [2][-]{subsection.1.2.1}{1.2.1 EMF Ecore Models}{section.1.2}
 \BOOKMARK [2][-]{subsection.1.2.2}{1.2.2 Java Classes as Models}{section.1.2}
 \BOOKMARK [2][-]{subsection.1.2.3}{1.2.3 MDT UML Class Diagrams}{section.1.2}
 \BOOKMARK [2][-]{subsection.1.2.4}{1.2.4 XML Schemas as Models}{section.1.2}
-\BOOKMARK [1][-]{section.1.3}{1.3 Supported Model Instance Types and Model Intances In DresdenOCL}{chapter.1}
+\BOOKMARK [1][-]{section.1.3}{1.3 Supported Model Instancs In Dresden OCL}{chapter.1}
 \BOOKMARK [2][-]{subsection.1.3.1}{1.3.1 EMF Ecore-Based Model Instances}{section.1.3}
 \BOOKMARK [2][-]{subsection.1.3.2}{1.3.2 Java Model Instances}{section.1.3}
 \BOOKMARK [2][-]{subsection.1.3.3}{1.3.3 XML Model Instances}{section.1.3}
@@ -45,8 +45,8 @@
 \BOOKMARK [2][-]{subsection.4.2.5}{4.2.5 Constraint-Specific Settings}{section.4.2}
 \BOOKMARK [1][-]{section.4.3}{4.3 The Generated Code}{chapter.4}
 \BOOKMARK [1][-]{section.4.4}{4.4 Summary}{chapter.4}
-\BOOKMARK [-1][-]{section*.17}{Development with Dresden OCL}{}
-\BOOKMARK [0][-]{chapter.5}{5 The Architecture of Dresden OCL2 for Eclipse}{section*.17}
+\BOOKMARK [-1][-]{section*.18}{Development with Dresden OCL}{}
+\BOOKMARK [0][-]{chapter.5}{5 The Architecture of Dresden OCL2 for Eclipse}{section*.18}
 \BOOKMARK [1][-]{section.5.1}{5.1 The Generic Three Layer Metadata Architecture}{chapter.5}
 \BOOKMARK [1][-]{section.5.2}{5.2 The Toolkit's Package Architecture}{chapter.5}
 \BOOKMARK [1][-]{section.5.3}{5.3 Dresden OCL2 for Eclipse and the Generic Three Layer Metadata Architecture}{chapter.5}
@@ -57,7 +57,7 @@
 \BOOKMARK [2][-]{subsection.5.3.5}{5.3.5 Essential OCL and OCL Constraints}{section.5.3}
 \BOOKMARK [2][-]{subsection.5.3.6}{5.3.6 The OCL Standard Library}{section.5.3}
 \BOOKMARK [1][-]{section.5.4}{5.4 Summary}{chapter.5}
-\BOOKMARK [0][-]{chapter.6}{6 How to integrate Dresden OCL2 for Eclipse}{section*.17}
+\BOOKMARK [0][-]{chapter.6}{6 How to integrate Dresden OCL2 for Eclipse}{section*.18}
 \BOOKMARK [1][-]{section.6.1}{6.1 The Integration Facade of Dresden OCL2 for Eclipse}{chapter.6}
 \BOOKMARK [1][-]{section.6.2}{6.2 How to access Meta-Models, Models and Instances}{chapter.6}
 \BOOKMARK [2][-]{subsection.6.2.1}{6.2.1 The Meta-Model Registry}{section.6.2}
@@ -67,7 +67,7 @@
 \BOOKMARK [1][-]{section.6.3}{6.3 How to access the OCL2 Parser}{chapter.6}
 \BOOKMARK [1][-]{section.6.4}{6.4 How to access the OCL2 Interpreter}{chapter.6}
 \BOOKMARK [1][-]{section.6.5}{6.5 Summary}{chapter.6}
-\BOOKMARK [0][-]{chapter.7}{7 Standalone \205 Using Dresden OCL outside of Eclipse}{section*.17}
+\BOOKMARK [0][-]{chapter.7}{7 Standalone \205 Using Dresden OCL outside of Eclipse}{section*.18}
 \BOOKMARK [1][-]{section.7.1}{7.1 The Example Application}{chapter.7}
 \BOOKMARK [2][-]{subsection.7.1.1}{7.1.1 Classpath}{section.7.1}
 \BOOKMARK [2][-]{subsection.7.1.2}{7.1.2 Resources}{section.7.1}
@@ -77,10 +77,10 @@
 \BOOKMARK [2][-]{subsection.7.2.1}{7.2.1 Classpath and OCL Standard Library}{section.7.2}
 \BOOKMARK [2][-]{subsection.7.2.2}{7.2.2 Adding and Removing Methods}{section.7.2}
 \BOOKMARK [1][-]{section.7.3}{7.3 Summary}{chapter.7}
-\BOOKMARK [0][-]{chapter.8}{8 Adapting a Meta-Model to the Pivot Model}{section*.17}
+\BOOKMARK [0][-]{chapter.8}{8 Adapting a Meta-Model to the Pivot Model}{section*.18}
 \BOOKMARK [1][-]{section.8.1}{8.1 The Adapter Code generation}{chapter.8}
 \BOOKMARK [1][-]{section.8.2}{8.2 Summary}{chapter.8}
-\BOOKMARK [0][-]{chapter.9}{9 Adapting a Model Implementation Type to Dresden OCL2 for Eclipse}{section*.17}
+\BOOKMARK [0][-]{chapter.9}{9 Adapting a Model Implementation Type to Dresden OCL2 for Eclipse}{section*.18}
 \BOOKMARK [1][-]{section.9.1}{9.1 The different types of Model Instance Elements}{chapter.9}
 \BOOKMARK [2][-]{subsection.9.1.1}{9.1.1 The IModelInstanceElement Interface}{section.9.1}
 \BOOKMARK [2][-]{subsection.9.1.2}{9.1.2 The Adaptation of Model Instance Objects}{section.9.1}
@@ -99,9 +99,9 @@
 \BOOKMARK [2][-]{subsection.9.3.4}{9.3.4 invokeStaticOperation\(Operation, List<IModelInstanceElement>\)}{section.9.3}
 \BOOKMARK [1][-]{section.9.4}{9.4 The IModelInstanceFactory Interface}{chapter.9}
 \BOOKMARK [1][-]{section.9.5}{9.5 Adapting an own Model Implementation Type}{chapter.9}
-\BOOKMARK [0][-]{chapter.10}{10 The Logging Mechanism of Dresden OCL2 for Eclipse}{section*.17}
-\BOOKMARK [0][-]{chapter.11}{11 The Extensible Test Suite of Dresden OCL2 for Eclipse}{section*.17}
-\BOOKMARK [0][-]{chapter.12}{12 The Generic Meta-Model Test Suite}{section*.17}
+\BOOKMARK [0][-]{chapter.10}{10 The Logging Mechanism of Dresden OCL2 for Eclipse}{section*.18}
+\BOOKMARK [0][-]{chapter.11}{11 The Extensible Test Suite of Dresden OCL2 for Eclipse}{section*.18}
+\BOOKMARK [0][-]{chapter.12}{12 The Generic Meta-Model Test Suite}{section*.18}
 \BOOKMARK [1][-]{section.12.1}{12.1 The Test Suite Plug-in}{chapter.12}
 \BOOKMARK [1][-]{section.12.2}{12.2 The required Model to test a Meta-Model}{chapter.12}
 \BOOKMARK [2][-]{subsection.12.2.1}{12.2.1 TestTypeClass1 and TestTypeClass2}{section.12.2}
@@ -112,7 +112,7 @@
 \BOOKMARK [2][-]{subsection.12.2.6}{12.2.6 TestOperationAndParameterClass}{section.12.2}
 \BOOKMARK [1][-]{section.12.3}{12.3 Instantiating the Generic Test Suite}{chapter.12}
 \BOOKMARK [1][-]{section.12.4}{12.4 Summary}{chapter.12}
-\BOOKMARK [0][-]{chapter.13}{13 The Generic Model Implementation Type Test Suite}{section*.17}
+\BOOKMARK [0][-]{chapter.13}{13 The Generic Model Implementation Type Test Suite}{section*.18}
 \BOOKMARK [1][-]{section.13.1}{13.1 The Test Suite Plug-in}{chapter.13}
 \BOOKMARK [1][-]{section.13.2}{13.2 The required Model Instance to test a Meta-Model}{chapter.13}
 \BOOKMARK [2][-]{subsection.13.2.1}{13.2.1 The ContainerClass}{section.13.2}
@@ -124,9 +124,9 @@
 \BOOKMARK [2][-]{subsection.13.2.7}{13.2.7 Copyable- and NonCopyableClass}{section.13.2}
 \BOOKMARK [1][-]{section.13.3}{13.3 Instantiating the Generic Test Suite}{chapter.13}
 \BOOKMARK [1][-]{section.13.4}{13.4 Summary}{chapter.13}
-\BOOKMARK [-1][-]{section*.33}{Appendix}{}
-\BOOKMARK [0][-]{section*.34}{Tables}{section*.33}
-\BOOKMARK [0][-]{section*.36}{List of Figures}{section*.33}
-\BOOKMARK [0][-]{section*.38}{List of Listings}{section*.33}
-\BOOKMARK [0][-]{section*.40}{List of Abbreviations}{section*.33}
-\BOOKMARK [0][-]{section*.42}{References}{section*.33}
+\BOOKMARK [-1][-]{section*.34}{Appendix}{}
+\BOOKMARK [0][-]{section*.35}{Tables}{section*.34}
+\BOOKMARK [0][-]{section*.37}{List of Figures}{section*.34}
+\BOOKMARK [0][-]{section*.39}{List of Listings}{section*.34}
+\BOOKMARK [0][-]{section*.41}{List of Abbreviations}{section*.34}
+\BOOKMARK [0][-]{section*.43}{References}{section*.34}
