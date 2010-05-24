@@ -100,6 +100,8 @@ public class GenerateAspectJCode extends AbstractDiffTest {
 		constraints.add(new String[] { "constraintkindtest/post", "post01" });
 		constraints.add(new String[] { "constraintkindtest/post", "post02" });
 
+		/* FIXME Class: Add test cases for bag. */
+
 		constraints.add(new String[] { "sltest/boolean", "toString01" });
 
 		/* FIXME Claas: Add additional test cases when parsing bugs are fixed. */
@@ -132,12 +134,15 @@ public class GenerateAspectJCode extends AbstractDiffTest {
 		constraints.add(new String[] { "sltest/oclany", "allInstances01" });
 		constraints.add(new String[] { "sltest/oclany", "oclType01" });
 
+		/* FIXME Class: Add additional test cases for orderedset. */
 		constraints.add(new String[] { "sltest/orderedset", "reverse01" });
 
 		constraints.add(new String[] { "sltest/real", "toString01" });
 
+		/* FIXME Class: Add additional test cases for set. */
 		constraints.add(new String[] { "sltest/set", "flatten01" });
 
+		/* FIXME Class: Add additional test cases for sequence. */
 		constraints.add(new String[] { "sltest/sequence", "reverse01" });
 
 		constraints.add(new String[] { "sltest/string", "at01" });
