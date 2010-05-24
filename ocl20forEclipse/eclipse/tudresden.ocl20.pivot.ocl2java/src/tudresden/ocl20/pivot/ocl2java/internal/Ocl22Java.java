@@ -137,6 +137,7 @@ public final class Ocl22Java extends ExpressionsSwitch<ITransformedCode>
 	static {
 		renamedOperationNames.put("=", "equals");
 		renamedOperationNames.put("<>", "notEquals");
+		renamedOperationNames.put("-", "minus");
 	}
 
 	/**
@@ -1368,6 +1369,14 @@ public final class Ocl22Java extends ExpressionsSwitch<ITransformedCode>
 
 				if (operation != null
 						&& operation.getOwningType().equals(bagType)) {
+					
+					/* Probably rename the operation. */
+					if (renamedOperationNames.containsKey(operationName)) {
+						operationName = renamedOperationNames
+								.get(operationName);
+					}
+					// no else.
+
 					template = this.myTemplateGroup.getTemplate(operationName
 							+ "OperationOnBag");
 				}
@@ -1396,6 +1405,14 @@ public final class Ocl22Java extends ExpressionsSwitch<ITransformedCode>
 
 				if (operation != null
 						&& operation.getOwningType().equals(orderedSetType)) {
+					
+					/* Probably rename the operation. */
+					if (renamedOperationNames.containsKey(operationName)) {
+						operationName = renamedOperationNames
+								.get(operationName);
+					}
+					// no else.
+
 					template = this.myTemplateGroup.getTemplate(operationName
 							+ "OperationOnOrderedSet");
 				}
@@ -1424,6 +1441,14 @@ public final class Ocl22Java extends ExpressionsSwitch<ITransformedCode>
 
 				if (operation != null
 						&& operation.getOwningType().equals(sequenceType)) {
+
+					/* Probably rename the operation. */
+					if (renamedOperationNames.containsKey(operationName)) {
+						operationName = renamedOperationNames
+								.get(operationName);
+					}
+					// no else.
+
 					template = this.myTemplateGroup.getTemplate(operationName
 							+ "OperationOnSequence");
 				}
@@ -1469,6 +1494,14 @@ public final class Ocl22Java extends ExpressionsSwitch<ITransformedCode>
 
 					if (operation != null
 							&& operation.getOwningType().equals(setType)) {
+
+						/* Probably rename the operation. */
+						if (renamedOperationNames.containsKey(operationName)) {
+							operationName = renamedOperationNames
+									.get(operationName);
+						}
+						// no else.
+
 						template = this.myTemplateGroup
 								.getTemplate(operationName + "OperationOnSet");
 					}
@@ -1500,7 +1533,7 @@ public final class Ocl22Java extends ExpressionsSwitch<ITransformedCode>
 				if (operation != null
 						&& operation.getOwningType().equals(collectionType)) {
 
-					/* FIXME Probably rename the operation. */
+					/* Probably rename the operation. */
 					if (renamedOperationNames.containsKey(operationName)) {
 						operationName = renamedOperationNames
 								.get(operationName);
@@ -1747,7 +1780,7 @@ public final class Ocl22Java extends ExpressionsSwitch<ITransformedCode>
 								.getTemplate("floorOperation");
 					}
 
-					else if (operationName.equals("-")) {
+					else if (operationName.equals("minus")) {
 						/* Decide between binary minus and ... */
 						if (anOperationCallExp.getArgument().size() > 0) {
 							template = this.myTemplateGroup
