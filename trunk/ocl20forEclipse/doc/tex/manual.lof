@@ -20,19 +20,18 @@
 \contentsline {figure}{\numberline {2.16}{\ignorespaces Parsed expressions and the model in the Model Browser.}}{31}{figure.2.16}
 \contentsline {figure}{\numberline {2.17}{\ignorespaces How to remove Constraints from a Model again.}}{32}{figure.2.17}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces The package explorer containing the project which is required to run this tutorial.}}{34}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces The model browser containing the simple model and its constraints.}}{36}{figure.3.2}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces The model instance browser containing the simple model instance.}}{36}{figure.3.3}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The Package Explorer containing the Project which is required to run this Tutorial.}}{34}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces The Model Browser containing the Simple Model and its Constraints.}}{36}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The Model Instance Browser containing the Simple Model Instance.}}{36}{figure.3.3}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces The OCL2 Interpreter View containing no results.}}{37}{figure.3.4}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces The buttons to control the OCL2 Interpreter.}}{37}{figure.3.5}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces The three invariants selected in the Model Browser.}}{37}{figure.3.6}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces The results of the three invariants for all model instances.}}{37}{figure.3.7}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces The definition constraint selected in the Model Browser.}}{38}{figure.3.8}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces The precondition selected in the Model Browser.}}{39}{figure.3.9}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces The results of the precondition for all instance objects.}}{39}{figure.3.10}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces The results of the postcondition without preparing the result variable.}}{40}{figure.3.11}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces The window to add new variables to the environment.}}{40}{figure.3.12}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces The results of the postcondition with result variable preparation.}}{40}{figure.3.13}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces The Buttons to Control the OCL2 Interpreter.}}{37}{figure.3.5}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces The three Invariants selected in the Model Browser.}}{37}{figure.3.6}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces The results of the three Invariants for all Model Instance Elements.}}{38}{figure.3.7}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces The Definition selected in the Model Browser.}}{38}{figure.3.8}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces The results of the Definition for all Model Instance Elements.}}{38}{figure.3.9}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces The results of the Postcondition without preparing the Result Variable.}}{40}{figure.3.10}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces The Window to add new Variables to the Environment.}}{40}{figure.3.11}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces The Results of the Postcondition with Result Variable Preparation.}}{40}{figure.3.12}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces The two projects which are required to run this tutorial.}}{44}{figure.4.1}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Selecting the properties settings.}}{45}{figure.4.2}
