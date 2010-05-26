@@ -11,13 +11,14 @@
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Settings of the JRE for the Ant build script.}}{26}{figure.2.7}
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Refreshing the project ``tudresden.ocl20.pivot.oclparser''.}}{26}{figure.2.8}
 \contentsline {figure}{\numberline {2.9}{\ignorespaces A class diagram describing the Simple Example model.}}{27}{figure.2.9}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Loading a domain-specific model.}}{28}{figure.2.10}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces The Simple Example model in the model browser.}}{28}{figure.2.11}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces You can switch between different models using the little triangle.}}{29}{figure.2.12}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Loading a simple model instance.}}{29}{figure.2.13}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Loading a Model.}}{28}{figure.2.10}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces The Simple Example Model in the Model Browser.}}{28}{figure.2.11}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces You can switch between different Models using the little Triangle.}}{29}{figure.2.12}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Loading a Simple Model Instance.}}{29}{figure.2.13}
 \contentsline {figure}{\numberline {2.14}{\ignorespaces A simple model instance in the Model Instance Browser.}}{30}{figure.2.14}
 \contentsline {figure}{\numberline {2.15}{\ignorespaces The import of OCL expressions.}}{31}{figure.2.15}
 \contentsline {figure}{\numberline {2.16}{\ignorespaces Parsed expressions and the model in the Model Browser.}}{31}{figure.2.16}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces How to remove Constraints from a Model again.}}{32}{figure.2.17}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces The package explorer containing the project which is required to run this tutorial.}}{34}{figure.3.1}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces The model browser containing the simple model and its constraints.}}{36}{figure.3.2}
