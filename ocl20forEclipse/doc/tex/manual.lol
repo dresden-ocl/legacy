@@ -4,7 +4,9 @@
 \contentsline {lstlisting}{\numberline {1.4}Example for a .javamodel File.}{17}{lstlisting.1.4}
 \contentsline {lstlisting}{\numberline {1.5}Example for a ModelInstanceProviderClass programmed in Java.}{18}{lstlisting.1.5}
 \contentsline {lstlisting}{\numberline {2.1}The invariants of the simple examples.}{30}{lstlisting.2.1}
-\contentsline {lstlisting}{\numberline {3.1}The constraints contained in the constraint file.}{34}{lstlisting.3.1}
+\contentsline {lstlisting}{\numberline {3.1}The Constraints contained in the Constraint File.}{34}{lstlisting.3.1}
+\contentsline {lstlisting}{\numberline {3.2}An example Precondition defined on an Operation with Argument.}{40}{lstlisting.3.2}
+\contentsline {lstlisting}{\numberline {3.3}An example Postcondition that must be prepared.}{41}{lstlisting.3.3}
 \contentsline {lstlisting}{\numberline {4.1}A simple invariant.}{46}{lstlisting.4.1}
 \contentsline {lstlisting}{\numberline {6.1}How to load a model.}{67}{lstlisting.6.1}
 \contentsline {lstlisting}{\numberline {6.2}How to load a model instance.}{68}{lstlisting.6.2}

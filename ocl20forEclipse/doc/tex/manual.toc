@@ -33,13 +33,13 @@
 \contentsline {subsection}{\numberline {2.2.3}Loading a Model Instance}{27}{subsection.2.2.3}
 \contentsline {subsection}{\numberline {2.2.4}Parsing OCL Expressions}{30}{subsection.2.2.4}
 \contentsline {section}{\numberline {2.3}Summary}{32}{section.2.3}
-\contentsline {chapter}{\numberline {3}OCL Constraint Interpretation}{33}{chapter.3}
+\contentsline {chapter}{\numberline {3}OCL Interpretation}{33}{chapter.3}
 \contentsline {section}{\numberline {3.1}The Simple Example}{33}{section.3.1}
 \contentsline {section}{\numberline {3.2}Preparation of the Interpretation}{35}{section.3.2}
 \contentsline {section}{\numberline {3.3}OCL Interpretation}{35}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Interpretation of Constraints}{35}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Preparation of Constraints}{38}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Adding Variables to the Environment}{39}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.2}Adding Variables to the Environment}{39}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Preparation of Constraints}{39}{subsection.3.3.3}
 \contentsline {section}{\numberline {3.4}Summary}{41}{section.3.4}
 \contentsline {chapter}{\numberline {4}AspectJ Code Generation}{43}{chapter.4}
 \contentsline {section}{\numberline {4.1}Code Generator Preparation}{43}{section.4.1}
@@ -51,7 +51,7 @@
 \contentsline {subsection}{\numberline {4.2.5}Constraint-Specific Settings}{52}{subsection.4.2.5}
 \contentsline {section}{\numberline {4.3}The Generated Code}{53}{section.4.3}
 \contentsline {section}{\numberline {4.4}Summary}{54}{section.4.4}
-\contentsline {part}{Development with Dresden OCL}{55}{section*.18}
+\contentsline {part}{Development with Dresden OCL}{55}{section*.19}
 \contentsline {chapter}{\numberline {5}The Architecture of Dresden OCL2 for Eclipse}{57}{chapter.5}
 \contentsline {section}{\numberline {5.1}The Generic Three Layer Metadata Architecture}{57}{section.5.1}
 \contentsline {section}{\numberline {5.2}The Toolkit's Package Architecture}{59}{section.5.2}
@@ -79,9 +79,9 @@
 \contentsline {subsection}{\numberline {7.1.2}Resources}{71}{subsection.7.1.2}
 \contentsline {subsection}{\numberline {7.1.3}Logging}{72}{subsection.7.1.3}
 \contentsline {subsection}{\numberline {7.1.4}Using the Example}{72}{subsection.7.1.4}
-\contentsline {paragraph}{Royals \& Loyals}{72}{section*.20}
-\contentsline {paragraph}{PML}{73}{section*.21}
-\contentsline {paragraph}{Simple}{73}{section*.22}
+\contentsline {paragraph}{Royals \& Loyals}{72}{section*.21}
+\contentsline {paragraph}{PML}{73}{section*.22}
+\contentsline {paragraph}{Simple}{73}{section*.23}
 \contentsline {section}{\numberline {7.2}The Standalone Facade}{73}{section.7.2}
 \contentsline {subsection}{\numberline {7.2.1}Classpath and OCL Standard Library}{73}{subsection.7.2.1}
 \contentsline {subsection}{\numberline {7.2.2}Adding and Removing Methods}{73}{subsection.7.2.2}
@@ -92,20 +92,20 @@
 \contentsline {chapter}{\numberline {9}Adapting a Model Implementation Type to Dresden OCL2 for Eclipse}{81}{chapter.9}
 \contentsline {section}{\numberline {9.1}The different types of Model Instance Elements}{81}{section.9.1}
 \contentsline {subsection}{\numberline {9.1.1}The IModelInstanceElement Interface}{81}{subsection.9.1.1}
-\contentsline {subsubsection}{asType(Type)}{83}{section*.23}
-\contentsline {subsubsection}{copyForAtPre()}{83}{section*.24}
-\contentsline {subsubsection}{getName()}{83}{section*.25}
-\contentsline {subsubsection}{getType()}{83}{section*.26}
-\contentsline {subsubsection}{isKindOf(Type) and isTypeOf(Type)}{83}{section*.27}
-\contentsline {subsubsection}{isUndefined()}{83}{section*.28}
+\contentsline {subsubsection}{asType(Type)}{83}{section*.24}
+\contentsline {subsubsection}{copyForAtPre()}{83}{section*.25}
+\contentsline {subsubsection}{getName()}{83}{section*.26}
+\contentsline {subsubsection}{getType()}{83}{section*.27}
+\contentsline {subsubsection}{isKindOf(Type) and isTypeOf(Type)}{83}{section*.28}
+\contentsline {subsubsection}{isUndefined()}{83}{section*.29}
 \contentsline {subsection}{\numberline {9.1.2}The Adaptation of Model Instance Objects}{84}{subsection.9.1.2}
-\contentsline {subsubsection}{getObject()}{84}{section*.29}
-\contentsline {subsubsection}{getProperty(Property)}{84}{section*.30}
-\contentsline {subsubsection}{invokeOperation(Operation, List<IModelInstanceElement>)}{84}{section*.31}
+\contentsline {subsubsection}{getObject()}{84}{section*.30}
+\contentsline {subsubsection}{getProperty(Property)}{84}{section*.31}
+\contentsline {subsubsection}{invokeOperation(Operation, List<IModelInstanceElement>)}{84}{section*.32}
 \contentsline {subsection}{\numberline {9.1.3}The Adaptation of Primitive Type Instances}{84}{subsection.9.1.3}
 \contentsline {subsection}{\numberline {9.1.4}The Adaptation of Collections}{85}{subsection.9.1.4}
-\contentsline {subsubsection}{getCollection()}{85}{section*.32}
-\contentsline {subsubsection}{isMultiple() and isOrdered()}{85}{section*.33}
+\contentsline {subsubsection}{getCollection()}{85}{section*.33}
+\contentsline {subsubsection}{isMultiple() and isOrdered()}{85}{section*.34}
 \contentsline {subsection}{\numberline {9.1.5}IModelInstanceEnumerationLiteral}{85}{subsection.9.1.5}
 \contentsline {subsection}{\numberline {9.1.6}IModelInstanceTuple}{85}{subsection.9.1.6}
 \contentsline {subsection}{\numberline {9.1.7}IModelInstanceVoid and IModelInstanceInvalid}{85}{subsection.9.1.7}
@@ -144,10 +144,10 @@
 \contentsline {subsection}{\numberline {13.2.7}Copyable- and NonCopyableClass}{104}{subsection.13.2.7}
 \contentsline {section}{\numberline {13.3}Instantiating the Generic Test Suite}{104}{section.13.3}
 \contentsline {section}{\numberline {13.4}Summary}{104}{section.13.4}
-\contentsline {part}{Appendix}{107}{section*.34}
-\contentsline {chapter}{Tables}{109}{section*.35}
-\contentsline {chapter}{List of Figures}{113}{section*.37}
-\contentsline {chapter}{List of Tables}{117}{section*.39}
-\contentsline {chapter}{List of Listings}{119}{section*.41}
-\contentsline {chapter}{List of Abbreviations}{121}{section*.43}
-\contentsline {chapter}{References}{123}{section*.45}
+\contentsline {part}{Appendix}{107}{section*.35}
+\contentsline {chapter}{Tables}{109}{section*.36}
+\contentsline {chapter}{List of Figures}{113}{section*.38}
+\contentsline {chapter}{List of Tables}{117}{section*.40}
+\contentsline {chapter}{List of Listings}{119}{section*.42}
+\contentsline {chapter}{List of Abbreviations}{121}{section*.44}
+\contentsline {chapter}{References}{123}{section*.46}
