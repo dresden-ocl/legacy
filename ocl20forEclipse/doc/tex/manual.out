@@ -9,24 +9,23 @@
 \BOOKMARK [2][-]{subsection.1.2.2}{1.2.2 Java Classes as Models}{section.1.2}
 \BOOKMARK [2][-]{subsection.1.2.3}{1.2.3 MDT UML Class Diagrams}{section.1.2}
 \BOOKMARK [2][-]{subsection.1.2.4}{1.2.4 XML Schemas as Models}{section.1.2}
-\BOOKMARK [1][-]{section.1.3}{1.3 Supported Model Instancs In Dresden OCL}{chapter.1}
+\BOOKMARK [1][-]{section.1.3}{1.3 Supported Model Instances In Dresden OCL}{chapter.1}
 \BOOKMARK [2][-]{subsection.1.3.1}{1.3.1 EMF Ecore-Based Model Instances}{section.1.3}
 \BOOKMARK [2][-]{subsection.1.3.2}{1.3.2 Java Model Instances}{section.1.3}
 \BOOKMARK [2][-]{subsection.1.3.3}{1.3.3 XML Model Instances}{section.1.3}
 \BOOKMARK [1][-]{section.1.4}{1.4 Summary}{chapter.1}
-\BOOKMARK [0][-]{chapter.2}{2 Getting started with Dresden OCL2 for Eclipse}{section*.7}
+\BOOKMARK [0][-]{chapter.2}{2 Getting started with Dresden OCL}{section*.7}
 \BOOKMARK [1][-]{section.2.1}{2.1 How to Install Dresden OCL2 for Eclipse}{chapter.2}
 \BOOKMARK [2][-]{subsection.2.1.1}{2.1.1 Installing Dresden OCL2 for Eclipse using the Eclipse Update Site}{section.2.1}
 \BOOKMARK [2][-]{subsection.2.1.2}{2.1.2 Importing Dresden OCL2 for Eclipse from the SVN}{section.2.1}
-\BOOKMARK [2][-]{subsection.2.1.3}{2.1.3 Which Plug-ins do I need at least?}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.3}{2.1.3 Which Plug-ins do You need at least?}{section.2.1}
 \BOOKMARK [2][-]{subsection.2.1.4}{2.1.4 Building the OCL2 Parser}{section.2.1}
 \BOOKMARK [1][-]{section.2.2}{2.2 Loading Models, Model Instances and Constraints}{chapter.2}
 \BOOKMARK [2][-]{subsection.2.2.1}{2.2.1 The Simple Example}{section.2.2}
-\BOOKMARK [2][-]{subsection.2.2.2}{2.2.2 Loading a Domain-Specific Model}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.2}{2.2.2 Loading a Model}{section.2.2}
 \BOOKMARK [2][-]{subsection.2.2.3}{2.2.3 Loading a Model Instance}{section.2.2}
-\BOOKMARK [2][-]{subsection.2.2.4}{2.2.4 Parsing OCL expressions}{section.2.2}
-\BOOKMARK [1][-]{section.2.3}{2.3 Standalone Application}{chapter.2}
-\BOOKMARK [1][-]{section.2.4}{2.4 Summary}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.2.4}{2.2.4 Parsing OCL Expressions}{section.2.2}
+\BOOKMARK [1][-]{section.2.3}{2.3 Summary}{chapter.2}
 \BOOKMARK [0][-]{chapter.3}{3 OCL Constraint Interpretation}{section*.7}
 \BOOKMARK [1][-]{section.3.1}{3.1 The Simple Example}{chapter.3}
 \BOOKMARK [1][-]{section.3.2}{3.2 Preparation of the Interpretation}{chapter.3}
@@ -127,6 +126,7 @@
 \BOOKMARK [-1][-]{section*.34}{Appendix}{}
 \BOOKMARK [0][-]{section*.35}{Tables}{section*.34}
 \BOOKMARK [0][-]{section*.37}{List of Figures}{section*.34}
-\BOOKMARK [0][-]{section*.39}{List of Listings}{section*.34}
-\BOOKMARK [0][-]{section*.41}{List of Abbreviations}{section*.34}
-\BOOKMARK [0][-]{section*.43}{References}{section*.34}
+\BOOKMARK [0][-]{section*.39}{List of Tables}{section*.34}
+\BOOKMARK [0][-]{section*.41}{List of Listings}{section*.34}
+\BOOKMARK [0][-]{section*.43}{List of Abbreviations}{section*.34}
+\BOOKMARK [0][-]{section*.45}{References}{section*.34}
