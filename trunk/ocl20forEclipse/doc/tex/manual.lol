@@ -7,7 +7,7 @@
 \contentsline {lstlisting}{\numberline {3.1}The Constraints contained in the Constraint File.}{34}{lstlisting.3.1}
 \contentsline {lstlisting}{\numberline {3.2}An example Precondition defined on an Operation with Argument.}{40}{lstlisting.3.2}
 \contentsline {lstlisting}{\numberline {3.3}An example Postcondition that must be prepared.}{41}{lstlisting.3.3}
-\contentsline {lstlisting}{\numberline {4.1}A simple invariant.}{46}{lstlisting.4.1}
+\contentsline {lstlisting}{\numberline {4.1}A Simple Invariant.}{46}{lstlisting.4.1}
 \contentsline {lstlisting}{\numberline {6.1}How to load a model.}{67}{lstlisting.6.1}
 \contentsline {lstlisting}{\numberline {6.2}How to load a model instance.}{68}{lstlisting.6.2}
 \contentsline {lstlisting}{\numberline {6.3}How to parse constraints.}{69}{lstlisting.6.3}
