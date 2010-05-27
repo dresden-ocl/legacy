@@ -44,7 +44,7 @@
 \BOOKMARK [2][-]{subsection.4.2.5}{4.2.5 Constraint-Specific Settings}{section.4.2}
 \BOOKMARK [1][-]{section.4.3}{4.3 The Generated Code}{chapter.4}
 \BOOKMARK [1][-]{section.4.4}{4.4 Summary}{chapter.4}
-\BOOKMARK [-1][-]{section*.19}{Development with Dresden OCL}{}
+\BOOKMARK [-1][-]{section*.19}{Tool Development using Dresden OCL}{}
 \BOOKMARK [0][-]{chapter.5}{5 The Architecture of Dresden OCL2 for Eclipse}{section*.19}
 \BOOKMARK [1][-]{section.5.1}{5.1 The Generic Three Layer Metadata Architecture}{chapter.5}
 \BOOKMARK [1][-]{section.5.2}{5.2 The Toolkit's Package Architecture}{chapter.5}

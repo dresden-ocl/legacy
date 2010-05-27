@@ -51,7 +51,7 @@
 \contentsline {subsection}{\numberline {4.2.5}Constraint-Specific Settings}{52}{subsection.4.2.5}
 \contentsline {section}{\numberline {4.3}The Generated Code}{53}{section.4.3}
 \contentsline {section}{\numberline {4.4}Summary}{54}{section.4.4}
-\contentsline {part}{Development with Dresden OCL}{55}{section*.19}
+\contentsline {part}{Tool Development using Dresden OCL}{55}{section*.19}
 \contentsline {chapter}{\numberline {5}The Architecture of Dresden OCL2 for Eclipse}{57}{chapter.5}
 \contentsline {section}{\numberline {5.1}The Generic Three Layer Metadata Architecture}{57}{section.5.1}
 \contentsline {section}{\numberline {5.2}The Toolkit's Package Architecture}{59}{section.5.2}
