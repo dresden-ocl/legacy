@@ -1,8 +1,9 @@
 \contentsline {lstlisting}{\numberline {1.1}Some example Iterator Expressions and their evaluation results.}{15}{lstlisting.1.1}
 \contentsline {lstlisting}{\numberline {1.2}Evaluation of null values in DresdenOCL.}{15}{lstlisting.1.2}
 \contentsline {lstlisting}{\numberline {1.3}Evaluation of invalid values in DresdenOCL.}{16}{lstlisting.1.3}
-\contentsline {lstlisting}{\numberline {1.4}Example for a .javamodel File.}{17}{lstlisting.1.4}
-\contentsline {lstlisting}{\numberline {1.5}Example for a ModelInstanceProviderClass programmed in Java.}{18}{lstlisting.1.5}
+\contentsline {lstlisting}{\numberline {1.4}Example for a Java Model Provider Class.}{16}{lstlisting.1.4}
+\contentsline {lstlisting}{\numberline {1.5}Example for a .javamodel File.}{17}{lstlisting.1.5}
+\contentsline {lstlisting}{\numberline {1.6}Example for a ModelInstanceProviderClass programmed in Java.}{19}{lstlisting.1.6}
 \contentsline {lstlisting}{\numberline {2.1}The invariants of the simple examples.}{30}{lstlisting.2.1}
 \contentsline {lstlisting}{\numberline {3.1}The Constraints contained in the Constraint File.}{34}{lstlisting.3.1}
 \contentsline {lstlisting}{\numberline {3.2}An example Precondition defined on an Operation with Argument.}{40}{lstlisting.3.2}
