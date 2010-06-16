@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testSequenceIncluding01(source: Sequence(OclAny), arg01: OclAny): Sequence(OclAny) =
-source -> including(arg01)
-
-endpackage

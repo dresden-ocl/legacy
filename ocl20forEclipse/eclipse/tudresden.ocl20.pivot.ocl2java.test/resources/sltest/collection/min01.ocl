@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testCollectionMin(source: Collection(OclAny)): OclAny =
-source -> min()
-
-endpackage

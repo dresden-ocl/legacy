@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testBooleanOr01(source: Boolean, arg01: Boolean): Boolean =
-source or arg01
-
-endpackage

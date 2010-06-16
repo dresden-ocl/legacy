@@ -1,8 +1,0 @@
-package testpackage
-
-context Class1
-def: testCollectionCount(source: Collection(OclAny), arg01: OclAny): 
-  Integer =
-source -> count(arg01)
-
-endpackage

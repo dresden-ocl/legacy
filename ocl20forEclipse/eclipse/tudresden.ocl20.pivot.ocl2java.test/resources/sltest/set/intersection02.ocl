@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testSetIntersection02(source: Set(OclAny), arg01: Bag(OclAny)): Set(OclAny) =
-source -> intersection(arg01)
-
-endpackage

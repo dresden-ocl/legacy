@@ -1,6 +1,0 @@
-package package1::package2
-
-context Type1
-def: definedOperation01(): Boolean = true
-
-endpackage

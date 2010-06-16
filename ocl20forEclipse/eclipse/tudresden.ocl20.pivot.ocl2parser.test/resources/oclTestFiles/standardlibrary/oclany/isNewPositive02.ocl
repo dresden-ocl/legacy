@@ -1,7 +1,0 @@
-package package1::package2
-
--- The operation .oclIsNew() should be available for all types.
-context Type1::getInteger(): Integer
-post: result.oclIsNew()
-
-endpackage

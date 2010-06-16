@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testIntegerDiv01(source: Integer, arg01: Integer): Integer =
-source.div(arg01)
-
-endpackage

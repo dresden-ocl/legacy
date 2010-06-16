@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testIntegerMod01(source: Integer, arg01: Integer): Integer =
-source.mod(arg01)
-
-endpackage

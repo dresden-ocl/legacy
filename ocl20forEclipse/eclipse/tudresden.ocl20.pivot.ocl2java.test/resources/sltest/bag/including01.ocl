@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testBagIncluding01(source: Bag(OclAny), arg01: OclAny): Bag(OclAny) =
-source -> including(arg01)
-
-endpackage

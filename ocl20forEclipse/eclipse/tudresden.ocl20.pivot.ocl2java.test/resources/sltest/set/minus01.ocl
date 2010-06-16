@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testSetMinus(source: Set(OclAny), arg01: Set(OclAny)): Set(OclAny) =
-source - arg01
-
-endpackage

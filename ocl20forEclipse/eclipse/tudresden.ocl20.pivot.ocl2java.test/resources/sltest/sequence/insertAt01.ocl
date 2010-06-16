@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testSequenceInsertAt(source: Sequence(OclAny), arg01: Integer, arg02: OclAny): Sequence(OclAny) =
-source -> insertAt(arg01, arg02)
-
-endpackage

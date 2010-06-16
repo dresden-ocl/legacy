@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testSetIncluding01(source: Set(OclAny), arg01: OclAny): Set(OclAny) =
-source -> including(arg01)
-
-endpackage

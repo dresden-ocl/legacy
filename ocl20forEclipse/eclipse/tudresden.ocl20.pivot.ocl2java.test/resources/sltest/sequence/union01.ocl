@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testSequenceUnion01(source: Sequence(OclAny), arg01: Sequence(OclAny)): Sequence(OclAny) =
-source -> union(arg01)
-
-endpackage

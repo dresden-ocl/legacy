@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testIntegerDivide01(source: Integer, arg01: Integer): Real =
-source / arg01
-
-endpackage

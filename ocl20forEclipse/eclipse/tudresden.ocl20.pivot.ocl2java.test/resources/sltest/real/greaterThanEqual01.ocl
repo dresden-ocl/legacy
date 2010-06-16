@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testRealGreaterThanEqual01(source: Real, arg01: Real): Boolean =
-source >= arg01
-
-endpackage

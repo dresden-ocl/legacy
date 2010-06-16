@@ -1,7 +1,0 @@
-package package1::package2
-
--- Should fail. Wrong type.
-context Type1::anInteger: Integer
-init: 'fourty-two'
-
-endpackage

@@ -1,8 +1,0 @@
-package testpackage
-
-context Class1
-def: testSequenceAsBag(source: Sequence(OclAny)): 
-  Bag(OclAny) =
-source -> asBag()
-
-endpackage

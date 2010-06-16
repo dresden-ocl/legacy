@@ -1,6 +1,0 @@
-package testpackage
-
-context Class1::bodyOperation01(): Integer
-body: 42
-
-endpackage

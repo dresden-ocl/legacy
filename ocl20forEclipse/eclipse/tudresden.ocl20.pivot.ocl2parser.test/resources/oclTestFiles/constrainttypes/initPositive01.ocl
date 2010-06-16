@@ -1,6 +1,0 @@
-package package1::package2
-
-context Type1::anInteger: Integer
-init: 42
-
-endpackage

@@ -1,7 +1,0 @@
-package package1::package2
-
--- Body expression are only valid on operations.
-context Type1::anInteger: Integer
-body: 42
-
-endpackage

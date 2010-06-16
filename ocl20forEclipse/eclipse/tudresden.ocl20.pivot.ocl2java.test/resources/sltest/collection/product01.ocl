@@ -1,8 +1,0 @@
-package testpackage
-
-context Class1
-def: testCollectionProduct(source: Collection(OclAny), arg01: Collection(OclAny)): 
-  Integer =
-source -> product(arg01) -> size()
-
-endpackage

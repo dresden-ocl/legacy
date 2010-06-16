@@ -1,8 +1,0 @@
-package testpackage
-
-context Class1
-def: testOrderedSetAsOrderedSet(source: OrderedSet(OclAny)): 
-  OrderedSet(OclAny) =
-source -> asOrderedSet()
-
-endpackage

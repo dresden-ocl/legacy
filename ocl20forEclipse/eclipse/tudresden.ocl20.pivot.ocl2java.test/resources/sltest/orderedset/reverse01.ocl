@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testOrderedSetReverse(source: OrderedSet(OclAny)): OrderedSet(OclAny) =
-source -> reverse()
-
-endpackage

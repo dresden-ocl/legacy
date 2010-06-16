@@ -1,7 +1,0 @@
-package package1::package2
-
--- and can also be used as a non-infix operation.
-context Type1
-inv: true.and(true)
-
-endpackage

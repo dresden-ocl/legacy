@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: defOperation02(anInt: Integer): Integer = 
--anInt
-
-endpackage

@@ -1,8 +1,0 @@
-package testpackage
-
-context Class1
-def: testSetAsBag(source: Set(OclAny)): 
-  Bag(OclAny) =
-source -> asBag()
-
-endpackage

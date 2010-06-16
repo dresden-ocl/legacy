@@ -1,7 +1,0 @@
-package package1::package2
-
--- Unknown Type should fail.
-context Test1
-inv: true
-  
-endpackage

@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testOrderedSetPrepend(source: OrderedSet(OclAny), arg01: OclAny): OrderedSet(OclAny) =
-source -> prepend(arg01)
-
-endpackage

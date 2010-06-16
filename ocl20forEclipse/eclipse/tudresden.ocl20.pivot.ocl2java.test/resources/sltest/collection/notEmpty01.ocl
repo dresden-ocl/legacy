@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testCollectionNotEmpty(source: Collection(OclAny)): Boolean =
-source -> notEmpty()
-
-endpackage

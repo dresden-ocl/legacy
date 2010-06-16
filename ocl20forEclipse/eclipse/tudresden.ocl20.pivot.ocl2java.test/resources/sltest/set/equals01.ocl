@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testSetEquals01(source: Set(OclAny), arg01: Set(OclAny)): Boolean =
-source = arg01
-
-endpackage

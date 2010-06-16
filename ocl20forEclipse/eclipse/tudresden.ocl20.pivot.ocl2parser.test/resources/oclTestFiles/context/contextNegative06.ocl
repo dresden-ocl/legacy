@@ -1,7 +1,0 @@
-package package1::package2
-
--- Operation with wrong number of arguments should not be parsed.
-context Type1::getInteger(points: Integer): Integer
-pre: true
-  
-endpackage

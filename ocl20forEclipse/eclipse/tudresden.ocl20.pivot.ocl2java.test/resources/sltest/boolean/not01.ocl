@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testBooleanNot01(source: Boolean): Boolean =
-not source
-
-endpackage

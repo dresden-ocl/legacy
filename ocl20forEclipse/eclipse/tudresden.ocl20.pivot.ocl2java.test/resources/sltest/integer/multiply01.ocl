@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testIntegerMultiply01(source: Integer, arg01: Integer): Integer =
-source * arg01
-
-endpackage

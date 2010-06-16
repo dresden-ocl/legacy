@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testRealFloor01(source: Real): Integer =
-source.floor()
-
-endpackage

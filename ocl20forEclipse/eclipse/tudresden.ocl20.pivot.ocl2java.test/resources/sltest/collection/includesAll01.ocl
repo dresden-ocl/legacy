@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testCollectionIncludesAll(source: Collection(OclAny), arg01: Collection(OclAny)): Boolean =
-source -> includesAll(arg01)
-
-endpackage

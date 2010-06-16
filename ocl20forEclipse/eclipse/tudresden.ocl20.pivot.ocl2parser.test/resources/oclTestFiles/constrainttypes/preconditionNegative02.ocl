@@ -1,7 +1,0 @@
-package package1::package2
-
--- Preconditions are only valid on operations
-context Type1::anInteger: Integer
-pre: true
-
-endpackage

@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testStringEqualsIgnoreCase(source: String, arg01: String): Boolean =
-source.equalsIgnoreCase(arg01)
-
-endpackage

@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testSequenceFlatten(source: Sequence(OclAny)): Sequence(OclAny) =
-source -> flatten()
-
-endpackage

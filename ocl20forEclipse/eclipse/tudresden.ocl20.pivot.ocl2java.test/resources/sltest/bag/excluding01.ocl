@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testBagExcluding01(source: Bag(OclAny), arg01: OclAny): Bag(OclAny) =
-source -> excluding(arg01)
-
-endpackage

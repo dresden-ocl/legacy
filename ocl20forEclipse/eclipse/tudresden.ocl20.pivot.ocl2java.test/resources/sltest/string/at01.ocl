@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testStringAt(source: String, arg01: Integer): String =
-source.at(arg01)
-
-endpackage

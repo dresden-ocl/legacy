@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testRealMin01(source: Real, arg01: Real): Real =
-source.min(arg01)
-
-endpackage

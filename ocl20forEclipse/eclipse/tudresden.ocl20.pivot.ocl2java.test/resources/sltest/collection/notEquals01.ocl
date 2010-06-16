@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testCollectionNotEquals(source: Collection(OclAny), arg01: Collection(OclAny)): Boolean =
-source <> arg01
-
-endpackage

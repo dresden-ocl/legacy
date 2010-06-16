@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testIntegerPlus01(source: Integer, arg01: Integer): Integer =
-source + arg01
-
-endpackage

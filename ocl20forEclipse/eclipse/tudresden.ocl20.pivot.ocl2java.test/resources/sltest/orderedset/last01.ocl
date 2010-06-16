@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testOrderedSetLast(source: OrderedSet(OclAny)): OclAny =
-source -> last()
-
-endpackage

@@ -1,7 +1,0 @@
-package package1::package2
-
--- Operation should be parsed.
-context Type1::getInteger(): Integer
-pre: true
-  
-endpackage

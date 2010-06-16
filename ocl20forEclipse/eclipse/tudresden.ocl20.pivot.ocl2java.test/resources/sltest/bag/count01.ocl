@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testBagCount01(source: Bag(OclAny), arg01: OclAny): Integer =
-source -> count(arg01)
-
-endpackage

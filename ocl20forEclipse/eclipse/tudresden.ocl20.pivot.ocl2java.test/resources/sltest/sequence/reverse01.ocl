@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testSequenceReverse(source: Sequence(OclAny)): Sequence(OclAny) =
-source -> reverse()
-
-endpackage

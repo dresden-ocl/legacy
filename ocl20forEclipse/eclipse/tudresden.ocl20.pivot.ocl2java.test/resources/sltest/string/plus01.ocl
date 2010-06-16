@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testStringPlus(source: String, arg01: String): String =
-source + arg01
-
-endpackage

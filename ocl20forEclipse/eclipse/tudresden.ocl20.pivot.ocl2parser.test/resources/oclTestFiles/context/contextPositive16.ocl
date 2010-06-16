@@ -1,7 +1,0 @@
-package package1
-
--- It should be possible to refer to other packages.
-context package2::Type1
-inv: true
-  
-endpackage

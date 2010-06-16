@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testSetSymmetricDifference01(source: Set(OclAny), arg01: Set(OclAny)): Set(OclAny) =
-source -> symmetricDifference(arg01)
-
-endpackage

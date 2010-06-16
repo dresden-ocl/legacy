@@ -1,8 +1,0 @@
-package package1::package2
-
--- Test variables from Operation arguments.
-context Type1::addInteger(anInt : Integer)
-pre: 
-  anInt > 0 
-
-endpackage

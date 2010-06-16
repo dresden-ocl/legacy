@@ -1,7 +1,0 @@
-package package1::package2
-
--- The operation .asSet() should be available for all types.
-context Type1
-inv: self.asSet()->size() > 0
-
-endpackage

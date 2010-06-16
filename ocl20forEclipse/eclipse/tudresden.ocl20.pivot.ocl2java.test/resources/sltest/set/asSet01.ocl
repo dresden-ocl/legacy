@@ -1,8 +1,0 @@
-package testpackage
-
-context Class1
-def: testSetAsSet(source: Set(OclAny)): 
-  Set(OclAny) =
-source -> asSet()
-
-endpackage

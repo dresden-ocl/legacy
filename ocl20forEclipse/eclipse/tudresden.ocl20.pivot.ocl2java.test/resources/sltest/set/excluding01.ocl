@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testSetExcluding01(source: Set(OclAny), arg01: OclAny): Set(OclAny) =
-source -> excluding(arg01)
-
-endpackage

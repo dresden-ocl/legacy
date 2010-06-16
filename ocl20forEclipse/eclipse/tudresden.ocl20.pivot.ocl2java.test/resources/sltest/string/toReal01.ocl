@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testStringToReal(source: String): Real =
-source.toReal()
-
-endpackage

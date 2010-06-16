@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testStringToInteger(source: String): Integer =
-source.toInteger()
-
-endpackage

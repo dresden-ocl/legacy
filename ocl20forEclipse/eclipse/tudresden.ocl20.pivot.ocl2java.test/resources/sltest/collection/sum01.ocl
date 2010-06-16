@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testCollectionSum(source: Collection(Integer)): Integer =
-source -> sum()
-
-endpackage

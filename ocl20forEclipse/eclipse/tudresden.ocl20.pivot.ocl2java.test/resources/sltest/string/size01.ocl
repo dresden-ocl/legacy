@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testStringSize01(source: String): Integer =
-source.size()
-
-endpackage

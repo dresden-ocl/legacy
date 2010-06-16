@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testRealMax01(source: Real, arg01: Real): Real =
-source.max(arg01)
-
-endpackage

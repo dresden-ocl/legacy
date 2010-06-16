@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testSetFlatten(source: Set(OclAny)): Set(OclAny) =
-source -> flatten()
-
-endpackage

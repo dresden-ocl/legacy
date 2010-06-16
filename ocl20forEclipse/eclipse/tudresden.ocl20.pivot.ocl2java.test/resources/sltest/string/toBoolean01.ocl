@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testStringToBoolean(source: String): Boolean =
-source.toBoolean()
-
-endpackage

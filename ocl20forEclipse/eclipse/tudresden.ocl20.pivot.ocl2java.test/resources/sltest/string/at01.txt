@@ -1,1 +1,0 @@
-Character.toString(source.charAt(arg01 - 1))
