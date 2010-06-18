@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <associateSites>
-	<associateSite label="Galileo"
-		url="http://download.eclipse.org/releases/galileo"/>
-	<associateSite label="The Eclipse Project Updates"
-		url="http://download.eclipse.org/eclipse/updates/3.5"/>	
 	<associateSite label="AspectJ Development Tools"
-		url="http://download.eclipse.org/tools/ajdt/35"/>		
+		url="http://download.eclipse.org/tools/ajdt/35/update"/>		
 </associateSites>
