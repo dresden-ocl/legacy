@@ -277,8 +277,21 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel
 	                // in the other cases, the source is part of a navigation call -> only properties have
 	                // to be considered
 	                case other => {
-	                  lookupPropertyOnType(sourceType, identifier, false).flatMap{p =>
-	                    Full(List(p))
+	                  (aeo->isMultipleNavigationCall).flatMap{isMultiple =>
+		                  if ((isMultiple && sourceType.isInstanceOf[CollectionType]) || (!isMultiple && !sourceType.isInstanceOf[CollectionType]))
+		                    lookupPropertyOnType(sourceType, identifier, false).flatMap{p =>
+			                    Full(List(p))
+			                  }
+		                  else if (isMultiple) // implicit asSet
+                      	lookupPropertyOnType(sourceExpression.withAsSet.getType, identifier, false).flatMap{p =>
+                         	addWarning("implicit asSet() on " + aeo, aeo)
+                      	  Full(List(p))
+                       	}
+		                  else // implicit collect
+		                  	lookupPropertyOnType(sourceType.asInstanceOf[CollectionType].getElementType, identifier, false).flatMap{p =>
+		                  		addWarning("implicit collect() on " + aeo, aeo)
+		                  	  Full(List(p))
+                      	}
 	                  }
 	                }
 	              }
