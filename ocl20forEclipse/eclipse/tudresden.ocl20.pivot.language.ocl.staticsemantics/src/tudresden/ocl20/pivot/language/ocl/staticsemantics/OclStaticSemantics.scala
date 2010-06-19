@@ -157,13 +157,15 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel
   
   protected def lookupOperationOnType(t : Type, name : String, static : Boolean, parameters : List[Parameter]) : Box[Operation] = {
     !!(t.lookupOperation(name, parameters.map(determineMultiplicityElementType(_)))) or {
-      (allDefs._2.find(d => t.conformsTo(d._1)) ?~ 
-      	("Cannot find operation " + name + " on " + t.getName + " with parameters + " + parameters.mkString(", "))).flatMap{d =>
+      val d = allDefs._2.filter(d => t.conformsTo(d._1))
+      if (d.isEmpty) Failure("Cannot find operation " + name + " on " + t.getName + " with parameters + " + parameters.mkString(", "))
+      else {
+      	d.flatMap{d =>
       		d._2.map(_._1.getOperation).find(o => o.getName == name).flatMap{operation =>
       		  Full(operation)
       		}
-      	}
-      																	
+      	}.toList.firstOption
+      }
     }
   }
   
@@ -322,7 +324,6 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel
           	if (identifier.contains("::"))
               yieldFailure("Cannot call a static operation " + identifier + " in a chained feature call", aeo)
             else {
-              // TODO: if not found look for defs!
               if (!fuzzy) {
                 isMultipleNavigationCall(aeo) match {
                   case Full(true) => {
