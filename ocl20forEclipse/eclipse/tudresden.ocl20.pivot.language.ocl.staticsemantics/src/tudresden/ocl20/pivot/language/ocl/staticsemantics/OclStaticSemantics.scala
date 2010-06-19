@@ -558,14 +558,29 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel
         }
         
         case l@LetExpCS(variableDeclarations, _) if !variableDeclarations.contains(child.getEObject) => {
-          (l->variables).flatMap{otherVars =>
-	          Full(otherVars._1, variableDeclarations.flatMap{vd =>
-	            (vd.getInitialization->computeOclExpression).flatMap{initExp =>
-		            checkVariableDeclarationType(vd).flatMap{tipe =>
-		              Full(factory.createVariable(vd.getVariableName.getSimpleName, tipe, initExp))
+          val last = variableDeclarations.last
+          (last->variables).flatMap{case (implicitVariableBox, explicitVariables) =>
+            (last.getInitialization->computeOclExpression).flatMap{initExp =>
+	            checkVariableDeclarationType(last).flatMap{tipe =>
+	              Full(implicitVariableBox, factory.createVariable(last.getVariableName.getSimpleName, tipe, initExp)::explicitVariables)
+	            }
+	          }
+          }
+        }
+        
+        // a let exp with multiple variables can have references to previously defined vars
+        case l@LetExpCS(variableDeclarations, _) => {
+          if (child.isFirst)
+            l->variables
+          else {
+            val prev = child.prev.asInstanceOf[VariableDeclarationWithInitCS]
+            ((prev)->variables).flatMap{ case (implicitVariableBox, explicitVariables) =>
+              (prev.getInitialization->computeOclExpression).flatMap{initExp =>
+		            checkVariableDeclarationType(prev).flatMap{tipe =>
+		              Full(implicitVariableBox, factory.createVariable(prev.getVariableName.getSimpleName, tipe, initExp)::explicitVariables)
 		            }
 		          }
-	          }:::otherVars._2)
+            }
           }
         }
         
