@@ -1330,9 +1330,9 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel
           yield factory.createIfExp(conditionEOcl, thenEOcl, elseEOcl)
       }
       
-      case l@LetExpCS(_, oclExpression) => {
+      case l@LetExpCS(variableDeclarations, oclExpression) => {
         (oclExpression->variables).flatMap{ case (_, explicitVariables) =>
-          explicitVariables.foldRight (oclExpression->computeOclExpression) { (explicitVariable, expression) =>
+          explicitVariables.take(variableDeclarations.size).foldRight (oclExpression->computeOclExpression) { (explicitVariable, expression) =>
             expression.flatMap{expression =>
               Full(factory.createLetExp(explicitVariable, expression))
             }
