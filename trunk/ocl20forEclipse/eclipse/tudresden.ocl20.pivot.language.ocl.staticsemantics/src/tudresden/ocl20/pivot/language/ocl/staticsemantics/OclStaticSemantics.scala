@@ -1048,10 +1048,12 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel
       }
       
       case r@RealLiteralExpCS(intValue, realValue, navigationOperator) => {
+        import java.lang.Math._
         if (navigationOperator == "->") 
           yieldFailure("Cannot use '->' in a real expression.", r)
-        else
-        	Full(factory.createRealLiteralExp(intValue + realValue / 100))
+        else {
+          Full(factory.createRealLiteralExp(intValue  + (realValue / pow(10, ("" + realValue).length)).toFloat))
+        }
       }
       
       case s@StringLiteralExpCS(stringLiteral) => {
