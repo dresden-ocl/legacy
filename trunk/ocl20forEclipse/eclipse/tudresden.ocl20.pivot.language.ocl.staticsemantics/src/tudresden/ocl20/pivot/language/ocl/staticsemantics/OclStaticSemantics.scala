@@ -130,7 +130,15 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel
   
   protected def lookupVariableFuzzy(name : String, container : Attributable) : List[Variable] = {
     container->variables match {
-      case Full((_, explicitVariables)) => explicitVariables.filter(v => v.getName.startsWith(name))
+      case Full((implicitVariableBox, explicitVariables)) => implicitVariableBox match {
+        case Full(implicitVariable) => {
+	        if (implicitVariable.getName.startsWith(name))
+	          implicitVariable::(explicitVariables.filter(v => v.getName.startsWith(name)))
+	        else
+	        	explicitVariables.filter(v => v.getName.startsWith(name))
+        }
+        case _ => List()
+      }
       case Failure(_, _, _) | Empty => List()
     }
   }
@@ -1464,7 +1472,7 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel
 	        	yieldFailure("Expected type " + tipe.getName + ", but found " + 
 	                        initExp.getType.getName, vd)
 	        else
-	          Full(tipe)
+	          Full(initExp.getType)
         }
       }
     }
