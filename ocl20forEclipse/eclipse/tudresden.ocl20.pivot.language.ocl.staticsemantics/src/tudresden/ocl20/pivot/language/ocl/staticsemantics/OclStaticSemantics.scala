@@ -797,7 +797,7 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel
       case IntegerLiteralExpCS(_) => {
         Full(oclLibrary.getOclInteger)
       }
-      case RealLiteralExpCS(_) => {
+      case RealLiteralExpCS(_, _, _) => {
         Full(oclLibrary.getOclReal)
       }
       case BooleanLiteralExpCS(_) => {
@@ -1047,9 +1047,11 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel
         Full(factory.createIntegerLiteralExp(integerLiteral))
       }
       
-      case r@RealLiteralExpCS(realLiteral) => {
-        // TODO: parse Double, but use Float
-        Full(factory.createRealLiteralExp(realLiteral.toFloat))
+      case r@RealLiteralExpCS(intValue, realValue, navigationOperator) => {
+        if (navigationOperator == "->") 
+          yieldFailure("Cannot use '->' in a real expression.", r)
+        else
+        	Full(factory.createRealLiteralExp(intValue + realValue / 100))
       }
       
       case s@StringLiteralExpCS(stringLiteral) => {
