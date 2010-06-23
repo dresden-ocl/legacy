@@ -1219,7 +1219,10 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel
 				   					  	if (sourceExpression.eContainer != null) {
 				   					  		sourceExpression match {
 				   					  		  case v : VariableExp =>
-				   					  		    factory.createVariableExp(factory.createVariable(v.getReferredVariable.getName, v.getReferredVariable.getType, null))
+				   					  		    factory.createVariableExp(
+				   					  		      factory.createVariable(v.getReferredVariable.getName, 
+                                             					 v.getReferredVariable.getType, 
+                                             					 v.getReferredVariable.getInitExpression))
 				   					  		}
 				   					  	}
 				   					  	else
@@ -1327,14 +1330,11 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel
           yield factory.createIfExp(conditionEOcl, thenEOcl, elseEOcl)
       }
       
-      case l@LetExpCS(variableDeclarations, oclExpression) => {
-        variableDeclarations.foldRight (oclExpression->computeOclExpression) {(vd1, vd2) =>
-        	vd2.flatMap{vd2 =>
-        	  (vd1.getInitialization->computeOclExpression).flatMap{initExp =>
-        	  	checkVariableDeclarationType(vd1).flatMap{tipe =>
-        	  	  val variable = factory.createVariable(vd1.getVariableName.getSimpleName, tipe, initExp)
-		        	  Full(factory.createLetExp(variable, vd2))
-        	  	}
+      case l@LetExpCS(_, oclExpression) => {
+        (oclExpression->variables).flatMap{ case (_, explicitVariables) =>
+          explicitVariables.foldRight (oclExpression->computeOclExpression) { (explicitVariable, expression) =>
+            expression.flatMap{expression =>
+              Full(factory.createLetExp(explicitVariable, expression))
             }
           }
         }
