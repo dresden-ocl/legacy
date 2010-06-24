@@ -470,38 +470,38 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 		}
 		// no else.
 
-		/* Get the source's type. */
-		Type sourceType;
-		sourceType = this.getSource().getType();
-
-		/* Check that the type is not null. */
-		if (sourceType == null) {
-			throw new WellformednessException(this,
-					"The source's type of the 'product' operation must be defined."); //$NON-NLS-1$
-		}
-		// no else.
-
-		if (!(sourceType instanceof CollectionType)) {
-			throw new WellformednessException(this,
-					"The source's type of the 'product' operation must be a collection type."); //$NON-NLS-1$
-		}
-		// no else.
-
-		Type sourceElementType;
-		sourceElementType = ((CollectionType) sourceType).getElementType();
-
 		/* Check argument size. */
 		if (getArgument().size() != 1) {
 			throw new WellformednessException(this,
 					"The 'product' operation must have exactly one argument that is a collection."); //$NON-NLS-1$
 		}
 		// no else.
+		
+		/* Get the param's type. */
+		Type paramType;
+		paramType = this.getArgument().get(0).getType();
+
+		/* Check that the type is not null. */
+		if (paramType == null) {
+			throw new WellformednessException(this,
+					"The params's type of the 'product' operation must be defined."); //$NON-NLS-1$
+		}
+		// no else.
+
+		if (!(this.getSource().getType() instanceof CollectionType)) {
+			throw new WellformednessException(this,
+					"The source's type of the 'product' operation must be a collection type."); //$NON-NLS-1$
+		}
+		// no else.
+
+		Type paramElementType;
+		paramElementType = ((CollectionType) paramType).getElementType();
 
 		/* Bind the product operation, which will set its return type. */
 		productOperation =
 				productOperation.bindTypeParameter(new ArrayList<TypeParameter>(
 						productOperation.getOwnedTypeParameter()), Arrays
-						.asList(sourceElementType));
+						.asList(paramElementType));
 
 		/* Probably log the exit of this method. */
 		if (logger.isDebugEnabled()) {
