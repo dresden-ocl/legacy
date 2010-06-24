@@ -310,10 +310,7 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 		sourceType = (CollectionType) getSourceType();
 		elementType = sourceType.getElementType();
 
-		// check the element type of the source collection type
-		if (elementType instanceof CollectionType) {
-			elementType = ((CollectionType) elementType).getElementType();
-		}
+		elementType = checkForNestedCollection(elementType);
 
 		// bind the operation
 		flattenOperation =
@@ -327,6 +324,15 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 		}
 
 		return flattenOperation;
+	}
+
+	private Type checkForNestedCollection(Type elementType) {
+		// check the element type of the source collection type
+		if (elementType instanceof CollectionType) {
+			elementType = ((CollectionType) elementType).getElementType();
+			elementType = checkForNestedCollection(elementType);
+		}
+		return elementType;
 	}
 
 	/**
