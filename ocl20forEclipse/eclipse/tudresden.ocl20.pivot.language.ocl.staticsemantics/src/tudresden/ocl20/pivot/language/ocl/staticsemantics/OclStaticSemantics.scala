@@ -18,6 +18,16 @@ import tudresden.ocl20.pivot.language.ocl.resource.ocl.mopp._
 import tudresden.attributegrammar.integration.kiama.util.CollectionConverterS2J._
 import tudresden.attributegrammar.integration.kiama.util.CollectionConverterJ2S._
 
+
+object ImplicitVariableNumberGenerator {
+  var number = 0
+  
+  def getNumber = {
+    number = number + 1
+    "" + number
+  }
+}
+
 trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel.semantics.PivotmodelAttributeMaker {
   
   /*
@@ -653,7 +663,7 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel
 			            Full(
 			              // implicit variable
 			            	if (iteratorVariables.isEmpty) // TODO: add unique identifier
-				            	Full(factory.createVariable("$implicitVariable$", determineTypeOf(se), null))
+				            	Full(factory.createVariable("$implicitVariable" + ImplicitVariableNumberGenerator.getNumber + "$", determineTypeOf(se), null))
 				            else
 			                Full(iteratorVariablesEOcl.first)
 			              ,
@@ -720,6 +730,17 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel
       }
       case t@TypePathNameNestedCS(typePathName) => {
         typePathName->oclType
+      }
+      case t@TupleTypeCS(variableDeclarationList) => {
+        val properties = variableDeclarationList.getVariableDeclarations.flatMap{vd =>
+          (vd->computeFeature).flatMap{case (feature, _) =>
+            Full(feature.asInstanceOf[Property])
+          }
+        }
+        if (variableDeclarationList.getVariableDeclarations.size != properties.size)
+          Empty
+        else
+        	Full(oclLibrary.makeTupleType(properties))
       }
       case c@CollectionTypeIdentifierCS(genericType) => {
         val `type` = c.getTypeName
@@ -1015,6 +1036,16 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel
         }
       }
       
+      case v@VariableDeclarationWithoutInitCS(variableName, typeName) => {
+        (typeName->oclType).flatMap{tipe =>
+          val property = PivotModelFactory.eINSTANCE.createProperty
+			    property.setName(variableName.getSimpleName)
+			    // TODO: does not work yet for nested collections
+			    determineMultiplicities(tipe, property)
+			    Full(property, null)
+        }
+      }
+      
       case d@DefinitionExpOperationCS(operationDefinition, oclExpression) => {
         val operation = operationDefinition.getOperation
         if (operation.eIsProxy)
@@ -1070,6 +1101,21 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel
      
   	  case n@NullLiteralExpCS() => {
   	    Full(factory.createUndefinedLiteralExp)
+  	  }
+     
+  	  case t@TupleLiteralExpCS(variableDeclarationList) => {
+  	    val properties = variableDeclarationList.getVariableDeclarations.flatMap(vd => vd->computeFeature)
+  	    if (properties.size != variableDeclarationList.getVariableDeclarations.size)
+          Empty
+       else {
+         val tupleLiteralParts = properties.map{case(property, initExpression) =>
+           val tupleLiteralPart = ExpressionsFactory.INSTANCE.createTupleLiteralPart
+           tupleLiteralPart.setProperty(property.asInstanceOf[Property])
+           tupleLiteralPart.setValue(initExpression)
+           tupleLiteralPart
+         }
+         Full(factory.createTupleLiteralExp(tupleLiteralParts.toArray : _*))
+       }
   	  }
   	  
   	  case o@OperationCallBinaryExpCS(source, target, isMarkedPre, operationName) => {
@@ -1202,7 +1248,7 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker with pivotmodel
 				   					  oce.getArgument.add(arg.open_!)
 				   					}
 	                  val iteratorVar = ExpressionsFactory.INSTANCE.createVariable
-	                  iteratorVar.setName("$implicitCollect$")
+	                  iteratorVar.setName("$implicitCollect" + ImplicitVariableNumberGenerator.getNumber + "$")
 	                  iteratorVar.setType(sourceExpression.getType.asInstanceOf[CollectionType].getElementType)
 	                  oce.setSource(factory.createVariableExp(iteratorVar))
 				   					oce.setOclLibrary(oclLibrary)

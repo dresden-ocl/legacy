@@ -152,7 +152,7 @@ RULES {
 	
 	TypePathNameNestedCS				::= namespace[SIMPLE_NAME] #0 "::" #0 typePathName;
 	
-	TupleTypeCS							::= "TupleType" "(" #0 variableDeclarationList? #0 ")";
+	TupleTypeCS							::= "Tuple" "(" #0 variableDeclarationList? #0 ")";
 	
 	CollectionTypeIdentifierCS			::= typeName[COLLECTION_TYPES] ( #0 "(" #0 genericType #0 ")")?;
 	
