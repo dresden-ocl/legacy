@@ -165,49 +165,43 @@ trait OclReferenceResolver { selfType : OclStaticSemantics =>
   protected val _resolveOperation : Tuple4[String, Boolean, List[Parameter], Boolean] => Attributable ==> Box[List[Operation]] = {
     case (identifier, fuzzy, parameters, static) => {
       case aeo : AttributableEObject => {
-        aeo->sourceExpression match {
-          case Full(sourceExpression) => {	// this is an operation call with implicit source
-            if (!fuzzy) {
-              isMultipleNavigationCall(aeo) match {
-                case Full(true) => {
-                  sourceExpression.getType match {
-                    case c : CollectionType =>
-                      lookupOperationOnType(c, identifier, parameters, static, aeo, Empty)
-                    case notMultiple : Type =>
-                       lookupOperationOnType(oclLibrary.getSetType(sourceExpression.getType), identifier, 
-                                            parameters, static, aeo, Full("implicit as Set()"))
-                  }
+        (aeo->sourceExpression).flatMap{sourceExpression =>
+          if (!fuzzy) {
+            isMultipleNavigationCall(aeo) match {
+              case Full(true) => {
+                sourceExpression.getType match {
+                  case c : CollectionType =>
+                    lookupOperationOnType(c, identifier, parameters, static, aeo, Empty)
+                  case notMultiple : Type =>
+                     lookupOperationOnType(oclLibrary.getSetType(sourceExpression.getType), identifier, 
+                                          parameters, static, aeo, Full("implicit as Set()"))
                 }
-                case Full(false) => {
-                  sourceExpression.getType match {
-                    case c : CollectionType => {
-                      // TODO: lookupOperationOnType!!!
-                      (!!(c.getElementType.lookupOperation(identifier, parameters.map(_.getType))) ?~
-		              			("Cannot find operation " + identifier + " with parameters " + parameters + " on type " + 
-		                    c.getElementType.getName)).flatMap{o =>
-		                      if (o.isStatic == static) {
-		                      	addWarning("implicit collect() on " + o.getName, aeo)
-		                      	Full(List(o))
-		                    	} else {
-		                    	  yieldFailure("Found operation " + identifier + ", but was " + (if (static) " static." else " not static.") , aeo)
-                        	}
-                    		}
-                    }
-                    case notMultiple =>
-                      lookupOperationOnType(notMultiple, identifier, parameters, static, aeo, Empty)
-                  }
-                }
-                case Failure(msg, _, _) => Failure(msg, Empty, Empty)
-                case Empty => yieldFailure("Cannot determine sourceExpression.", aeo)
               }
+              case Full(false) => {
+                sourceExpression.getType match {
+                  case c : CollectionType => {
+                    // TODO: lookupOperationOnType!!!
+                    (!!(c.getElementType.lookupOperation(identifier, parameters.map(_.getType))) ?~
+	              			("Cannot find operation " + identifier + " with parameters " + parameters + " on type " + 
+	                    c.getElementType.getName)).flatMap{o =>
+	                      if (o.isStatic == static) {
+	                      	addWarning("implicit collect() on " + o.getName, aeo)
+	                      	Full(List(o))
+	                    	} else {
+	                    	  yieldFailure("Found operation " + identifier + ", but was " + (if (static) " static." else " not static.") , aeo)
+                      	}
+                  		}
+                  }
+                  case notMultiple =>
+                    lookupOperationOnType(notMultiple, identifier, parameters, static, aeo, Empty)
+                }
+              }
+              case Failure(msg, _, _) => Failure(msg, Empty, Empty)
+              case Empty => yieldFailure("Cannot determine sourceExpression.", aeo)
             }
-            else
-              Full(lookupOperationOnTypeFuzzy(sourceExpression.getType, identifier, static))
           }
-          case Failure(_, _, _) | Empty => {	// static operation call or on self
-            // TODO: implement
-            Empty
-          }
+          else
+            Full(lookupOperationOnTypeFuzzy(sourceExpression.getType, identifier, static))
         }
       }
     }
