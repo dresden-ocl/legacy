@@ -465,7 +465,7 @@ trait OclParseTreeToEssentialOcl { selfType : OclStaticSemantics =>
         }
       }
       
-      case i@IterateExpCS(iteratorVariable, resultVariable, bodyExpression) => {
+      case i@IterateExpCS(_, _, bodyExpression) => {
         (i->sourceExpression).flatMap{se =>
 	        (bodyExpression->computeOclExpression).flatMap{bodyEOcl =>
 	          (bodyExpression->variables).flatMap {case (implicitVariableBox, explicitVariables) =>

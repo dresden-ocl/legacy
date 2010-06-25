@@ -268,17 +268,21 @@ trait OclAttributes { selfType : OclStaticSemantics =>
           (i->variables).flatMap{case (implicitVariableBox, explicitVariables) =>
             implicitVariableBox.flatMap{implicitVariable =>
 	            (i->sourceExpression).flatMap{se =>
-	              if (iteratorVariable.getTypeName != null) {
-		              (iteratorVariable.getTypeName->oclType).flatMap{tipe =>
-			              if (!tipe.conformsTo(determineTypeOf(se)))
-			              	yieldFailure("Expected type " + tipe.getName + ", but found " + 
-	                                determineTypeOf(se).getName, iteratorVariable)
-			              else
-			              	Full(factory.createVariable(iteratorVariable.getVariableName.getSimpleName, tipe, null))
-			            }
+	              if (iteratorVariable != null) {
+		              if (iteratorVariable.getTypeName != null) {
+			              (iteratorVariable.getTypeName->oclType).flatMap{tipe =>
+				              if (!tipe.conformsTo(determineTypeOf(se)))
+				              	yieldFailure("Expected type " + tipe.getName + ", but found " + 
+		                                determineTypeOf(se).getName, iteratorVariable)
+				              else
+				              	Full(factory.createVariable(iteratorVariable.getVariableName.getSimpleName, tipe, null))
+				            }
+		              }
+		              else
+		                Full(factory.createVariable(iteratorVariable.getVariableName.getSimpleName, determineTypeOf(se), null))
+	              } else {
+	              	Full(factory.createVariable("$implicitIterateVar" + ImplicitVariableNumberGenerator.getNumber + "$", determineTypeOf(se), null))
 	              }
-	              else
-	                Full(factory.createVariable(iteratorVariable.getVariableName.getSimpleName, determineTypeOf(se), null))
 	            }.flatMap{iv =>
 	              (resultVariable.getInitialization->computeOclExpression).flatMap{initExp =>
 		              checkVariableDeclarationType(resultVariable).flatMap{tipe =>
@@ -438,7 +442,7 @@ trait OclAttributes { selfType : OclStaticSemantics =>
             Full(factory.createVariableExp(implicitVariableBox.open_!))
           }
         }
-        case i@IterateExpCS(iteratorVariable, _, bodyExpression) if child == bodyExpression => {
+        case i@IterateExpCS(_, _, bodyExpression) if child == bodyExpression => {
           (child->variables).flatMap{case (implicitVariableBox, explicitVariables) =>
             Full(factory.createVariableExp(implicitVariableBox.open_!))
           }

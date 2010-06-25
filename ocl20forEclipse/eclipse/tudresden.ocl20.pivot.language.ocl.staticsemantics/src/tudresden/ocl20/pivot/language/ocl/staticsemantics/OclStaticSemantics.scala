@@ -19,14 +19,6 @@ import tudresden.attributegrammar.integration.kiama.util.CollectionConverterS2J.
 import tudresden.attributegrammar.integration.kiama.util.CollectionConverterJ2S._
 
 
-object ImplicitVariableNumberGenerator {
-  var number = 0
-  
-  def getNumber = {
-    number = number + 1
-    "" + number
-  }
-}
 
 trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker
 												 with pivotmodel.semantics.PivotmodelAttributeMaker 
@@ -35,6 +27,18 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker
 												 with OclParseTreeToEssentialOcl 
 												 with OclAttributes {
   
+	/**
+   * Used to create contiuous numbers for implicit variable names in order to
+   * let those numbers be unique
+   */
+	object ImplicitVariableNumberGenerator {
+	  var number = Stream.from(0)
+	  
+	  def getNumber = {
+	    number.head
+	  }
+	}
+ 
   /*
    * Used for type lookup and adding defs.
    */
@@ -172,6 +176,7 @@ trait OclStaticSemantics extends ocl.semantics.OclAttributeMaker
   
   @throws(classOf[OclStaticSemanticsException])
   def cs2EssentialOcl(root : EObject) : java.util.List[Constraint] = {
+    resetMemo
     OclStaticSemanticsTransactions.startStaticSemanticsAnalysis(this, resource.getContents.get(0))
     val constraints = computeConstraints(root)
     // to avoid the conversion of Scala List to Java List multiple times
