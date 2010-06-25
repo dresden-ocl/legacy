@@ -108,8 +108,8 @@
         eType="#//OclExpressionCS" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IterateExpCS" eSuperTypes="#//LoopExpCS #//ImplicitFeatureCallCS">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="iteratorVariable" lowerBound="1"
-        eType="#//IteratorExpVariableCS" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="iteratorVariable" eType="#//IteratorExpVariableCS"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resultVariable" lowerBound="1"
         eType="#//VariableDeclarationWithInitCS" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bodyExpression" lowerBound="1"

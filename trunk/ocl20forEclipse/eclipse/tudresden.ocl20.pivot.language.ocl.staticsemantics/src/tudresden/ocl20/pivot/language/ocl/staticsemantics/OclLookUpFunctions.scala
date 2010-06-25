@@ -151,7 +151,7 @@ trait OclLookUpFunctions { selfType : OclStaticSemantics =>
   }
   
   protected def lookupPropertyOnTypeFuzzy(t : Type, name : String, static : Boolean) : List[Property] = {
-    t.allProperties.filter(p => p.getName.startsWith(name) && p.isStatic == static):::
+    t.allProperties.filter(p => if (p.getName != null) p.getName.startsWith(name) else false && p.isStatic == static):::
       (getAllDefs._1.filter(d => t.conformsTo(d._1)).flatMap{d =>
       	d._2.filter(vd => vd.getVariableName.getSimpleName.startsWith(name)).map{vd =>
       	  getPropertyFromVariableDeclaration(vd, t, name)
