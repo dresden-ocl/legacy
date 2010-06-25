@@ -61,7 +61,7 @@ RULES {
 	
 	OperationContextDeclarationCS		::= "context" operation !0 prePostOrBodyDeclarations+;
 	
-	AttributeContextDeclarationCS		::= "context" typeName "::" property[SIMPLE_NAME] ":" type !0 initOrDeriveValue initOrDeriveValue?;
+	AttributeContextDeclarationCS		::= "context" typeName "::" property[SIMPLE_NAME] (":" type)? !0 initOrDeriveValue initOrDeriveValue?;
 	
 	ClassifierContextDeclarationCS		::= "context" typeName !0 invariantsAndDefinitions+;
 	
@@ -212,10 +212,10 @@ RULES {
 	
 	
 	@operator(type="primitive", weight="20", superclass="OclExpressionCS")
-	IntegerLiteralExpCS					::= integerLiteral[INTEGER_LITERAL];
+	RealLiteralExpCS					::= intValue[INTEGER_LITERAL] #0 navigationOperator[NAVIGATION_OPERATOR] #0 (realValue[INTEGER_0] | realValue[INTEGER_LITERAL]);
 	
 	@operator(type="primitive", weight="20", superclass="OclExpressionCS")
-	RealLiteralExpCS					::= intValue[INTEGER_LITERAL] #0 navigationOperator[NAVIGATION_OPERATOR] #0 (realValue[INTEGER_0] | realValue[INTEGER_LITERAL]);
+	IntegerLiteralExpCS					::= integerLiteral[INTEGER_LITERAL];
 	
 	@operator(type="primitive", weight="20", superclass="OclExpressionCS")
 	BooleanLiteralExpCS					::= booleanLiteral[BOOLEAN_LITERAL];

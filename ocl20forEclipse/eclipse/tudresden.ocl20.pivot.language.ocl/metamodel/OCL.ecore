@@ -260,7 +260,7 @@
         eType="#//TypePathNameCS" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
         eType="ecore:EClass ../../tudresden.ocl20.pivot.pivotmodel/model/pivotmodel.ecore#//Property"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//TypeCS"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//TypeCS"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="initOrDeriveValue" lowerBound="1"
         upperBound="2" eType="#//InitOrDeriveValueCS" containment="true"/>
