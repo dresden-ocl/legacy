@@ -100,7 +100,7 @@ trait OclLookUpFunctions { selfType : OclStaticSemantics =>
   
   protected def lookupOperationOnType(t : Type, name : String, static : Boolean, parameters : List[Parameter]) : Box[Operation] = {
     val parameterTypes = parameters.map(determineMultiplicityElementType(_))
-    !!(t.lookupOperation(name, parameterTypes)) or {
+    !!(t.lookupOperation(name, parameterTypes)).flatMap{o => if (o.isStatic == static) Full(o) else Empty} or {
       val d = getAllDefs._2.filter(d => t.conformsTo(d._1))
       if (d.isEmpty) Failure("Cannot find operation " + name + " on " + t.getName + " with parameters + " + parameters.mkString(", "))
       else {
@@ -115,10 +115,10 @@ trait OclLookUpFunctions { selfType : OclStaticSemantics =>
   }
   
   protected def lookupOperationOnType(tipe : Type, identifier : String, 
-                                    parameters : List[Parameter], element : EObject,
+                                    parameters : List[Parameter], static : Boolean,
+                                    element : EObject,
                                     warning: Box[String]) : Box[List[Operation]] = {
-    // FIXME: find out if the operation is static
-    lookupOperationOnType(tipe, identifier, false, parameters)
+    lookupOperationOnType(tipe, identifier, static, parameters)
       .flatMap{o =>
       	warning match {
       	  case Full(w) => addWarning(w + " on " + o.getName, element)
@@ -129,7 +129,7 @@ trait OclLookUpFunctions { selfType : OclStaticSemantics =>
   }
   
   protected def lookupOperationOnTypeFuzzy(t : Type, name : String, static : Boolean) : List[Operation] = {
-    t.allOperations.filter(_.getName.startsWith(name)):::
+    t.allOperations.filter(o => o.getName.startsWith(name) && o.isStatic == static):::
       getAllDefs._2.filter(d => t.conformsTo(d._1)).flatMap{d =>
         d._2.map(_._1.getOperation).filter(o => o.getName.startsWith(name) && o.isStatic == static)
       }.toList
@@ -151,7 +151,7 @@ trait OclLookUpFunctions { selfType : OclStaticSemantics =>
   }
   
   protected def lookupPropertyOnTypeFuzzy(t : Type, name : String, static : Boolean) : List[Property] = {
-    t.allProperties.filter(p => if (p.getName != null) p.getName.startsWith(name) else false && p.isStatic == static):::
+    t.allProperties.filter(p => (if (p.getName != null) p.getName.startsWith(name) else false) && p.isStatic == static):::
       (getAllDefs._1.filter(d => t.conformsTo(d._1)).flatMap{d =>
       	d._2.filter(vd => vd.getVariableName.getSimpleName.startsWith(name)).map{vd =>
       	  getPropertyFromVariableDeclaration(vd, t, name)
