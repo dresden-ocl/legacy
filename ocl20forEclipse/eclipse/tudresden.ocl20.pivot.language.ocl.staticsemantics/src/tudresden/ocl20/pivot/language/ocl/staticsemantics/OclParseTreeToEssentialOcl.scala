@@ -571,6 +571,28 @@ trait OclParseTreeToEssentialOcl { selfType : OclStaticSemantics =>
         }
       }
       
+      case s@StaticOperationCallExpCS(typeName, arguments) => {
+        val operation = s.getOperationName
+        if (operation.eIsProxy)
+          Empty
+        else {
+          val argumentsEOcl = arguments.flatMap(arg => arg->computeOclExpression)
+          if (argumentsEOcl.size != arguments.size)
+            Empty
+          else {
+            (typeName->oclType).flatMap{tipe =>
+              val oce = ExpressionsFactory.INSTANCE.createOperationCallExp
+              oce.setSourceType(operation.getOwningType)
+              oce.setSource(factory.createTypeLiteralExp(operation.getOwningType.getQualifiedNameList))
+              oce.setReferredOperation(operation)
+              oce.getArgument.addAll(argumentsEOcl)
+              oce.setOclLibrary(oclLibrary)
+              Full(oce)
+            }
+          }
+        }
+      }
+      
   	  case unknown => {
   	    unknown match {
   	      case u : AttributableEObject => resource.addError("unknown element", u.getEObject)

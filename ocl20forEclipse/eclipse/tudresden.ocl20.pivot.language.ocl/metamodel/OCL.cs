@@ -169,6 +169,23 @@ RULES {
 	VariableDeclarationWithInitListCS	::= variableDeclarations (#0 "," variableDeclarations)*;
 	
 	
+	// *** OperationCallExpCS: implicit source expression [D] ***
+	@operator(type="primitive", weight="20", superclass="OclExpressionCS")
+	OperationCallOnSelfExpCS			::= (operationName[EQUALITY_OPERATOR]
+											|operationName[NEQUALITY_OPERATOR]
+											|operationName[NOT_OPERATOR]
+											|operationName[AND_OPERATOR]
+											|operationName[OR_OPERATOR]
+											|operationName[XOR_OPERATOR]
+											|operationName[IMPLIES_OPERATOR]
+											|operationName[SIMPLE_NAME]
+											) #0 (isMarkedPre[IS_MARKED_PRE] #0)? "(" (#0 arguments ("," arguments)*)? #0 ")";
+	
+	// *** OperationCallExpCS: static operation call [H] ***
+	@operator(type="primitive", weight="20", superclass="OclExpressionCS")
+	StaticOperationCallExpCS			::= typeName #0 "::" #0 operationName[SIMPLE_NAME] #0 "(" (#0 arguments ("," arguments)*)? #0 ")";
+	
+	
 	@operator(type="primitive", weight="20", superclass="OclExpressionCS")
 	EnumLiteralOrStaticPropertyExpCS	::= typeName "::" enumLiteralOrStaticProperty[SIMPLE_NAME];
 	
@@ -184,19 +201,6 @@ RULES {
 	CollectionRangeCS					::= from #0 ".." #0 to;
 	
 	CollectionLiteralPartsOclExpCS		::= oclExpression;
-
-	
-	// *** OperationCallExpCS: implicit source expression [D] ***
-	@operator(type="primitive", weight="20", superclass="OclExpressionCS")
-	OperationCallOnSelfExpCS			::= (operationName[EQUALITY_OPERATOR]
-											|operationName[NEQUALITY_OPERATOR]
-											|operationName[NOT_OPERATOR]
-											|operationName[AND_OPERATOR]
-											|operationName[OR_OPERATOR]
-											|operationName[XOR_OPERATOR]
-											|operationName[IMPLIES_OPERATOR]
-											|operationName[SIMPLE_NAME]
-											) #0 (isMarkedPre[IS_MARKED_PRE] #0)? "(" (#0 arguments ("," arguments)*)? #0 ")";
 	
 	
 	@operator(type="primitive", weight="20", superclass="OclExpressionCS")
