@@ -81,7 +81,7 @@ trait OclParseTreeToEssentialOcl { selfType : OclStaticSemantics =>
 		        val constraint = factory.createConstraint(
 		        	"", ConstraintKind.DEFINITION, expression, feature, self.getType)
 		        constraint
-	        }
+          }
      	}
       
       case p@PreConditionDeclarationCS(name, oclExpression) => {
@@ -306,7 +306,7 @@ trait OclParseTreeToEssentialOcl { selfType : OclStaticSemantics =>
   	  case v@NamedLiteralExpCS() => {
        	val namedElement = v.getNamedElement
        	if (namedElement.eIsProxy)
-       		yieldFailure("Cannot find NamedElement for " + v, v)
+       		Empty
        	else {
        		namedElement match {
        		  case v : Variable => Full(factory.createVariableExp(v))
@@ -351,13 +351,8 @@ trait OclParseTreeToEssentialOcl { selfType : OclStaticSemantics =>
           yieldFailure("Cannot use @pre outside of a post condition.", i)
         else {
 	  	    val property = i.getProperty
-	        if (property.eIsProxy) {
-	          val typeName = i->sourceExpression match {
-	            case Full(t) => t.getType.getName
-	            case Failure(_, _, _) | Empty => "unknown type"
-	          }
-	          yieldFailure("Cannot find property on " + typeName + ".", i)
-	        }
+	        if (property.eIsProxy) 
+           Empty
 	        else {
 	          for (sourceExpression <- i->sourceExpression)
 	            yield {
@@ -377,13 +372,8 @@ trait OclParseTreeToEssentialOcl { selfType : OclStaticSemantics =>
           yieldFailure("Cannot use @pre outside of a post condition.", i)
         else {
 	        val operation = i.getOperationName
-	        if (operation.eIsProxy) {
-	          val typeName = i->sourceExpression match {
-	            case Full(t) => t.getType.getName
-	            case Failure(_, _, _) | Empty => "unknown type"
-	          }
-	          yieldFailure("Cannot find operation on " + typeName +  ".", i)
-	        }
+	        if (operation.eIsProxy) 
+           Empty
 	        else {
 	          val argumentsEOcl = arguments.map(arg => arg->computeOclExpression)
 	          argumentsEOcl.find(!_.isDefined) match {
@@ -548,7 +538,7 @@ trait OclParseTreeToEssentialOcl { selfType : OclStaticSemantics =>
       case e@EnumLiteralOrStaticPropertyExpCS(typeName) => {
         val enumLitOrProp = e.getEnumLiteralOrStaticProperty
         if (enumLitOrProp.eIsProxy)
-          yieldFailure("Cannot resolve enumeration literal or static property.", e)
+          Empty
         else {
           enumLitOrProp match {
             case e : EnumerationLiteral => {

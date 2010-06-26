@@ -188,7 +188,7 @@ trait OclReferenceResolver { selfType : OclStaticSemantics =>
 	                      	addWarning("implicit collect() on " + o.getName, aeo)
 	                      	Full(List(o))
 	                    	} else {
-	                    	  yieldFailure("Found operation " + identifier + ", but was " + (if (static) " static." else " not static.") , aeo)
+	                    	  Failure("Found operation " + identifier + ", but was " + (if (static) " static." else " not static."))
                       	}
                   		}
                   }
@@ -197,7 +197,7 @@ trait OclReferenceResolver { selfType : OclStaticSemantics =>
                 }
               }
               case Failure(msg, _, _) => Failure(msg, Empty, Empty)
-              case Empty => yieldFailure("Cannot determine sourceExpression.", aeo)
+              case Empty => Failure("Cannot determine sourceExpression.")
             }
           }
           else
@@ -211,7 +211,7 @@ trait OclReferenceResolver { selfType : OclStaticSemantics =>
     val result = _resolveNamespace(identifier, fuzzy) (container) match {
       case Full(namespaceList) => namespaceList
       case Failure(msg, _, _) => {
-        //resource.addError(msg, container)
+        resource.addError(msg, container)
         List()
       }
       case Empty => List()
@@ -223,7 +223,7 @@ trait OclReferenceResolver { selfType : OclStaticSemantics =>
     _resolveType(identifier, fuzzy) (container) match {
       case Full(typeList) => typeList
       case Failure(msg, _, _) => {
-        //resource.addError(msg, container)
+        resource.addError(msg, container)
         List()
       }
       case Empty => List()
@@ -238,8 +238,6 @@ trait OclReferenceResolver { selfType : OclStaticSemantics =>
   }
   
   def resolveProperty(identifier : String, fuzzy : Boolean, container : EObject) : java.util.List[Property] = {
-    // TODO: resolve properties on their own
-    
     _resolveNamedElement(identifier, fuzzy) (container) match {
       case Full(namedElementList) => namedElementList.flatMap {
       	_ match {
@@ -247,7 +245,8 @@ trait OclReferenceResolver { selfType : OclStaticSemantics =>
       	  case _ => None
         }
       }
-      case Failure(_, _, _) | Empty => List()
+      case Failure(msg, _, _) => resource.addError(msg, container); List()
+      case Empty => List()
     }
   }
   
@@ -262,7 +261,8 @@ trait OclReferenceResolver { selfType : OclStaticSemantics =>
           }
         } match {
           case Full(propertyList) => propertyList
-          case Empty | Failure(_, _, _) => List()
+          case Failure(msg, _, _) => resource.addError(msg, container); List()
+          case Empty => List()
         }
       }
     }
@@ -284,7 +284,7 @@ trait OclReferenceResolver { selfType : OclStaticSemantics =>
 
     _resolveOperation(identifier, fuzzy, parametersEOcl, static) (container) match {
       case Full(operationList) => operationList
-      case Failure(msg, _, _) => println(msg); List()
+      case Failure(msg, _, _) => resource.addError(msg, container); List()
       case Empty => List()
     }
   }
@@ -312,8 +312,8 @@ trait OclReferenceResolver { selfType : OclStaticSemantics =>
 				        	(returnType->oclType).flatMap{returnType =>
 				        		if (!fuzzy)
 				        			if (!operationList.first.getType.conformsTo(returnType))
-				        				yieldFailure("Operation return type " + operationList.first.getType.getName + 
-		                             " does not conform to given type " + returnType.getName + ".", container)
+				        				Failure("Operation return type " + operationList.first.getType.getName + 
+		                             " does not conform to given type " + returnType.getName + ".")
 				        			else
 				        				Full(operationList)
 				        		else
@@ -323,7 +323,7 @@ trait OclReferenceResolver { selfType : OclStaticSemantics =>
 				        else
 				        	operationList
 				      }
-				      case Failure(msg, _, _) => yieldFailure(msg, container); List()
+				      case Failure(msg, _, _) => resource.addError(msg, container); List()
 				      case Empty => List()
 				    }
 		      }
@@ -354,8 +354,8 @@ trait OclReferenceResolver { selfType : OclStaticSemantics =>
 	            	  contextType.allOperations.find(o => o.getName == identifier
               																	&& o.getType.conformsTo(rt))
               		match {
-								  	case Some(_) => yieldFailure("Operation " + identifier + " is already defined on " +
-								  																contextType.getName, o)
+								  	case Some(_) => Failure("Operation " + identifier + " is already defined on " +
+								  																contextType.getName)
 								  	case None => {
 			            	  val operation = PivotModelFactory.eINSTANCE.createOperation
 						          operation.setName(identifier)
@@ -375,7 +375,8 @@ trait OclReferenceResolver { selfType : OclStaticSemantics =>
 	          }
 		      } match {
 		        case Full(opList) => opList
-		        case Failure(_, _, _) | Empty => List() 
+		        case Failure(msg, _, _) => resource.addError(msg, container); List()
+		        case Empty => List() 
 		      }
 	      }
 	    }
@@ -392,7 +393,7 @@ trait OclReferenceResolver { selfType : OclStaticSemantics =>
       Full(parameter)
     } match {
       case Full(parameter) => List(parameter)
-      case Failure(msg, _, _) => yieldFailure(msg, parameterType); List()
+      case Failure(msg, _, _) => resource.addError(msg, parameterType); List()
       case Empty => List()
     }
   }
