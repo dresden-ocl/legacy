@@ -300,12 +300,10 @@ trait OclReferenceResolver { selfType : OclStaticSemantics =>
 		      case None => {
 		        (tn->oclType).flatMap{tipe =>
 				      if (!fuzzy)
-				      	(!!(tipe.lookupOperation(identifier, parametersEOcl.map(_.getType))) ?~
-		              ("Cannot resolve operation with name "+ identifier + " and parameter types (" + 
-		                 parametersEOcl.map(_.getType.getName).mkString(", ") + ")"))
+				      	lookupOperationOnType(tipe, identifier, false, parametersEOcl)
 		              .flatMap(o => Full(List(o)))
 				      else
-				       Full(tipe.allOperations.filter(o => o.getName.startsWith(identifier)))
+				       Full(lookupOperationOnTypeFuzzy(tipe, identifier, false))
 				    } match {
 				      case Full(operationList) => {
 				        if (returnType != null) {
