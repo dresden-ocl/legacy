@@ -433,47 +433,43 @@ trait OclParseTreeToEssentialOcl { selfType : OclStaticSemantics =>
       case i@IteratorExpCS(iteratorVariables, bodyExpression, iteratorName) => {
         (i->sourceExpression).flatMap{se =>
 	        (bodyExpression->computeOclExpression).flatMap{bodyEOcl =>
-	          (bodyExpression->variables).flatMap {case (implicitVariableBox, explicitVariables) =>
-         		  implicitVariableBox.flatMap{implicitVariable =>
-		            val iteratorNames = iteratorVariables.map(_.getVariableName.getSimpleName)
-	         		  val iteratorExp = factory.createIteratorExp(se.getType match {
-	         		    		case _ : CollectionType => se
-	         		    		case _ : Type => se.withAsSet
-	         		    	}, iteratorName, bodyEOcl,
-	         		  		(implicitVariable ::
-	         		  			explicitVariables.filter(ev => iteratorNames.contains(ev.getName))).toArray : _*)
-	         		  // triggers WFR checks in EssentialOcl -> if WFRException is thrown yield a Failure
-	         		  try {
-	         		    iteratorExp.getType
-	         		    Full(iteratorExp)
-	         		  } catch {
-	         		    case e: WellformednessException => yieldFailure(e.getMessage, i)
-	         		  }
+	          (bodyExpression->variables).flatMap {case (implicitVariables, explicitVariables) =>
+	            val iteratorNames = iteratorVariables.map(_.getVariableName.getSimpleName)
+         		  val iteratorExp = factory.createIteratorExp(se.getType match {
+         		    		case _ : CollectionType => se
+         		    		case _ : Type => se.withAsSet
+         		    	}, iteratorName, bodyEOcl,
+         		  		(implicitVariables.first ::
+         		  			explicitVariables.filter(ev => iteratorNames.contains(ev.getName))).toArray : _*)
+         		  // triggers WFR checks in EssentialOcl -> if WFRException is thrown yield a Failure
+         		  try {
+         		    iteratorExp.getType
+         		    Full(iteratorExp)
+         		  } catch {
+         		    case e: WellformednessException => yieldFailure(e.getMessage, i)
          		  }
-            }
-	        }
+       		  }
+          }
         }
       }
       
       case i@IterateExpCS(_, _, bodyExpression) => {
         (i->sourceExpression).flatMap{se =>
-	        (bodyExpression->computeOclExpression).flatMap{bodyEOcl =>
-	          (bodyExpression->variables).flatMap {case (implicitVariableBox, explicitVariables) =>
-	            (implicitVariableBox).flatMap{implicitVariable =>
-		            val iteratorExp = factory.createIterateExp(se.getType match {
-	         		    		case _ : CollectionType => se
-	         		    		case _ : Type => se.withAsSet
-	         		    	}, bodyEOcl, explicitVariables.first, implicitVariable)
-	         		  // triggers WFR checks in EssentialOcl -> if WFRException is thrown yield a Failure
-	         		  try {
-	         		    iteratorExp.getType
-	         		    Full(iteratorExp)
-	         		  } catch {
-	         		    case e: WellformednessException => yieldFailure(e.getMessage, i)
-	         		  }
-	            }
+	        (bodyExpression->variables).flatMap {case (implicitVariables, explicitVariables) =>
+	          (bodyExpression->computeOclExpression).flatMap{bodyEOcl =>
+	            val iteratorExp = factory.createIterateExp(se.getType match {
+         		    		case _ : CollectionType => se
+         		    		case _ : Type => se.withAsSet
+         		    	}, bodyEOcl, explicitVariables.first, implicitVariables.first)
+         		  // triggers WFR checks in EssentialOcl -> if WFRException is thrown yield a Failure
+         		  try {
+         		    iteratorExp.getType
+         		    Full(iteratorExp)
+         		  } catch {
+         		    case e: WellformednessException => yieldFailure(e.getMessage, i)
+         		  }
             }
-	        }
+          }
         }
       }
       
