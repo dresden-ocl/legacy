@@ -354,14 +354,27 @@ trait OclParseTreeToEssentialOcl { selfType : OclStaticSemantics =>
 	        if (property.eIsProxy) 
            Empty
 	        else {
-	          for (sourceExpression <- i->sourceExpression)
+	          for (sourceExpression <- i->sourceExpression;
+	          			multipleNavigationCall <- i->isMultipleNavigationCall)
 	            yield {
-			          // TODO: put this into the EssentialOclFactory
-			 					val pce = ExpressionsFactory.INSTANCE.createPropertyCallExp
-			 					pce.setReferredProperty(property)
-			 					pce.setSource(sourceExpression)
-			 					pce.setOclLibrary(oclLibrary)
-			 					pce
+	              if (sourceExpression.getType.isInstanceOf[CollectionType] && !multipleNavigationCall) {
+                  // implicit collect()
+                  val pce = ExpressionsFactory.INSTANCE.createPropertyCallExp
+			   					pce.setReferredProperty(property)
+                  val iteratorVar = ExpressionsFactory.INSTANCE.createVariable
+                  iteratorVar.setName("$implicitCollect" + ImplicitVariableNumberGenerator.getNumber + "$")
+                  iteratorVar.setType(sourceExpression.getType.asInstanceOf[CollectionType].getElementType)
+                  pce.setSource(factory.createVariableExp(iteratorVar))
+			   					pce.setOclLibrary(oclLibrary)
+			   					factory.createIteratorExp(sourceExpression, "collect", pce, iteratorVar)
+                } else {
+				          // TODO: put this into the EssentialOclFactory
+				 					val pce = ExpressionsFactory.INSTANCE.createPropertyCallExp
+				 					pce.setReferredProperty(property)
+				 					pce.setSource(sourceExpression)
+				 					pce.setOclLibrary(oclLibrary)
+				 					pce
+	              }
 		          }
 	        }
         }
