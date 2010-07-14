@@ -28,7 +28,7 @@ import org.osgi.framework.BundleContext;
 public class Ocl22JavaAspectJTestPlugin extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "tudresden.ocl20.pivot.ocl22java.test.aspectj";
+	public static final String PLUGIN_ID = "tudresden.ocl20.pivot.tools.codegen.ocl2java.test.aspectj";
 
 	// The shared instance
 	private static Ocl22JavaAspectJTestPlugin plugin;
