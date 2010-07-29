@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/tudresden.ocl20.feature.core_2.0.1.jar" id="tudresden.ocl20.feature.core" version="2.0.1">
+      <category name="Dresden OCL2 for Eclipse"/>
+   </feature>
+   <feature url="features/tudresden.ocl20.feature.examples_2.0.1.jar" id="tudresden.ocl20.feature.examples" version="2.0.1">
+      <category name="Dresden OCL2 for Eclipse"/>
+   </feature>
+   <feature url="features/tudresden.ocl20.feature.interpreter_2.0.1.jar" id="tudresden.ocl20.feature.interpreter" version="2.0.1">
+      <category name="Dresden OCL2 for Eclipse"/>
+   </feature>
+   <feature url="features/tudresden.ocl20.feature.metamodels_2.0.1.jar" id="tudresden.ocl20.feature.metamodels" version="2.0.1">
+      <category name="Dresden OCL2 for Eclipse"/>
+   </feature>
+   <feature url="features/tudresden.ocl20.feature.modelinstances_2.0.1.jar" id="tudresden.ocl20.feature.modelinstances" version="2.0.1">
+      <category name="Dresden OCL2 for Eclipse"/>
+   </feature>
+   <feature url="features/tudresden.ocl20.feature.ocl2java_2.0.1.jar" id="tudresden.ocl20.feature.ocl2java" version="2.0.1">
+      <category name="Dresden OCL2 for Eclipse"/>
+   </feature>
+   <feature url="features/tudresden.ocl20.feature.parser_2.0.1.jar" id="tudresden.ocl20.feature.parser" version="2.0.1">
+      <category name="Dresden OCL2 for Eclipse"/>
+   </feature>
+   <category-def name="Dresden OCL2 for Eclipse" label="Dresden OCL2 for Eclipse"/>
+</site>
