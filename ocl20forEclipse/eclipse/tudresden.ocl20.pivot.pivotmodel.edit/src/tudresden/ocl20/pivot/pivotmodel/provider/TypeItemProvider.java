@@ -60,7 +60,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import tudresden.ocl20.pivot.pivotmodel.ComplexGenericType;
 import tudresden.ocl20.pivot.pivotmodel.GenericType;
 import tudresden.ocl20.pivot.pivotmodel.PivotModelFactory;
-import tudresden.ocl20.pivot.pivotmodel.PivotModelPackage;
 import tudresden.ocl20.pivot.pivotmodel.Type;
 import tudresden.ocl20.pivot.pivotmodel.TypeParameter;
 import tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl;
@@ -81,6 +80,7 @@ public class TypeItemProvider extends NamedElementItemProvider implements
 	 * @generated
 	 */
 	public TypeItemProvider(AdapterFactory adapterFactory) {
+
 		super(adapterFactory);
 	}
 
@@ -92,6 +92,7 @@ public class TypeItemProvider extends NamedElementItemProvider implements
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
@@ -126,13 +127,11 @@ public class TypeItemProvider extends NamedElementItemProvider implements
 		/**
 		 * Creates a new <code>TypePropertyDescriptor</code> instance using the default EMF
 		 */
-		public SuperTypePropertyDescriptor(String displayName,
-				String description) {
+		public SuperTypePropertyDescriptor(String displayName, String description) {
 
 			super(((ComposeableAdapterFactory) getAdapterFactory())
-					.getRootAdapterFactory(), getResourceLocator(),
-					displayName, description,
-					PivotModelPackageImpl.Literals.TYPE__SUPER_TYPE, true,
+					.getRootAdapterFactory(), getResourceLocator(), displayName,
+					description, PivotModelPackageImpl.Literals.TYPE__SUPER_TYPE, true,
 					false, true, null, null, null);
 		}
 
@@ -159,15 +158,14 @@ public class TypeItemProvider extends NamedElementItemProvider implements
 					it.remove();
 
 					// create a new complex generic type and set the given type as a reference
-					ComplexGenericType genericType = PivotModelFactory.eINSTANCE
-							.createComplexGenericType();
+					ComplexGenericType genericType =
+							PivotModelFactory.eINSTANCE.createComplexGenericType();
 					genericType.setUnboundType(type);
 
 					// append type arguments for each type parameter
 					for (int i = 0, size = type.getOwnedTypeParameter().size(); i < size; i++) {
 						genericType.getTypeArgument().add(
-								PivotModelFactory.eINSTANCE
-										.createTypeArgument());
+								PivotModelFactory.eINSTANCE.createTypeArgument());
 					}
 
 					// add the new generic type to the list of generic super types
@@ -194,15 +192,10 @@ public class TypeItemProvider extends NamedElementItemProvider implements
 			EditingDomain editingDomain = getEditingDomain(type);
 
 			if (editingDomain != null) {
-				editingDomain
-						.getCommandStack()
-						.execute(
-								SetCommand
-										.create(
-												editingDomain,
-												type,
-												PivotModelPackageImpl.Literals.TYPE__GENERIC_SUPER_TYPE,
-												genericSuperTypes));
+				editingDomain.getCommandStack().execute(
+						SetCommand.create(editingDomain, type,
+								PivotModelPackageImpl.Literals.TYPE__GENERIC_SUPER_TYPE,
+								genericSuperTypes));
 			}
 
 			else {
@@ -224,16 +217,16 @@ public class TypeItemProvider extends NamedElementItemProvider implements
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(
 			Object object) {
+
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures
-					.add(PivotModelPackage.Literals.GENERIC_ELEMENT__OWNED_TYPE_PARAMETER);
+					.add(PivotModelPackageImpl.Literals.GENERIC_ELEMENT__OWNED_TYPE_PARAMETER);
 			childrenFeatures
-					.add(PivotModelPackage.Literals.TYPE__OWNED_OPERATION);
+					.add(PivotModelPackageImpl.Literals.TYPE__OWNED_OPERATION);
+			childrenFeatures.add(PivotModelPackageImpl.Literals.TYPE__OWNED_PROPERTY);
 			childrenFeatures
-					.add(PivotModelPackage.Literals.TYPE__OWNED_PROPERTY);
-			childrenFeatures
-					.add(PivotModelPackage.Literals.TYPE__GENERIC_SUPER_TYPE);
+					.add(PivotModelPackageImpl.Literals.TYPE__GENERIC_SUPER_TYPE);
 		}
 		return childrenFeatures;
 	}
@@ -244,6 +237,7 @@ public class TypeItemProvider extends NamedElementItemProvider implements
 	 */
 	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
+
 		// Check the type of the specified child object and return the proper feature to use for
 		// adding (see {@link AddCommand}) it as a child.
 
@@ -257,8 +251,9 @@ public class TypeItemProvider extends NamedElementItemProvider implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage(
-				"full/obj16/Type")); //$NON-NLS-1$
+
+		return overlayImage(object, getResourceLocator()
+				.getImage("full/obj16/Type")); //$NON-NLS-1$
 	}
 
 	/**
@@ -287,8 +282,7 @@ public class TypeItemProvider extends NamedElementItemProvider implements
 		if (!type.getSuperType().isEmpty()) {
 			label.append(" -> "); //$NON-NLS-1$
 
-			for (Iterator<Type> it = type.getSuperType().iterator(); it
-					.hasNext();) {
+			for (Iterator<Type> it = type.getSuperType().iterator(); it.hasNext();) {
 				label.append(it.next().getName());
 
 				if (it.hasNext()) {
@@ -309,8 +303,8 @@ public class TypeItemProvider extends NamedElementItemProvider implements
 				label.append(", "); //$NON-NLS-1$
 			}
 
-			for (Iterator<GenericType> it = type.getGenericSuperType()
-					.iterator(); it.hasNext();) {
+			for (Iterator<GenericType> it = type.getGenericSuperType().iterator(); it
+					.hasNext();) {
 				GenericType genericType = it.next();
 				label.append(getLabel(genericType));
 
@@ -340,8 +334,8 @@ public class TypeItemProvider extends NamedElementItemProvider implements
 		if (!type.getOwnedTypeParameter().isEmpty()) {
 			name.append(getTypeParameterListOpeningDelimiter());
 
-			for (Iterator<TypeParameter> it = type.getOwnedTypeParameter()
-					.iterator(); it.hasNext();) {
+			for (Iterator<TypeParameter> it = type.getOwnedTypeParameter().iterator(); it
+					.hasNext();) {
 				name.append(it.next().getName());
 
 				if (it.hasNext()) {
@@ -387,8 +381,8 @@ public class TypeItemProvider extends NamedElementItemProvider implements
 			if (superType.getOwnedTypeParameter().size() > 0) {
 
 				// create a new complex generic type and set the given type as a reference
-				ComplexGenericType genericType = PivotModelFactory.eINSTANCE
-						.createComplexGenericType();
+				ComplexGenericType genericType =
+						PivotModelFactory.eINSTANCE.createComplexGenericType();
 				genericType.setUnboundType(superType);
 
 				// append type arguments for each type parameter
@@ -397,16 +391,14 @@ public class TypeItemProvider extends NamedElementItemProvider implements
 							PivotModelFactory.eINSTANCE.createTypeArgument());
 				}
 
-				return new CreateChildCommand(
-						domain,
-						owner,
+				return new CreateChildCommand(domain, owner,
 						PivotModelPackageImpl.Literals.TYPE__GENERIC_SUPER_TYPE,
 						genericType, index, collection, this);
 			}
 		}
 
-		return super.createCreateChildCommand(domain, owner, feature, value,
-				index, collection);
+		return super.createCreateChildCommand(domain, owner, feature, value, index,
+				collection);
 	}
 
 	/**
@@ -449,24 +441,20 @@ public class TypeItemProvider extends NamedElementItemProvider implements
 	@Override
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
+
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors
-				.add(createChildParameter(
-						PivotModelPackage.Literals.GENERIC_ELEMENT__OWNED_TYPE_PARAMETER,
-						PivotModelFactory.eINSTANCE.createTypeParameter()));
+		newChildDescriptors.add(createChildParameter(
+				PivotModelPackageImpl.Literals.GENERIC_ELEMENT__OWNED_TYPE_PARAMETER,
+				PivotModelFactory.eINSTANCE.createTypeParameter()));
 
 		newChildDescriptors.add(createChildParameter(
-				PivotModelPackage.Literals.TYPE__OWNED_OPERATION,
+				PivotModelPackageImpl.Literals.TYPE__OWNED_OPERATION,
 				PivotModelFactory.eINSTANCE.createOperation()));
 
 		newChildDescriptors.add(createChildParameter(
-				PivotModelPackage.Literals.TYPE__OWNED_PROPERTY,
+				PivotModelPackageImpl.Literals.TYPE__OWNED_PROPERTY,
 				PivotModelFactory.eINSTANCE.createProperty()));
-
-		newChildDescriptors.add(createChildParameter(
-				PivotModelPackage.Literals.TYPE__OWNED_PROPERTY,
-				PivotModelFactory.eINSTANCE.createNDirectionalProperty()));
 	}
 
 }

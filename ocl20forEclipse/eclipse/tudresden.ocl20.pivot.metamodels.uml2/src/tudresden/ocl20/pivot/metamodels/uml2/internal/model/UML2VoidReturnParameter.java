@@ -42,8 +42,8 @@ public class UML2VoidReturnParameter extends AbstractParameter implements
 	 * 
 	 * @generated NOT
 	 */
-	private static final Logger LOGGER = UML2MetamodelPlugin
-			.getLogger(UML2VoidReturnParameter.class);
+	private static final Logger LOGGER =
+			UML2MetamodelPlugin.getLogger(UML2VoidReturnParameter.class);
 
 	/**
 	 * <p>
@@ -56,36 +56,23 @@ public class UML2VoidReturnParameter extends AbstractParameter implements
 
 	/**
 	 * <p>
-	 * The {@link UML2AdapterFactory} used to create nested elements.
-	 * </p>
-	 * 
-	 * @generate NOT
-	 */
-	private UML2AdapterFactory factory;
-
-	/**
-	 * <p>
 	 * Creates a new {@link UML2VoidReturnParameter} instance.
 	 * </p>
 	 * 
 	 * @param dslOperation
-	 *            the {@link org.eclipse.uml2.uml.Operation} that is adopted by
-	 *            this class.
-	 * @param factory
-	 *            The {@link UML2AdapterFactory} used to create nested elements.
+	 *          the {@link org.eclipse.uml2.uml.Operation} that is adopted by this
+	 *          class.
 	 * 
 	 * @generated NOT
 	 */
-	public UML2VoidReturnParameter(org.eclipse.uml2.uml.Operation dslOperation,
-			UML2AdapterFactory factory) {
+	public UML2VoidReturnParameter(org.eclipse.uml2.uml.Operation dslOperation) {
 
 		/* Eventually log the entry into this method. */
 		if (LOGGER.isDebugEnabled()) {
 			String msg;
 
 			msg = "UML2VoidReturnParameter("; //$NON-NLS-1$ //$NON-NLS-2$
-			msg += "dslOperation = " + dslOperation; //$NON-NLS-1$ //$NON-NLS-2$
-			msg += ", factory = " + factory; //$NON-NLS-1$ //$NON-NLS-2$
+			msg += "dslOperation=" + dslOperation; //$NON-NLS-1$ //$NON-NLS-2$
 			msg += ") - enter"; //$NON-NLS-1$ //$NON-NLS-2$
 
 			LOGGER.debug(msg);
@@ -94,7 +81,6 @@ public class UML2VoidReturnParameter extends AbstractParameter implements
 
 		/* Initialize adapted operation. */
 		this.dslOperation = dslOperation;
-		this.factory = factory;
 
 		/* Eventually log the exit from this method. */
 		if (LOGGER.isDebugEnabled()) {
@@ -122,7 +108,7 @@ public class UML2VoidReturnParameter extends AbstractParameter implements
 	@Override
 	public Operation getOperation() {
 
-		return this.factory.createOperation(this.dslOperation);
+		return UML2AdapterFactory.INSTANCE.createOperation(this.dslOperation);
 	}
 
 	/**
@@ -133,18 +119,49 @@ public class UML2VoidReturnParameter extends AbstractParameter implements
 	@Override
 	public Type getType() {
 
-		return this.factory.createType(null);
+		return UML2AdapterFactory.INSTANCE.createType(null);
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.ParameterImpl#getKind()
-	 * 
 	 * @generated NOT
 	 */
 	public ParameterDirectionKind getKind() {
 
 		return ParameterDirectionKind.RETURN;
+	}
+
+	/**
+	 * @see tudresden.ocl20.pivot.pivotmodel.impl.ParameterImpl#isMultiple()
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isMultiple() {
+
+		return false;
+	}
+
+	/**
+	 * @see tudresden.ocl20.pivot.pivotmodel.impl.ParameterImpl#isOrdered()
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isOrdered() {
+
+		return true;
+	}
+
+	/**
+	 * @see tudresden.ocl20.pivot.pivotmodel.impl.ParameterImpl#isUnique()
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isUnique() {
+
+		return true;
 	}
 }

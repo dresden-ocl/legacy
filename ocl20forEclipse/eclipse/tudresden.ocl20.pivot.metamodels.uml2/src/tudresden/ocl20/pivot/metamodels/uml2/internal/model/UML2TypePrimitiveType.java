@@ -42,20 +42,11 @@ public class UML2TypePrimitiveType extends AbstractType implements Type {
 	 * 
 	 * @generated NOT
 	 */
-	private static final Logger LOGGER = UML2MetamodelPlugin
-			.getLogger(UML2TypePrimitiveType.class);
+	private static final Logger LOGGER =
+			UML2MetamodelPlugin.getLogger(UML2TypePrimitiveType.class);
 
 	/** The adapted {@link org.eclipse.uml2.uml.PrimitiveType} class. */
 	private org.eclipse.uml2.uml.PrimitiveType dslPrimitiveType;
-
-	/**
-	 * <p>
-	 * The {@link UML2AdapterFactory} used to create nested elements.
-	 * </p>
-	 * 
-	 * @generate NOT
-	 */
-	private UML2AdapterFactory factory;
 
 	/**
 	 * <p>
@@ -63,16 +54,13 @@ public class UML2TypePrimitiveType extends AbstractType implements Type {
 	 * </p>
 	 * 
 	 * @param dslPrimitiveType
-	 *            the {@link org.eclipse.uml2.uml.PrimitiveType} that is adopted
-	 *            by this class
-	 * @param factory
-	 *            The {@link UML2AdapterFactory} used to create nested elements.
+	 *          the {@link org.eclipse.uml2.uml.PrimitiveType} that is adopted by
+	 *          this class
 	 * 
 	 * @generated NOT
 	 */
 	public UML2TypePrimitiveType(
-			org.eclipse.uml2.uml.PrimitiveType dslPrimitiveType,
-			UML2AdapterFactory factory) {
+			org.eclipse.uml2.uml.PrimitiveType dslPrimitiveType) {
 
 		/* Eventually log the entry into this method. */
 		if (LOGGER.isDebugEnabled()) {
@@ -80,7 +68,6 @@ public class UML2TypePrimitiveType extends AbstractType implements Type {
 
 			msg = "UML2TypePrimitiveType("; //$NON-NLS-1$ //$NON-NLS-2$
 			msg += "dslPrimitiveType = " + dslPrimitiveType; //$NON-NLS-1$ //$NON-NLS-2$
-			msg += ", factory = " + factory; //$NON-NLS-1$ //$NON-NLS-2$
 			msg += ") - enter"; //$NON-NLS-1$ //$NON-NLS-2$
 
 			LOGGER.debug(msg);
@@ -89,7 +76,6 @@ public class UML2TypePrimitiveType extends AbstractType implements Type {
 
 		/* Initialize the adapted object. */
 		this.dslPrimitiveType = dslPrimitiveType;
-		this.factory = factory;
 
 		/* Eventually log the exit from this method. */
 		if (LOGGER.isDebugEnabled()) {
@@ -117,7 +103,8 @@ public class UML2TypePrimitiveType extends AbstractType implements Type {
 	@Override
 	public Namespace getNamespace() {
 
-		return this.factory.createNamespace(dslPrimitiveType.getPackage());
+		return UML2AdapterFactory.INSTANCE.createNamespace(dslPrimitiveType
+				.getPackage());
 	}
 
 	/**
@@ -135,7 +122,7 @@ public class UML2TypePrimitiveType extends AbstractType implements Type {
 		for (org.eclipse.uml2.uml.Property property : this.dslPrimitiveType
 				.getOwnedAttributes()) {
 
-			result.add(this.factory.createProperty(property));
+			result.add(UML2AdapterFactory.INSTANCE.createProperty(property));
 		}
 
 		return result;
@@ -156,7 +143,7 @@ public class UML2TypePrimitiveType extends AbstractType implements Type {
 		for (org.eclipse.uml2.uml.Operation operation : this.dslPrimitiveType
 				.getOwnedOperations()) {
 
-			result.add(this.factory.createOperation(operation));
+			result.add(UML2AdapterFactory.INSTANCE.createOperation(operation));
 		}
 
 		return result;

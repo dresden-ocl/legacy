@@ -78,6 +78,7 @@ public class IterateExpImpl extends LoopExpImpl implements IterateExp {
 	 * @generated
 	 */
 	protected IterateExpImpl() {
+
 		super();
 	}
 
@@ -187,6 +188,7 @@ public class IterateExpImpl extends LoopExpImpl implements IterateExp {
 	 * @generated
 	 */
 	public Variable getResult() {
+
 		return result;
 	}
 
@@ -196,12 +198,13 @@ public class IterateExpImpl extends LoopExpImpl implements IterateExp {
 	 */
 	public NotificationChain basicSetResult(Variable newResult,
 			NotificationChain msgs) {
+
 		Variable oldResult = result;
 		result = newResult;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this,
-					Notification.SET, ExpressionsPackageImpl.ITERATE_EXP__RESULT,
-					oldResult, newResult);
+			ENotificationImpl notification =
+					new ENotificationImpl(this, Notification.SET,
+							ExpressionsPackageImpl.ITERATE_EXP__RESULT, oldResult, newResult);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -215,20 +218,24 @@ public class IterateExpImpl extends LoopExpImpl implements IterateExp {
 	 * @generated
 	 */
 	public void setResult(Variable newResult) {
+
 		if (newResult != result) {
 			NotificationChain msgs = null;
 			if (result != null)
-				msgs = ((InternalEObject) result)
-						.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-								- ExpressionsPackageImpl.ITERATE_EXP__RESULT, null, msgs);
+				msgs =
+						((InternalEObject) result).eInverseRemove(this,
+								EOPPOSITE_FEATURE_BASE
+										- ExpressionsPackageImpl.ITERATE_EXP__RESULT, null, msgs);
 			if (newResult != null)
-				msgs = ((InternalEObject) newResult)
-						.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-								- ExpressionsPackageImpl.ITERATE_EXP__RESULT, null, msgs);
+				msgs =
+						((InternalEObject) newResult).eInverseAdd(this,
+								EOPPOSITE_FEATURE_BASE
+										- ExpressionsPackageImpl.ITERATE_EXP__RESULT, null, msgs);
 			msgs = basicSetResult(newResult, msgs);
 			if (msgs != null)
 				msgs.dispatch();
-		} else if (eNotificationRequired())
+		}
+		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					ExpressionsPackageImpl.ITERATE_EXP__RESULT, newResult, newResult));
 	}
@@ -240,6 +247,7 @@ public class IterateExpImpl extends LoopExpImpl implements IterateExp {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.ITERATE_EXP__RESULT:
 			return basicSetResult(null, msgs);
@@ -253,6 +261,7 @@ public class IterateExpImpl extends LoopExpImpl implements IterateExp {
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.ITERATE_EXP__RESULT:
 			return getResult();
@@ -266,6 +275,7 @@ public class IterateExpImpl extends LoopExpImpl implements IterateExp {
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.ITERATE_EXP__RESULT:
 			setResult((Variable) newValue);
@@ -280,6 +290,7 @@ public class IterateExpImpl extends LoopExpImpl implements IterateExp {
 	 */
 	@Override
 	public void eUnset(int featureID) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.ITERATE_EXP__RESULT:
 			setResult((Variable) null);
@@ -294,6 +305,7 @@ public class IterateExpImpl extends LoopExpImpl implements IterateExp {
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.ITERATE_EXP__RESULT:
 			return result != null;
@@ -307,6 +319,7 @@ public class IterateExpImpl extends LoopExpImpl implements IterateExp {
 	 */
 	@Override
 	protected EClass eStaticClass() {
+
 		return ExpressionsPackageImpl.Literals.ITERATE_EXP;
 	}
 

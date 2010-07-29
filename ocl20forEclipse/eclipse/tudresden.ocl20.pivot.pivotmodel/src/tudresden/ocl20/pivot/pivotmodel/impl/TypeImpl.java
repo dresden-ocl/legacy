@@ -456,7 +456,7 @@ public class TypeImpl extends NamedElementImpl implements Type {
 				}
 
 				// save the next hierarchy level types for the next iteration
-				thisSuperTypes.addAll(temp);
+				thisSuperTypes = temp;
 				temp.clear();
 
 				// check if one of the other type's current supertypes is contained in
@@ -478,7 +478,7 @@ public class TypeImpl extends NamedElementImpl implements Type {
 				}
 
 				// save the next hierarchy level types for the next iteration
-				otherSuperTypes.addAll(temp);
+				otherSuperTypes = temp;
 				temp.clear();
 			}
 		}

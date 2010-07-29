@@ -82,6 +82,7 @@ public class VoidTypeImpl extends TypeImpl implements VoidType {
 	 * @generated
 	 */
 	protected VoidTypeImpl() {
+
 		super();
 	}
 
@@ -211,6 +212,7 @@ public class VoidTypeImpl extends TypeImpl implements VoidType {
 	 * @generated
 	 */
 	public OclLibrary getOclLibrary() {
+
 		if (oclLibrary != null && oclLibrary.eIsProxy()) {
 			InternalEObject oldOclLibrary = (InternalEObject) oclLibrary;
 			oclLibrary = (OclLibrary) eResolveProxy(oldOclLibrary);
@@ -229,6 +231,7 @@ public class VoidTypeImpl extends TypeImpl implements VoidType {
 	 * @generated
 	 */
 	public OclLibrary basicGetOclLibrary() {
+
 		return oclLibrary;
 	}
 
@@ -237,6 +240,7 @@ public class VoidTypeImpl extends TypeImpl implements VoidType {
 	 * @generated
 	 */
 	public void setOclLibrary(OclLibrary newOclLibrary) {
+
 		OclLibrary oldOclLibrary = oclLibrary;
 		oclLibrary = newOclLibrary;
 		if (eNotificationRequired())
@@ -250,6 +254,7 @@ public class VoidTypeImpl extends TypeImpl implements VoidType {
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+
 		switch (featureID) {
 		case TypesPackageImpl.VOID_TYPE__OCL_LIBRARY:
 			if (resolve)
@@ -265,6 +270,7 @@ public class VoidTypeImpl extends TypeImpl implements VoidType {
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
+
 		switch (featureID) {
 		case TypesPackageImpl.VOID_TYPE__OCL_LIBRARY:
 			setOclLibrary((OclLibrary) newValue);
@@ -279,6 +285,7 @@ public class VoidTypeImpl extends TypeImpl implements VoidType {
 	 */
 	@Override
 	public void eUnset(int featureID) {
+
 		switch (featureID) {
 		case TypesPackageImpl.VOID_TYPE__OCL_LIBRARY:
 			setOclLibrary((OclLibrary) null);
@@ -293,6 +300,7 @@ public class VoidTypeImpl extends TypeImpl implements VoidType {
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
+
 		switch (featureID) {
 		case TypesPackageImpl.VOID_TYPE__OCL_LIBRARY:
 			return oclLibrary != null;
@@ -306,6 +314,7 @@ public class VoidTypeImpl extends TypeImpl implements VoidType {
 	 */
 	@Override
 	protected EClass eStaticClass() {
+
 		return TypesPackageImpl.Literals.VOID_TYPE;
 	}
 

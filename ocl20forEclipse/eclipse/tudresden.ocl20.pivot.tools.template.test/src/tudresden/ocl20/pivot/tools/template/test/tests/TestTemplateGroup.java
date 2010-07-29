@@ -36,18 +36,17 @@ import static org.junit.Assert.fail;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import tudresden.ocl20.pivot.tools.template.ITemplate;
+import tudresden.ocl20.pivot.tools.template.ITemplateEngine;
 import tudresden.ocl20.pivot.tools.template.ITemplateGroup;
 import tudresden.ocl20.pivot.tools.template.TemplatePlugin;
 import tudresden.ocl20.pivot.tools.template.exception.TemplateException;
+import tudresden.ocl20.pivot.tools.template.impl.TemplateGroup;
 
 /**
  * This test will test the class ITemplateGroupRegistry.java and ITemplateGroup of the package
@@ -58,24 +57,17 @@ import tudresden.ocl20.pivot.tools.template.exception.TemplateException;
  */
 public class TestTemplateGroup {
 	
-	private static String templateEngineName = "StringTemplate";
+	private static ITemplateEngine engine;
 	
 	private static ITemplateGroup general = null;
 	
-	private static List<ITemplateGroup> tempGroup;
-	
 	@BeforeClass
 	public static void class_setup() {
+		engine = TemplatePlugin.getTemplateEngineRegistry().getNewTemplateEngine("StringTemplate");
 		LinkedList<URL> groups = new LinkedList<URL>();
 		groups.add(TestStringTemplateEngine.class.getResource("/resources/templates/testGeneral.stg"));
-		tempGroup = TemplatePlugin.getTemplateGroupRegistry().getTemplateGroups();
-		for (ITemplateGroup tg : tempGroup) {
-			TemplatePlugin.getTemplateGroupRegistry().removeTemplateGroup(tg);
-		}
 		try {
-			general = TemplatePlugin.getTemplateGroupRegistry().addDefaultTemplateGroup("Test1",templateEngineName, null);
-			general.addFiles(groups);
-			TemplatePlugin.getTemplateGroupRegistry().removeTemplateGroup(general);
+			general = new TemplateGroup("Test1", null, engine, groups);	
 		} catch (TemplateException e) {
 			fail("Can't set a template group!");
 		}
@@ -83,29 +75,16 @@ public class TestTemplateGroup {
 	
 	@Before
 	public void setup() {
-		TemplatePlugin.getTemplateGroupRegistry().addTemplateGroup(general);
-		int size = TemplatePlugin.getTemplateGroupRegistry().getTemplateGroups().size();
-		assertEquals(1,size);
-	}
-	
-	@After
-	public void tear_down() {
 		Iterator<ITemplateGroup> iterTempEng = TemplatePlugin.getTemplateGroupRegistry().getTemplateGroups().iterator();
 		while (iterTempEng.hasNext()) {
 			TemplatePlugin.getTemplateGroupRegistry().removeTemplateGroup(iterTempEng.next());
 		}
 		int size = TemplatePlugin.getTemplateGroupRegistry().getTemplateGroups().size();
 		assertEquals(0,size);
+		TemplatePlugin.getTemplateGroupRegistry().addTemplateGroup(general);
+		size = TemplatePlugin.getTemplateGroupRegistry().getTemplateGroups().size();
+		assertEquals(1,size);
 	}
-	
-	@AfterClass
-	public static void class_tear_down() {
-		for (ITemplateGroup tg : tempGroup) {
-			TemplatePlugin.getTemplateGroupRegistry().addTemplateGroup(tg);
-		}
-		
-	}
-	
 	/**
 	 * <p>Implemented test checkAddGroup.<br /><br/>
 	 * Tests the ITemplateGroupRegistry for adding new TemplateGroups.</p>
@@ -163,8 +142,7 @@ public class TestTemplateGroup {
 		URL secondTemp = TestStringTemplateEngine.class.getResource("/resources/templates/testSpecific.stg");
 		ITemplateGroup testSuper1 = null;
 		try {
-			testSuper1 = TemplatePlugin.getTemplateGroupRegistry().addDefaultTemplateGroup("TestSuper1",templateEngineName,general);
-			testSuper1.addFile(secondTemp);
+			testSuper1 = new TemplateGroup("TestSuper1",general,engine,secondTemp);
 		} catch (TemplateException e) {
 			fail("Can't set TemplateGroup testSuper1");
 		}
@@ -177,8 +155,7 @@ public class TestTemplateGroup {
 		
 		ITemplateGroup testSuper2 = null;
 		try {
-			testSuper2 = TemplatePlugin.getTemplateGroupRegistry().addDefaultTemplateGroup("TestSuper2",templateEngineName,testSuper1);
-			testSuper2.addFile(TestStringTemplateEngine.class.getResource("/resources/templates/testGeneral.stg"));
+			testSuper2 = new TemplateGroup("TestSuper2",testSuper1,engine,TestStringTemplateEngine.class.getResource("/resources/templates/testGeneral.stg"));
 		} catch (TemplateException e) {
 			fail("Can't set TemplateGroup testSuper2");
 		}

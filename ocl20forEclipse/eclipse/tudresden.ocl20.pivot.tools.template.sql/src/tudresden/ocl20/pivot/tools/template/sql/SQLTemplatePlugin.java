@@ -9,9 +9,11 @@ import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
 
 import tudresden.ocl20.logging.LoggingPlugin;
+import tudresden.ocl20.pivot.tools.template.ITemplateEngine;
 import tudresden.ocl20.pivot.tools.template.ITemplateGroup;
 import tudresden.ocl20.pivot.tools.template.TemplatePlugin;
 import tudresden.ocl20.pivot.tools.template.exception.TemplateException;
+import tudresden.ocl20.pivot.tools.template.impl.TemplateGroup;
 
 /**
  * The only purpose of this plugin is to initialize the {@link LoggingPlugin
@@ -44,24 +46,23 @@ public class SQLTemplatePlugin extends Plugin {
 		super();
 		plugin = this;
 		
-		String templateEngineName = "StringTemplate";
-		
+		ITemplateEngine templateEngine = TemplatePlugin.getTemplateEngineRegistry().getNewTemplateEngine("StringTemplate");
 		URL stream = SQLTemplatePlugin.class.getResource("/resources/templates/Standard.stg");
 		URL stream2 = SQLTemplatePlugin.class.getResource("/resources/templates/Standard-inv.stg");
 		List<URL> streams = new LinkedList<URL>();
 		streams.add(stream); streams.add(stream2);
 		ITemplateGroup standardGroup = null;
 		try {
-			standardGroup = TemplatePlugin.getTemplateGroupRegistry().addDefaultTemplateGroup("Standard(SQL)", templateEngineName, null);
-			standardGroup.addFiles(streams);
+			standardGroup = new TemplateGroup("Standard(SQL)", null, templateEngine, streams);
+			TemplatePlugin.getTemplateGroupRegistry().addTemplateGroup(standardGroup);
 		} catch (TemplateException e) {
 			e.printStackTrace();
 		}
 		stream = SQLTemplatePlugin.class.getResource("/resources/templates/MySQL.stg");
 		ITemplateGroup mysqlGroup;
 		try {
-			mysqlGroup = TemplatePlugin.getTemplateGroupRegistry().addDefaultTemplateGroup("MySQL(SQL)", templateEngineName, standardGroup);
-			mysqlGroup.addFile(stream);
+			mysqlGroup = new TemplateGroup("MySQL(SQL)", standardGroup, templateEngine, stream);
+			TemplatePlugin.getTemplateGroupRegistry().addTemplateGroup(mysqlGroup);
 		} catch (TemplateException e) {
 			e.printStackTrace();
 		}
@@ -71,8 +72,8 @@ public class SQLTemplatePlugin extends Plugin {
 		streams.add(stream); streams.add(stream2);
 		ITemplateGroup oracleGroup;
 		try {
-			oracleGroup = TemplatePlugin.getTemplateGroupRegistry().addDefaultTemplateGroup("Oracle 8i(SQL)", templateEngineName, standardGroup);
-			oracleGroup.addFiles(streams);
+			oracleGroup = new TemplateGroup("Oracle 8i(SQL)", standardGroup, templateEngine, streams);
+			TemplatePlugin.getTemplateGroupRegistry().addTemplateGroup(oracleGroup);
 		} catch (TemplateException e) {
 			e.printStackTrace();
 		}
@@ -82,8 +83,8 @@ public class SQLTemplatePlugin extends Plugin {
 		streams.add(stream); streams.add(stream2);
 		ITemplateGroup postgreGroup;
 		try {
-			postgreGroup = TemplatePlugin.getTemplateGroupRegistry().addDefaultTemplateGroup("PostgreSQL 8.1(SQL)", templateEngineName, standardGroup);
-			postgreGroup.addFiles(streams);
+			postgreGroup = new TemplateGroup("PostgreSQL 8.1(SQL)", standardGroup, templateEngine, streams);
+			TemplatePlugin.getTemplateGroupRegistry().addTemplateGroup(postgreGroup);
 		} catch (TemplateException e) {
 			e.printStackTrace();
 		}

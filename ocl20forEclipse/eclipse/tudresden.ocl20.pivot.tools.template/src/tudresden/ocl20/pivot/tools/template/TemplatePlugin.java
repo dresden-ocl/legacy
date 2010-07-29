@@ -118,9 +118,9 @@ public class TemplatePlugin extends Plugin {
 	 * {@link #setMetamodelRegistry(ITemplateGroupRegistry)}.
 	 * </p>
 	 * 
-	 * @see #setTemplateGroupRegistry(ITemplateGroupRegistry)
+	 * @see #setMetamodelRegistry(IMetamodelRegistry)
 	 * 
-	 * @return An {@link ITemplateGroupRegistry} instance.
+	 * @return An {@link IMetamodelRegistry} instance.
 	 */
 	public synchronized static ITemplateGroupRegistry getTemplateGroupRegistry() {
 
@@ -143,7 +143,7 @@ public class TemplatePlugin extends Plugin {
 	 * method has to be called when using DresdenOCL stand-alone. The standard
 	 * argument should be {@link StandaloneTemplateGroupRegistry}.
 	 * 
-	 * @param templateGroupRegistry
+	 * @param metamodelRegistry
 	 *          the {@link ITemplateGroupRegistry} to set
 	 */
 	public synchronized static void setTempateGroupRegistry(
@@ -171,9 +171,9 @@ public class TemplatePlugin extends Plugin {
 	 * {@link #setMetamodelRegistry(ITemplateEngineRegistry)}.
 	 * </p>
 	 * 
-	 * @see #setTemplateEngineRegistry(ITemplateEngineRegistry)
+	 * @see #setMetamodelRegistry(IMetamodelRegistry)
 	 * 
-	 * @return An {@link ITemplateEngineRegistry} instance.
+	 * @return An {@link IMetamodelRegistry} instance.
 	 */
 	public synchronized static ITemplateEngineRegistry getTemplateEngineRegistry() {
 
@@ -197,7 +197,7 @@ public class TemplatePlugin extends Plugin {
 	 * This method has to be called when using DresdenOCL stand-alone. The
 	 * standard argument should be {@link StandaloneTemplateEngineRegistry}.
 	 * 
-	 * @param templateEngineRegistry
+	 * @param metamodelRegistry
 	 *          the {@link ITemplateEngineRegistry} to set
 	 */
 	public synchronized static void setTempateEngineRegistry(

@@ -9,7 +9,7 @@ import tudresden.ocl20.pivot.language.ocl.resource.ocl.mopp._
 
 object OclStaticSemanticsTransactions {
 
-  private val parsedConstraints = new collection.jcl.IdentityHashMap[IOclResource, java.util.List[Constraint]]()
+  private val parsedConstraints = new collection.jcl.IdentityHashMap[OclResource, java.util.List[Constraint]]()
   
   /**
    * If there are constraints and defined operations/properties in the model,
@@ -23,12 +23,8 @@ object OclStaticSemanticsTransactions {
       case None => // do nothing
     }
     parsedConstraints.removeKey(oclStaticSemantics.resource)
-  }
-  
-  def getAllDefs(oclStaticSemantics : OclStaticSemantics, root : EObject) = {
     // try to find all defs
     val allDefs = new collection.mutable.HashMap[Type, collection.mutable.Set[VariableDeclarationWithInitCS]] with collection.mutable.MultiMap[Type, VariableDeclarationWithInitCS]
-    val allDefsOp = new collection.mutable.HashMap[Type, collection.mutable.Set[Tuple2[OperationDefinitionInDefCS, OclExpressionCS]]] with collection.mutable.MultiMap[Type, Tuple2[OperationDefinitionInDefCS, OclExpressionCS]]
     root match {
       case PackageDeclarationCS(contextDeclarations) => {
         contextDeclarations.foreach{cd =>
@@ -44,12 +40,7 @@ object OclStaticSemanticsTransactions {
                           case other => // ignore
                         }
                       }
-                      case DefinitionExpOperationCS(operation, oclExpression) => {
-                        (oclStaticSemantics.eObject2Attributable(typeName)->oclStaticSemantics.oclType) match {
-                          case Full(tipe) => allDefsOp.add(tipe, (operation, oclExpression))
-                          case other => // ignore
-                        }
-                      }
+                      case DefinitionExpOperationCS(_, _) => // TODO: insert operations
                     }
                   }
                   case other => // ignore
@@ -62,14 +53,14 @@ object OclStaticSemanticsTransactions {
       }
       case other => //ignore
     }
-    (allDefs, allDefsOp)
+    allDefs
   }
   
   /**
    * After the semantic analysis, the parsed constraints and defined
    * properties/operations are added to the model.
    */
-  def endStaticSemanticsAnalysis(model : IModel, resource : IOclResource, constraints : java.util.List[Constraint]) = {
+  def endStaticSemanticsAnalysis(model : IModel, resource : OclResource, constraints : java.util.List[Constraint]) = {
     val iter = constraints.iterator
     while (iter.hasNext) {
       val constraint = iter.next

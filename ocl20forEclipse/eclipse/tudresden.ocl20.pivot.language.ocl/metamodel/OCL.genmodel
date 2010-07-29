@@ -115,11 +115,6 @@
     </genClasses>
     <genClasses image="false" ecoreClass="OCL.ecore#//OperationCallExpCS"/>
     <genClasses ecoreClass="OCL.ecore#//OperationCallOnSelfExpCS"/>
-    <genClasses ecoreClass="OCL.ecore#//StaticOperationCallExpCS">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OCL.ecore#//StaticOperationCallExpCS/typeName"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OCL.ecore#//StaticOperationCallExpCS/operationName"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OCL.ecore#//StaticOperationCallExpCS/arguments"/>
-    </genClasses>
     <genClasses ecoreClass="OCL.ecore#//UnaryOperationCallExpCS">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute OCL.ecore#//UnaryOperationCallExpCS/operationName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OCL.ecore#//UnaryOperationCallExpCS/target"/>
@@ -153,9 +148,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OCL.ecore#//IntegerLiteralExpCS/integerLiteral"/>
     </genClasses>
     <genClasses ecoreClass="OCL.ecore#//RealLiteralExpCS">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OCL.ecore#//RealLiteralExpCS/intValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OCL.ecore#//RealLiteralExpCS/realValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OCL.ecore#//RealLiteralExpCS/navigationOperator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OCL.ecore#//RealLiteralExpCS/realLiteral"/>
     </genClasses>
     <genClasses ecoreClass="OCL.ecore#//BooleanLiteralExpCS">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OCL.ecore#//BooleanLiteralExpCS/booleanLiteral"/>
@@ -163,8 +156,6 @@
     <genClasses ecoreClass="OCL.ecore#//StringLiteralExpCS">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OCL.ecore#//StringLiteralExpCS/stringLiteral"/>
     </genClasses>
-    <genClasses ecoreClass="OCL.ecore#//InvalidLiteralExpCS"/>
-    <genClasses ecoreClass="OCL.ecore#//NullLiteralExpCS"/>
     <genClasses ecoreClass="OCL.ecore#//LetExpCS">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OCL.ecore#//LetExpCS/variableDeclarations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OCL.ecore#//LetExpCS/oclExpression"/>

@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testOclAsType01(source: Class1): Class1 =
-source.oclAsType(Class1)
-
-endpackage

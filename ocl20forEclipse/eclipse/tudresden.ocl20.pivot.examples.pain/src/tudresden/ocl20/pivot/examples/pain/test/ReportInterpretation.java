@@ -23,6 +23,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import tudresden.ocl20.pivot.model.ModelAccessException;
+import tudresden.ocl20.pivot.parser.ParseException;
 
 /**
  * <p>
@@ -39,10 +40,12 @@ public class ReportInterpretation extends AbstractPainTest {
 	 * Initializes the test cases.
 	 * </p>
 	 * 
-	 * @throws Exception
+	 * @throws ModelAccessException
+	 * @throws IllegalArgumentException
 	 */
 	@BeforeClass
-	public static void setUp() throws Exception {
+	public static void setUp() throws IllegalArgumentException,
+			ModelAccessException {
 
 		AbstractPainTest.setUp();
 	}
@@ -52,7 +55,8 @@ public class ReportInterpretation extends AbstractPainTest {
 	 * Tears down the test cases.
 	 * </p>
 	 * 
-	 * @throws Exception
+	 * @throws ModelAccessException
+	 * @throws IllegalArgumentException
 	 */
 	@AfterClass
 	public static void tearDown() throws IllegalArgumentException,
@@ -67,11 +71,14 @@ public class ReportInterpretation extends AbstractPainTest {
 	 * {@link AbstractPainTest#MODELINSTANCE_NAME_01}.
 	 * </p>
 	 * 
-	 * @throws Exception
+	 * @throws ParseException
+	 * @throws ModelAccessException
+	 * @throws IllegalArgumentException
 	 */
 	@Test
 	public void testReportInterpretationForInstance01()
-			throws Exception {
+			throws IllegalArgumentException, ModelAccessException,
+			ParseException {
 
 		super.reportConstraintInterpreationForInstance("wfrs",
 				MODELINSTANCE_NAME_01);
@@ -83,11 +90,14 @@ public class ReportInterpretation extends AbstractPainTest {
 	 * {@link AbstractPainTest#MODELINSTANCE_NAME_01}.
 	 * </p>
 	 * 
-	 * @throws Exception
+	 * @throws ParseException
+	 * @throws ModelAccessException
+	 * @throws IllegalArgumentException
 	 */
 	@Test
 	public void testReportInterpretationForInstance02()
-			throws Exception {
+			throws IllegalArgumentException, ModelAccessException,
+			ParseException {
 	
 		super.reportConstraintInterpreationForInstance("wfrs",
 				MODELINSTANCE_NAME_02);
@@ -99,11 +109,14 @@ public class ReportInterpretation extends AbstractPainTest {
 	 * {@link AbstractPainTest#MODELINSTANCE_NAME_01}.
 	 * </p>
 	 * 
-	 * @throws Exception
+	 * @throws ParseException
+	 * @throws ModelAccessException
+	 * @throws IllegalArgumentException
 	 */
 	@Test
 	public void testReportInterpretationForInstance03()
-			throws Exception {
+			throws IllegalArgumentException, ModelAccessException,
+			ParseException {
 	
 		super.reportConstraintInterpreationForInstance("wfrs",
 				MODELINSTANCE_NAME_03);

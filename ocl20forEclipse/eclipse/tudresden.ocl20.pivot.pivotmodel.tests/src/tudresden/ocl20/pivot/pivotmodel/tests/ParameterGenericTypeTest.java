@@ -36,7 +36,6 @@ import junit.textui.TestRunner;
 
 import tudresden.ocl20.pivot.pivotmodel.ParameterGenericType;
 
-import tudresden.ocl20.pivot.pivotmodel.PivotModelFactory;
 import tudresden.ocl20.pivot.pivotmodel.impl.PivotModelFactoryImpl;
 
 /**
@@ -53,6 +52,7 @@ public class ParameterGenericTypeTest extends GenericTypeTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
+
 		TestRunner.run(ParameterGenericTypeTest.class);
 	}
 
@@ -63,6 +63,7 @@ public class ParameterGenericTypeTest extends GenericTypeTest {
 	 * @generated
 	 */
 	public ParameterGenericTypeTest(String name) {
+
 		super(name);
 	}
 
@@ -74,6 +75,7 @@ public class ParameterGenericTypeTest extends GenericTypeTest {
 	 */
 	@Override
 	protected ParameterGenericType getFixture() {
+
 		return (ParameterGenericType) fixture;
 	}
 
@@ -85,7 +87,8 @@ public class ParameterGenericTypeTest extends GenericTypeTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(PivotModelFactory.eINSTANCE.createParameterGenericType());
+
+		setFixture(PivotModelFactoryImpl.eINSTANCE.createParameterGenericType());
 	}
 
 	/**
@@ -96,6 +99,7 @@ public class ParameterGenericTypeTest extends GenericTypeTest {
 	 */
 	@Override
 	protected void tearDown() throws Exception {
+
 		setFixture(null);
 	}
 

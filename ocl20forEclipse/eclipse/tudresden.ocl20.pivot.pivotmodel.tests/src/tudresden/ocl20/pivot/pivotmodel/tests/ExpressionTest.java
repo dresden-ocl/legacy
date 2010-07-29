@@ -38,7 +38,6 @@ import junit.textui.TestRunner;
 
 import tudresden.ocl20.pivot.pivotmodel.Expression;
 
-import tudresden.ocl20.pivot.pivotmodel.PivotModelFactory;
 import tudresden.ocl20.pivot.pivotmodel.impl.PivotModelFactoryImpl;
 
 /**
@@ -63,6 +62,7 @@ public class ExpressionTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
+
 		TestRunner.run(ExpressionTest.class);
 	}
 
@@ -73,6 +73,7 @@ public class ExpressionTest extends TestCase {
 	 * @generated
 	 */
 	public ExpressionTest(String name) {
+
 		super(name);
 	}
 
@@ -83,6 +84,7 @@ public class ExpressionTest extends TestCase {
 	 * @generated
 	 */
 	protected void setFixture(Expression fixture) {
+
 		this.fixture = fixture;
 	}
 
@@ -93,6 +95,7 @@ public class ExpressionTest extends TestCase {
 	 * @generated
 	 */
 	protected Expression getFixture() {
+
 		return fixture;
 	}
 
@@ -104,7 +107,8 @@ public class ExpressionTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(PivotModelFactory.eINSTANCE.createExpression());
+
+		setFixture(PivotModelFactoryImpl.eINSTANCE.createExpression());
 	}
 
 	/**
@@ -115,6 +119,7 @@ public class ExpressionTest extends TestCase {
 	 */
 	@Override
 	protected void tearDown() throws Exception {
+
 		setFixture(null);
 	}
 

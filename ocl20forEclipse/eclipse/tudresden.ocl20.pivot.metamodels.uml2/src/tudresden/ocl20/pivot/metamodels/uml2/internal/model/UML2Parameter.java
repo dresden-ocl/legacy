@@ -15,7 +15,6 @@ package tudresden.ocl20.pivot.metamodels.uml2.internal.model;
 
 import org.apache.log4j.Logger;
 
-import tudresden.ocl20.pivot.essentialocl.EssentialOclPlugin;
 import tudresden.ocl20.pivot.metamodels.uml2.UML2MetamodelPlugin;
 import tudresden.ocl20.pivot.pivotmodel.Operation;
 import tudresden.ocl20.pivot.pivotmodel.Parameter;
@@ -41,8 +40,8 @@ public class UML2Parameter extends AbstractParameter implements Parameter {
 	 * 
 	 * @generated NOT
 	 */
-	private static final Logger LOGGER = UML2MetamodelPlugin
-			.getLogger(UML2Parameter.class);
+	private static final Logger LOGGER =
+			UML2MetamodelPlugin.getLogger(UML2Parameter.class);
 
 	/**
 	 * <p>
@@ -55,37 +54,23 @@ public class UML2Parameter extends AbstractParameter implements Parameter {
 
 	/**
 	 * <p>
-	 * The {@link UML2AdapterFactory} used to create nested elements.
-	 * </p>
-	 * 
-	 * @generate NOT
-	 */
-	private UML2AdapterFactory factory;
-
-	/**
-	 * <p>
 	 * Creates a new <code>UML2Parameter</code> instance.
 	 * </p>
 	 * 
 	 * @param dslParameter
-	 *            the {@link org.eclipse.uml2.uml.Parameter} that is adopted by
-	 *            this class
-	 * @param factory
-	 *            The {@link UML2AdapterFactory} used to create nested elements.
+	 *          the {@link org.eclipse.uml2.uml.Parameter} that is adopted by this
+	 *          class
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
-	public UML2Parameter(org.eclipse.uml2.uml.Parameter dslParameter,
-			UML2AdapterFactory factory) {
+	public UML2Parameter(org.eclipse.uml2.uml.Parameter dslParameter) {
 
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER
-					.debug("UML2Parameter(dslParameter = " + dslParameter + ", factory = " + factory + ") - enter"); //$NON-NLS-1$ //$NON-NLS-2$
+			LOGGER.debug("UML2Parameter(dslParameter=" + dslParameter + ") - enter"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		// initialize adapted parameter
 		this.dslParameter = dslParameter;
-		this.factory = factory;
 
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("UML2Parameter() - exit"); //$NON-NLS-1$
@@ -111,7 +96,8 @@ public class UML2Parameter extends AbstractParameter implements Parameter {
 	@Override
 	public Operation getOperation() {
 
-		return this.factory.createOperation(this.dslParameter.getOperation());
+		return UML2AdapterFactory.INSTANCE.createOperation(this.dslParameter
+				.getOperation());
 	}
 
 	/**
@@ -122,56 +108,12 @@ public class UML2Parameter extends AbstractParameter implements Parameter {
 	@Override
 	public Type getType() {
 
-		Type result;
-		Type elementType;
-
-		elementType = this.factory.createType(this.dslParameter.getType());
-
-		/* Probably adapt type into a collection. */
-		if (this.dslParameter.isMultivalued()) {
-
-			if (this.dslParameter.isOrdered()) {
-
-				/* OrderedSet. */
-				if (this.dslParameter.isUnique()) {
-					result = EssentialOclPlugin.getOclLibraryProvider()
-							.getOclLibrary().getOrderedSetType(elementType);
-				}
-
-				/* Sequence. */
-				else {
-					result = EssentialOclPlugin.getOclLibraryProvider()
-							.getOclLibrary().getSequenceType(elementType);
-				}
-			}
-
-			else {
-				/* Set. */
-				if (this.dslParameter.isUnique()) {
-					result = EssentialOclPlugin.getOclLibraryProvider()
-							.getOclLibrary().getSetType(elementType);
-				}
-
-				/* Bag. */
-				else {
-					result = EssentialOclPlugin.getOclLibraryProvider()
-							.getOclLibrary().getBagType(elementType);
-				}
-			}
-		}
-
-		else {
-			result = elementType;
-		}
-
-		return result;
+		return UML2AdapterFactory.INSTANCE.createType(this.dslParameter.getType());
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.ParameterImpl#getKind()
-	 * 
 	 * @generated NOT
 	 */
 	public ParameterDirectionKind getKind() {
@@ -196,5 +138,38 @@ public class UML2Parameter extends AbstractParameter implements Parameter {
 		}
 
 		return this.kind;
+	}
+
+	/**
+	 * @see tudresden.ocl20.pivot.pivotmodel.impl.ParameterImpl#isMultiple()
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isMultiple() {
+
+		return this.dslParameter.isMultivalued();
+	}
+
+	/**
+	 * @see tudresden.ocl20.pivot.pivotmodel.impl.ParameterImpl#isOrdered()
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isOrdered() {
+
+		return this.dslParameter.isOrdered();
+	}
+
+	/**
+	 * @see tudresden.ocl20.pivot.pivotmodel.impl.ParameterImpl#isUnique()
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isUnique() {
+
+		return this.dslParameter.isUnique();
 	}
 }

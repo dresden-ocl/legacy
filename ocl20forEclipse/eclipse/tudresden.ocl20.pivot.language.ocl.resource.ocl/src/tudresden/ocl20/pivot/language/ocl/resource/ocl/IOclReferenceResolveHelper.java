@@ -14,6 +14,7 @@ import tudresden.ocl20.pivot.pivotmodel.Operation;
 import tudresden.ocl20.pivot.pivotmodel.Parameter;
 import tudresden.ocl20.pivot.pivotmodel.Property;
 import tudresden.ocl20.pivot.pivotmodel.Type;
+import tudresden.ocl20.pivot.pivotmodel.TypedElement;
 
 public interface IOclReferenceResolveHelper {
 
@@ -33,8 +34,7 @@ public interface IOclReferenceResolveHelper {
 			boolean resolveFuzzy, EObject container);
 
 	List<Operation> resolveOperation(String identifier, boolean resolveFuzzy,
-			EObject container, EReference reference,
-			List<OclExpressionCS> parameters, boolean isStatic);
+			EObject container, EReference reference, List<OclExpressionCS> parameters);
 
 	List<Operation> resolveOperationDefinition(String identifier,
 			boolean resolveFuzzy, EObject container, EReference reference,

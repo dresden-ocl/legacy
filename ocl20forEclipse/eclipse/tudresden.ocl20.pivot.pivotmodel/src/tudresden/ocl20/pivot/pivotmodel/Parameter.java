@@ -55,7 +55,8 @@ package tudresden.ocl20.pivot.pivotmodel;
  * @model
  * @generated
  */
-public interface Parameter extends TypedElement, NamedElement {
+public interface Parameter extends TypedElement, NamedElement,
+		MultiplicityElement {
 
 	/**
 	 * Returns the value of the '<em><b>Kind</b></em>' attribute.

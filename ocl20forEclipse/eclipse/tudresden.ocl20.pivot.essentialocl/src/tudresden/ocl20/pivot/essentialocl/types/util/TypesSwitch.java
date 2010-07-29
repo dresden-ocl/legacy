@@ -85,6 +85,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public TypesSwitch() {
+
 		if (modelPackage == null) {
 			modelPackage = TypesPackageImpl.eINSTANCE;
 		}
@@ -98,6 +99,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public T doSwitch(EObject theEObject) {
+
 		return doSwitch(theEObject.eClass(), theEObject);
 	}
 
@@ -109,9 +111,11 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	protected T doSwitch(EClass theEClass, EObject theEObject) {
+
 		if (theEClass.eContainer() == modelPackage) {
 			return doSwitch(theEClass.getClassifierID(), theEObject);
-		} else {
+		}
+		else {
 			List<EClass> eSuperTypes = theEClass.getESuperTypes();
 			return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(
 					eSuperTypes.get(0), theEObject);
@@ -126,6 +130,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
+
 		switch (classifierID) {
 		case TypesPackageImpl.BAG_TYPE: {
 			BagType bagType = (BagType) theEObject;
@@ -309,6 +314,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public T caseBagType(BagType object) {
+
 		return null;
 	}
 
@@ -324,6 +330,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public T caseTupleType(TupleType object) {
+
 		return null;
 	}
 
@@ -339,6 +346,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public T caseCollectionType(CollectionType object) {
+
 		return null;
 	}
 
@@ -354,6 +362,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public T caseInvalidType(InvalidType object) {
+
 		return null;
 	}
 
@@ -369,6 +378,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public T caseOrderedSetType(OrderedSetType object) {
+
 		return null;
 	}
 
@@ -384,6 +394,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public T caseSequenceType(SequenceType object) {
+
 		return null;
 	}
 
@@ -399,6 +410,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public T caseSetType(SetType object) {
+
 		return null;
 	}
 
@@ -414,6 +426,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public T caseVoidType(VoidType object) {
+
 		return null;
 	}
 
@@ -429,6 +442,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public T caseTypeType(TypeType object) {
+
 		return null;
 	}
 
@@ -444,6 +458,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public T caseOclLibrary(OclLibrary object) {
+
 		return null;
 	}
 
@@ -459,6 +474,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public T caseAnyType(AnyType object) {
+
 		return null;
 	}
 
@@ -474,6 +490,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public T caseNamedElement(NamedElement object) {
+
 		return null;
 	}
 
@@ -489,6 +506,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public T caseConstrainableElement(ConstrainableElement object) {
+
 		return null;
 	}
 
@@ -504,6 +522,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public T caseGenericElement(GenericElement object) {
+
 		return null;
 	}
 
@@ -519,6 +538,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public T caseType(Type object) {
+
 		return null;
 	}
 
@@ -534,6 +554,7 @@ public class TypesSwitch<T> {
 	 * @generated
 	 */
 	public T defaultCase(EObject object) {
+
 		return null;
 	}
 

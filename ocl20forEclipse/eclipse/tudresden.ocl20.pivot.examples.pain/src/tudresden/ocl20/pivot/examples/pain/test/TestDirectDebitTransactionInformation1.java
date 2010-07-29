@@ -50,10 +50,12 @@ public class TestDirectDebitTransactionInformation1 extends AbstractPainTest {
 	 * Initializes the test cases.
 	 * </p>
 	 * 
-	 * @throws Exception
+	 * @throws ModelAccessException
+	 * @throws IllegalArgumentException
 	 */
 	@BeforeClass
-	public static void setUp() throws Exception {
+	public static void setUp() throws IllegalArgumentException,
+			ModelAccessException {
 
 		AbstractPainTest.setUp();
 	}

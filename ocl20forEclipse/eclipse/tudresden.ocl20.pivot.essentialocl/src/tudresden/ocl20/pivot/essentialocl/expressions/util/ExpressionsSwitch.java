@@ -104,6 +104,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public ExpressionsSwitch() {
+
 		if (modelPackage == null) {
 			modelPackage = ExpressionsPackageImpl.eINSTANCE;
 		}
@@ -117,6 +118,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T doSwitch(EObject theEObject) {
+
 		return doSwitch(theEObject.eClass(), theEObject);
 	}
 
@@ -128,9 +130,11 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	protected T doSwitch(EClass theEClass, EObject theEObject) {
+
 		if (theEClass.eContainer() == modelPackage) {
 			return doSwitch(theEClass.getClassifierID(), theEObject);
-		} else {
+		}
+		else {
 			List<EClass> eSuperTypes = theEClass.getESuperTypes();
 			return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(
 					eSuperTypes.get(0), theEObject);
@@ -145,6 +149,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
+
 		switch (classifierID) {
 		case ExpressionsPackageImpl.VARIABLE_EXP: {
 			VariableExp variableExp = (VariableExp) theEObject;
@@ -171,7 +176,8 @@ public class ExpressionsSwitch<T> {
 			return result;
 		}
 		case ExpressionsPackageImpl.UNLIMITED_NATURAL_EXP: {
-			UnlimitedNaturalExp unlimitedNaturalExp = (UnlimitedNaturalExp) theEObject;
+			UnlimitedNaturalExp unlimitedNaturalExp =
+					(UnlimitedNaturalExp) theEObject;
 			T result = caseUnlimitedNaturalExp(unlimitedNaturalExp);
 			if (result == null)
 				result = caseNumericLiteralExp(unlimitedNaturalExp);
@@ -284,7 +290,8 @@ public class ExpressionsSwitch<T> {
 			return result;
 		}
 		case ExpressionsPackageImpl.PRIMITIVE_LITERAL_EXP: {
-			PrimitiveLiteralExp primitiveLiteralExp = (PrimitiveLiteralExp) theEObject;
+			PrimitiveLiteralExp primitiveLiteralExp =
+					(PrimitiveLiteralExp) theEObject;
 			T result = casePrimitiveLiteralExp(primitiveLiteralExp);
 			if (result == null)
 				result = caseLiteralExp(primitiveLiteralExp);
@@ -344,7 +351,8 @@ public class ExpressionsSwitch<T> {
 			return result;
 		}
 		case ExpressionsPackageImpl.UNDEFINED_LITERAL_EXP: {
-			UndefinedLiteralExp undefinedLiteralExp = (UndefinedLiteralExp) theEObject;
+			UndefinedLiteralExp undefinedLiteralExp =
+					(UndefinedLiteralExp) theEObject;
 			T result = caseUndefinedLiteralExp(undefinedLiteralExp);
 			if (result == null)
 				result = caseLiteralExp(undefinedLiteralExp);
@@ -539,7 +547,8 @@ public class ExpressionsSwitch<T> {
 			return result;
 		}
 		case ExpressionsPackageImpl.COLLECTION_LITERAL_EXP: {
-			CollectionLiteralExp collectionLiteralExp = (CollectionLiteralExp) theEObject;
+			CollectionLiteralExp collectionLiteralExp =
+					(CollectionLiteralExp) theEObject;
 			T result = caseCollectionLiteralExp(collectionLiteralExp);
 			if (result == null)
 				result = caseLiteralExp(collectionLiteralExp);
@@ -554,7 +563,8 @@ public class ExpressionsSwitch<T> {
 			return result;
 		}
 		case ExpressionsPackageImpl.COLLECTION_LITERAL_PART: {
-			CollectionLiteralPart collectionLiteralPart = (CollectionLiteralPart) theEObject;
+			CollectionLiteralPart collectionLiteralPart =
+					(CollectionLiteralPart) theEObject;
 			T result = caseCollectionLiteralPart(collectionLiteralPart);
 			if (result == null)
 				result = caseTypedElement(collectionLiteralPart);
@@ -618,6 +628,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseVariableExp(VariableExp object) {
+
 		return null;
 	}
 
@@ -633,6 +644,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseVariable(Variable object) {
+
 		return null;
 	}
 
@@ -648,6 +660,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseUnlimitedNaturalExp(UnlimitedNaturalExp object) {
+
 		return null;
 	}
 
@@ -663,6 +676,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseTypeLiteralExp(TypeLiteralExp object) {
+
 		return null;
 	}
 
@@ -678,6 +692,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseTupleLiteralPart(TupleLiteralPart object) {
+
 		return null;
 	}
 
@@ -693,6 +708,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseTupleLiteralExp(TupleLiteralExp object) {
+
 		return null;
 	}
 
@@ -708,6 +724,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseStringLiteralExp(StringLiteralExp object) {
+
 		return null;
 	}
 
@@ -723,6 +740,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseRealLiteralExp(RealLiteralExp object) {
+
 		return null;
 	}
 
@@ -738,6 +756,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T casePropertyCallExp(PropertyCallExp object) {
+
 		return null;
 	}
 
@@ -753,6 +772,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T casePrimitiveLiteralExp(PrimitiveLiteralExp object) {
+
 		return null;
 	}
 
@@ -768,6 +788,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseOperationCallExp(OperationCallExp object) {
+
 		return null;
 	}
 
@@ -783,6 +804,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseOclExpression(OclExpression object) {
+
 		return null;
 	}
 
@@ -798,6 +820,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseNumericLiteralExp(NumericLiteralExp object) {
+
 		return null;
 	}
 
@@ -813,6 +836,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseUndefinedLiteralExp(UndefinedLiteralExp object) {
+
 		return null;
 	}
 
@@ -828,6 +852,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseLoopExp(LoopExp object) {
+
 		return null;
 	}
 
@@ -843,6 +868,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseLiteralExp(LiteralExp object) {
+
 		return null;
 	}
 
@@ -858,6 +884,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseLetExp(LetExp object) {
+
 		return null;
 	}
 
@@ -873,6 +900,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseIteratorExp(IteratorExp object) {
+
 		return null;
 	}
 
@@ -888,6 +916,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseIterateExp(IterateExp object) {
+
 		return null;
 	}
 
@@ -903,6 +932,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseInvalidLiteralExp(InvalidLiteralExp object) {
+
 		return null;
 	}
 
@@ -918,6 +948,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseIntegerLiteralExp(IntegerLiteralExp object) {
+
 		return null;
 	}
 
@@ -933,6 +964,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseIfExp(IfExp object) {
+
 		return null;
 	}
 
@@ -948,6 +980,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseFeatureCallExp(FeatureCallExp object) {
+
 		return null;
 	}
 
@@ -963,6 +996,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseBooleanLiteralExp(BooleanLiteralExp object) {
+
 		return null;
 	}
 
@@ -978,6 +1012,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseCallExp(CallExp object) {
+
 		return null;
 	}
 
@@ -993,6 +1028,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseCollectionItem(CollectionItem object) {
+
 		return null;
 	}
 
@@ -1008,6 +1044,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseCollectionLiteralExp(CollectionLiteralExp object) {
+
 		return null;
 	}
 
@@ -1023,6 +1060,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseCollectionLiteralPart(CollectionLiteralPart object) {
+
 		return null;
 	}
 
@@ -1038,6 +1076,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseCollectionRange(CollectionRange object) {
+
 		return null;
 	}
 
@@ -1053,6 +1092,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseEnumLiteralExp(EnumLiteralExp object) {
+
 		return null;
 	}
 
@@ -1068,6 +1108,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseExpressionInOcl(ExpressionInOcl object) {
+
 		return null;
 	}
 
@@ -1083,6 +1124,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseTypedElement(TypedElement object) {
+
 		return null;
 	}
 
@@ -1098,6 +1140,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseNamedElement(NamedElement object) {
+
 		return null;
 	}
 
@@ -1113,6 +1156,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseExpression(Expression object) {
+
 		return null;
 	}
 
@@ -1128,6 +1172,7 @@ public class ExpressionsSwitch<T> {
 	 * @generated
 	 */
 	public T defaultCase(EObject object) {
+
 		return null;
 	}
 

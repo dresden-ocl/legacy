@@ -254,13 +254,40 @@ public interface PivotModelPackage extends EPackage {
 	int FEATURE__GENERIC_TYPE = TYPED_ELEMENT__GENERIC_TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Ordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__ORDERED = TYPED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__UNIQUE = TYPED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Multiple</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__MULTIPLE = TYPED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Static</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__STATIC = TYPED_ELEMENT_FEATURE_COUNT + 0;
+	int FEATURE__STATIC = TYPED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Feature</em>' class.
@@ -269,7 +296,53 @@ public interface PivotModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_FEATURE_COUNT = TYPED_ELEMENT_FEATURE_COUNT + 1;
+	int FEATURE_FEATURE_COUNT = TYPED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link tudresden.ocl20.pivot.pivotmodel.MultiplicityElement <em>Multiplicity Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see tudresden.ocl20.pivot.pivotmodel.MultiplicityElement
+	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getMultiplicityElement()
+	 * @generated
+	 */
+	int MULTIPLICITY_ELEMENT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Ordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLICITY_ELEMENT__ORDERED = 0;
+
+	/**
+	 * The feature id for the '<em><b>Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLICITY_ELEMENT__UNIQUE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Multiple</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLICITY_ELEMENT__MULTIPLE = 2;
+
+	/**
+	 * The number of structural features of the '<em>Multiplicity Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLICITY_ELEMENT_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link tudresden.ocl20.pivot.pivotmodel.GenericElement <em>Generic Element</em>}' class.
@@ -279,7 +352,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getGenericElement()
 	 * @generated
 	 */
-	int GENERIC_ELEMENT = 3;
+	int GENERIC_ELEMENT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -334,7 +407,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getConstrainableElement()
 	 * @generated
 	 */
-	int CONSTRAINABLE_ELEMENT = 4;
+	int CONSTRAINABLE_ELEMENT = 5;
 
 	/**
 	 * The number of structural features of the '<em>Constrainable Element</em>' class.
@@ -353,7 +426,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getNamespace()
 	 * @generated
 	 */
-	int NAMESPACE = 5;
+	int NAMESPACE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -444,7 +517,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 6;
+	int TYPE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -544,7 +617,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getPrimitiveType()
 	 * @generated
 	 */
-	int PRIMITIVE_TYPE = 7;
+	int PRIMITIVE_TYPE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -653,7 +726,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getEnumeration()
 	 * @generated
 	 */
-	int ENUMERATION = 8;
+	int ENUMERATION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -762,7 +835,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getEnumerationLiteral()
 	 * @generated
 	 */
-	int ENUMERATION_LITERAL = 9;
+	int ENUMERATION_LITERAL = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -817,7 +890,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getProperty()
 	 * @generated
 	 */
-	int PROPERTY = 10;
+	int PROPERTY = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -865,6 +938,33 @@ public interface PivotModelPackage extends EPackage {
 	int PROPERTY__GENERIC_TYPE = FEATURE__GENERIC_TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Ordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__ORDERED = FEATURE__ORDERED;
+
+	/**
+	 * The feature id for the '<em><b>Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__UNIQUE = FEATURE__UNIQUE;
+
+	/**
+	 * The feature id for the '<em><b>Multiple</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__MULTIPLE = FEATURE__MULTIPLE;
+
+	/**
 	 * The feature id for the '<em><b>Static</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -899,7 +999,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 11;
+	int OPERATION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -945,6 +1045,33 @@ public interface PivotModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATION__GENERIC_TYPE = FEATURE__GENERIC_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Ordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__ORDERED = FEATURE__ORDERED;
+
+	/**
+	 * The feature id for the '<em><b>Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__UNIQUE = FEATURE__UNIQUE;
+
+	/**
+	 * The feature id for the '<em><b>Multiple</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__MULTIPLE = FEATURE__MULTIPLE;
 
 	/**
 	 * The feature id for the '<em><b>Static</b></em>' attribute.
@@ -1035,7 +1162,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETER = 12;
+	int PARAMETER = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1083,13 +1210,40 @@ public interface PivotModelPackage extends EPackage {
 	int PARAMETER__GENERIC_TYPE = TYPED_ELEMENT__GENERIC_TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Ordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__ORDERED = TYPED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__UNIQUE = TYPED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Multiple</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__MULTIPLE = TYPED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__KIND = TYPED_ELEMENT_FEATURE_COUNT + 0;
+	int PARAMETER__KIND = TYPED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Operation</b></em>' container reference.
@@ -1098,7 +1252,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__OPERATION = TYPED_ELEMENT_FEATURE_COUNT + 1;
+	int PARAMETER__OPERATION = TYPED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
@@ -1107,7 +1261,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = TYPED_ELEMENT_FEATURE_COUNT + 2;
+	int PARAMETER_FEATURE_COUNT = TYPED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link tudresden.ocl20.pivot.pivotmodel.impl.GenericTypeImpl <em>Generic Type</em>}' class.
@@ -1117,7 +1271,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getGenericType()
 	 * @generated
 	 */
-	int GENERIC_TYPE = 13;
+	int GENERIC_TYPE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1163,7 +1317,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getParameterGenericType()
 	 * @generated
 	 */
-	int PARAMETER_GENERIC_TYPE = 14;
+	int PARAMETER_GENERIC_TYPE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1218,7 +1372,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getComplexGenericType()
 	 * @generated
 	 */
-	int COMPLEX_GENERIC_TYPE = 15;
+	int COMPLEX_GENERIC_TYPE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1282,7 +1436,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getTypeParameter()
 	 * @generated
 	 */
-	int TYPE_PARAMETER = 16;
+	int TYPE_PARAMETER = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1337,7 +1491,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getTypeArgument()
 	 * @generated
 	 */
-	int TYPE_ARGUMENT = 17;
+	int TYPE_ARGUMENT = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1410,7 +1564,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getConstraint()
 	 * @generated
 	 */
-	int CONSTRAINT = 18;
+	int CONSTRAINT = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1501,7 +1655,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getExpression()
 	 * @generated
 	 */
-	int EXPRESSION = 19;
+	int EXPRESSION = 20;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' attribute.
@@ -1547,7 +1701,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getNDirectionalProperty()
 	 * @generated
 	 */
-	int NDIRECTIONAL_PROPERTY = 20;
+	int NDIRECTIONAL_PROPERTY = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1595,6 +1749,33 @@ public interface PivotModelPackage extends EPackage {
 	int NDIRECTIONAL_PROPERTY__GENERIC_TYPE = PROPERTY__GENERIC_TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Ordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NDIRECTIONAL_PROPERTY__ORDERED = PROPERTY__ORDERED;
+
+	/**
+	 * The feature id for the '<em><b>Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NDIRECTIONAL_PROPERTY__UNIQUE = PROPERTY__UNIQUE;
+
+	/**
+	 * The feature id for the '<em><b>Multiple</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NDIRECTIONAL_PROPERTY__MULTIPLE = PROPERTY__MULTIPLE;
+
+	/**
 	 * The feature id for the '<em><b>Static</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1638,7 +1819,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getPrimitiveTypeKind()
 	 * @generated
 	 */
-	int PRIMITIVE_TYPE_KIND = 21;
+	int PRIMITIVE_TYPE_KIND = 22;
 
 	/**
 	 * The meta object id for the '{@link tudresden.ocl20.pivot.pivotmodel.ParameterDirectionKind <em>Parameter Direction Kind</em>}' enum.
@@ -1648,7 +1829,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getParameterDirectionKind()
 	 * @generated
 	 */
-	int PARAMETER_DIRECTION_KIND = 22;
+	int PARAMETER_DIRECTION_KIND = 23;
 
 	/**
 	 * The meta object id for the '{@link tudresden.ocl20.pivot.pivotmodel.ConstraintKind <em>Constraint Kind</em>}' enum.
@@ -1658,7 +1839,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getConstraintKind()
 	 * @generated
 	 */
-	int CONSTRAINT_KIND = 23;
+	int CONSTRAINT_KIND = 24;
 
 	/**
 	 * The meta object id for the '<em>Clone Not Supported Exception</em>' data type.
@@ -1668,7 +1849,7 @@ public interface PivotModelPackage extends EPackage {
 	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getCloneNotSupportedException()
 	 * @generated
 	 */
-	int CLONE_NOT_SUPPORTED_EXCEPTION = 24;
+	int CLONE_NOT_SUPPORTED_EXCEPTION = 25;
 
 	/**
 	 * Returns the meta object for class '{@link tudresden.ocl20.pivot.pivotmodel.NamedElement <em>Named Element</em>}'.
@@ -1765,6 +1946,49 @@ public interface PivotModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getFeature_Static();
+
+	/**
+	 * Returns the meta object for class '{@link tudresden.ocl20.pivot.pivotmodel.MultiplicityElement <em>Multiplicity Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Multiplicity Element</em>'.
+	 * @see tudresden.ocl20.pivot.pivotmodel.MultiplicityElement
+	 * @generated
+	 */
+	EClass getMultiplicityElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link tudresden.ocl20.pivot.pivotmodel.MultiplicityElement#isOrdered <em>Ordered</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ordered</em>'.
+	 * @see tudresden.ocl20.pivot.pivotmodel.MultiplicityElement#isOrdered()
+	 * @see #getMultiplicityElement()
+	 * @generated
+	 */
+	EAttribute getMultiplicityElement_Ordered();
+
+	/**
+	 * Returns the meta object for the attribute '{@link tudresden.ocl20.pivot.pivotmodel.MultiplicityElement#isUnique <em>Unique</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Unique</em>'.
+	 * @see tudresden.ocl20.pivot.pivotmodel.MultiplicityElement#isUnique()
+	 * @see #getMultiplicityElement()
+	 * @generated
+	 */
+	EAttribute getMultiplicityElement_Unique();
+
+	/**
+	 * Returns the meta object for the attribute '{@link tudresden.ocl20.pivot.pivotmodel.MultiplicityElement#isMultiple <em>Multiple</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Multiple</em>'.
+	 * @see tudresden.ocl20.pivot.pivotmodel.MultiplicityElement#isMultiple()
+	 * @see #getMultiplicityElement()
+	 * @generated
+	 */
+	EAttribute getMultiplicityElement_Multiple();
 
 	/**
 	 * Returns the meta object for class '{@link tudresden.ocl20.pivot.pivotmodel.GenericElement <em>Generic Element</em>}'.
@@ -2484,6 +2708,43 @@ public interface PivotModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FEATURE__STATIC = eINSTANCE.getFeature_Static();
+
+		/**
+		 * The meta object literal for the '{@link tudresden.ocl20.pivot.pivotmodel.MultiplicityElement <em>Multiplicity Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see tudresden.ocl20.pivot.pivotmodel.MultiplicityElement
+		 * @see tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl#getMultiplicityElement()
+		 * @generated
+		 */
+		EClass MULTIPLICITY_ELEMENT = eINSTANCE.getMultiplicityElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Ordered</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MULTIPLICITY_ELEMENT__ORDERED = eINSTANCE
+				.getMultiplicityElement_Ordered();
+
+		/**
+		 * The meta object literal for the '<em><b>Unique</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MULTIPLICITY_ELEMENT__UNIQUE = eINSTANCE
+				.getMultiplicityElement_Unique();
+
+		/**
+		 * The meta object literal for the '<em><b>Multiple</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MULTIPLICITY_ELEMENT__MULTIPLE = eINSTANCE
+				.getMultiplicityElement_Multiple();
 
 		/**
 		 * The meta object literal for the '{@link tudresden.ocl20.pivot.pivotmodel.GenericElement <em>Generic Element</em>}' class.

@@ -1,1 +1,0 @@
-((testpackage.Class1) source)

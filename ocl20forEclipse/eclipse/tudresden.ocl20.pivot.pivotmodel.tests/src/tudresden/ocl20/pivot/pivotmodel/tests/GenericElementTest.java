@@ -56,6 +56,7 @@ public abstract class GenericElementTest extends NamedElementTest {
 	 * @generated
 	 */
 	public GenericElementTest(String name) {
+
 		super(name);
 	}
 
@@ -67,6 +68,7 @@ public abstract class GenericElementTest extends NamedElementTest {
 	 */
 	@Override
 	protected GenericElement getFixture() {
+
 		return (GenericElement) fixture;
 	}
 
@@ -78,6 +80,7 @@ public abstract class GenericElementTest extends NamedElementTest {
 	 * @generated
 	 */
 	public void testAddTypeParameter__TypeParameter() {
+
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -91,6 +94,7 @@ public abstract class GenericElementTest extends NamedElementTest {
 	 * @generated
 	 */
 	public void testBindTypeParameter__List_List() {
+
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

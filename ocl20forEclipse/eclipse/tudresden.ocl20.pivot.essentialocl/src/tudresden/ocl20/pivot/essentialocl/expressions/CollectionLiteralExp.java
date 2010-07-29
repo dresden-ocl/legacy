@@ -33,7 +33,6 @@
 package tudresden.ocl20.pivot.essentialocl.expressions;
 
 import java.util.List;
-import tudresden.ocl20.pivot.pivotmodel.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,7 +44,6 @@ import tudresden.ocl20.pivot.pivotmodel.Type;
  * <ul>
  *   <li>{@link tudresden.ocl20.pivot.essentialocl.expressions.CollectionLiteralExp#getPart <em>Part</em>}</li>
  *   <li>{@link tudresden.ocl20.pivot.essentialocl.expressions.CollectionLiteralExp#getKind <em>Kind</em>}</li>
- *   <li>{@link tudresden.ocl20.pivot.essentialocl.expressions.CollectionLiteralExp#getElementType <em>Element Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,29 +91,5 @@ public interface CollectionLiteralExp extends LiteralExp {
 	 * @generated
 	 */
 	void setKind(CollectionKind value);
-
-	/**
-	 * Returns the value of the '<em><b>Element Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Element Type</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element Type</em>' reference.
-	 * @see #setElementType(Type)
-	 * @generated
-	 */
-	Type getElementType();
-
-	/**
-	 * Sets the value of the '{@link tudresden.ocl20.pivot.essentialocl.expressions.CollectionLiteralExp#getElementType <em>Element Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Element Type</em>' reference.
-	 * @see #getElementType()
-	 * @generated
-	 */
-	void setElementType(Type value);
 
 } // CollectionLiteralExp

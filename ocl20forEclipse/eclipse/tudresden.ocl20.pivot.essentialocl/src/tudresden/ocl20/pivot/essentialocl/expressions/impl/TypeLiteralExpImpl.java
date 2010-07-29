@@ -74,6 +74,7 @@ public class TypeLiteralExpImpl extends LiteralExpImpl implements
 	 * @generated
 	 */
 	protected TypeLiteralExpImpl() {
+
 		super();
 	}
 
@@ -97,8 +98,9 @@ public class TypeLiteralExpImpl extends LiteralExpImpl implements
 		Type type = getValidOclLibrary().getOclType();
 
 		// bind the type with the referred type
-		type = type.bindTypeParameter(new ArrayList<TypeParameter>(type
-				.getOwnedTypeParameter()), Arrays.asList(referredType));
+		type =
+				type.bindTypeParameter(new ArrayList<TypeParameter>(type
+						.getOwnedTypeParameter()), Arrays.asList(referredType));
 
 		return type;
 	}
@@ -108,6 +110,7 @@ public class TypeLiteralExpImpl extends LiteralExpImpl implements
 	 * @generated
 	 */
 	public Type getReferredType() {
+
 		return referredType;
 	}
 
@@ -116,6 +119,7 @@ public class TypeLiteralExpImpl extends LiteralExpImpl implements
 	 * @generated
 	 */
 	public void setReferredType(Type newReferredType) {
+
 		Type oldReferredType = referredType;
 		referredType = newReferredType;
 		if (eNotificationRequired())
@@ -130,6 +134,7 @@ public class TypeLiteralExpImpl extends LiteralExpImpl implements
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.TYPE_LITERAL_EXP__REFERRED_TYPE:
 			return getReferredType();
@@ -143,6 +148,7 @@ public class TypeLiteralExpImpl extends LiteralExpImpl implements
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.TYPE_LITERAL_EXP__REFERRED_TYPE:
 			setReferredType((Type) newValue);
@@ -157,6 +163,7 @@ public class TypeLiteralExpImpl extends LiteralExpImpl implements
 	 */
 	@Override
 	public void eUnset(int featureID) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.TYPE_LITERAL_EXP__REFERRED_TYPE:
 			setReferredType((Type) null);
@@ -171,6 +178,7 @@ public class TypeLiteralExpImpl extends LiteralExpImpl implements
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.TYPE_LITERAL_EXP__REFERRED_TYPE:
 			return referredType != null;
@@ -184,6 +192,7 @@ public class TypeLiteralExpImpl extends LiteralExpImpl implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
+
 		return ExpressionsPackageImpl.Literals.TYPE_LITERAL_EXP;
 	}
 

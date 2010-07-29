@@ -53,7 +53,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import tudresden.ocl20.pivot.pivotmodel.GenericType;
 import tudresden.ocl20.pivot.pivotmodel.Namespace;
 import tudresden.ocl20.pivot.pivotmodel.PivotModelFactory;
-import tudresden.ocl20.pivot.pivotmodel.PivotModelPackage;
 import tudresden.ocl20.pivot.pivotmodel.TypeParameter;
 import tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl;
 
@@ -74,6 +73,7 @@ public class NamespaceItemProvider extends NamedElementItemProvider implements
 	 * @generated
 	 */
 	public NamespaceItemProvider(AdapterFactory adapterFactory) {
+
 		super(adapterFactory);
 	}
 
@@ -85,6 +85,7 @@ public class NamespaceItemProvider extends NamedElementItemProvider implements
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
@@ -100,6 +101,7 @@ public class NamespaceItemProvider extends NamedElementItemProvider implements
 	 * @generated
 	 */
 	protected void addNestingNamespacePropertyDescriptor(Object object) {
+
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(
 						((ComposeableAdapterFactory) adapterFactory)
@@ -108,8 +110,8 @@ public class NamespaceItemProvider extends NamedElementItemProvider implements
 						getString("_UI_Namespace_nestingNamespace_feature"), //$NON-NLS-1$
 						getString(
 								"_UI_PropertyDescriptor_description", "_UI_Namespace_nestingNamespace_feature", "_UI_Namespace_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-						PivotModelPackage.Literals.NAMESPACE__NESTING_NAMESPACE,
-						false, false, false, null, null, null));
+						PivotModelPackageImpl.Literals.NAMESPACE__NESTING_NAMESPACE, false,
+						false, false, null, null, null));
 	}
 
 	/**
@@ -123,16 +125,17 @@ public class NamespaceItemProvider extends NamedElementItemProvider implements
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(
 			Object object) {
+
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures
-					.add(PivotModelPackage.Literals.GENERIC_ELEMENT__OWNED_TYPE_PARAMETER);
+					.add(PivotModelPackageImpl.Literals.GENERIC_ELEMENT__OWNED_TYPE_PARAMETER);
 			childrenFeatures
-					.add(PivotModelPackage.Literals.NAMESPACE__OWNED_TYPE);
+					.add(PivotModelPackageImpl.Literals.NAMESPACE__OWNED_TYPE);
 			childrenFeatures
-					.add(PivotModelPackage.Literals.NAMESPACE__OWNED_RULE);
+					.add(PivotModelPackageImpl.Literals.NAMESPACE__OWNED_RULE);
 			childrenFeatures
-					.add(PivotModelPackage.Literals.NAMESPACE__NESTED_NAMESPACE);
+					.add(PivotModelPackageImpl.Literals.NAMESPACE__NESTED_NAMESPACE);
 		}
 		return childrenFeatures;
 	}
@@ -144,6 +147,7 @@ public class NamespaceItemProvider extends NamedElementItemProvider implements
 	 */
 	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
+
 		// Check the type of the specified child object and return the proper feature to use for
 		// adding (see {@link AddCommand}) it as a child.
 
@@ -158,6 +162,7 @@ public class NamespaceItemProvider extends NamedElementItemProvider implements
 	 */
 	@Override
 	public Object getImage(Object object) {
+
 		return overlayImage(object, getResourceLocator().getImage(
 				"full/obj16/Namespace")); //$NON-NLS-1$
 	}
@@ -182,15 +187,16 @@ public class NamespaceItemProvider extends NamedElementItemProvider implements
 		namespace = (Namespace) object;
 
 		// initialize with name
-		label = new StringBuilder(StringUtils.defaultIfEmpty(namespace
-				.getName(), "null")); //$NON-NLS-1$
+		label =
+				new StringBuilder(StringUtils.defaultIfEmpty(namespace.getName(),
+						"null")); //$NON-NLS-1$
 
 		// append type parameters if there are any
 		if (!namespace.getOwnedTypeParameter().isEmpty()) {
 			label.append('<');
 
-			for (Iterator<TypeParameter> it = namespace.getOwnedTypeParameter()
-					.iterator(); it.hasNext();) {
+			for (Iterator<TypeParameter> it =
+					namespace.getOwnedTypeParameter().iterator(); it.hasNext();) {
 				label.append(it.next().getName());
 
 				if (it.hasNext()) {
@@ -252,10 +258,9 @@ public class NamespaceItemProvider extends NamedElementItemProvider implements
 
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors
-				.add(createChildParameter(
-						PivotModelPackageImpl.Literals.GENERIC_ELEMENT__OWNED_TYPE_PARAMETER,
-						PivotModelFactory.eINSTANCE.createTypeParameter()));
+		newChildDescriptors.add(createChildParameter(
+				PivotModelPackageImpl.Literals.GENERIC_ELEMENT__OWNED_TYPE_PARAMETER,
+				PivotModelFactory.eINSTANCE.createTypeParameter()));
 
 		newChildDescriptors.add(createChildParameter(
 				PivotModelPackageImpl.Literals.NAMESPACE__NESTED_NAMESPACE,

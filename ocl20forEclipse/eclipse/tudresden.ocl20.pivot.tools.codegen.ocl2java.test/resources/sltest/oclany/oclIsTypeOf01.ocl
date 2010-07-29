@@ -1,7 +1,0 @@
-package testpackage
-
-context Class1
-def: testOclIsTypeOf01(source: Class1, arg01: OclType): Boolean =
-source.oclIsTypeOf(arg01)
-
-endpackage

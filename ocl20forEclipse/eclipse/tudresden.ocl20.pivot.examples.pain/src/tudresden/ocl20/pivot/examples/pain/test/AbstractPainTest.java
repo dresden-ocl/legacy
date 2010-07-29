@@ -26,13 +26,10 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.File;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
-
-import org.eclipse.core.runtime.FileLocator;
 
 import tudresden.ocl20.pivot.essentialocl.standardlibrary.OclBoolean;
 import tudresden.ocl20.pivot.examples.pain.PainExamplePlugin;
@@ -44,6 +41,7 @@ import tudresden.ocl20.pivot.model.ModelAccessException;
 import tudresden.ocl20.pivot.modelinstance.IModelInstance;
 import tudresden.ocl20.pivot.modelinstancetype.types.IModelInstanceObject;
 import tudresden.ocl20.pivot.modelinstancetype.xml.XmlModelInstanceTypePlugin;
+import tudresden.ocl20.pivot.parser.ParseException;
 import tudresden.ocl20.pivot.pivotmodel.Constraint;
 import tudresden.ocl20.pivot.pivotmodel.Type;
 
@@ -77,9 +75,11 @@ public abstract class AbstractPainTest {
 	 * Initializes the test cases.
 	 * </p>
 	 * 
-	 * @throws Exception
+	 * @throws ModelAccessException
+	 * @throws IllegalArgumentException
 	 */
-	protected static void setUp() throws Exception {
+	protected static void setUp() throws IllegalArgumentException,
+			ModelAccessException {
 
 		File modelFile;
 		modelFile = AbstractPainTest.getFile(MODEL_NAME);
@@ -111,21 +111,24 @@ public abstract class AbstractPainTest {
 	 * @param path
 	 *            The path of the resource.
 	 * @return The found {@link File} object.
-	 * @throws Exception Thrown, if the opening fails.
 	 */
-	private static File getFile(String path) throws Exception {
+	private static File getFile(String path) {
 
-		URL fileLocation;
-		fileLocation = PainExamplePlugin.getDefault().getBundle().getResource(
-				path);
-		fileLocation = FileLocator.resolve(fileLocation);
+		File result;
 
-		File file;
-		file = new File(fileLocation.getFile());
+		String filePath;
+		filePath = PainExamplePlugin.getDefault().getBundle().getLocation();
+		/* Remove 'reference:file:/' */
+		filePath = filePath.substring(16);
 
-		assertTrue(file.exists());
+		filePath += PainExamplePlugin.getDefault().getBundle()
+				.getResource(path).getPath().substring(1);
 
-		return file;
+		result = new File(filePath);
+
+		assertTrue(result.exists());
+
+		return result;
 	}
 
 	/**
@@ -237,11 +240,14 @@ public abstract class AbstractPainTest {
 	 *            The name of the {@link Type} whose
 	 *            {@link IModelInstanceObject}s shall be interpreted.
 	 * @return
-	 * @throws Exception
+	 * @throws IllegalArgumentException
+	 * @throws ModelAccessException
+	 * @throws ParseException
 	 */
 	protected List<IInterpretationResult> interpretConstraintsForInstance(
 			String constraintName, String instanceName, List<String> typeName)
-			throws Exception {
+			throws IllegalArgumentException, ModelAccessException,
+			ParseException {
 
 		assertNotNull(constraintName);
 		assertNotNull(instanceName);
@@ -312,11 +318,14 @@ public abstract class AbstractPainTest {
 	 * @param instanceName
 	 *            The name of the {@link IModelInstance} file (relative to the
 	 *            <code>modelinstances</code> directory)
-	 * @throws Exception
+	 * @throws IllegalArgumentException
+	 * @throws ModelAccessException
+	 * @throws ParseException
 	 */
 	protected void reportConstraintInterpreationForInstance(
 			String constraintName, String instanceName)
-			throws Exception {
+			throws IllegalArgumentException, ModelAccessException,
+			ParseException {
 
 		assertNotNull(constraintName);
 		assertNotNull(instanceName);

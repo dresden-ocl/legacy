@@ -73,6 +73,7 @@ public abstract class NamedElementTest extends TestCase {
 	 * @generated
 	 */
 	public NamedElementTest(String name) {
+
 		super(name);
 	}
 
@@ -83,6 +84,7 @@ public abstract class NamedElementTest extends TestCase {
 	 * @generated
 	 */
 	protected void setFixture(NamedElement fixture) {
+
 		this.fixture = fixture;
 	}
 
@@ -93,6 +95,7 @@ public abstract class NamedElementTest extends TestCase {
 	 * @generated
 	 */
 	protected NamedElement getFixture() {
+
 		return fixture;
 	}
 
@@ -104,6 +107,7 @@ public abstract class NamedElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetQualifiedName() {
+
 		// TODO: implement this feature getter test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -117,6 +121,7 @@ public abstract class NamedElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetOwner() {
+
 		// TODO: implement this feature getter test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -130,6 +135,7 @@ public abstract class NamedElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testClone() {
+
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -143,6 +149,7 @@ public abstract class NamedElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetQualifiedNameList() {
+
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

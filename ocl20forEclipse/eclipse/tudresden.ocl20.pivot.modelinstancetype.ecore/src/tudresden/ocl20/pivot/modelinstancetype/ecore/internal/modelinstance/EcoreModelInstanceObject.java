@@ -392,7 +392,7 @@ public class EcoreModelInstanceObject extends AbstractModelInstanceObject
 
 			Object adapteeResult = this.myEObject.eGet(sf);
 			result = AbstractModelInstance.adaptInvocationResult(adapteeResult,
-					property.getType(), this.myFactory);
+					property.getType(), property, this.myFactory);
 		}
 		// end else.
 
@@ -474,7 +474,8 @@ public class EcoreModelInstanceObject extends AbstractModelInstanceObject
 										(EObject) adapteeResult);
 
 						result = AbstractModelInstance.adaptInvocationResult(
-								adapteeResult, adapteeType, this.myFactory);
+								adapteeResult, adapteeType, operation,
+								this.myFactory);
 					}
 
 					catch (TypeNotFoundInModelException e) {
@@ -489,7 +490,8 @@ public class EcoreModelInstanceObject extends AbstractModelInstanceObject
 
 				else {
 					result = AbstractModelInstance.adaptInvocationResult(
-							adapteeResult, operation.getType(), this.myFactory);
+							adapteeResult, operation.getType(), operation,
+							this.myFactory);
 				}
 			}
 

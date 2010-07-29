@@ -188,15 +188,6 @@ public class JavaModelInstance extends AbstractModelInstance {
 			throw new ModelAccessException(msg, e);
 		}
 
-		catch (NoClassDefFoundError e) {
-			String msg;
-			msg = "Your model instance class "
-					+ providerClass
-					+ " could not be opened. Maybe it contains some unavailable imports or compile errors.";
-			LOGGER.error(msg);
-			throw new ModelAccessException(msg, e);
-		}
-
 		/* Eventually debug the exit of this method. */
 		if (LOGGER.isDebugEnabled()) {
 			String msg;
@@ -1162,6 +1153,7 @@ public class JavaModelInstance extends AbstractModelInstance {
 						result = adaptInvocationResult(
 								propertyValue,
 								property.getType(),
+								property,
 								(JavaModelInstanceFactory) this.myModelInstanceFactory);
 					}
 					// end try.
@@ -1283,7 +1275,7 @@ public class JavaModelInstance extends AbstractModelInstance {
 
 			/* Adapt the result to the expected result type. */
 			result = JavaModelInstance.adaptInvocationResult(adapteeResult,
-					operation.getType(),
+					operation.getType(), operation,
 					(JavaModelInstanceFactory) this.myModelInstanceFactory);
 		}
 

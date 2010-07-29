@@ -18,7 +18,6 @@ import org.eclipse.osgi.util.NLS;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.TypedElement;
 
-import tudresden.ocl20.pivot.essentialocl.EssentialOclPlugin;
 import tudresden.ocl20.pivot.metamodels.uml2.UML2MetamodelPlugin;
 import tudresden.ocl20.pivot.pivotmodel.Property;
 import tudresden.ocl20.pivot.pivotmodel.Type;
@@ -42,8 +41,8 @@ public class UML2Association extends AbstractProperty implements Property {
 	 * 
 	 * @generated NOT
 	 */
-	private static final Logger LOGGER = UML2MetamodelPlugin
-			.getLogger(UML2Association.class);
+	private static final Logger LOGGER =
+			UML2MetamodelPlugin.getLogger(UML2Association.class);
 
 	/**
 	 * <p>
@@ -56,35 +55,23 @@ public class UML2Association extends AbstractProperty implements Property {
 
 	/**
 	 * <p>
-	 * The {@link UML2AdapterFactory} used to create nested elements.
-	 * </p>
-	 */
-	private UML2AdapterFactory factory;
-
-	/**
-	 * <p>
 	 * Creates a new <code>UML2Association</code> instance.
 	 * </p>
 	 * 
 	 * @param dslProperty
-	 *            the {@link org.eclipse.uml2.uml.Association} that is adopted
-	 *            by this class
-	 * @param factory
-	 *            The {@link UML2AdapterFactory} used to create nested elements.
+	 *          the {@link org.eclipse.uml2.uml.Association} that is adopted by
+	 *          this class
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
-	public UML2Association(org.eclipse.uml2.uml.Association dslProperty,
-			UML2AdapterFactory factory) {
+	public UML2Association(org.eclipse.uml2.uml.Association dslProperty) {
 
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER
-					.debug("UML2Association(dslProperty = " + dslProperty + "factory = " + factory + ") - enter"); //$NON-NLS-1$ //$NON-NLS-2$
+			LOGGER.debug("UML2Association(dslProperty=" + dslProperty + ") - enter"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		// initialize
 		this.dslProperty = dslProperty;
-		this.factory = factory;
 
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("UML2Association() - exit"); //$NON-NLS-1$
@@ -110,49 +97,8 @@ public class UML2Association extends AbstractProperty implements Property {
 	@Override
 	public Type getType() {
 
-		Type result;
-		Type elementType;
-
-		elementType = this.factory.createType(dslProperty.getEndTypes().get(0));
-
-		/* Probably adapt type into a collection. */
-		if (this.dslProperty.getMemberEnds().get(0).isMultivalued()) {
-
-			if (this.dslProperty.getMemberEnds().get(0).isOrdered()) {
-
-				/* OrderedSet. */
-				if (this.dslProperty.getMemberEnds().get(0).isUnique()) {
-					result = EssentialOclPlugin.getOclLibraryProvider()
-							.getOclLibrary().getOrderedSetType(elementType);
-				}
-
-				/* Sequence. */
-				else {
-					result = EssentialOclPlugin.getOclLibraryProvider()
-							.getOclLibrary().getSequenceType(elementType);
-				}
-			}
-
-			else {
-				/* Set. */
-				if (this.dslProperty.getMemberEnds().get(0).isUnique()) {
-					result = EssentialOclPlugin.getOclLibraryProvider()
-							.getOclLibrary().getSetType(elementType);
-				}
-
-				/* Bag. */
-				else {
-					result = EssentialOclPlugin.getOclLibraryProvider()
-							.getOclLibrary().getBagType(elementType);
-				}
-			}
-		}
-
-		else {
-			result = elementType;
-		}
-
-		return result;
+		return UML2AdapterFactory.INSTANCE.createType(dslProperty.getEndTypes()
+				.get(0));
 	}
 
 	/**
@@ -175,7 +121,7 @@ public class UML2Association extends AbstractProperty implements Property {
 
 			aTypedElement = (TypedElement) owner;
 
-			result = this.factory.createType(aTypedElement.getType());
+			result = UML2AdapterFactory.INSTANCE.createType(aTypedElement.getType());
 		}
 
 		else if (owner instanceof org.eclipse.uml2.uml.Class) {
@@ -183,7 +129,7 @@ public class UML2Association extends AbstractProperty implements Property {
 
 			aClass = (org.eclipse.uml2.uml.Class) owner;
 
-			result = this.factory.createType(aClass);
+			result = UML2AdapterFactory.INSTANCE.createType(aClass);
 		}
 
 		else {
@@ -197,5 +143,38 @@ public class UML2Association extends AbstractProperty implements Property {
 		}
 
 		return result;
+	}
+
+	/**
+	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PropertyImpl#isMultiple()
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isMultiple() {
+
+		return this.dslProperty.getMemberEnds().get(0).isMultivalued();
+	}
+
+	/**
+	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PropertyImpl#isOrdered()
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isOrdered() {
+
+		return this.dslProperty.getMemberEnds().get(0).isOrdered();
+	}
+
+	/**
+	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PropertyImpl#isUnique()
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isUnique() {
+
+		return this.dslProperty.getMemberEnds().get(0).isUnique();
 	}
 }

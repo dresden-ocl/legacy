@@ -14,7 +14,6 @@
 package tudresden.ocl20.pivot.metamodels.java.internal.model;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.TypeVariable;
@@ -29,7 +28,6 @@ import java.util.WeakHashMap;
 import org.apache.log4j.Logger;
 
 import tudresden.ocl20.pivot.essentialocl.EssentialOclPlugin;
-import tudresden.ocl20.pivot.essentialocl.types.CollectionType;
 import tudresden.ocl20.pivot.metamodels.java.JavaMetaModelPlugin;
 import tudresden.ocl20.pivot.pivotmodel.EnumerationLiteral;
 import tudresden.ocl20.pivot.pivotmodel.Namespace;
@@ -50,6 +48,16 @@ public class JavaAdapterFactory {
 	/** The {@link Logger} for this class. */
 	private static final Logger LOGGER = JavaMetaModelPlugin
 			.getLogger(JavaAdapterFactory.class);
+
+	/**
+	 * <p>
+	 * The Singleton instance of the factory.
+	 * </p>
+	 * 
+	 * @generated NOT
+	 */
+	@Deprecated
+	public static JavaAdapterFactory INSTANCE = null;
 
 	/**
 	 * A {@link Map} containing all {@link EnumerationLiteral}s already adapted.
@@ -649,7 +657,7 @@ public class JavaAdapterFactory {
 	 * A helper method which adapts a given Java {@link Class} as a pivot model
 	 * {@link Type}.
 	 * 
-	 * @param aClass
+	 * @param aType
 	 *            The Java {@link Class} which shall be adapted.
 	 * @param aGenericType
 	 *            The generic {@link java.lang.reflect.Type} to the given
@@ -657,242 +665,46 @@ public class JavaAdapterFactory {
 	 *            a generic type.
 	 * @return The adapted {@link Type}.
 	 */
-	protected Type adaptJavaType(Class<?> aClass,
+	protected Type adaptJavaType(Class<?> aType,
 			java.lang.reflect.Type aGenericType) {
 
 		Type result;
 
-		/* If the type is an array convert the array to a collection. */
-		if (aClass.isArray()) {
-
-			if (aGenericType instanceof GenericArrayType) {
-
-				GenericArrayType genericArrayType;
-				genericArrayType = (GenericArrayType) aGenericType;
-
-				java.lang.reflect.Type componentType = genericArrayType
-						.getGenericComponentType();
-
-				Type elementType;
-
-				if (componentType instanceof ParameterizedType) {
-
-					ParameterizedType paramterizedType;
-					paramterizedType = (ParameterizedType) componentType;
-
-					elementType = this.adaptParameterizedType(paramterizedType);
-					elementType = this.adaptCollectionClass(
-							(Class<?>) paramterizedType.getRawType(),
-							elementType);
-				}
-
-				else if (componentType instanceof Class<?>) {
-					Class<?> componentClass;
-					componentClass = (Class<?>) componentType;
-
-					if (componentClass.isArray()) {
-						elementType = this.adaptArrayClass(componentClass);
-					}
-
-					else {
-						elementType = this.createType(componentClass);
-					}
-				}
-
-				else {
-					elementType = this.createType(Object.class);
-				}
-
-				result = EssentialOclPlugin.getOclLibraryProvider()
-						.getOclLibrary().getSequenceType(elementType);
-			}
-
-			else {
-				result = this.adaptArrayClass(aClass);
-			}
+		/* If the type is an array get its component type. */
+		if (aType.isArray()) {
+			aType = aType.getComponentType();
 		}
 
 		/* Else if the type is a collection get its generic type. */
-		else if (Collection.class.isAssignableFrom(aClass)) {
-
-			Type genericType;
+		else if (Collection.class.isAssignableFrom(aType)) {
 
 			if (aGenericType instanceof ParameterizedType) {
-				genericType = adaptParameterizedType((ParameterizedType) aGenericType);
-			}
 
-			else {
-				genericType = this.createType(Object.class);
-			}
+				java.lang.reflect.Type arguments[];
+				java.lang.reflect.Type argument;
 
-			result = this.adaptCollectionClass(aClass, genericType);
-		}
+				arguments = ((ParameterizedType) aGenericType)
+						.getActualTypeArguments();
 
-		else {
-			result = this.createType(aClass);
-		}
+				/* Use the first generic type of the collection as type. */
+				argument = arguments[0];
 
-		return result;
-	}
-
-	/**
-	 * <p>
-	 * Adapts a given array {@link Class} to a {@link CollectionType}.
-	 * </p>
-	 * 
-	 * @param aClass
-	 *            The array {@link Class} that shall be converted into a
-	 *            {@link CollectionType}.
-	 * @return A {@link CollectionType} (probably nesting further
-	 *         {@link CollectionType}s).
-	 */
-	private Type adaptArrayClass(Class<?> aClass) {
-
-		Type result;
-		Class<?> elementClass;
-
-		/* Get the class of the elements. */
-		elementClass = aClass.getComponentType();
-
-		Type elementType;
-
-		/* Recall method recursively, if element type is an array again. */
-		if (elementClass.isArray()) {
-			elementType = this.adaptArrayClass(elementClass);
-		}
-
-		else {
-			elementType = this.createType(elementClass);
-		}
-
-		result = EssentialOclPlugin.getOclLibraryProvider().getOclLibrary()
-				.getSequenceType(elementType);
-
-		return result;
-	}
-
-	/**
-	 * <p>
-	 * Adapts a given {@link Class} to a {@link CollectionType} having the given
-	 * {@link Type} as its element {@link Type}.
-	 * </p>
-	 * 
-	 * @param aClass
-	 *            The {@link Class} that shall be converted into a
-	 *            {@link CollectionType}.
-	 * @param genericType
-	 *            The element {@link Type} of the collection.
-	 * @return A {@link CollectionType} (probably nesting further
-	 *         {@link CollectionType}s).
-	 */
-	private Type adaptCollectionClass(Class<?> aClass, Type genericType) {
-
-		Type result;
-
-		if (List.class.isAssignableFrom(aClass)) {
-			result = EssentialOclPlugin.getOclLibraryProvider().getOclLibrary()
-					.getSequenceType(genericType);
-		}
-
-		else if (Set.class.isAssignableFrom(aClass)) {
-			result = EssentialOclPlugin.getOclLibraryProvider().getOclLibrary()
-					.getSetType(genericType);
-		}
-
-		else {
-			result = EssentialOclPlugin.getOclLibraryProvider().getOclLibrary()
-					.getCollectionType(genericType);
-		}
-
-		return result;
-	}
-
-	/**
-	 * <p>
-	 * Converts a given {@link ParameterizedType} to a {@link CollectionType}.
-	 * </p>
-	 * 
-	 * @param parameterizedType
-	 *            The {@link ParameterizedType} that shall be converted to a
-	 *            {@link CollectionType}.
-	 * @return The converted {@link CollectionType}.
-	 */
-	private Type adaptParameterizedType(ParameterizedType parameterizedType) {
-
-		Type result;
-
-		java.lang.reflect.Type arguments[];
-		java.lang.reflect.Type argument;
-
-		arguments = parameterizedType.getActualTypeArguments();
-
-		/* Use the first generic type of the collection as type. */
-		argument = arguments[0];
-
-		if (argument instanceof Class<?>) {
-
-			Class<?> elementClass;
-			elementClass = (Class<?>) argument;
-
-			result = this.createType(elementClass);
-		}
-
-		else if (argument instanceof TypeVariable<?>) {
-			result = this.createType((Class<?>) ((TypeVariable<?>) argument)
-					.getBounds()[0]);
-		}
-
-		else if (argument instanceof ParameterizedType) {
-			Type genericType;
-			genericType = this
-					.adaptParameterizedType((ParameterizedType) argument);
-
-			result = this.adaptCollectionClass(
-					(Class<?>) ((ParameterizedType) argument).getRawType(),
-					genericType);
-		}
-
-		else if (argument instanceof GenericArrayType) {
-
-			GenericArrayType genericArrayType;
-			genericArrayType = (GenericArrayType) argument;
-
-			java.lang.reflect.Type componentType = genericArrayType
-					.getGenericComponentType();
-
-			Type elementType;
-
-			if (componentType instanceof ParameterizedType) {
-				elementType = this
-						.adaptParameterizedType((ParameterizedType) componentType);
-			}
-
-			else if (componentType instanceof Class<?>) {
-				Class<?> componentClass;
-				componentClass = (Class<?>) componentType;
-
-				if (componentClass.isArray()) {
-					elementType = this.adaptArrayClass(componentClass);
+				if (argument instanceof Class<?>) {
+					aType = (Class<?>) arguments[0];
 				}
 
-				else {
-					elementType = this.createType(componentClass);
+				else if (argument instanceof TypeVariable<?>) {
+					aType = (Class<?>) ((TypeVariable<?>) argument).getBounds()[0];
 				}
 			}
 
 			else {
-				elementType = this.createType(Object.class);
+				aType = Object.class;
 			}
-
-			result = EssentialOclPlugin.getOclLibraryProvider().getOclLibrary()
-					.getSequenceType(elementType);
 		}
+		// no else.
 
-		else {
-			LOGGER.warn("Adapted Generic Type " + argument
-					+ " to java.lang.Object.");
-			result = this.createType(Object.class);
-		}
+		result = this.createType(aType);
 
 		return result;
 	}

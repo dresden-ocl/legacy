@@ -36,7 +36,6 @@ import junit.textui.TestRunner;
 
 import tudresden.ocl20.pivot.pivotmodel.NDirectionalProperty;
 
-import tudresden.ocl20.pivot.pivotmodel.PivotModelFactory;
 import tudresden.ocl20.pivot.pivotmodel.impl.PivotModelFactoryImpl;
 
 /**
@@ -95,7 +94,7 @@ public class NDirectionalPropertyTest extends PropertyTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(PivotModelFactory.eINSTANCE.createNDirectionalProperty());
+		setFixture(PivotModelFactoryImpl.eINSTANCE.createNDirectionalProperty());
 	}
 
 	/**

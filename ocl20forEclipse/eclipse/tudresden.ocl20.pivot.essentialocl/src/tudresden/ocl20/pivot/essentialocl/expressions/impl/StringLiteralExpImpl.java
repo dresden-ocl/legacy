@@ -61,8 +61,8 @@ public class StringLiteralExpImpl extends PrimitiveLiteralExpImpl implements
 	/**
 	 * Logger for this class
 	 */
-	private static final Logger logger = Logger
-			.getLogger(StringLiteralExpImpl.class);
+	private static final Logger logger =
+			Logger.getLogger(StringLiteralExpImpl.class);
 
 	/**
 	 * The default value of the '{@link #getStringSymbol() <em>String Symbol</em>}' attribute. <!--
@@ -89,6 +89,7 @@ public class StringLiteralExpImpl extends PrimitiveLiteralExpImpl implements
 	 * @generated
 	 */
 	protected StringLiteralExpImpl() {
+
 		super();
 	}
 
@@ -129,6 +130,7 @@ public class StringLiteralExpImpl extends PrimitiveLiteralExpImpl implements
 	 * @generated
 	 */
 	public String getStringSymbol() {
+
 		return stringSymbol;
 	}
 
@@ -137,6 +139,7 @@ public class StringLiteralExpImpl extends PrimitiveLiteralExpImpl implements
 	 * @generated
 	 */
 	public void setStringSymbol(String newStringSymbol) {
+
 		String oldStringSymbol = stringSymbol;
 		stringSymbol = newStringSymbol;
 		if (eNotificationRequired())
@@ -151,6 +154,7 @@ public class StringLiteralExpImpl extends PrimitiveLiteralExpImpl implements
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.STRING_LITERAL_EXP__STRING_SYMBOL:
 			return getStringSymbol();
@@ -164,6 +168,7 @@ public class StringLiteralExpImpl extends PrimitiveLiteralExpImpl implements
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.STRING_LITERAL_EXP__STRING_SYMBOL:
 			setStringSymbol((String) newValue);
@@ -178,6 +183,7 @@ public class StringLiteralExpImpl extends PrimitiveLiteralExpImpl implements
 	 */
 	@Override
 	public void eUnset(int featureID) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.STRING_LITERAL_EXP__STRING_SYMBOL:
 			setStringSymbol(STRING_SYMBOL_EDEFAULT);
@@ -192,6 +198,7 @@ public class StringLiteralExpImpl extends PrimitiveLiteralExpImpl implements
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.STRING_LITERAL_EXP__STRING_SYMBOL:
 			return STRING_SYMBOL_EDEFAULT == null ? stringSymbol != null
@@ -206,6 +213,7 @@ public class StringLiteralExpImpl extends PrimitiveLiteralExpImpl implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
+
 		return ExpressionsPackageImpl.Literals.STRING_LITERAL_EXP;
 	}
 

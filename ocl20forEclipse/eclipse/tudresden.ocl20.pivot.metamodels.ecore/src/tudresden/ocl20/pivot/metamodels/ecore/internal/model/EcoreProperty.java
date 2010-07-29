@@ -37,7 +37,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import tudresden.ocl20.pivot.essentialocl.EssentialOclPlugin;
 import tudresden.ocl20.pivot.metamodels.ecore.EcoreMetamodelPlugin;
 import tudresden.ocl20.pivot.pivotmodel.Property;
 import tudresden.ocl20.pivot.pivotmodel.Type;
@@ -53,8 +52,8 @@ import tudresden.ocl20.pivot.pivotmodel.base.AbstractProperty;
 public class EcoreProperty extends AbstractProperty implements Property {
 
 	/** The {@link Logger} for this class. */
-	private static final Logger LOGGER = EcoreMetamodelPlugin
-			.getLogger(EcoreProperty.class);
+	private static final Logger LOGGER =
+			EcoreMetamodelPlugin.getLogger(EcoreProperty.class);
 
 	/** The adapted {@link EAttribute} or {@link EReference}. */
 	private EStructuralFeature eStructuralFeature;
@@ -65,7 +64,7 @@ public class EcoreProperty extends AbstractProperty implements Property {
 	 * </p>
 	 * 
 	 * @param eStructuralFeature
-	 *            The adapted {@link EAttribute} or {@link EReference}.
+	 *          The adapted {@link EAttribute} or {@link EReference}.
 	 */
 	public EcoreProperty(EStructuralFeature eStructuralFeature) {
 
@@ -97,7 +96,6 @@ public class EcoreProperty extends AbstractProperty implements Property {
 
 	/*
 	 * (non-Javadoc)
-	 * 
 	 * @see tudresden.ocl20.pivot.pivotmodel.base.AbstractProperty#getName()
 	 */
 	@Override
@@ -108,9 +106,7 @@ public class EcoreProperty extends AbstractProperty implements Property {
 
 	/*
 	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * tudresden.ocl20.pivot.pivotmodel.base.AbstractProperty#getOwningType()
+	 * @see tudresden.ocl20.pivot.pivotmodel.base.AbstractProperty#getOwningType()
 	 */
 	@Override
 	public Type getOwningType() {
@@ -121,56 +117,42 @@ public class EcoreProperty extends AbstractProperty implements Property {
 
 	/*
 	 * (non-Javadoc)
-	 * 
 	 * @see tudresden.ocl20.pivot.pivotmodel.base.AbstractProperty#getType()
 	 */
 	@Override
 	public Type getType() {
 
-		Type result;
+		return EcoreAdapterFactory.INSTANCE.createType(this.eStructuralFeature
+				.getEType());
+	}
 
-		Type elementType;
-		elementType = EcoreAdapterFactory.INSTANCE
-				.createType(eStructuralFeature.getEType());
+	/*
+	 * (non-Javadoc)
+	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PropertyImpl#isMultiple()
+	 */
+	@Override
+	public boolean isMultiple() {
 
-		/* Probably put the type into a collection. */
-		if (this.eStructuralFeature.isMany()) {
+		return this.eStructuralFeature.isMany();
+	}
 
-			if (this.eStructuralFeature.isUnique()) {
+	/*
+	 * (non-Javadoc)
+	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PropertyImpl#isOrdered()
+	 */
+	@Override
+	public boolean isOrdered() {
 
-				/* Adapt to OrderedSet. */
-				if (this.eStructuralFeature.isOrdered()) {
-					result = EssentialOclPlugin.getOclLibraryProvider()
-							.getOclLibrary().getOrderedSetType(elementType);
-				}
+		return this.eStructuralFeature.isOrdered();
+	}
 
-				/* Adapt to Set. */
-				else {
-					result = EssentialOclPlugin.getOclLibraryProvider()
-							.getOclLibrary().getSetType(elementType);
-				}
-			}
+	/*
+	 * (non-Javadoc)
+	 * @see tudresden.ocl20.pivot.pivotmodel.impl.PropertyImpl#isUnique()
+	 */
+	@Override
+	public boolean isUnique() {
 
-			else {
-
-				/* Adapt to Sequence. */
-				if (this.eStructuralFeature.isOrdered()) {
-					result = EssentialOclPlugin.getOclLibraryProvider()
-							.getOclLibrary().getSequenceType(elementType);
-				}
-
-				/* Adapt to Bag. */
-				else {
-					result = EssentialOclPlugin.getOclLibraryProvider()
-							.getOclLibrary().getBagType(elementType);
-				}
-			}
-		}
-
-		else {
-			result = elementType;
-		}
-
-		return result;
+		return this.eStructuralFeature.isUnique();
 	}
 }

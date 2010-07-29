@@ -51,6 +51,7 @@ public class DatatypesTests extends TestSuite {
 	 * @generated
 	 */
 	public static void main(String[] args) {
+
 		TestRunner.run(suite());
 	}
 
@@ -60,6 +61,7 @@ public class DatatypesTests extends TestSuite {
 	 * @generated
 	 */
 	public static Test suite() {
+
 		TestSuite suite = new DatatypesTests("datatypes Tests"); //$NON-NLS-1$
 		return suite;
 	}
@@ -70,6 +72,7 @@ public class DatatypesTests extends TestSuite {
 	 * @generated
 	 */
 	public DatatypesTests(String name) {
+
 		super(name);
 	}
 

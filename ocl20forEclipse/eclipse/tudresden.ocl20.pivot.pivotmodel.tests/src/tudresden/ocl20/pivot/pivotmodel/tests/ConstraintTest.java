@@ -36,7 +36,6 @@ import junit.textui.TestRunner;
 
 import tudresden.ocl20.pivot.pivotmodel.Constraint;
 
-import tudresden.ocl20.pivot.pivotmodel.PivotModelFactory;
 import tudresden.ocl20.pivot.pivotmodel.impl.PivotModelFactoryImpl;
 
 /**
@@ -59,6 +58,7 @@ public class ConstraintTest extends NamedElementTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
+
 		TestRunner.run(ConstraintTest.class);
 	}
 
@@ -69,6 +69,7 @@ public class ConstraintTest extends NamedElementTest {
 	 * @generated
 	 */
 	public ConstraintTest(String name) {
+
 		super(name);
 	}
 
@@ -80,6 +81,7 @@ public class ConstraintTest extends NamedElementTest {
 	 */
 	@Override
 	protected Constraint getFixture() {
+
 		return (Constraint) fixture;
 	}
 
@@ -91,7 +93,8 @@ public class ConstraintTest extends NamedElementTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(PivotModelFactory.eINSTANCE.createConstraint());
+
+		setFixture(PivotModelFactoryImpl.eINSTANCE.createConstraint());
 	}
 
 	/**
@@ -102,6 +105,7 @@ public class ConstraintTest extends NamedElementTest {
 	 */
 	@Override
 	protected void tearDown() throws Exception {
+
 		setFixture(null);
 	}
 
@@ -113,6 +117,7 @@ public class ConstraintTest extends NamedElementTest {
 	 * @generated
 	 */
 	public void testAddConstrainedElement__ConstrainableElement() {
+
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

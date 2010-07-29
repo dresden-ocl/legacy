@@ -36,7 +36,6 @@ import junit.textui.TestRunner;
 
 import tudresden.ocl20.pivot.pivotmodel.Parameter;
 
-import tudresden.ocl20.pivot.pivotmodel.PivotModelFactory;
 import tudresden.ocl20.pivot.pivotmodel.impl.PivotModelFactoryImpl;
 
 /**
@@ -59,6 +58,7 @@ public class ParameterTest extends TypedElementTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
+
 		TestRunner.run(ParameterTest.class);
 	}
 
@@ -69,6 +69,7 @@ public class ParameterTest extends TypedElementTest {
 	 * @generated
 	 */
 	public ParameterTest(String name) {
+
 		super(name);
 	}
 
@@ -80,6 +81,7 @@ public class ParameterTest extends TypedElementTest {
 	 */
 	@Override
 	protected Parameter getFixture() {
+
 		return (Parameter) fixture;
 	}
 
@@ -91,7 +93,8 @@ public class ParameterTest extends TypedElementTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(PivotModelFactory.eINSTANCE.createParameter());
+
+		setFixture(PivotModelFactoryImpl.eINSTANCE.createParameter());
 	}
 
 	/**
@@ -102,6 +105,7 @@ public class ParameterTest extends TypedElementTest {
 	 */
 	@Override
 	protected void tearDown() throws Exception {
+
 		setFixture(null);
 	}
 
@@ -113,6 +117,7 @@ public class ParameterTest extends TypedElementTest {
 	 * @generated
 	 */
 	public void testAsProperty() {
+
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

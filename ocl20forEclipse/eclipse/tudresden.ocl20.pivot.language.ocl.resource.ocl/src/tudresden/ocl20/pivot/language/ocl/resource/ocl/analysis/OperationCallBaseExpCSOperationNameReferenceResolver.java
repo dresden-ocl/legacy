@@ -29,7 +29,7 @@ public class OperationCallBaseExpCSOperationNameReferenceResolver
 				.getOclReferenceResolveHelper();
 		if (rrHelper != null) {
 			List<Operation> operations = rrHelper.resolveOperation(identifier,
-					resolveFuzzy, container, reference, container.getArguments(), false);
+					resolveFuzzy, container, reference, container.getArguments());
 			for (Operation operation : operations) {
 				if (!resolveFuzzy)
 					result.addMapping(identifier, operation);

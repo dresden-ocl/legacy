@@ -1,1 +1,0 @@
-this.newInstances.containsKey(result)

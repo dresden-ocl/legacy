@@ -57,6 +57,7 @@ public class IteratorExpImpl extends LoopExpImpl implements IteratorExp {
 	 * @generated
 	 */
 	protected IteratorExpImpl() {
+
 		super();
 	}
 
@@ -227,6 +228,7 @@ public class IteratorExpImpl extends LoopExpImpl implements IteratorExp {
 	 */
 	@Override
 	protected EClass eStaticClass() {
+
 		return ExpressionsPackageImpl.Literals.ITERATOR_EXP;
 	}
 

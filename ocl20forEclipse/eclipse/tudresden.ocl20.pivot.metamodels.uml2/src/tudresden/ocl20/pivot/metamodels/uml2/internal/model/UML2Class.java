@@ -44,20 +44,11 @@ public class UML2Class extends AbstractType implements Type {
 	 * 
 	 * @generated NOT
 	 */
-	private static final Logger lLOGGER = UML2MetamodelPlugin
-			.getLogger(UML2Class.class);
+	private static final Logger lLOGGER =
+			UML2MetamodelPlugin.getLogger(UML2Class.class);
 
 	/** The adapted {@link org.eclipse.uml2.uml.Class} class. */
 	private org.eclipse.uml2.uml.Class dslClass;
-
-	/**
-	 * <p>
-	 * The {@link UML2AdapterFactory} used to create nested elements.
-	 * </p>
-	 * 
-	 * @generated NOT
-	 */
-	private UML2AdapterFactory factory;
 
 	/**
 	 * <p>
@@ -65,24 +56,19 @@ public class UML2Class extends AbstractType implements Type {
 	 * </p>
 	 * 
 	 * @param dslClass
-	 *            the {@link org.eclipse.uml2.uml.Class} that is adopted by this
-	 *            class
-	 * @param factory
-	 *            The {@link UML2AdapterFactory} used to create nested elements.
+	 *          the {@link org.eclipse.uml2.uml.Class} that is adopted by this
+	 *          class
 	 * 
 	 * @generated
 	 */
-	public UML2Class(org.eclipse.uml2.uml.Class dslClass,
-			UML2AdapterFactory factory) {
+	public UML2Class(org.eclipse.uml2.uml.Class dslClass) {
 
 		if (lLOGGER.isDebugEnabled()) {
-			lLOGGER
-					.debug("UML2Class(dslClass = " + dslClass + "factory = " + factory + ") - enter"); //$NON-NLS-1$ //$NON-NLS-2$
+			lLOGGER.debug("UML2Class(dslClass=" + dslClass + ") - enter"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		// initialize
 		this.dslClass = dslClass;
-		this.factory = factory;
 
 		if (lLOGGER.isDebugEnabled()) {
 			lLOGGER.debug("UML2Class() - exit"); //$NON-NLS-1$
@@ -108,7 +94,7 @@ public class UML2Class extends AbstractType implements Type {
 	@Override
 	public Namespace getNamespace() {
 
-		return this.factory.createNamespace(dslClass.getPackage());
+		return UML2AdapterFactory.INSTANCE.createNamespace(dslClass.getPackage());
 	}
 
 	/**
@@ -126,7 +112,7 @@ public class UML2Class extends AbstractType implements Type {
 		for (org.eclipse.uml2.uml.Property property : this.dslClass
 				.getOwnedAttributes()) {
 
-			result.add(this.factory.createProperty(property));
+			result.add(UML2AdapterFactory.INSTANCE.createProperty(property));
 		}
 
 		return result;
@@ -147,7 +133,7 @@ public class UML2Class extends AbstractType implements Type {
 		for (org.eclipse.uml2.uml.Operation operation : this.dslClass
 				.getOwnedOperations()) {
 
-			result.add(this.factory.createOperation(operation));
+			result.add(UML2AdapterFactory.INSTANCE.createOperation(operation));
 		}
 
 		return result;
@@ -166,11 +152,11 @@ public class UML2Class extends AbstractType implements Type {
 		result = new ArrayList<Type>();
 
 		for (Class clazz : this.dslClass.getSuperClasses()) {
-			result.add(this.factory.createType(clazz));
+			result.add(UML2AdapterFactory.INSTANCE.createType(clazz));
 		}
 
 		for (Interface interfaze : this.dslClass.getAllImplementedInterfaces()) {
-			result.add(this.factory.createType(interfaze));
+			result.add(UML2AdapterFactory.INSTANCE.createType(interfaze));
 		}
 
 		return result;

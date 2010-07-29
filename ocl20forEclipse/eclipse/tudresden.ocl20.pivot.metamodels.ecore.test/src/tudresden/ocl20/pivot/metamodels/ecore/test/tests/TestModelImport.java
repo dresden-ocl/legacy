@@ -18,15 +18,14 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
-import java.net.URL;
 import java.util.Arrays;
 
-import org.eclipse.core.runtime.FileLocator;
 import org.junit.Test;
 
 import tudresden.ocl20.pivot.facade.Ocl2ForEclipseFacade;
 import tudresden.ocl20.pivot.metamodels.ecore.test.EcoreMetaModelTestPlugin;
 import tudresden.ocl20.pivot.model.IModel;
+import tudresden.ocl20.pivot.model.ModelAccessException;
 import tudresden.ocl20.pivot.model.ModelConstants;
 import tudresden.ocl20.pivot.pivotmodel.Type;
 
@@ -49,22 +48,24 @@ public class TestModelImport {
 	 * @param path
 	 *            The path of the resource.
 	 * @return The found {@link File} object.
-	 * @throws Exception
-	 *             Thrown, if the opening fails.
 	 */
-	protected static File getFile(String path) throws Exception {
+	private static File getFile(String path) {
 
-		URL fileLocation;
-		fileLocation = EcoreMetaModelTestPlugin.getDefault().getBundle()
-				.getResource(path);
-		fileLocation = FileLocator.resolve(fileLocation);
+		String filePath;
+		filePath = EcoreMetaModelTestPlugin.getDefault().getBundle()
+				.getLocation();
+		/* Remove 'reference:file:/' */
+		filePath = filePath.substring(16);
 
-		File file;
-		file = new File(fileLocation.getFile());
+		filePath += EcoreMetaModelTestPlugin.getDefault().getBundle()
+				.getResource(path).getPath().substring(1);
 
-		assertTrue(file.exists());
+		File constraintFile;
+		constraintFile = new File(filePath);
 
-		return file;
+		assertTrue(constraintFile.exists());
+
+		return constraintFile;
 	}
 
 	/**
@@ -72,10 +73,12 @@ public class TestModelImport {
 	 * Tests the adaptation of a provider class referencing a Jar archive.
 	 * </p>
 	 * 
-	 * @throws Exception
+	 * @throws ModelAccessException
+	 * @throws IllegalArgumentException
 	 */
 	@Test
-	public void testReferencedModel01() throws Exception {
+	public void testReferencedModel01() throws IllegalArgumentException,
+			ModelAccessException {
 
 		String msg;
 		msg = "The adaptation of referenced Ecore models seems to be wrong. ";

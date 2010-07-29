@@ -53,14 +53,15 @@ public class InvalidLiteralExpImpl extends LiteralExpImpl implements
 	/**
 	 * Logger for this class
 	 */
-	private static final Logger logger = Logger
-			.getLogger(InvalidLiteralExpImpl.class);
+	private static final Logger logger =
+			Logger.getLogger(InvalidLiteralExpImpl.class);
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected InvalidLiteralExpImpl() {
+
 		super();
 	}
 
@@ -102,6 +103,7 @@ public class InvalidLiteralExpImpl extends LiteralExpImpl implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
+
 		return ExpressionsPackageImpl.Literals.INVALID_LITERAL_EXP;
 	}
 

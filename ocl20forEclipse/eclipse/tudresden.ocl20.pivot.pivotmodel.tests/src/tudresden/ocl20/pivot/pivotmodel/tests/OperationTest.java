@@ -36,7 +36,6 @@ import junit.textui.TestRunner;
 
 import tudresden.ocl20.pivot.pivotmodel.Operation;
 
-import tudresden.ocl20.pivot.pivotmodel.PivotModelFactory;
 import tudresden.ocl20.pivot.pivotmodel.impl.PivotModelFactoryImpl;
 
 /**
@@ -71,6 +70,7 @@ public class OperationTest extends FeatureTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
+
 		TestRunner.run(OperationTest.class);
 	}
 
@@ -81,6 +81,7 @@ public class OperationTest extends FeatureTest {
 	 * @generated
 	 */
 	public OperationTest(String name) {
+
 		super(name);
 	}
 
@@ -92,6 +93,7 @@ public class OperationTest extends FeatureTest {
 	 */
 	@Override
 	protected Operation getFixture() {
+
 		return (Operation) fixture;
 	}
 
@@ -103,7 +105,8 @@ public class OperationTest extends FeatureTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(PivotModelFactory.eINSTANCE.createOperation());
+
+		setFixture(PivotModelFactoryImpl.eINSTANCE.createOperation());
 	}
 
 	/**
@@ -114,6 +117,7 @@ public class OperationTest extends FeatureTest {
 	 */
 	@Override
 	protected void tearDown() throws Exception {
+
 		setFixture(null);
 	}
 
@@ -125,6 +129,7 @@ public class OperationTest extends FeatureTest {
 	 * @generated
 	 */
 	public void testGetInputParameter() {
+
 		// TODO: implement this feature getter test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -138,6 +143,7 @@ public class OperationTest extends FeatureTest {
 	 * @generated
 	 */
 	public void testGetOutputParameter() {
+
 		// TODO: implement this feature getter test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -151,6 +157,7 @@ public class OperationTest extends FeatureTest {
 	 * @generated
 	 */
 	public void testGetReturnParameter() {
+
 		// TODO: implement this feature getter test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -164,6 +171,7 @@ public class OperationTest extends FeatureTest {
 	 * @generated
 	 */
 	public void testGetSignatureParameter() {
+
 		// TODO: implement this feature getter test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -177,6 +185,7 @@ public class OperationTest extends FeatureTest {
 	 * @generated
 	 */
 	public void testHasMatchingSignature__List() {
+
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -190,6 +199,7 @@ public class OperationTest extends FeatureTest {
 	 * @generated
 	 */
 	public void testAddParameter__Parameter() {
+
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -203,6 +213,7 @@ public class OperationTest extends FeatureTest {
 	 * @generated
 	 */
 	public void testAddTypeParameter__TypeParameter() {
+
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -216,6 +227,7 @@ public class OperationTest extends FeatureTest {
 	 * @generated
 	 */
 	public void testBindTypeParameter__List_List() {
+
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

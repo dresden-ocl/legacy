@@ -84,8 +84,8 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 	/**
 	 * Logger for this class
 	 */
-	private static final Logger logger = Logger
-			.getLogger(OperationCallExpImpl.class);
+	private static final Logger logger =
+			Logger.getLogger(OperationCallExpImpl.class);
 
 	/**
 	 * The cached value of the '{@link #getArgument() <em>Argument</em>}' containment reference list.
@@ -111,6 +111,7 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 	 * @generated
 	 */
 	protected OperationCallExpImpl() {
+
 		super();
 	}
 
@@ -259,10 +260,11 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 		sourceType = (PrimitiveType) getSourceType();
 
 		/* Bind the operation. */
-		charactersOperation = charactersOperation.bindTypeParameter(
-				new ArrayList<TypeParameter>(((ComplexGenericType) charactersOperation
-						.getGenericType()).getUnboundType().getOwnedTypeParameter()),
-				Arrays.asList(sourceType));
+		charactersOperation =
+				charactersOperation.bindTypeParameter(new ArrayList<TypeParameter>(
+						((ComplexGenericType) charactersOperation.getGenericType())
+								.getUnboundType().getOwnedTypeParameter()), Arrays
+						.asList(sourceType));
 
 		/* Probably log exit. */
 		if (logger.isDebugEnabled()) {
@@ -308,12 +310,16 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 		sourceType = (CollectionType) getSourceType();
 		elementType = sourceType.getElementType();
 
-		elementType = checkForNestedCollection(elementType);
+		// check the element type of the source collection type
+		if (elementType instanceof CollectionType) {
+			elementType = ((CollectionType) elementType).getElementType();
+		}
 
 		// bind the operation
-		flattenOperation = flattenOperation.bindTypeParameter(
-				new ArrayList<TypeParameter>(flattenOperation.getOwnedTypeParameter()),
-				Arrays.asList(elementType));
+		flattenOperation =
+				flattenOperation.bindTypeParameter(new ArrayList<TypeParameter>(
+						flattenOperation.getOwnedTypeParameter()), Arrays
+						.asList(elementType));
 
 		if (logger.isDebugEnabled()) {
 			logger.debug("bindFlattenOperation() - exit - return value=" //$NON-NLS-1$
@@ -321,15 +327,6 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 		}
 
 		return flattenOperation;
-	}
-
-	private Type checkForNestedCollection(Type elementType) {
-		// check the element type of the source collection type
-		if (elementType instanceof CollectionType) {
-			elementType = ((CollectionType) elementType).getElementType();
-			elementType = checkForNestedCollection(elementType);
-		}
-		return elementType;
 	}
 
 	/**
@@ -380,9 +377,10 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 		}
 
 		// bind the oclAsType operation, which will set its return type
-		oclAsTypeOperation = oclAsTypeOperation
-				.bindTypeParameter(new ArrayList<TypeParameter>(oclAsTypeOperation
-						.getOwnedTypeParameter()), Arrays.asList(representedType));
+		oclAsTypeOperation =
+				oclAsTypeOperation.bindTypeParameter(new ArrayList<TypeParameter>(
+						oclAsTypeOperation.getOwnedTypeParameter()), Arrays
+						.asList(representedType));
 
 		if (logger.isDebugEnabled()) {
 			logger.debug("bindOclAsTypeOperation() - exit - return value=" //$NON-NLS-1$
@@ -433,9 +431,10 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 		// no else.
 
 		/* Bind the oclType operation, which will set its return type. */
-		oclTypeOperation = oclTypeOperation.bindTypeParameter(
-				new ArrayList<TypeParameter>(oclTypeOperation.getOwnedTypeParameter()),
-				Arrays.asList(representedType));
+		oclTypeOperation =
+				oclTypeOperation.bindTypeParameter(new ArrayList<TypeParameter>(
+						oclTypeOperation.getOwnedTypeParameter()), Arrays
+						.asList(representedType));
 
 		/* Probably log the exit of this method. */
 		if (logger.isDebugEnabled()) {
@@ -471,6 +470,26 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 		}
 		// no else.
 
+		/* Get the source's type. */
+		Type sourceType;
+		sourceType = this.getSource().getType();
+
+		/* Check that the type is not null. */
+		if (sourceType == null) {
+			throw new WellformednessException(this,
+					"The source's type of the 'product' operation must be defined."); //$NON-NLS-1$
+		}
+		// no else.
+
+		if (!(sourceType instanceof CollectionType)) {
+			throw new WellformednessException(this,
+					"The source's type of the 'product' operation must be a collection type."); //$NON-NLS-1$
+		}
+		// no else.
+
+		Type sourceElementType;
+		sourceElementType = ((CollectionType) sourceType).getElementType();
+
 		/* Check argument size. */
 		if (getArgument().size() != 1) {
 			throw new WellformednessException(this,
@@ -478,30 +497,11 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 		}
 		// no else.
 
-		/* Get the param's type. */
-		Type paramType;
-		paramType = this.getArgument().get(0).getType();
-
-		/* Check that the type is not null. */
-		if (paramType == null) {
-			throw new WellformednessException(this,
-					"The params's type of the 'product' operation must be defined."); //$NON-NLS-1$
-		}
-		// no else.
-
-		if (!(this.getSource().getType() instanceof CollectionType)) {
-			throw new WellformednessException(this,
-					"The source's type of the 'product' operation must be a collection type."); //$NON-NLS-1$
-		}
-		// no else.
-
-		Type paramElementType;
-		paramElementType = ((CollectionType) paramType).getElementType();
-
 		/* Bind the product operation, which will set its return type. */
-		productOperation = productOperation.bindTypeParameter(
-				new ArrayList<TypeParameter>(productOperation.getOwnedTypeParameter()),
-				Arrays.asList(paramElementType));
+		productOperation =
+				productOperation.bindTypeParameter(new ArrayList<TypeParameter>(
+						productOperation.getOwnedTypeParameter()), Arrays
+						.asList(sourceElementType));
 
 		/* Probably log the exit of this method. */
 		if (logger.isDebugEnabled()) {
@@ -536,9 +536,10 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 		}
 
 		// now bind the 'allInstances' operation with the source type
-		allInstancesOperation = allInstancesOperation.bindTypeParameter(
-				new ArrayList<TypeParameter>(allInstancesOperation
-						.getOwnedTypeParameter()), Arrays.asList(srcType));
+		allInstancesOperation =
+				allInstancesOperation.bindTypeParameter(new ArrayList<TypeParameter>(
+						allInstancesOperation.getOwnedTypeParameter()), Arrays
+						.asList(srcType));
 
 		if (logger.isDebugEnabled()) {
 			logger.debug("bindAllInstancesOperation() - exit - return value=" //$NON-NLS-1$
@@ -566,10 +567,11 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 	 * @generated
 	 */
 	public List<OclExpression> getArgument() {
+
 		if (argument == null) {
-			argument = new EObjectContainmentEList<OclExpression>(
-					OclExpression.class, this,
-					ExpressionsPackageImpl.OPERATION_CALL_EXP__ARGUMENT);
+			argument =
+					new EObjectContainmentEList<OclExpression>(OclExpression.class, this,
+							ExpressionsPackageImpl.OPERATION_CALL_EXP__ARGUMENT);
 		}
 		return argument;
 	}
@@ -579,6 +581,7 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 	 * @generated
 	 */
 	public Operation getReferredOperation() {
+
 		return referredOperation;
 	}
 
@@ -587,6 +590,7 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 	 * @generated
 	 */
 	public void setReferredOperation(Operation newReferredOperation) {
+
 		Operation oldReferredOperation = referredOperation;
 		referredOperation = newReferredOperation;
 		if (eNotificationRequired())
@@ -602,6 +606,7 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.OPERATION_CALL_EXP__ARGUMENT:
 			return ((InternalEList<?>) getArgument()).basicRemove(otherEnd, msgs);
@@ -615,6 +620,7 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.OPERATION_CALL_EXP__ARGUMENT:
 			return getArgument();
@@ -631,6 +637,7 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.OPERATION_CALL_EXP__ARGUMENT:
 			getArgument().clear();
@@ -649,6 +656,7 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 	 */
 	@Override
 	public void eUnset(int featureID) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.OPERATION_CALL_EXP__ARGUMENT:
 			getArgument().clear();
@@ -666,6 +674,7 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
+
 		switch (featureID) {
 		case ExpressionsPackageImpl.OPERATION_CALL_EXP__ARGUMENT:
 			return argument != null && !argument.isEmpty();
@@ -681,6 +690,7 @@ public class OperationCallExpImpl extends FeatureCallExpImpl implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
+
 		return ExpressionsPackageImpl.Literals.OPERATION_CALL_EXP;
 	}
 

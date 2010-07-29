@@ -347,8 +347,7 @@ public class ComplexGenericTypeImpl extends GenericTypeImpl implements
 	@Override
 	public ComplexGenericType clone() {
 
-		return initialize(PivotModelFactory.eINSTANCE
-				.createComplexGenericType());
+		return initialize(PivotModelFactory.eINSTANCE.createComplexGenericType());
 	}
 
 	/**

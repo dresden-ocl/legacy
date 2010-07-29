@@ -9,7 +9,7 @@ import tudresden.ocl20.pivot.language.ocl.OclExpressionCS;
 import tudresden.ocl20.pivot.language.ocl.ParameterCS;
 import tudresden.ocl20.pivot.language.ocl.TypeCS;
 import tudresden.ocl20.pivot.language.ocl.resource.ocl.IOclReferenceResolveHelper;
-import tudresden.ocl20.pivot.language.ocl.resource.ocl.mopp.IOclResource;
+import tudresden.ocl20.pivot.language.ocl.resource.ocl.mopp.OclResource;
 import tudresden.ocl20.pivot.pivotmodel.NamedElement;
 import tudresden.ocl20.pivot.pivotmodel.Namespace;
 import tudresden.ocl20.pivot.pivotmodel.Operation;
@@ -23,7 +23,7 @@ public class OclReferenceResolveHelper implements IOclReferenceResolveHelper {
 	public List<Namespace> resolveNamespace(String identifier,
 			boolean resolveFuzzy, EObject container) {
 		List<Namespace> ret = OclStaticSemanticsProvider.getStaticSemantics(
-				(IOclResource) container.eResource()).resolveNamespace(identifier,
+				(OclResource) container.eResource()).resolveNamespace(identifier,
 				resolveFuzzy, container);
 		return ret;
 	}
@@ -32,7 +32,7 @@ public class OclReferenceResolveHelper implements IOclReferenceResolveHelper {
 	public List<Type> resolveType(String identifier, boolean resolveFuzzy,
 			EObject container) {
 		List<Type> ret = OclStaticSemanticsProvider.getStaticSemantics(
-				(IOclResource) container.eResource()).resolveType(identifier,
+				(OclResource) container.eResource()).resolveType(identifier,
 				resolveFuzzy, container);
 		return ret;
 	}
@@ -41,7 +41,7 @@ public class OclReferenceResolveHelper implements IOclReferenceResolveHelper {
 	public List<NamedElement> resolveNamedElement(String identifier,
 			boolean resolveFuzzy, EObject container) {
 		List<NamedElement> ret = OclStaticSemanticsProvider.getStaticSemantics(
-				(IOclResource) container.eResource()).resolveNamedElement(identifier,
+				(OclResource) container.eResource()).resolveNamedElement(identifier,
 				resolveFuzzy, container);
 		return ret;
 	}
@@ -50,7 +50,7 @@ public class OclReferenceResolveHelper implements IOclReferenceResolveHelper {
 	public List<Property> resolveProperty(String identifier,
 			boolean resolveFuzzy, EObject container) {
 		List<Property> ret = OclStaticSemanticsProvider.getStaticSemantics(
-				(IOclResource) container.eResource()).resolveProperty(identifier,
+				(OclResource) container.eResource()).resolveProperty(identifier,
 				resolveFuzzy, container);
 		return ret;
 	}
@@ -59,7 +59,7 @@ public class OclReferenceResolveHelper implements IOclReferenceResolveHelper {
 	public List<Property> resolvePropertyDefinition(String identifier,
 			boolean resolveFuzzy, EObject container) {
 		List<Property> ret = OclStaticSemanticsProvider.getStaticSemantics(
-				(IOclResource) container.eResource()).resolvePropertyDefinition(identifier,
+				(OclResource) container.eResource()).resolvePropertyDefinition(identifier,
 				resolveFuzzy, container);
 		return ret;
 	}
@@ -67,10 +67,10 @@ public class OclReferenceResolveHelper implements IOclReferenceResolveHelper {
 	@Override
 	public List<Operation> resolveOperation(String identifier,
 			boolean resolveFuzzy, EObject container, EReference reference,
-			List<OclExpressionCS> parameters, boolean isStatic) {
+			List<OclExpressionCS> parameters) {
 		List<Operation> ret = OclStaticSemanticsProvider.getStaticSemantics(
-				(IOclResource) container.eResource()).resolveOperation(identifier,
-				resolveFuzzy, container, reference, parameters, isStatic);
+				(OclResource) container.eResource()).resolveOperation(identifier,
+				resolveFuzzy, container, reference, parameters);
 		return ret;
 	}
 
@@ -79,7 +79,7 @@ public class OclReferenceResolveHelper implements IOclReferenceResolveHelper {
 			boolean resolveFuzzy, EObject container, EReference reference,
 			List<ParameterCS> parameters, TypeCS returnType) {
 		List<Operation> ret = OclStaticSemanticsProvider.getStaticSemantics(
-				(IOclResource) container.eResource()).resolveOperationDefinition(
+				(OclResource) container.eResource()).resolveOperationDefinition(
 				identifier, resolveFuzzy, container, reference, parameters,
 				returnType);
 		return ret;
@@ -90,7 +90,7 @@ public class OclReferenceResolveHelper implements IOclReferenceResolveHelper {
 			boolean resolveFuzzy, EObject container, EReference reference,
 			TypeCS parameterType) {
 		List<Parameter> ret = OclStaticSemanticsProvider.getStaticSemantics(
-				(IOclResource) container.eResource()).resolveParameterDefinition(
+				(OclResource) container.eResource()).resolveParameterDefinition(
 				identifier, resolveFuzzy, container, reference, parameterType);
 		return ret;
 	}

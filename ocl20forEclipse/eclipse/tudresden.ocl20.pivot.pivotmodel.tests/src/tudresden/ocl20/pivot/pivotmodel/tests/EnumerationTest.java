@@ -36,7 +36,6 @@ import junit.textui.TestRunner;
 
 import tudresden.ocl20.pivot.pivotmodel.Enumeration;
 
-import tudresden.ocl20.pivot.pivotmodel.PivotModelFactory;
 import tudresden.ocl20.pivot.pivotmodel.impl.PivotModelFactoryImpl;
 
 /**
@@ -60,6 +59,7 @@ public class EnumerationTest extends TypeTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
+
 		TestRunner.run(EnumerationTest.class);
 	}
 
@@ -70,6 +70,7 @@ public class EnumerationTest extends TypeTest {
 	 * @generated
 	 */
 	public EnumerationTest(String name) {
+
 		super(name);
 	}
 
@@ -81,6 +82,7 @@ public class EnumerationTest extends TypeTest {
 	 */
 	@Override
 	protected Enumeration getFixture() {
+
 		return (Enumeration) fixture;
 	}
 
@@ -92,7 +94,8 @@ public class EnumerationTest extends TypeTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(PivotModelFactory.eINSTANCE.createEnumeration());
+
+		setFixture(PivotModelFactoryImpl.eINSTANCE.createEnumeration());
 	}
 
 	/**
@@ -103,6 +106,7 @@ public class EnumerationTest extends TypeTest {
 	 */
 	@Override
 	protected void tearDown() throws Exception {
+
 		setFixture(null);
 	}
 
@@ -114,6 +118,7 @@ public class EnumerationTest extends TypeTest {
 	 * @generated
 	 */
 	public void testAddLiteral__EnumerationLiteral() {
+
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -127,6 +132,7 @@ public class EnumerationTest extends TypeTest {
 	 * @generated
 	 */
 	public void testLookupLiteral__String() {
+
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

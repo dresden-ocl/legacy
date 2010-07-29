@@ -14,6 +14,7 @@
 package tudresden.ocl20.pivot.metamodels.java.test.tests;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.util.Arrays;
@@ -21,7 +22,9 @@ import java.util.Arrays;
 import org.junit.Test;
 
 import tudresden.ocl20.pivot.facade.Ocl2ForEclipseFacade;
+import tudresden.ocl20.pivot.metamodels.java.test.JavaMetaModelTestPlugin;
 import tudresden.ocl20.pivot.model.IModel;
+import tudresden.ocl20.pivot.model.ModelAccessException;
 import tudresden.ocl20.pivot.model.ModelConstants;
 import tudresden.ocl20.pivot.pivotmodel.Type;
 
@@ -33,24 +36,56 @@ import tudresden.ocl20.pivot.pivotmodel.Type;
  * 
  * @author Claas Wilke
  */
-public class TestJarArchiveReference extends AbstractJavaModelTest {
+public class TestJarArchiveReference {
+
+	/**
+	 * <p>
+	 * Returns the file object for a given path relative to the plug-in's
+	 * directory.
+	 * </p>
+	 * 
+	 * @param path
+	 *            The path of the resource.
+	 * @return The found {@link File} object.
+	 */
+	private static File getFile(String path) {
+
+		String filePath;
+		filePath = JavaMetaModelTestPlugin.getDefault().getBundle()
+				.getLocation();
+		/* Remove 'reference:file:/' */
+		filePath = filePath.substring(16);
+
+		filePath += JavaMetaModelTestPlugin.getDefault().getBundle()
+				.getResource(path).getPath().substring(1);
+
+		File constraintFile;
+		constraintFile = new File(filePath);
+
+		assertTrue(constraintFile.exists());
+
+		return constraintFile;
+	}
 
 	/**
 	 * <p>
 	 * Tests the adaptation of a provider class referencing a Jar archive.
 	 * </p>
 	 * 
-	 * @throws Exception
+	 * @throws ModelAccessException
+	 * @throws IllegalArgumentException
 	 */
 	@Test
-	public void testAdaptation01() throws Exception {
+	public void testAdaptation01() throws IllegalArgumentException,
+			ModelAccessException {
 
 		String msg;
 
 		msg = "The adaptation of referenced Jar Archives seems to be wrong. ";
 
 		File modelFile;
-		modelFile = getFile("resources/simpleTest.javamodel");
+		modelFile = TestJarArchiveReference
+				.getFile("resources/simpleTest.javamodel");
 
 		IModel model;
 		model = Ocl2ForEclipseFacade.getModel(modelFile,

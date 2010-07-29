@@ -49,7 +49,16 @@ public class TestPropertyClass {
 	 * </p>
 	 */
 	@SuppressWarnings("unused")
-	private List<TestTypeClass1> orderedMultipleAssociationEnd;
+	private List<TestPropertyClass> orderedMultipleAssociationEnd;
+
+	/**
+	 * <p>
+	 * A Property to test the adaptation of Properties which are multiple and
+	 * unordered.
+	 * </p>
+	 */
+	@SuppressWarnings("unused")
+	private Set<TestPropertyClass> unorderedMultipleAssociationEnd;
 
 	/**
 	 * <p>
@@ -58,7 +67,16 @@ public class TestPropertyClass {
 	 * </p>
 	 */
 	@SuppressWarnings("unused")
-	private Set<TestTypeClass1> uniqueMultipleAssociationEnd;
+	private Set<TestPropertyClass> uniqueMultipleAssociationEnd;
+
+	/**
+	 * <p>
+	 * A Property to test the adaptation of Properties which are multiple and
+	 * non-unique.
+	 * </p>
+	 */
+	@SuppressWarnings("unused")
+	private List<TestPropertyClass> nonuniqueMultipleAssociationEnd;
 
 	/**
 	 * <p>
@@ -66,7 +84,7 @@ public class TestPropertyClass {
 	 * </p>
 	 */
 	@SuppressWarnings("unused")
-	private static TestTypeClass1 staticProperty;
+	private static boolean staticProperty;
 
 	/**
 	 * <p>
@@ -74,7 +92,7 @@ public class TestPropertyClass {
 	 * </p>
 	 */
 	@SuppressWarnings("unused")
-	private TestTypeClass1 nonmultipleProperty;
+	private boolean nonmultipleProperty;
 
 	/**
 	 * <p>
@@ -82,7 +100,7 @@ public class TestPropertyClass {
 	 * </p>
 	 */
 	@SuppressWarnings("unused")
-	private TestTypeClass1 multipleAssociationEnd;
+	private TestPropertyClass multipleAssociationEnd;
 
 	/**
 	 * <p>
@@ -90,7 +108,7 @@ public class TestPropertyClass {
 	 * </p>
 	 */
 	@SuppressWarnings("unused")
-	private TestTypeClass1[] multipleProperty;
+	private boolean[] multipleProperty;
 
 	/**
 	 * <p>
@@ -99,7 +117,16 @@ public class TestPropertyClass {
 	 * </p>
 	 */
 	@SuppressWarnings("unused")
-	private TestTypeClass1[] orderedMultipleProperty;
+	private boolean[] orderedMultipleProperty;
+
+	/**
+	 * <p>
+	 * A Property to test the adaptation of Properties which are multiple and
+	 * unordered.
+	 * </p>
+	 */
+	@SuppressWarnings("unused")
+	private Set<Boolean> unorderedMultipleProperty;
 
 	/**
 	 * <p>
@@ -108,5 +135,14 @@ public class TestPropertyClass {
 	 * </p>
 	 */
 	@SuppressWarnings("unused")
-	private Set<TestTypeClass1> uniqueMultipleProperty;
+	private Set<Boolean> uniqueMultipleProperty;
+
+	/**
+	 * <p>
+	 * A Property to test the adaptation of Properties which are multiple and
+	 * non-unique.
+	 * </p>
+	 */
+	@SuppressWarnings("unused")
+	private boolean[] nonuniqueMultipleProperty;
 }

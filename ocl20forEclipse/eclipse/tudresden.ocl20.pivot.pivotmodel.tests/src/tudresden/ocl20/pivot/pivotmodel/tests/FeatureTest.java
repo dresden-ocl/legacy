@@ -49,6 +49,7 @@ public abstract class FeatureTest extends TypedElementTest {
 	 * @generated
 	 */
 	public FeatureTest(String name) {
+
 		super(name);
 	}
 
@@ -60,6 +61,7 @@ public abstract class FeatureTest extends TypedElementTest {
 	 */
 	@Override
 	protected Feature getFixture() {
+
 		return (Feature) fixture;
 	}
 

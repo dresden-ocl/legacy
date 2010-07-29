@@ -20,7 +20,6 @@ import org.apache.log4j.Logger;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.uml2.uml.LiteralUnlimitedNatural;
 
-import tudresden.ocl20.pivot.essentialocl.EssentialOclPlugin;
 import tudresden.ocl20.pivot.metamodels.uml2.UML2MetamodelPlugin;
 import tudresden.ocl20.pivot.pivotmodel.Operation;
 import tudresden.ocl20.pivot.pivotmodel.Parameter;
@@ -43,8 +42,8 @@ public class UML2Operation extends AbstractOperation implements Operation {
 	 * 
 	 * @generated NOT
 	 */
-	private static final Logger LOGGER = UML2MetamodelPlugin
-			.getLogger(UML2Operation.class);
+	private static final Logger LOGGER =
+			UML2MetamodelPlugin.getLogger(UML2Operation.class);
 
 	/**
 	 * <p>
@@ -57,37 +56,23 @@ public class UML2Operation extends AbstractOperation implements Operation {
 
 	/**
 	 * <p>
-	 * The {@link UML2AdapterFactory} used to create nested elements.
-	 * </p>
-	 * 
-	 * @generate NOT
-	 */
-	private UML2AdapterFactory factory;
-
-	/**
-	 * <p>
 	 * Creates a new <code>UML2Operation</code> instance.
 	 * </p>
 	 * 
 	 * @param dslOperation
-	 *            the {@link org.eclipse.uml2.uml.Operation} that is adopted by
-	 *            this class
-	 * @param factory
-	 *            The {@link UML2AdapterFactory} used to create nested elements.
+	 *          the {@link org.eclipse.uml2.uml.Operation} that is adopted by this
+	 *          class
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
-	public UML2Operation(org.eclipse.uml2.uml.Operation dslOperation,
-			UML2AdapterFactory factory) {
+	public UML2Operation(org.eclipse.uml2.uml.Operation dslOperation) {
 
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER
-					.debug("UML2Operation(dslOperation = " + dslOperation + ", factory = " + factory + ") - enter"); //$NON-NLS-1$ //$NON-NLS-2$
+			LOGGER.debug("UML2Operation(dslOperation=" + dslOperation + ") - enter"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		// initialize
 		this.dslOperation = dslOperation;
-		this.factory = factory;
 
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("UML2Operation() - exit"); //$NON-NLS-1$
@@ -119,7 +104,8 @@ public class UML2Operation extends AbstractOperation implements Operation {
 
 		for (org.eclipse.uml2.uml.Parameter dslOwnedParameter : dslOperation
 				.getOwnedParameters()) {
-			result.add(this.factory.createParameter(dslOwnedParameter));
+			result
+					.add(UML2AdapterFactory.INSTANCE.createParameter(dslOwnedParameter));
 		}
 
 		/* Eventually add the void return parameter manually. */
@@ -142,9 +128,10 @@ public class UML2Operation extends AbstractOperation implements Operation {
 		Type result;
 
 		if (this.dslOperation.getOwner() instanceof org.eclipse.uml2.uml.Type) {
-			result = this.factory
-					.createType(((org.eclipse.uml2.uml.Type) this.dslOperation
-							.getOwner()));
+			result =
+					UML2AdapterFactory.INSTANCE
+							.createType(((org.eclipse.uml2.uml.Type) this.dslOperation
+									.getOwner()));
 		}
 
 		else {
@@ -169,50 +156,7 @@ public class UML2Operation extends AbstractOperation implements Operation {
 	@Override
 	public Type getType() {
 
-		Type result;
-		Type elementType;
-
-		elementType = this.factory.createType(this.dslOperation.getType());
-
-		/* Probably adapt type into a collection. */
-		if (this.dslOperation.getUpper() > 1
-				|| this.dslOperation.getUpper() == LiteralUnlimitedNatural.UNLIMITED) {
-
-			if (this.dslOperation.isOrdered()) {
-
-				/* OrderedSet. */
-				if (this.dslOperation.isUnique()) {
-					result = EssentialOclPlugin.getOclLibraryProvider()
-							.getOclLibrary().getOrderedSetType(elementType);
-				}
-
-				/* Sequence. */
-				else {
-					result = EssentialOclPlugin.getOclLibraryProvider()
-							.getOclLibrary().getSequenceType(elementType);
-				}
-			}
-
-			else {
-				/* Set. */
-				if (this.dslOperation.isUnique()) {
-					result = EssentialOclPlugin.getOclLibraryProvider()
-							.getOclLibrary().getSetType(elementType);
-				}
-
-				/* Bag. */
-				else {
-					result = EssentialOclPlugin.getOclLibraryProvider()
-							.getOclLibrary().getBagType(elementType);
-				}
-			}
-		}
-
-		else {
-			result = elementType;
-		}
-
-		return result;
+		return UML2AdapterFactory.INSTANCE.createType(dslOperation.getType());
 	}
 
 	/**
@@ -226,16 +170,52 @@ public class UML2Operation extends AbstractOperation implements Operation {
 
 		/* Check if the return parameter is null. */
 		if (this.dslOperation.getReturnResult() == null) {
-			result = this.factory.createVoidReturnParameter(this.dslOperation);
+			result =
+					UML2AdapterFactory.INSTANCE
+							.createVoidReturnParameter(this.dslOperation);
 		}
 
 		/* Else adapt the return parameter. */
 		else {
-			result = this.factory.createParameter(this.dslOperation
-					.getReturnResult());
+			result =
+					UML2AdapterFactory.INSTANCE.createParameter(this.dslOperation
+							.getReturnResult());
 		}
 
 		return result;
+	}
+
+	/**
+	 * @see tudresden.ocl20.pivot.pivotmodel.impl.OperationImpl#isMultiple()
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isMultiple() {
+
+		boolean result;
+
+		/*
+		 * see: UML Infrastructure (07-11-04), p. 97: There is no operation
+		 * isMultiple(), since Operation does not directly inherit from
+		 * MultiplicityElement.
+		 */
+		result =
+				this.dslOperation.getUpper() > 1
+						|| this.dslOperation.getUpper() == LiteralUnlimitedNatural.UNLIMITED;
+
+		return result;
+	}
+
+	/**
+	 * @see tudresden.ocl20.pivot.pivotmodel.impl.OperationImpl#isOrdered()
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isOrdered() {
+
+		return this.dslOperation.isOrdered();
 	}
 
 	/**
@@ -246,5 +226,16 @@ public class UML2Operation extends AbstractOperation implements Operation {
 	public boolean isStatic() {
 
 		return this.dslOperation.isStatic();
+	}
+
+	/**
+	 * @see tudresden.ocl20.pivot.pivotmodel.impl.OperationImpl#isUnique()
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isUnique() {
+
+		return this.dslOperation.isUnique();
 	}
 }
