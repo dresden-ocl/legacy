@@ -7,7 +7,7 @@
 	</extension>
 	
 	<extension point="org.eclipse.ui.editors">
-		<editor class="tudresden.ocl20.pivot.language.ocl.resource.ocl.ui.OclEditor" contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor" extensions="ocl" icon="icons/editor_icon.gif" id="tudresden.ocl20.pivot.language.ocl.resource.ocl.ui.OclEditor" name="EMFText ocl Editor">
+		<editor class="tudresden.ocl20.pivot.language.ocl.resource.ocl.ui.OclEditor" contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor" extensions="ocl" icon="icons/editor_icon.gif" id="tudresden.ocl20.pivot.language.ocl.resource.ocl.ui.OclEditor" name="DresdenOCL Editor">
 			<contentTypeBinding contentTypeId="tudresden.ocl20.pivot.language.ocl.resource.ocl"/>
 		</editor>
 	</extension>
@@ -27,7 +27,7 @@
 	</extension>
 	
 	<extension point="org.eclipse.ui.preferencePages">
-		<page name="Ocl Text Editor" id="tudresden.ocl20.pivot.language.ocl.resource.ocl.ui.OclPreferencePage" class="tudresden.ocl20.pivot.language.ocl.resource.ocl.ui.OclPreferencePage" category="org.eclipse.ui.preferencePages.GeneralTextEditor">
+		<page name="DresdenOCL Editor" id="tudresden.ocl20.pivot.language.ocl.resource.ocl.ui.OclPreferencePage" class="tudresden.ocl20.pivot.language.ocl.resource.ocl.ui.OclPreferencePage" category="org.eclipse.ui.preferencePages.GeneralTextEditor">
 		</page>
 		<page name="Syntax Coloring" id="tudresden.ocl20.pivot.language.ocl.resource.ocl.ui.OclSyntaxColoringPreferencePage" class="tudresden.ocl20.pivot.language.ocl.resource.ocl.ui.OclSyntaxColoringPreferencePage" category="tudresden.ocl20.pivot.language.ocl.resource.ocl.ui.OclPreferencePage">
 		</page>
