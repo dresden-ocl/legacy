@@ -2644,10 +2644,18 @@ public class OclInterpreter extends ExpressionsSwitch<OclAny> implements
 		/* Probably log the exit from this method. */
 		if (LOGGER.isDebugEnabled()) {
 			this.popLogOffset();
-			LOGGER.debug(this.logOffset
-					+ "Interpreted OperationCall on Operation "
-					+ operationCallExp.getReferredOperation().getName()
-					+ ". Result = " + result);
+
+			String msg = this.logOffset
+					+ "Interpreted OperationCall on Operation ";
+
+			if (operationCallExp.getReferredOperation() != null)
+				msg += operationCallExp.getReferredOperation().getName();
+			else
+				msg += operationCallExp.getName();
+
+			msg += ". Result = " + result;
+
+			LOGGER.debug(msg);
 		}
 		// no else.
 
