@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="tudresden.ocl20.feature.ocl22sql"
+      label="Ocl22Sql Code Generator"
+      version="3.0.0.qualifier"
+      provider-name="TU Dresden, Software Technoloy Group">
+
+   <description url="http://www.example.com/description">
+      Contains the Ocl22Sql code generator developed by Björn Freitag.
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <requires>
+      <import plugin="tudresden.ocl20.logging"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="tudresden.ocl20.pivot.tools.codegen"/>
+      <import plugin="tudresden.ocl20.pivot.tools.template"/>
+      <import plugin="tudresden.ocl20.pivot.essentialocl"/>
+      <import plugin="tudresden.ocl20.pivot.modelbus"/>
+      <import plugin="org.eclipse.osgi"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="tudresden.ocl20.pivot.tools.codegen.ui"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="tudresden.ocl20.pivot.pivotmodel"/>
+      <import plugin="tudresden.ocl20.pivot.metamodels.uml2"/>
+   </requires>
+
+   <plugin
+         id="tudresden.ocl20.pivot.tools.codegen.declarativ"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="tudresden.ocl20.pivot.tools.codegen.declarativ.ocl2sql"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="tudresden.ocl20.pivot.tools.codegen.declarativ.ocl2sql.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="tudresden.ocl20.pivot.tools.CWM"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="tudresden.ocl20.pivot.tools.template.sql"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="tudresden.ocl20.pivot.tools.transformation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="tudresden.ocl20.pivot.tools.transformation.pivot2sql"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
