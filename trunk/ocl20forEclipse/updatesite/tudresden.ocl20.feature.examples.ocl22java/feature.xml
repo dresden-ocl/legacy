@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="tudresden.ocl20.feature.examples.ocl22java"
-      label="Dresden OCL2 for Eclipse Ocl22Java Examples"
-      version="2.2.0.qualifier"
+      label="Dresden OCL Ocl22Java Examples"
+      version="3.0.0.qualifier"
       provider-name="TU Dresden, Software Technology Group">
 
    <description url="http://www.example.com/description">
@@ -186,10 +186,10 @@ Library.
    <requires>
       <import plugin="org.aspectj.runtime"/>
       <import plugin="org.junit4" version="4.0.0" match="greaterOrEqual"/>
-      <import plugin="tudresden.ocl20.pivot.ocl2java.types" version="2.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui" version="3.4.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.runtime" version="3.4.0" match="greaterOrEqual"/>
       <import plugin="tudresden.ocl20.pivot.testsuite" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="tudresden.ocl20.pivot.tools.codegen.ocl2java.types" version="2.1.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -207,7 +207,7 @@ Library.
          unpack="false"/>
 
    <plugin
-         id="tudresden.ocl20.pivot.ocl22java.test.aspectj"
+         id="tudresden.ocl20.pivot.tools.codegen.ocl2java.test.aspectj"
          download-size="0"
          install-size="0"
          version="0.0.0"
