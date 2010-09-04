@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <associateSites>
 	<associateSite label="AspectJ Development Tools"
-		url="http://download.eclipse.org/tools/ajdt/35/update"/>		
+		url="http://download.eclipse.org/tools/ajdt/36/update"/>		
 	<associateSite label="EMFText"
 		url="http://www.emftext.org/update/"/>		
 </associateSites>
