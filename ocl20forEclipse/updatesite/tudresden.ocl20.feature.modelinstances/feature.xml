@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="tudresden.ocl20.feature.modelinstances"
-      label="DresdenOCL Model Instances"
+      label="Dresden OCL Model Instances"
       version="3.0.0.qualifier"
       provider-name="TU Dresden, Software Technology Group">
 

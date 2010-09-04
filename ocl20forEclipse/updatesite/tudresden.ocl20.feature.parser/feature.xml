@@ -215,20 +215,6 @@ Library.
    </requires>
 
    <plugin
-         id="tudresden.ocl20.pivot.ocl2parser.test"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="tudresden.ocl20.pivot.parser"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.kiama.attribution"
          download-size="0"
          install-size="0"
@@ -271,6 +257,20 @@ Library.
 
    <plugin
          id="tudresden.ocl20.pivot.language.ocl.staticsemantics"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="tudresden.ocl20.pivot.ocl2parser.test"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="tudresden.ocl20.pivot.parser"
          download-size="0"
          install-size="0"
          version="0.0.0"
