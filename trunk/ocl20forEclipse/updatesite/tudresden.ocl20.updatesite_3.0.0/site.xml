@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site
-      associateSitesURL="associateSites.xml">
+      associateSitesURL="http://dresden-ocl.sourceforge.net/downloads/latestbuild/associateSites.xml">
    <feature url="features/tudresden.ocl20.feature.codegen_3.0.0.201009041026.jar" id="tudresden.ocl20.feature.codegen" version="3.0.0.201009041026">
       <category name="DresdenOCL"/>
    </feature>
