@@ -29,21 +29,21 @@ import org.osgi.framework.BundleContext;
  * 
  * @author Claas Wilke.
  */
-public class Ocl2CodeTestPlugin extends Plugin {
+public class Ocl2JavaTestPlugin extends Plugin {
 
 	/** The plug-in ID. */
 	public static final String PLUGIN_ID =
 			"tudresden.ocl20.pivot.tools.codegen.ocl2java.test";
 
 	/** The shared instance. */
-	private static Ocl2CodeTestPlugin plugin;
+	private static Ocl2JavaTestPlugin plugin;
 
 	/**
 	 * <p>
-	 * Creates a new {@link Ocl2CodeTestPlugin}.
+	 * Creates a new {@link Ocl2JavaTestPlugin}.
 	 * </p>
 	 */
-	public Ocl2CodeTestPlugin() {
+	public Ocl2JavaTestPlugin() {
 
 	}
 
@@ -75,7 +75,7 @@ public class Ocl2CodeTestPlugin extends Plugin {
 	 * 
 	 * @return the shared instance
 	 */
-	public static Ocl2CodeTestPlugin getDefault() {
+	public static Ocl2JavaTestPlugin getDefault() {
 
 		return plugin;
 	}
