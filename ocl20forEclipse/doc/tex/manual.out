@@ -2,8 +2,8 @@
 \BOOKMARK [-1][-]{section*.7}{Using Dresden OCL}{}
 \BOOKMARK [0][-]{chapter.1}{1 About Dresden OCL}{section*.7}
 \BOOKMARK [1][-]{section.1.1}{1.1 Supported Version of OCL}{chapter.1}
-\BOOKMARK [2][-]{subsection.1.1.1}{1.1.1 Comformance of DresdenOCL to the OCL 2.2 specification}{section.1.1}
-\BOOKMARK [2][-]{subsection.1.1.2}{1.1.2 Different Semantics of OCL Expressions in DresdenOCL}{section.1.1}
+\BOOKMARK [2][-]{subsection.1.1.1}{1.1.1 Comformance of Dresden OCL to the OCL 2.2 specification}{section.1.1}
+\BOOKMARK [2][-]{subsection.1.1.2}{1.1.2 Different Semantics of OCL Expressions in Dresden OCL}{section.1.1}
 \BOOKMARK [1][-]{section.1.2}{1.2 Supported Models In Dresden OCL}{chapter.1}
 \BOOKMARK [2][-]{subsection.1.2.1}{1.2.1 EMF Ecore Models}{section.1.2}
 \BOOKMARK [2][-]{subsection.1.2.2}{1.2.2 Java Classes as Models}{section.1.2}
@@ -15,16 +15,17 @@
 \BOOKMARK [2][-]{subsection.1.3.3}{1.3.3 XML Model Instances}{section.1.3}
 \BOOKMARK [1][-]{section.1.4}{1.4 Summary}{chapter.1}
 \BOOKMARK [0][-]{chapter.2}{2 Getting started with Dresden OCL}{section*.7}
-\BOOKMARK [1][-]{section.2.1}{2.1 How to Install Dresden OCL2 for Eclipse}{chapter.2}
-\BOOKMARK [2][-]{subsection.2.1.1}{2.1.1 Installing Dresden OCL2 for Eclipse using the Eclipse Update Site}{section.2.1}
-\BOOKMARK [2][-]{subsection.2.1.2}{2.1.2 Importing Dresden OCL2 for Eclipse from the SVN}{section.2.1}
+\BOOKMARK [1][-]{section.2.1}{2.1 How to Install Dresden OCL}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.1.1}{2.1.1 Installing Dresden OCL using the Eclipse Update Site}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.2}{2.1.2 Importing Dresden OCL from the SVN}{section.2.1}
 \BOOKMARK [2][-]{subsection.2.1.3}{2.1.3 Which Plug-ins do You need at least?}{section.2.1}
 \BOOKMARK [2][-]{subsection.2.1.4}{2.1.4 Building the OCL2 Parser}{section.2.1}
 \BOOKMARK [1][-]{section.2.2}{2.2 Loading Models, Model Instances and Constraints}{chapter.2}
 \BOOKMARK [2][-]{subsection.2.2.1}{2.2.1 The Simple Example}{section.2.2}
-\BOOKMARK [2][-]{subsection.2.2.2}{2.2.2 Loading a Model}{section.2.2}
-\BOOKMARK [2][-]{subsection.2.2.3}{2.2.3 Loading a Model Instance}{section.2.2}
-\BOOKMARK [2][-]{subsection.2.2.4}{2.2.4 Parsing OCL Expressions}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.2}{2.2.2 Dresden OCL Perspective}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.3}{2.2.3 Loading a Model}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.4}{2.2.4 Loading a Model Instance}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.5}{2.2.5 Parsing OCL Expressions}{section.2.2}
 \BOOKMARK [1][-]{section.2.3}{2.3 Summary}{chapter.2}
 \BOOKMARK [0][-]{chapter.3}{3 OCL Interpretation}{section*.7}
 \BOOKMARK [1][-]{section.3.1}{3.1 The Simple Example}{chapter.3}
@@ -95,7 +96,7 @@
 \BOOKMARK [2][-]{subsection.9.3.3}{9.3.3 getStaticProperty\(Property\)}{section.9.3}
 \BOOKMARK [2][-]{subsection.9.3.4}{9.3.4 invokeStaticOperation\(Operation, List<IModelInstanceElement>\)}{section.9.3}
 \BOOKMARK [1][-]{section.9.4}{9.4 The IModelInstanceFactory Interface}{chapter.9}
-\BOOKMARK [1][-]{section.9.5}{9.5 Adapting an own Model Implementation Type}{chapter.9}
+\BOOKMARK [1][-]{section.9.5}{9.5 Adapting an own Model Instance Type}{chapter.9}
 \BOOKMARK [0][-]{chapter.10}{10 The Logging Mechanism of Dresden OCL}{section*.19}
 \BOOKMARK [0][-]{chapter.11}{11 The Extensible Test Suite of Dresden OCL}{section*.19}
 \BOOKMARK [0][-]{chapter.12}{12 The Generic Meta-Model Test Suite}{section*.19}
