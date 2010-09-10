@@ -1,37 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site
       associateSitesURL="http://dresden-ocl.sourceforge.net/downloads/latestbuild/associateSites.xml">
-   <feature url="features/tudresden.ocl20.feature.codegen_3.0.0.201009041026.jar" id="tudresden.ocl20.feature.codegen" version="3.0.0.201009041026">
+   <feature url="features/tudresden.ocl20.feature.core_3.0.0.201009101325.jar" id="tudresden.ocl20.feature.core" version="3.0.0.201009101325">
       <category name="DresdenOCL"/>
    </feature>
-   <feature url="features/tudresden.ocl20.feature.core_3.0.0.201009041026.jar" id="tudresden.ocl20.feature.core" version="3.0.0.201009041026">
+   <feature url="features/tudresden.ocl20.feature.examples_3.0.0.201009101325.jar" id="tudresden.ocl20.feature.examples" version="3.0.0.201009101325">
       <category name="DresdenOCL"/>
    </feature>
-   <feature url="features/tudresden.ocl20.feature.examples_3.0.0.201009041026.jar" id="tudresden.ocl20.feature.examples" version="3.0.0.201009041026">
+   <feature url="features/tudresden.ocl20.feature.examples.ocl22java_3.0.0.201009101325.jar" id="tudresden.ocl20.feature.examples.ocl22java" version="3.0.0.201009101325">
       <category name="DresdenOCL"/>
    </feature>
-   <feature url="features/tudresden.ocl20.feature.examples.ocl22java_3.0.0.201009041026.jar" id="tudresden.ocl20.feature.examples.ocl22java" version="3.0.0.201009041026">
+   <feature url="features/tudresden.ocl20.feature.facade_3.0.0.201009101325.jar" id="tudresden.ocl20.feature.facade" version="3.0.0.201009101325">
       <category name="DresdenOCL"/>
    </feature>
-   <feature url="features/tudresden.ocl20.feature.facade_3.0.0.201009041026.jar" id="tudresden.ocl20.feature.facade" version="3.0.0.201009041026">
+   <feature url="features/tudresden.ocl20.feature.interpreter_3.0.0.201009101325.jar" id="tudresden.ocl20.feature.interpreter" version="3.0.0.201009101325">
       <category name="DresdenOCL"/>
    </feature>
-   <feature url="features/tudresden.ocl20.feature.interpreter_3.0.0.201009041026.jar" id="tudresden.ocl20.feature.interpreter" version="3.0.0.201009041026">
+   <feature url="features/tudresden.ocl20.feature.metamodels_3.0.0.201009101325.jar" id="tudresden.ocl20.feature.metamodels" version="3.0.0.201009101325">
       <category name="DresdenOCL"/>
    </feature>
-   <feature url="features/tudresden.ocl20.feature.metamodels_3.0.0.201009041026.jar" id="tudresden.ocl20.feature.metamodels" version="3.0.0.201009041026">
+   <feature url="features/tudresden.ocl20.feature.modelinstances_3.0.0.201009101325.jar" id="tudresden.ocl20.feature.modelinstances" version="3.0.0.201009101325">
       <category name="DresdenOCL"/>
    </feature>
-   <feature url="features/tudresden.ocl20.feature.modelinstances_3.0.0.201009041026.jar" id="tudresden.ocl20.feature.modelinstances" version="3.0.0.201009041026">
+   <feature url="features/tudresden.ocl20.feature.ocl2java_3.0.0.201009101325.jar" id="tudresden.ocl20.feature.ocl2java" version="3.0.0.201009101325">
       <category name="DresdenOCL"/>
    </feature>
-   <feature url="features/tudresden.ocl20.feature.ocl22sql_3.0.0.201009041026.jar" id="tudresden.ocl20.feature.ocl22sql" version="3.0.0.201009041026">
+   <feature url="features/tudresden.ocl20.feature.ocl2sql_3.0.0.201009101325.jar" id="tudresden.ocl20.feature.ocl2sql" version="3.0.0.201009101325">
       <category name="DresdenOCL"/>
    </feature>
-   <feature url="features/tudresden.ocl20.feature.ocl2java_3.0.0.201009041026.jar" id="tudresden.ocl20.feature.ocl2java" version="3.0.0.201009041026">
-      <category name="DresdenOCL"/>
-   </feature>
-   <feature url="features/tudresden.ocl20.feature.parser_3.0.0.201009041026.jar" id="tudresden.ocl20.feature.parser" version="3.0.0.201009041026">
+   <feature url="features/tudresden.ocl20.feature.parser_3.0.0.201009101325.jar" id="tudresden.ocl20.feature.parser" version="3.0.0.201009101325">
       <category name="DresdenOCL"/>
    </feature>
    <category-def name="DresdenOCL" label="Dresden OCL"/>
