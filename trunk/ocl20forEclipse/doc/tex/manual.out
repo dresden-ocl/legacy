@@ -18,7 +18,7 @@
 \BOOKMARK [1][-]{section.2.1}{2.1 How to Install Dresden OCL}{chapter.2}
 \BOOKMARK [2][-]{subsection.2.1.1}{2.1.1 Installing Dresden OCL using the Eclipse Update Site}{section.2.1}
 \BOOKMARK [2][-]{subsection.2.1.2}{2.1.2 Importing Dresden OCL from the SVN}{section.2.1}
-\BOOKMARK [2][-]{subsection.2.1.3}{2.1.3 Which Plug-ins do You need at least?}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.3}{2.1.3 Which Plug-ins do you need at least?}{section.2.1}
 \BOOKMARK [2][-]{subsection.2.1.4}{2.1.4 Building the OCL2 Parser}{section.2.1}
 \BOOKMARK [1][-]{section.2.2}{2.2 Loading Models, Model Instances and Constraints}{chapter.2}
 \BOOKMARK [2][-]{subsection.2.2.1}{2.2.1 The Simple Example}{section.2.2}
@@ -129,3 +129,4 @@
 \BOOKMARK [0][-]{section*.41}{List of Listings}{section*.34}
 \BOOKMARK [0][-]{section*.43}{List of Abbreviations}{section*.34}
 \BOOKMARK [0][-]{section*.45}{References}{section*.34}
+\BOOKMARK [0][-]{section*.47}{Acknowledgements}{section*.34}

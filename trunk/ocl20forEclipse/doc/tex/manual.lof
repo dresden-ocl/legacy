@@ -9,19 +9,17 @@
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Checkout of the Dresden OCL2 Toolkit plug-in projects.}}{24}{figure.2.5}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Executing the OCL2 Parser build script.}}{26}{figure.2.6}
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Settings of the JRE for the Ant build script.}}{26}{figure.2.7}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Refreshing the project ``tudresden.ocl20.pivot.oclparser''.}}{26}{figure.2.8}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces A class diagram describing the Simple Example model.}}{27}{figure.2.9}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces A class diagram describing the Simple Example model.}}{27}{figure.2.10}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces A class diagram describing the Simple Example model.}}{26}{figure.2.8}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces The Dresden OCL Perspective.}}{27}{figure.2.9}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Loading a Model.}}{29}{figure.2.10}
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Loading a Model.}}{29}{figure.2.11}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Loading a Model.}}{29}{figure.2.12}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces The Simple Example Model in the Model Browser.}}{30}{figure.2.13}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces You can switch between different Models using the little Triangle.}}{30}{figure.2.14}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces The Simple Example Model in the Model Browser.}}{30}{figure.2.12}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces You can switch between different Models using the little Triangle.}}{30}{figure.2.13}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Loading a Simple Model Instance.}}{31}{figure.2.14}
 \contentsline {figure}{\numberline {2.15}{\ignorespaces Loading a Simple Model Instance.}}{31}{figure.2.15}
-\contentsline {figure}{\numberline {2.16}{\ignorespaces Loading a Simple Model Instance.}}{31}{figure.2.16}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces A simple model instance in the Model Instance Browser.}}{32}{figure.2.17}
-\contentsline {figure}{\numberline {2.18}{\ignorespaces The import of OCL expressions.}}{33}{figure.2.18}
-\contentsline {figure}{\numberline {2.19}{\ignorespaces Parsed expressions and the model in the Model Browser.}}{33}{figure.2.19}
-\contentsline {figure}{\numberline {2.20}{\ignorespaces How to remove Constraints from a Model again.}}{34}{figure.2.20}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces A simple model instance in the Model Instance Browser.}}{32}{figure.2.16}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Parsed expressions and the model in the Model Browser.}}{32}{figure.2.17}
+\contentsline {figure}{\numberline {2.18}{\ignorespaces How to remove Constraints from a Model again.}}{33}{figure.2.18}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces The Project Explorer containing the Project which is required to run this Tutorial.}}{36}{figure.3.1}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces The Model Browser containing the Simple Model and its Constraints.}}{38}{figure.3.2}
