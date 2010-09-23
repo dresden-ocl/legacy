@@ -1,0 +1,387 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>OCL2 to SQL Transformation - Some Background Information</title>
+<link rel="stylesheet" type="text/css" href="format.css"></head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript">
+function openWindow (url) {
+  Fenster1 = window.open(url, "model", "width=820,height=640,left=100,top=100");
+  Fenster1.scrollbars.visible = true;
+  Fenster1.focus();
+}
+</script>
+</head>
+
+<body>
+<div id="cell">
+  <h2>2. OCL2 to SQL transformation - Some Background Information</h2>
+  <p><strong>Navigation:</strong> <a href="index.html">Introduction</a> - <a href="modelexplanation.html">1.
+    The university model</a> - <font color="#666666">2. Transformation rules</font>
+    - <a href="animationexpl.html">3. The animation </a></p>
+  <p>&nbsp;</p>
+  <h1>2 OCL2 to SQL transormation</h1>
+  <p>This part explains which transformation rules
+    the tool OCL22SQL uses, that is, how classes of
+    the UML model can be mapped to SQL tables and how the contraints are
+    transformed into SQL statements.</p>
+  <p>It will use the university model which was explained
+    in the first part (<a href="modelview.html" target="model" onclick="openWindow(this.href); return false">open
+    the model and its OCL rules in a new window</a>, <a href="modelview.html" target="model">open the window
+    withouth JavaScript</a>).</p>
+  <div id="cell">
+    <p>The chapter is divided into the following parts:</p>
+    <p><a href="#21">2.1 Class Tables</a></p>
+  </div>
+</div>
+<blockquote>
+  <div>
+    <div> <a href="#211">2.1.1 Typed transformation</a><br>
+      <a href="#212">2.1.2 Vertical transformation</a></div>
+  </div>
+</blockquote>
+<div>
+  <div>
+    <p> <a href="#22">2.2 Class views</a></p>
+    <p> <a href="#23">2.3 Transformation of OCL constraints</a></p>
+  </div>
+</div>
+<blockquote>
+  <div>
+    <div>
+      <p><a href="#231">2.3.1 The VIEW approach</a></p>
+    </div>
+  </div>
+</blockquote>
+<div>
+  <div>
+    <p> <a href="#24">2.4 Summary</a></p>
+  </div>
+</div>
+<div>
+  <div></div>
+  <p>&nbsp;</p>
+  <h3><a name="21"></a>2.1 Class Tables <a href="#top"><font size="-2">back to
+    top</font></a></h3>
+  <p>An interesting question during transformation of an UML/OCL model into a
+    database is how to transform the classes into tables of the database schema.
+    Each class should be represented in a table in the database.</p>
+  <p>Below you can see the university example which was explained
+    in <a href="modelexplanation.html">part 1 of the tutorial</a>.</p>
+  <p><a name="model"></a><img src="images/model.gif" width="366" height="336"></p>
+  <p>The class <strong>Grade</strong> will be transformed into the following SQL-Code:</p>
+  <p><strong><font color="#0000FF" face="Courier New, Courier, mono">CREATE TABLE</font></strong><font face="Courier New, Courier, mono">
+    T_Grade (<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;PK_Grade <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>)
+    PRIMARY KEY,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;FK_person <strong><font color="#0000FF">VARCHAR</font></strong>(<font color="#006600">255</font>),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;value <font color="#0000FF"><strong>INT</strong></font>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;name <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>)<br>
+    );</font></p>
+  <p>As you can see, each attribute of the class <strong>Grade </strong>is transformed
+    into one column of the table. The table also contains the primary key <em>PK_Grade
+    </em>that is needed to distinguish <strong>Grades</strong> which have
+    the same values in all attributes, that is, they have the same <em>name</em>
+    and the same <em>value</em>. Additionally, there is a column <em>FK_Person</em>
+    which is a foreign key reference to a <strong>Person</strong> related
+    to the specific grade. </p>
+  <p>Until now, transformation from UML/OCL to SQL seems to be very easy. But what happens
+    if a class has defined subclasses? Should subclasses be transformed into the
+    same table as their root class or should they be represented in extra tables?
+    The OCL22SQL tool supports two different transformation strategies for subclasses:
+    typed transformation and vertical transformation.</p>
+  <p>&nbsp;</p>
+  <p><strong><a name="211"></a>2.1.1 Typed transformation <a href="#top"><font size="-2">back
+    to top</font></a></strong></p>
+  <p>The typed transformation transforms a class and their subclasses into only
+    <strong>one</strong> table. This operation will be explained using the
+    class <strong>Person</strong>.</p>
+  <p>As you can see in the <a href="#model">university model</a>,
+    the class <strong>Person</strong> has the subclasses <strong>Student</strong>,
+    <strong>Employee</strong> and <strong>PhDStudent</strong>. Typed transformation generates one table for all these classes. The specific
+    SQL statement to create these table is:</p>
+  <p><strong><font color="#0000FF" face="Courier New, Courier, mono">CREATE TABLE</font></strong><font face="Courier New, Courier, mono">
+    T_Person (<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;PK_Person <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>)
+    PRIMARY KEY ,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;FK_grade <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;FK_supervisor <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;dissSubject <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;firstName <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;lastName <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;isMarried <strong><font color="#0000FF">BOOL</font></strong>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;birthDate <font color="#0000FF"><strong>DATE</strong></font>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;type <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;soSecNr <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;matDate <font color="#0000FF"><strong>DATE</strong></font>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;matNr <font color="#0000FF"><strong>INT</strong></font>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;wage <font color="#0000FF"><strong>FLOAT</strong></font>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;taxClass <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;age <font color="#0000FF"><strong>INT</strong></font><br>
+    );</font></p>
+  <p>It is obvious that the table contains all attributes of the classes <strong>Person</strong>,
+    <strong>Student</strong>, <strong>Employee</strong> and <strong>PhDStudent</strong>.
+    This causes some advantages and disadvantages:</p>
+</div>
+<ul>
+  <li>
+    <div>Access to the attributes of <strong>Person</strong>s and their subclasses
+      is very easy and without expensive joins.</div>
+  </li>
+  <li>The table contains a lot of redundancy: each <strong>Student</strong> instance
+    has the columns <em>soSecNr</em>, <em>wage</em>, <em>taxClass</em> and
+    <em>dissSubject</em>, which contain NULL values. A lot of storage is wasted.</li>
+</ul>
+<p>&nbsp;</p>
+<p><strong><a name="212"></a>2.1.2 Vertical transformation <a href="#top"><font size="-2">back
+  to top</font></a></strong></p>
+<p>The vertical transformation puts every class and every subclass into
+  its own table. Again, the class <strong>Person</strong> from the <a href="#model">university
+  model</a> and its subclasses are used to explain the transformation. The transformation
+  of these classes results into the following SQL queries:</p>
+<p><strong><font color="#0000FF" face="Courier New, Courier, mono">CREATE TABLE</font></strong><font face="Courier New, Courier, mono">
+  T_Person (<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;PK_Person <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>)
+  PRIMARY KEY,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;FK_grade <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>),<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;FK_supervisor <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>),<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;age <font color="#0000FF"><strong>INT</strong></font>,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;firstName <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>),<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;birthDate <font color="#0000FF"><strong>DATE</strong></font>,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;isMarried <font color="#0000FF"><strong>BOOL</strong></font>,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;lastName <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>)<br>
+  );</font></p>
+<p><font face="Courier New, Courier, mono"><strong><font color="#0000FF">CREATE
+  TABLE</font></strong> T_Employee (<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;PK_Person <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>)
+  PRIMARY KEY,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;taxClass <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>),<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;wage <font color="#0000FF"><strong>FLOAT</strong></font>,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;soSecNr <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>)<br>
+  );</font></p>
+<p><font face="Courier New, Courier, mono"><strong><font color="#0000FF">CREATE
+  TABLE</font></strong> T_PhDStudent (<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;PK_Person <strong><font color="#0000FF">VARCHAR</font></strong>(<font color="#006600">255</font>)
+  PRIMARY KEY,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;dissSubject <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>)<br>
+  );</font></p>
+<p><font face="Courier New, Courier, mono"><strong><font color="#0000FF">CREATE
+  TABLE</font></strong> T_Student (<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;PK_Person <font color="#0000FF"><strong>VARCHAR</strong></font>(<font color="#006600">255</font>)
+  PRIMARY KEY,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;matDate <font color="#0000FF"><strong>DATE</strong></font>,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;matNr <font color="#0000FF"><strong>INT</strong></font><br>
+  );</font></p>
+<p>As explained before, each class is transformed into its own table which contains
+  a column for each attribute of the class. In the example the table of the class <strong>Person</strong>
+  contains its primary key <em>PK_Person</em> and foreign keys to represent
+  relations with other classes. Like the superclass, the subclasses get a
+  primary key column named <em>PK_Person</em>. This
+  key is also used as a foreign key to the table <em>T_Person</em>, where the
+  classes have (some of) their attributes which were defined in the root class
+  <strong>Person</strong>. </p>
+<p>For example the attribute <em>age</em> of each <strong>Student</strong> can
+  be found in the Table <em>T_Person</em> using a join between <em>T_Student.PK_Person</em>
+  and <em>T_Person.PK_Person</em>.</p>
+<p>Vertical transformation causes advantages and disadvantages, too:</p>
+<ul>
+  <li>Each subclass has its own table. Therefore, a specific subclass has no NULL values of attributes that are defined by another subclass.</li>
+  <li>To query all attributes of a subclass an expensive join is needed.</li>
+</ul>
+<p>&nbsp;</p>
+<h3><a name="22"></a>2.2 Class views <a href="#top"><font size="-2">back to top</font></a></h3>
+<p>As seen in <a href="#21">part 2.1</a>, the OCL22SQL tool supports two
+  strategies to transform classes from the model to tables in the database. This
+  causes different queries to get the data for a specific class instance.</p>
+<p>Using typed transformation, all attributes of the class are in one table. To
+  get the attributes of a Student called 'Martin Mustermann' you have to use the
+  following SQL query:</p>
+<p><strong><font color="#0000FF" face="Courier New, Courier, mono">SELECT</font></strong><font face="Courier New, Courier, mono">
+  firstName, lastName, birthDate, age, isMarried, matNr, matDate<br>
+  <font color="#0000FF"><strong>FROM</strong></font> T_Student<br>
+  <font color="#0000FF"><strong>WHERE</strong></font> firstName = '<font color="#CC0000">Martin</font>'
+  <font color="#0000FF"> <strong><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;AND</strong></font> lastName = '<font color="#CC0000">Mustermann</font>'</font><font face="Courier New, Courier, mono">;</font></p>
+<p>Using vertical transformation, the query gets more complicated:</p>
+<p><strong><font color="#0000FF" face="Courier New, Courier, mono">SELECT</font></strong><font face="Courier New, Courier, mono">
+  firstName, lastName, birthDate, age, isMarried, matNr, matDate<br>
+  <font color="#0000FF"><strong>FROM</strong></font> T_Student <font color="#0000FF"><strong>AS</strong></font>
+  stud, T_Person <font color="#0000FF"><strong>AS</strong></font> pers<br>
+  <font color="#0000FF"><strong>WHERE</strong></font> stud.PK_Person = pers.PK_Person<br>
+  &nbsp;&nbsp;&nbsp;&nbsp<font color="#0000FF"><strong>AND</strong></font> firstName
+  = '<font color="#CC0000">Martin</font>'<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;</font><font face="Courier New, Courier, mono"><font color="#0000FF"><strong>AND</strong></font>
+  lastName = '<font color="#CC0000">Mustermann</font>'</font><font face="Courier New, Courier, mono">;</font></p>
+<p>Different mapping strategies lead to different queries to get the same data.</p>
+<p>To solve this problem, the OCL22SQL tool also generates views for each class
+  in the UML/OCL model. For example, using vertical transformation, the tool generates the following query
+  to create a view for the class Student:</p>
+<p><strong><font color="#0000FF" face="Courier New, Courier, mono">CREATE VIEW</font></strong><font face="Courier New, Courier, mono">
+  OV_Student<br>
+  <font color="#0000FF"><strong>AS</strong></font> ( <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">SELECT </font></strong><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T_Student.PK_Person,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T_Person.age <font color="#0000FF"><strong>as</strong></font>
+  age,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T_Person.birthDate <font color="#0000FF"><strong>as</strong></font>
+  birthDate,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T_Person.firstName <font color="#0000FF"><strong>as</strong></font>
+  firstName,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T_Person.isMarried <font color="#0000FF"><strong>as</strong></font>
+  isMarried,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T_Person.lastName <font color="#0000FF"><strong>as</strong></font>
+  lastName,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T_Student.matDate <font color="#0000FF"><strong>as</strong></font>
+  matDate,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T_Student.matNr <font color="#0000FF"><strong>as</strong></font>
+  matNr,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T_Person.FK_grade <font color="#0000FF"><strong>as</strong></font>
+  FK_grade,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T_Person.FK_supervisor <font color="#0000FF"><strong>as</strong></font>
+  FK_supervisor<br>
+  &nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">&nbsp;FROM </font></strong>T_Student,T_Person<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">WHERE</font></strong>
+  T_Student.PK_Person=T_Person.PK_Person <br>
+  );</font></p>
+<p>Using typed transformation would generate a view which contains the same columns as above
+  (but which would be generated by a different select query without a join).</p>
+<p>With the created views in the database - containing all attributes of a
+  class -, the query to get all attributes of the Student 'Martin Mustermann'
+  will be the same for both transformation strategies:</p>
+<p><strong><font color="#0000FF" face="Courier New, Courier, mono">SELECT</font></strong><font face="Courier New, Courier, mono">
+  firstName, lastName, birthDate, age, isMarried, matNr, matDate<br>
+  <font color="#0000FF"><strong>FROM</strong></font> OV_Student<br>
+  <font color="#0000FF"><strong>WHERE</strong></font> firstName = '<font color="#CC0000">Martin</font>'
+  <font color="#0000FF"> <strong>AND</strong></font> lastName = '<font color="#CC0000">Mustermann</font>'</font><font face="Courier New, Courier, mono">;</font></p>
+<p>This is a big advantage: Using views to represent the different classes, a
+  user does not need to know which transformation strategy was used to create the tables.
+  He simply uses the views to get data from the database. </p>
+<p>This is also important during the generation of OCL constraints.</p>
+<p>&nbsp;</p>
+<div>
+  <h3><a name="23"></a>2.3 Transformation of OCL constraints <a href="#top"><font size="-2">back
+    to top</font></a></h3>
+</div>
+<div>
+  <p>Using OCL as a language for business rule specification, extended investigations
+    can be carried out, which aims at maintaining the software integrity by checking
+    business rules during the execution of a business process. This check can
+    be done by two basic strategies:</p>
+</div>
+<ul>
+  <li>
+    <div> The theoretically best way is the immediate constraint check: The OCL
+      expressions are immediately evaluated when objects are changed. In databases,
+      the unit of consistency is the transaction. In object-oriented applications,
+      check points are more difficult to find because most runtime systems like
+      the Java Virtual Machine do not provide transaction support.</div>
+  </li>
+  <li>
+    <div> A more realistic way in many cases is an independent constraint check:
+      The OCL expression is only checked at selected points to achieve a trade-off
+      between consistency maintenance and efficiency. As a consequence, inconsistent
+      states of objects respectively of the database are possible.</div>
+  </li>
+</ul>
+<div>
+  <p><strong><a name="231"></a>2.3.1 The VIEW approach <a href="#top"><font size="-2">back
+    to top</font></a></strong></p>
+  <p> Driven by our implementation experience and motivated by database literature,
+    the OCL22SQL tool propose an approach to realise either an independent or
+    an immediate constraint check for an SQL based implementation of OCL specified
+    business rules. The basic element of its approach are SQL views generated
+    from OCL invariants. Each single OCL invariant is translated into a separate
+    view definition. </p>
+  <p>For example, the constraint</p>
+  <p><font face="Courier New, Courier, mono"><font color="#666666">/*<br>
+    * The academic grade of a students supervisor must be greater<br>
+    * than the academic grade of the supervised person.<br>
+    *<br>
+    * Used patterns: BASIC TYPE, NAVIGATION, CLASS AND ATTRIBUTE<br>
+    */</font><br>
+    <font color="#0000FF"><strong>context</strong></font> Student<br>
+    <font color="#0000FF"><strong>inv</strong></font> tudOclInv2: <strong><font color="#0000FF">self</font></strong>.supervisor.grade.value
+    &gt; <font color="#0000FF"><strong>self</strong></font>.grade.value</font></p>
+  <p>is transformed into the following SQL query:</p>
+  <p><font color="#0000FF"><strong><font face="Courier New, Courier, mono">create
+    or replace view</font></strong></font><font face="Courier New, Courier, mono">
+    tudOclInv2<br>
+    <font color="#0000FF"><strong>as</strong></font> (<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">select</font></strong>
+    * <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">from</font></strong>
+    OV_Student <font color="#0000FF"><strong>as</strong></font> ALIAS2<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">where not</font></strong>
+    (<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000FF"><strong>select</strong></font>
+    value <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">from</font></strong>
+    OV_Grade <font color="#0000FF"><strong>as</strong></font> foo <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">where</font></strong>
+    PK_Grade <font color="#0000FF"><strong>in</strong></font> (<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">select</font></strong>
+    FK_grade <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">from</font></strong>
+    OV_Person <font color="#0000FF"><strong>as</strong></font> foo <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">where</font></strong>
+    PK_Person <font color="#0000FF"><strong>in</strong></font> (<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">select</font></strong>
+    FK_supervisor <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">from</font></strong>
+    OV_Student <font color="#0000FF"><strong>as</strong></font> foo <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">where</font></strong>
+    PK_Person = ALIAS2.PK_Person<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">select</font></strong>
+    value <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">from</font></strong>
+    OV_Grade <font color="#0000FF"><strong>as</strong></font> foo <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">where</font></strong>
+    PK_Grade <font color="#0000FF"><strong>in</strong></font> (<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">select</font></strong>
+    FK_grade <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">from</font></strong>
+    OV_Person <font color="#0000FF"><strong>as</strong></font> foo <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color="#0000FF">where</font></strong>
+    PK_Person = ALIAS2.PK_Person<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;)<br>
+    )</font><br>
+    <br>
+    As you can see, the SQL query for a simple OCL constraint gets much more
+    complicated than the transformation of a class into a table.</p>
+  <p>The approach to transform OCL constraints into views yields a number of advantages:</p>
+</div>
+<ul>
+  <li>
+    <div> The usage of SQL features available in most database systems makes the
+      usage of OCL in database design practicable. A view allows to evaluate a
+      complex search condition which is part of an integrity constraint.</div>
+  </li>
+  <li>The views can be integrated into different constraint evaluation strategies.
+    Then it can be decided when to evaluate the constraint and what to do if some
+    constraint is violated.</li>
+</ul>
+<p>&nbsp;</p>
+<h3><a name="24"></a>2.4 Summary <a href="#top"><font size="-2">back to top</font></a></h3>
+<div>
+  <p>You have learned how an UML/OCL model can be
+    transformed into a SQL database schema.The third and last step of the tutorial
+    will demonstrate <a href="animationexpl.html">how to use the OCL22SQL tool</a>. </p>
+  <p>&nbsp;</p>
+  <h2>&nbsp;</h2>
+  <p><strong>Navigation:</strong> <a href="index.html">Introduction</a> - <a href="modelexplanation.html">1.
+    The university model</a> - <font color="#666666">2. Transformation rules</font>
+    - <a href="animationexpl.html">3. The animation </a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>The University Model</title>
+<link rel="stylesheet" type="text/css" href="format.css"></head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript">
+function openWindow (url) {
+  Fenster1 = window.open(url, "model", "width=820,height=640,left=100,top=100");
+  Fenster1.focus();
+}
+</script>
+</head>
+
+<body>
+<div id="cell"> 
+  <h3>The UML model<br>
+  </h3>
+  <p><img src="images/model.gif" width="366" height="336"></p>
+  <p>&nbsp;</p>
+  <h3>The OCL rules</h3>
+  <p><font color="#666666" face="Courier New, Courier, mono">--<br>
+    -- OCL22SQL test and demonstration constraints<br>
+    --<br>
+    -- Part of Dresden OCL Tookit, see LICENSE for license terms.<br>
+    -- (c) 2005 Florian Heidenreich &lt;mail@fheidenreich.de&gt;<br>
+    --<br>
+    --<br>
+    -- Use this constraint file with model university_example.xmi<br>
+    --</font></p>
+  <p><font color="#FF0000" face="Courier New, Courier, mono"><strong>package</strong></font><font face="Courier New, Courier, mono"> 
+    Uni</font></p>
+  <p><font color="#666666" face="Courier New, Courier, mono">/*<br>
+    * The academic grade of a persons supervisor must be greater<br>
+    * than the academic grade of the supervised person.<br>
+    *<br>
+    * Used patterns: BASIC TYPE, NAVIGATION, CLASS AND ATTRIBUTE<br>
+    */</font><font face="Courier New, Courier, mono"><br>
+    <font color="#0000FF"><strong>context</strong></font> Person<br>
+    <font color="#0000FF"><strong>inv</strong></font> tudOclInv1: <font color="#0000FF"><strong>self</strong></font>.supervisor.grade.value 
+    &gt; <font color="#0000FF"><strong>self</strong></font>.grade.value</font></p>
+  <p><font face="Courier New, Courier, mono"><br>
+    <font color="#666666">/*<br>
+    * The academic grade of a students supervisor must be greater<br>
+    * than the academic grade of the supervised person.<br>
+    *<br>
+    * Used patterns: BASIC TYPE, NAVIGATION, CLASS AND ATTRIBUTE<br>
+    */</font><br>
+    <font color="#0000FF"><strong>context</strong></font> Student<br>
+    <font color="#0000FF"><strong>inv</strong></font> tudOclInv2: <strong><font color="#0000FF">self</font></strong>.supervisor.grade.value 
+    &gt; <font color="#0000FF"><strong>self</strong></font>.grade.value</font></p>
+  <p><font face="Courier New, Courier, mono"><br>
+    <font color="#666666">/*<br>
+    * The tax class of an employee depends on the academic grade<br>
+    * of the employee<br>
+    *<br>
+    * Used patterns: BASIC TYPE, NAVIGATION, CLASS AND ATTRIBUTE<br>
+    */</font><br>
+    <font color="#0000FF"><strong>context</strong></font> Employee<br>
+    <font color="#0000FF"><strong>inv</strong></font> tudOclInv3: ((<font color="#0000FF"><strong>self</strong></font>.grade.name 
+    = <font color="#CC0000">'diploma'</font>) <font color="#0000FF"><strong>implies</strong></font> 
+    (<strong><font color="#0000FF">self</font></strong>.taxClass = <font color="#CC0000">'tc1'</font>))<br>
+    <font color="#0000FF"><strong>and</strong></font> ((<font color="#0000FF"><strong>self</strong></font>.grade.name 
+    = <font color="#CC0000">'doctor'</font>) <font color="#0000FF"><strong>implies</strong></font> 
+    (<font color="#0000FF"><strong>self</strong></font>.taxClass = <font color="#CC0000">'tc2'</font>))<br>
+    <strong><font color="#0000FF">and</font></strong> ((<font color="#0000FF"><strong>self</strong></font>.grade.name 
+    = <font color="#CC0000">'professor'</font>) <font color="#0000FF"><strong>implies</strong></font> 
+    (<font color="#0000FF"><strong>self</strong></font>.taxClass = <font color="#CC0000">'tc3'</font>))</font></p>
+  <p><font color="#FF0000" face="Courier New, Courier, mono"><strong>endpackage</strong></font></p>
+  </div>
+</body>
+</html>

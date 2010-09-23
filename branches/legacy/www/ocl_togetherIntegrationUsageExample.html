@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<!-- MODIFIY TITLE IN BROWSER'S TITLE BAR -->
+<title>Dresden OCL Toolkit - usage example of Together
+integration</title>
+<link rel="stylesheet" type="text/css" href="ocltoolkit.css" />
+</head>
+
+<!--#include virtual="_header.ssi" -->
+
+<!-- MODIFY THE PAGE'S TITLE (DISPLAYED IN HEADER BESIDE OCL TOOLKIT LOGO) -->
+<h1>Using the toolkit in Together</h1>
+
+<!--#include virtual="_menu.html" -->
+
+<!-- ADD CONTENT FROM HERE: USE H2 AS HIGHEST ORDER HEADLINE -->
+<h2>Prerequisites</h2>
+
+<ul>
+	<li><a href="http://www.borland.de/together/index.html">Borland
+	Together ControlCenter</a> version 6.0 and above with the Dresden OCL
+	Toolkit module installed as explained in the <a
+		href="ocl_togetherIntegration.html">step-by-step guide</a>.</li>
+</ul>
+
+<h2>Create a model</h2>
+
+<p>As a first step, start a new project in Together and create a
+class <code>Person</code> with two attributes <code>age</code> (integer)
+and <code>isMarried</code> (boolean). <a
+	href="images/together/screenshot1.gif" target="blank"><img
+	src="images/together/screenshot1_small.gif"
+	style="border: 0px; margin: 5px;" /></a></p>
+
+<h2>Create OCL constraints</h2>
+
+<p>For creating some OCL constraints on this admittedly simplistic
+model process through the following steps:</p>
+
+<ol>
+	<li>Select the newly created class <code>Person</code> on the
+	diagram pane.<br />
+	<br />
+	</li>
+	<li>Open the Inspector (press Ctrl+Alt+I) if not already open and
+	choose the OCL Constraints pane.<br />
+	<br />
+	</li>
+	<li>Press the <img src="images/together/new_constraint_button.gif"
+		alt="Button for creating
+a new constraint"
+		style="vertical-align: middle;" /> button and enter any legal
+	constraint.<br />
+	<br />
+	</li>
+	<li>Try to enter invalid OCL constraints or try to use wrong
+	context declarations or wrong types in your expressions to see how
+	syntax and type checker are working.</li>
+</ol>
+
+<p><img src="images/together/screenshot_inspector.gif"
+	alt="Screenshot of the Inspector tab" /></p>
+
+<p>Constraints will be stored as Javadoc tags directly in the source
+code.</p>
+
+
+<h2>Instrument classes with constraint checking code</h2>
+
+<p>You can either instrument a single class or mark a number of
+classes for instrumentation first (using the 'for instrumentation'
+checkbox in the 'Properties' tab of the Inspector) and instrument
+several classes in one go. Here we will simply instrument the one class
+that we have created before.</p>
+
+<ol>
+	<li>Select the newly created class <code>Person</code> on the
+	diagram pane.<br />
+	<br />
+	</li>
+	<li>Either choose 'Tools' --> 'Instrumentation' --> 'Instrument
+	class(es)' from the main menu or right-click the class and choose
+	'Instrumentation' --> 'Instrument class(es)' from the popup menu.<br />
+	<br />
+	</li>
+	<li>The instrumentation code will be inserted and because of
+	Together's round trip engineering approach will blow up your diagram as
+	well.<br />
+	<br />
+	</li>
+	<li>Before you can actually compile the instrumented class, you
+	will have to add the <code>ocl-together.jar</code> that resides in <code>{TOGETHER-BASE-DIR}/modules/com/togethersoft/modules/dresden-ocl</code>
+	if you have followed the <a href="ocl_togetherIntegration.html">step-by-step
+	guide</a> at installation to your current project's class path ('Project'
+	--> 'Project Properties' --> 'Search/Classpath' --> 'Add Path, Library
+	or Archive').<br />
+	<br />
+	</li>
+	<li>Choosing 'Tools' --> 'Instrumentation' --> 'Clean class(es)'
+	when the instrumented class is selected will clean your class from all
+	the instrumentation code.</li>
+</ol>
+
+<p>Now that you know in principle how to instrument classes with OCL
+constraints go ahead and add a constructor for the <code>Person</code>
+class, create a main method and construct a couple of <code>Person</code>
+instances, some of them adhering to, some of them violating your OCL
+constraints. Then instrument the class, compile and run it. Watch the
+console output for notifications about constraint violations.</p>
+
+<p><strong>Note:</strong> Please be aware that the integration of
+the Dresden OCL Toolkit into Together is prototypical. A major
+shortcoming in the usage of the Injector from within Together is that
+the injection process still needs some information that it gathers via
+reflection instead of purely from the model in Together. In effect, when
+you use types in your constraints that stem from the model you have
+created the injection will fail as the reflection engine will normally
+fail as 'your' model will not be in Together's classpath.</p>
+
+<p>As a workaround you can alter Together's start script manually
+and add your project's output directory to the classpath. Also make sure
+you compile your project before using injection.</p>
+
+<h2>SQL Code Generation</h2>
+<p>It is also possible, using the toolkit and Together to generate
+SQL code from the UML/OCL model. This function is not explained in this
+example but mentioned, to ensure that you know the SQL code generation
+is possible.</p>
+
+<!-- END OF CONTENT -->
+
+<!--#include virtual="_footer.ssi" -->
+
+</html>
