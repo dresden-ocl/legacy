@@ -1,5 +1,0 @@
-RewriteEngine On
-# Redirect the root requests to the master site
-RewriteRule ^([^/]*)$ https://dresden-ocl.svn.sourceforge.net/svnroot/dresden-ocl/trunk/ocl20forEclipse/updatesite/tudresden.ocl20.updatesite_2.0.0/$1 [L]
-# The rest goes to the auto-mirror location
-RewriteRule (.*) https://dresden-ocl.svn.sourceforge.net/svnroot/dresden-ocl/trunk/ocl20forEclipse/updatesite/tudresden.ocl20.updatesite_2.0.0/$1 [L]
