@@ -1,0 +1,65 @@
+-- 
+-- OCL22SQL test and demonstration constraints
+-- 
+-- 
+-- Use this constraint file with model car.uml
+-- 
+
+package tudresden::ocl20::pivot::examples::library
+
+context Book
+inv oclinvp11: author.books->collect(x|x.title)->size() = 1
+
+inv oclinvp12: author.books->collect(x|x.title <> 'Hobbit')->size() = 1
+
+inv oclinvp13: author.books->collect(x|x.author.books)->size() = 1
+
+inv oclinvp14: author.books->collect(x|x.author.books->includes(x))->size() = 1
+
+inv oclinvp15: author.books->forAll(x|x.author.books->includes(x))
+
+inv oclinvp16: author.books->select(x|x.author.books->includes(x))->size() = 1
+
+inv oclinvp17: author.books->collect(x|x.author.books.title)->size() = 1
+
+inv oclinvp18: author.books->collect(x|x.author.books.title->size() = 1)->sum() = 1
+
+inv oclinvp19: author.books->forAll(x|x.author.books.title->excludes('Hobbit'))
+
+inv oclinvp21: author.books.author.books->collect(x|x.title)->size() = 1
+
+inv oclinvp22: author.books.author.books->collect(x|x.title <> 'Hobbit')->size() = 1
+
+inv oclinvp23: author.books.author.books->collect(x|x.author.books)->size() = 1
+
+inv oclinvp24: author.books.author.books->collect(x|x.author.books->includes(x))->size() = 1
+
+inv oclinvp25: author.books.author.books->forAll(x|x.author.books->includes(x))
+
+inv oclinvp26: author.books.author.books->select(x|x.author.books->includes(x))->size() = 1
+
+inv oclinvp27: author.books.author.books->collect(x|x.author.books.title)->size() = 1
+
+inv oclinvp28: author.books.author.books->collect(x|x.author.books.title->size() = 1)->sum() = 1
+
+inv oclinvp29: author.books.author.books->forAll(x|x.author.books.title->excludes('Hobbit'))
+
+inv oclinvp31: author.books.author.books.author.books->collect(x|x.title)->size() = 1
+
+inv oclinvp32: author.books.author.books.author.books->collect(x|x.title <> 'Hobbit')->size() = 1
+
+inv oclinvp33: author.books.author.books.author.books->collect(x|x.author.books)->size() = 1
+
+inv oclinvp34: author.books.author.books.author.books->collect(x|x.author.books->includes(x))->size() = 1
+
+inv oclinvp35: author.books.author.books.author.books->forAll(x|x.author.books->includes(x))
+
+inv oclinvp36: author.books.author.books.author.books->select(x|x.author.books->includes(x))->size() = 1
+
+inv oclinvp37: author.books.author.books.author.books->collect(x|x.author.books.title)->size() = 1
+
+inv oclinvp38: author.books.author.books.author.books->collect(x|x.author.books.title->size() = 1)->sum() = 1
+
+inv oclinvp39: author.books.author.books.author.books->forAll(x|x.author.books.title->excludes('Hobbit'))
+
+endpackage

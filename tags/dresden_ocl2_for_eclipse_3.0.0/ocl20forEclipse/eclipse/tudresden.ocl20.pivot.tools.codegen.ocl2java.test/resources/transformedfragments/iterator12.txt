@@ -1,0 +1,25 @@
+Boolean result1;
+result1 = true;
+
+/* Iterator ForAll: Iterate and check, if all elements fulfill the condition. */
+for (tudresden.ocl20.pivot.examples.royalsandloyals.Customer c1 : aClass.participants) {
+    Boolean result2;
+    result2 = true;
+    
+    /* Iterator ForAll: Iterate and check, if all elements fulfill the condition. */
+    for (tudresden.ocl20.pivot.examples.royalsandloyals.Customer c2 : aClass.participants) {
+        if (!(!!c1.equals(c2) || !c1.name.equals(c2.name))) {
+            result2 = false;
+            break;
+        }
+        // no else
+    }
+
+    if (!result2) {
+        result1 = false;
+        break;
+    }
+    // no else
+}
+
+result1

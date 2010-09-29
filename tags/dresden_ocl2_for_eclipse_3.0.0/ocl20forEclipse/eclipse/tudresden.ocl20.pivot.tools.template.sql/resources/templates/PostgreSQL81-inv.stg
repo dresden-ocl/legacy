@@ -1,0 +1,136 @@
+group postgre;
+
+// --- NAVIGATION (CLASS AND ATTRIBUTE) --- 
+feature_call_navigation(object,context1,ref_object,context2) ::= <<
+(SELECT $object$ FROM $context1$ AS foo
+ WHERE $ref_object$ IN $context2$)
+>>
+
+feature_call_navigation_context(object,context1,ref_object,context_alias,context_object) ::= <<
+(SELECT $object$ FROM $context1$ AS foo
+ WHERE $ref_object$ = $context_alias$.$context_object$)
+>>
+
+
+// --- ATTRIBUTE ACCESS (CLASS AND ATTRIBUTE) --- 
+feature_call_attribute_boolean(attribute) ::= <<
+($attribute$ = true)
+>>
+
+
+// ---  BOOLEAN (BASIC TYPE) --- 
+literal_boolean_true() ::= <<
+(true)
+>>
+
+literal_boolean_false() ::= <<
+(false)
+>>
+
+
+// ---  COLLECTIONS - SET (QUERY) --- 
+literal_collection_set(items) ::= <<
+$items:literal_collection_set_item(); separator=", "$
+>>
+
+literal_collection_set_item(item) ::= <<
+$item$
+>>
+
+// -- ITERATOR FORALL (QUERY) ---
+feature_call_forall(source,alias,object,collection,expression) ::= <<
+NOT EXISTS (
+  SELECT $object$ FROM $collection$ AS foo
+  WHERE $object$ IN (
+    SELECT $object$ FROM $source$ AS $alias$
+    WHERE NOT $expression$
+  )
+)
+>>
+
+// -- ITERATOR REJECT (QUERY) ---
+feature_call_reject(source,alias,object,collection,expression) ::= <<
+(SELECT $object$ FROM $collection$ AS foo
+  WHERE $object$ IN (
+    SELECT $object$ FROM $source$ AS $alias$
+    WHERE NOT ($expression$)
+  )
+)
+>>
+
+// -- ITERATOR SELECT (QUERY) ---
+feature_call_select(source,alias,object,collection,expression) ::= <<
+(SELECT $object$ FROM $collection$ AS foo
+  WHERE $object$ IN (
+    SELECT $object$ FROM $source$ AS $alias$
+    WHERE ($expression$)
+  )
+)
+>>
+
+// --- COLLECTION RELATED OPERATIONS ---
+feature_call_count(source,element,collection,object) ::= <<
+(SELECT 
+  CASE 
+    WHEN COUNT($element$) IS NULL THEN 0 
+    ELSE COUNT($element$)
+  END
+  FROM $source$
+  WHERE $element$ IN $collection$
+  AND $element$ = $object$)
+>>
+
+feature_call_exists(source,object,collection,expression) ::= <<
+NOT exists (
+  SELECT $object$ FROM $collection$ AS foo
+  WHERE $object$ IN (
+    SELECT $object$ FROM $source$
+    WHERE NOT $expression$
+  )
+)
+>>
+
+feature_call_size(source,element,collection) ::= <<
+(SELECT 
+  CASE
+    WHEN COUNT($element$) IS NULL THEN 0
+    ELSE COUNT($element$) 
+  END
+  FROM $source$
+  WHERE $element$ IN $collection$)
+>>
+
+feature_call_sum(source,element,collection) ::= <<
+(SELECT 
+  CASE
+    WHEN SUM($element$) IS NULL THEN 0
+    ELSE SUM($element$)
+  END
+  FROM $source$
+  WHERE $element$ IN $collection$)
+>>
+
+feature_call_excluding_sequence(collection,object,element) ::= <<
+SELECT $element$,
+  (SELECT COUNT(*)+1 FROM (
+    SELECT $element$, SEQNO
+    FROM $collection$
+    WHERE NOT ($element$ = $object$)
+  ) AS foo WHERE SEQNO < s.SEQNO) AS SEQNO
+  FROM (
+    SELECT $element$, SEQNO
+    FROM $collection$
+    WHERE NOT ($element$ = $object$)
+  ) AS foo
+>>
+
+feature_call_union_sequence(collection,collection2,element) ::= <<
+($collection$)
+  UNION
+  (SELECT $element$, (SELECT MAX(SEQNO) FROM ($collection$)) + SEQNO
+   FROM $collection2$)
+>>
+
+feature_call_allinstances(object,source) ::= <<
+(SELECT $object$ FROM $source$) 
+>>
