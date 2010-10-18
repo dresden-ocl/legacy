@@ -15,6 +15,6 @@ public privileged aspect Class1_DefAspect_testTypeLiteralExp01 {
     Class1</code></p>
      */
     public Class<?> testpackage.Class1.testTypeLiteralExp01( ) {
-        return testpackage.Class1;
+        return testpackage.Class1.class;
     }
 }

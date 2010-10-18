@@ -6,7 +6,7 @@ package testpackage.constraints;
  * @author OCL22Java of Dresden OCL2 for Eclipse
  * @Generated
  */
-public privileged aspect BodyAspect1 {
+public privileged aspect Class1_BodyAspect_bodyOperation02 {
 
     /**
      * <p>Pointcut for all calls on {@link testpackage.Class1#bodyOperation02(Integer anInt)}.</p>
@@ -18,7 +18,7 @@ public privileged aspect BodyAspect1 {
     /**
      * <p>Defines the body of the method bodyOperation02(Integer anInt) defined by the constraint
      * <code>context Class1::bodyOperation02(anInt: Integer): Integer
-     *       body: -anInt</code></p>
+     *       body testBody02: -anInt</code></p>
      */
     Integer around(testpackage.Class1 aClass, Integer anInt): bodyOperation02Caller(aClass, anInt) {
         return -(anInt);
