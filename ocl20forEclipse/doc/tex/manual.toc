@@ -48,9 +48,9 @@
 \contentsline {subsection}{\numberline {4.2.1}Selecting a Model}{47}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Selecting Constraints}{47}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}Selecting a Target Directory}{50}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Specifying General Settings}{51}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}Constraint-Specific Settings}{52}{subsection.4.2.5}
-\contentsline {section}{\numberline {4.3}The Generated Code}{52}{section.4.3}
+\contentsline {subsection}{\numberline {4.2.4}Specifying General Settings}{50}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Constraint-Specific Settings}{50}{subsection.4.2.5}
+\contentsline {section}{\numberline {4.3}The Generated Code}{51}{section.4.3}
 \contentsline {section}{\numberline {4.4}Summary}{52}{section.4.4}
 \contentsline {chapter}{\numberline {5}SQL Code Generation}{57}{chapter.5}
 \contentsline {section}{\numberline {5.1}Code Generator Preparation}{57}{section.5.1}
