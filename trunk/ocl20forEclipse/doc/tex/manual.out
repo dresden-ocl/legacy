@@ -16,10 +16,11 @@
 \BOOKMARK [1][-]{section.1.4}{1.4 Summary}{chapter.1}
 \BOOKMARK [0][-]{chapter.2}{2 Getting started with Dresden OCL}{section*.7}
 \BOOKMARK [1][-]{section.2.1}{2.1 How to Install Dresden OCL}{chapter.2}
-\BOOKMARK [2][-]{subsection.2.1.1}{2.1.1 Installing Dresden OCL using the Eclipse Update Site}{section.2.1}
-\BOOKMARK [2][-]{subsection.2.1.2}{2.1.2 Importing Dresden OCL from the SVN}{section.2.1}
-\BOOKMARK [2][-]{subsection.2.1.3}{2.1.3 Which Plug-ins do you need at least?}{section.2.1}
-\BOOKMARK [2][-]{subsection.2.1.4}{2.1.4 Building the OCL2 Parser}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.1}{2.1.1 Installing Dresden OCL using the Eclipse Marketplace Client}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.2}{2.1.2 Installing Dresden OCL using the Eclipse Update Site}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.3}{2.1.3 Importing Dresden OCL from the SVN}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.4}{2.1.4 Which Plug-ins do you need at least?}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.5}{2.1.5 Building the OCL2 Parser}{section.2.1}
 \BOOKMARK [1][-]{section.2.2}{2.2 Loading Models, Model Instances and Constraints}{chapter.2}
 \BOOKMARK [2][-]{subsection.2.2.1}{2.2.1 The Simple Example}{section.2.2}
 \BOOKMARK [2][-]{subsection.2.2.2}{2.2.2 Dresden OCL Perspective}{section.2.2}
