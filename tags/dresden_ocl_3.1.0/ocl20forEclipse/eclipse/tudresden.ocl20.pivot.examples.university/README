@@ -1,0 +1,27 @@
+UNIVERSITY EXAMPLE PROVIDED WITH DRESDEN OCL
+============================================
+
+This plug-in contains the University example that is provided with Dresden 
+OCL. The University example provides two UML2 Model.
+
+Further details how to import models, model instances and constraints into
+Dresden OCL can be found in the manual, available in the 'doc'
+directory of your distribution or online at
+http://www.reuseware.org/index.php/DresdenOCL:Documentation
+
+
+Provided Model(s)
+=================
+The model provided by this example exists as Java model and
+MDT UML2 Model.
+
+* To import the simple model use the file
+  /model/university.uml
+
+* To import the complex model use the file
+  /model/university_complex.uml
+
+Provided OCL Constraints
+========================
+OCL Constraints that are provided by this example are located in the directory
+/constraints
