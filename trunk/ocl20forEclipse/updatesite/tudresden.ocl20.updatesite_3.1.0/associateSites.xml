@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<associateSites>
+	<associateSite label="Eclipse Modeling Framework"
+		url="http://download.eclipse.org/modeling/emf/updates/releases/"/>		
+	<associateSite label="Eclipse Modeling Tools"
+		url="http://download.eclipse.org/modeling/mdt/updates/releases/"/>		
+	<associateSite label="AspectJ Development Tools"
+		url="http://download.eclipse.org/tools/ajdt/36/update/"/>		
+	<associateSite label="EMFText"
+		url="http://www.emftext.org/update/"/>		
+</associateSites>
