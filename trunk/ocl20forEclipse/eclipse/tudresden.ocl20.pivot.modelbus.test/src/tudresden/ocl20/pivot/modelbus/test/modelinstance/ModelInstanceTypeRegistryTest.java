@@ -45,8 +45,8 @@ import tudresden.ocl20.pivot.modelinstance.IModelInstanceTypeRegistry;
 public class ModelInstanceTypeRegistryTest {
 
 	/** The id of the {@link IExtensionPoint} to registers {@link IMetamodel}s. */
-	private static final String MODEL_INSTANCE_TYPE_EXTENSION_POINT_ID =
-			ModelBusPlugin.ID + '.' + IModelBusConstants.EXT_MODELINSTANCETYPES;
+	private static final String MODEL_INSTANCE_TYPE_EXTENSION_POINT_ID = ModelBusPlugin.ID
+			+ '.' + IModelBusConstants.EXT_MODELINSTANCETYPES;
 
 	/**
 	 * <p>
@@ -56,45 +56,49 @@ public class ModelInstanceTypeRegistryTest {
 	 */
 	@Test
 	public void testDynamicUpdate01() {
-	
-		IModelInstanceTypeRegistry modelInstanceTypeRegistry;
-		modelInstanceTypeRegistry = ModelBusPlugin.getModelInstanceTypeRegistry();
-	
-		IRegistryEventListener eventListener;
-		eventListener = (IRegistryEventListener) modelInstanceTypeRegistry;
-	
-		IExtensionPoint modelInstanceTypeExtensionPoint;
-		modelInstanceTypeExtensionPoint =
-				Platform.getExtensionRegistry().getExtensionPoint(
-						MODEL_INSTANCE_TYPE_EXTENSION_POINT_ID);
-	
-		assertNotNull(modelInstanceTypeExtensionPoint);
-	
-		IExtension[] modelInstanceTypeExtensions;
-		modelInstanceTypeExtensions =
-				modelInstanceTypeExtensionPoint.getExtensions();
-	
-		assertTrue(modelInstanceTypeExtensions.length > 0);
-	
-		int modelInstanceTypeSize;
-		modelInstanceTypeSize =
-				modelInstanceTypeRegistry.getModelInstanceTypes().length;
-	
-		IExtension[] aModelInstanceTypeExtension;
-		aModelInstanceTypeExtension = new IExtension[1];
-		aModelInstanceTypeExtension[0] = modelInstanceTypeExtensions[0];
-	
-		eventListener.removed(aModelInstanceTypeExtension);
-	
-		/* One model instance type should have been removed. */
-		assertEquals(modelInstanceTypeSize - 1, modelInstanceTypeRegistry
-				.getModelInstanceTypes().length);
-	
-		eventListener.added(aModelInstanceTypeExtension);
-	
-		/* One model instance type should have been added again. */
-		assertEquals(modelInstanceTypeSize, modelInstanceTypeRegistry
-				.getModelInstanceTypes().length);
+
+		/* Run test only if Platform is running. */
+		if (Platform.isRunning()) {
+			IModelInstanceTypeRegistry modelInstanceTypeRegistry;
+			modelInstanceTypeRegistry = ModelBusPlugin
+					.getModelInstanceTypeRegistry();
+
+			IRegistryEventListener eventListener;
+			eventListener = (IRegistryEventListener) modelInstanceTypeRegistry;
+
+			IExtensionPoint modelInstanceTypeExtensionPoint;
+			modelInstanceTypeExtensionPoint = Platform.getExtensionRegistry()
+					.getExtensionPoint(MODEL_INSTANCE_TYPE_EXTENSION_POINT_ID);
+
+			assertNotNull(modelInstanceTypeExtensionPoint);
+
+			IExtension[] modelInstanceTypeExtensions;
+			modelInstanceTypeExtensions = modelInstanceTypeExtensionPoint
+					.getExtensions();
+
+			assertTrue(modelInstanceTypeExtensions.length > 0);
+
+			int modelInstanceTypeSize;
+			modelInstanceTypeSize = modelInstanceTypeRegistry
+					.getModelInstanceTypes().length;
+
+			IExtension[] aModelInstanceTypeExtension;
+			aModelInstanceTypeExtension = new IExtension[1];
+			aModelInstanceTypeExtension[0] = modelInstanceTypeExtensions[0];
+
+			eventListener.removed(aModelInstanceTypeExtension);
+
+			/* One model instance type should have been removed. */
+			assertEquals(modelInstanceTypeSize - 1,
+					modelInstanceTypeRegistry.getModelInstanceTypes().length);
+
+			eventListener.added(aModelInstanceTypeExtension);
+
+			/* One model instance type should have been added again. */
+			assertEquals(modelInstanceTypeSize,
+					modelInstanceTypeRegistry.getModelInstanceTypes().length);
+		}
+		// no else.
 	}
 
 	/**
@@ -106,25 +110,29 @@ public class ModelInstanceTypeRegistryTest {
 	@Test
 	public void testGetModelInstanceTypes01() {
 
-		IModelInstanceTypeRegistry modelInstanceTypeRegistry;
-		modelInstanceTypeRegistry = ModelBusPlugin.getModelInstanceTypeRegistry();
+		/* Run test only if Platform is running. */
+		if (Platform.isRunning()) {
+			IModelInstanceTypeRegistry modelInstanceTypeRegistry;
+			modelInstanceTypeRegistry = ModelBusPlugin
+					.getModelInstanceTypeRegistry();
 
-		IExtensionPoint modelInstanceTypeExtensionPoint;
-		modelInstanceTypeExtensionPoint =
-				Platform.getExtensionRegistry().getExtensionPoint(
-						MODEL_INSTANCE_TYPE_EXTENSION_POINT_ID);
+			IExtensionPoint modelInstanceTypeExtensionPoint;
+			modelInstanceTypeExtensionPoint = Platform.getExtensionRegistry()
+					.getExtensionPoint(MODEL_INSTANCE_TYPE_EXTENSION_POINT_ID);
 
-		assertNotNull(modelInstanceTypeExtensionPoint);
+			assertNotNull(modelInstanceTypeExtensionPoint);
 
-		IExtension[] modelInstanceTypeExtensions;
-		modelInstanceTypeExtensions =
-				modelInstanceTypeExtensionPoint.getExtensions();
+			IExtension[] modelInstanceTypeExtensions;
+			modelInstanceTypeExtensions = modelInstanceTypeExtensionPoint
+					.getExtensions();
 
-		assertNotNull(modelInstanceTypeExtensions);
+			assertNotNull(modelInstanceTypeExtensions);
 
-		assertTrue(
-				"The ModelInstanceTypeRegistry should have at least as much "
-						+ "IModelInstanceTypes as registered via the IExtensionPoint.",
-				modelInstanceTypeRegistry.getModelInstanceTypes().length >= modelInstanceTypeExtensions.length);
+			assertTrue(
+					"The ModelInstanceTypeRegistry should have at least as much "
+							+ "IModelInstanceTypes as registered via the IExtensionPoint.",
+					modelInstanceTypeRegistry.getModelInstanceTypes().length >= modelInstanceTypeExtensions.length);
+		}
+		// no else.
 	}
 }
