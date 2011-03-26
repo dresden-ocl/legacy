@@ -44,8 +44,8 @@ import tudresden.ocl20.pivot.modelbus.ModelBusPlugin;
 public class MetamodelRegistryTest {
 
 	/** The id of the {@link IExtensionPoint} to registers {@link IMetamodel}s. */
-	private static final String META_MODEL_EXTENSION_POINT_ID =
-			ModelBusPlugin.ID + '.' + IModelBusConstants.EXT_METAMODELS;
+	private static final String META_MODEL_EXTENSION_POINT_ID = ModelBusPlugin.ID
+			+ '.' + IModelBusConstants.EXT_METAMODELS;
 
 	/**
 	 * <p>
@@ -55,68 +55,77 @@ public class MetamodelRegistryTest {
 	@Test
 	public void testGetMetaModels01() {
 
-		IMetamodelRegistry metamodelRegistry;
-		metamodelRegistry = ModelBusPlugin.getMetamodelRegistry();
+		/* Test is only executable for running platform. */
+		if (Platform.isRunning()) {
+			IMetamodelRegistry metamodelRegistry;
+			metamodelRegistry = ModelBusPlugin.getMetamodelRegistry();
 
-		IExtensionPoint metaModelExtensionPoint;
-		metaModelExtensionPoint =
-				Platform.getExtensionRegistry().getExtensionPoint(
-						META_MODEL_EXTENSION_POINT_ID);
+			IExtensionPoint metaModelExtensionPoint;
+			metaModelExtensionPoint = Platform.getExtensionRegistry()
+					.getExtensionPoint(META_MODEL_EXTENSION_POINT_ID);
 
-		assertNotNull(metaModelExtensionPoint);
+			assertNotNull(metaModelExtensionPoint);
 
-		IExtension[] metaModelExtensions;
-		metaModelExtensions = metaModelExtensionPoint.getExtensions();
+			IExtension[] metaModelExtensions;
+			metaModelExtensions = metaModelExtensionPoint.getExtensions();
 
-		assertNotNull(metaModelExtensions);
+			assertNotNull(metaModelExtensions);
 
-		assertTrue("The MetaModelRegistry should have at least as much "
-				+ "IMetamodels as registered via the IExtensionPoint.",
-				metamodelRegistry.getMetamodels().length >= metaModelExtensions.length);
+			assertTrue(
+					"The MetaModelRegistry should have at least as much "
+							+ "IMetamodels as registered via the IExtensionPoint.",
+					metamodelRegistry.getMetamodels().length >= metaModelExtensions.length);
+		}
+		// no else.
 	}
 
 	/**
 	 * <p>
-	 * Test case to test the {@link IMetamodelRegistry} with the dynamic update of
-	 * {@link IMetamodel}s via {@link IExtension}s.
+	 * Test case to test the {@link IMetamodelRegistry} with the dynamic update
+	 * of {@link IMetamodel}s via {@link IExtension}s.
 	 * </p>
 	 */
 	@Test
 	public void testDynamicUpdate01() {
 
-		IMetamodelRegistry metamodelRegistry;
-		metamodelRegistry = ModelBusPlugin.getMetamodelRegistry();
+		/* Test is only executable for running platform. */
+		if (Platform.isRunning()) {
+			IMetamodelRegistry metamodelRegistry;
+			metamodelRegistry = ModelBusPlugin.getMetamodelRegistry();
 
-		IRegistryEventListener eventListener;
-		eventListener = (IRegistryEventListener) metamodelRegistry;
+			IRegistryEventListener eventListener;
+			eventListener = (IRegistryEventListener) metamodelRegistry;
 
-		IExtensionPoint metaModelExtensionPoint;
-		metaModelExtensionPoint =
-				Platform.getExtensionRegistry().getExtensionPoint(
-						META_MODEL_EXTENSION_POINT_ID);
+			IExtensionPoint metaModelExtensionPoint;
+			metaModelExtensionPoint = Platform.getExtensionRegistry()
+					.getExtensionPoint(META_MODEL_EXTENSION_POINT_ID);
 
-		assertNotNull(metaModelExtensionPoint);
+			assertNotNull(metaModelExtensionPoint);
 
-		IExtension[] metaModelExtensions;
-		metaModelExtensions = metaModelExtensionPoint.getExtensions();
+			IExtension[] metaModelExtensions;
+			metaModelExtensions = metaModelExtensionPoint.getExtensions();
 
-		assertTrue(metaModelExtensions.length > 0);
+			assertTrue(metaModelExtensions.length > 0);
 
-		int metaModelSize;
-		metaModelSize = metamodelRegistry.getMetamodels().length;
+			int metaModelSize;
+			metaModelSize = metamodelRegistry.getMetamodels().length;
 
-		IExtension[] aMetaModelExtension;
-		aMetaModelExtension = new IExtension[1];
-		aMetaModelExtension[0] = metaModelExtensions[0];
+			IExtension[] aMetaModelExtension;
+			aMetaModelExtension = new IExtension[1];
+			aMetaModelExtension[0] = metaModelExtensions[0];
 
-		eventListener.removed(aMetaModelExtension);
+			eventListener.removed(aMetaModelExtension);
 
-		/* One meta-model should have been removed. */
-		assertEquals(metaModelSize - 1, metamodelRegistry.getMetamodels().length);
+			/* One meta-model should have been removed. */
+			assertEquals(metaModelSize - 1,
+					metamodelRegistry.getMetamodels().length);
 
-		eventListener.added(aMetaModelExtension);
+			eventListener.added(aMetaModelExtension);
 
-		/* One meta-model should have been added again. */
-		assertEquals(metaModelSize, metamodelRegistry.getMetamodels().length);
+			/* One meta-model should have been added again. */
+			assertEquals(metaModelSize,
+					metamodelRegistry.getMetamodels().length);
+		}
+		// no else.
 	}
 }
