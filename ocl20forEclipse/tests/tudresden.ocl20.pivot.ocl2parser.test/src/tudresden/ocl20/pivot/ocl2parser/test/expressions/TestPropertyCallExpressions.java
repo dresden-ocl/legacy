@@ -22,6 +22,7 @@ package tudresden.ocl20.pivot.ocl2parser.test.expressions;
 import org.dresdenocl.testsuite._abstract.AbstractDresdenOclTest;
 import org.junit.Test;
 
+import tudresden.ocl20.pivot.language.ocl.resource.ocl.Ocl22Parser;
 import tudresden.ocl20.pivot.ocl2parser.test.TestPerformer;
 import tudresden.ocl20.pivot.parser.SemanticException;
 
@@ -312,6 +313,19 @@ public class TestPropertyCallExpressions extends AbstractDresdenOclTest {
 		testPerformer.setModel(modelFileName);
 
 		/* Try to parse the constraint file. */
-		testPerformer.parseFile(oclFileName);
+		// testPerformer.parseFile(oclFileName);
+
+		StringBuffer code = new StringBuffer();
+		code.append("package package1::package2\n");
+		code.append("\n");
+		code.append("-- Should fail. The second def contains a type error?\n");
+		code.append("context Type1\n");
+		code.append("def: mydefine : Integer = 100\n");
+		code.append("\n");
+		code.append("def: mystring : Integ = mydefine + 50\n");
+		code.append("\n");
+		code.append("endpackage\n");
+		Ocl22Parser.INSTANCE.parseOclString(code.toString(),
+				testPerformer.getCurrentModel(), false);
 	}
 }
