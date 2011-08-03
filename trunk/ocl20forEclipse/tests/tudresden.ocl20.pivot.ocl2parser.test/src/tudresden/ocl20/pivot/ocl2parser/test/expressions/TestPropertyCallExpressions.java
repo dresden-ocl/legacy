@@ -19,6 +19,7 @@ with Dresden OCL2 for Eclipse. If not, see <http://www.gnu.org/licenses/>.
 
 package tudresden.ocl20.pivot.ocl2parser.test.expressions;
 
+import org.dresdenocl.testsuite._abstract.AbstractDresdenOclTest;
 import org.junit.Test;
 
 import tudresden.ocl20.pivot.ocl2parser.test.TestPerformer;
@@ -32,7 +33,7 @@ import tudresden.ocl20.pivot.parser.SemanticException;
  * 
  * @author Claas Wilke
  */
-public class TestPropertyCallExpressions {
+public class TestPropertyCallExpressions extends AbstractDresdenOclTest {
 
 	/**
 	 * <p>
@@ -182,22 +183,22 @@ public class TestPropertyCallExpressions {
 	 */
 	@Test
 	public void testPropertyCallExpressionPositive06() throws Exception {
-	
+
 		TestPerformer testPerformer;
-	
+
 		String modelFileName;
 		String oclFileName;
-	
+
 		oclFileName = "expressions/calls/propertyPositive06.ocl";
 		modelFileName = "testmodel03.uml";
-	
+
 		/* Try to get the TestPerformer. */
 		testPerformer = TestPerformer.getInstance(
 				AllExpressionTests.META_MODEL_ID,
 				AllExpressionTests.MODEL_BUNDLE,
 				AllExpressionTests.MODEL_DIRECTORY);
 		testPerformer.setModel(modelFileName);
-	
+
 		/* Try to parse the constraint file. */
 		testPerformer.parseFile(oclFileName);
 	}
@@ -273,6 +274,34 @@ public class TestPropertyCallExpressions {
 		String oclFileName;
 
 		oclFileName = "expressions/calls/propertyNegative03.ocl";
+		modelFileName = "testmodel.uml";
+
+		/* Try to get the TestPerformer. */
+		testPerformer = TestPerformer.getInstance(
+				AllExpressionTests.META_MODEL_ID,
+				AllExpressionTests.MODEL_BUNDLE,
+				AllExpressionTests.MODEL_DIRECTORY);
+		testPerformer.setModel(modelFileName);
+
+		/* Try to parse the constraint file. */
+		testPerformer.parseFile(oclFileName);
+	}
+
+	/**
+	 * <p>
+	 * A test case to check that a PropertyCallExpression is not parsed
+	 * appropriately.
+	 * </p>
+	 */
+	@Test(expected = SemanticException.class)
+	public void testPropertyCallExpressionNegative04() throws Exception {
+
+		TestPerformer testPerformer;
+
+		String modelFileName;
+		String oclFileName;
+
+		oclFileName = "expressions/calls/propertyNegative04.ocl";
 		modelFileName = "testmodel.uml";
 
 		/* Try to get the TestPerformer. */
