@@ -5,7 +5,7 @@
 	<associateSite label="Eclipse Modeling Tools"
 		url="http://download.eclipse.org/modeling/mdt/updates/releases/"/>		
 	<associateSite label="AspectJ Development Tools"
-		url="http://download.eclipse.org/tools/ajdt/36/update/"/>		
+		url="http://download.eclipse.org/tools/ajdt/37/update/"/>		
 	<associateSite label="EMFText"
 		url="http://www.emftext.org/update/"/>		
 </associateSites>
