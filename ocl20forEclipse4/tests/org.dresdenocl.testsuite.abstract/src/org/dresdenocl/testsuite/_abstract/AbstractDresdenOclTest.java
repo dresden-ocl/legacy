@@ -270,7 +270,8 @@ public class AbstractDresdenOclTest {
 		if (EPackage.Registry.INSTANCE.getEPackage(UMLPackage.eNS_URI) == null) {
 			EPackage.Registry.INSTANCE.put(UMLPackage.eNS_PREFIX,
 					UMLPackage.eINSTANCE);
-			loadUmlResources();
+			org.eclipse.uml2.uml.resources.util.UMLResourcesUtil.init(null);
+			//loadUmlResources();
 		}
 		// no else.
 
@@ -291,7 +292,8 @@ public class AbstractDresdenOclTest {
 		if (EPackage.Registry.INSTANCE.getEPackage(XSDPackage.eNS_URI) == null) {
 			EPackage.Registry.INSTANCE.put(XSDPackage.eNS_PREFIX,
 					XSDPackage.eINSTANCE);
-			loadUmlResources();
+			org.eclipse.uml2.uml.resources.util.UMLResourcesUtil.init(null);
+			//loadUmlResources();
 		}
 		// no else.
 
