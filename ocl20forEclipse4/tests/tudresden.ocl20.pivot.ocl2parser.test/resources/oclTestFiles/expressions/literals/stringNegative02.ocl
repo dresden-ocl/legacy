@@ -1,7 +1,0 @@
-package package1::package2
-
--- Strings without quotation marks are not allowed.
-context Type1::aString: String
-init: aStringWithOutQuotation
-
-endpackage

@@ -1,7 +1,0 @@
-package package1::package2
-
--- Should fail. Inits are only valid on Properties.
-context Type1
-init: Type1->allInstances->any(true)
-
-endpackage

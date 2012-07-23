@@ -1,7 +1,0 @@
-package package1::package2
-
-context Type1
-def: testClosurePositive01 : Set(Type1) =
-self.asSet()->closure(aType1)
-
-endpackage

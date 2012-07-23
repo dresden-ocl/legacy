@@ -1,7 +1,0 @@
-package package1::package2
-
--- Void operation should be parsed.
-context Type1::getVoid()
-pre: true
-  
-endpackage

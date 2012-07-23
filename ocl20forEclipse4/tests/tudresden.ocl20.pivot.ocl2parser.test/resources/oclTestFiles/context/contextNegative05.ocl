@@ -1,7 +1,0 @@
-package package1::package2
-
--- Operation with wrong argument type should not be parsed.
-context Type1::addInteger(points: String): Integer
-pre: true
-  
-endpackage

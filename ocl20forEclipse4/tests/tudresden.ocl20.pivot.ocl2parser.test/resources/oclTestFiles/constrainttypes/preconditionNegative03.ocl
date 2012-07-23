@@ -1,7 +1,0 @@
-package package1::package2
-
--- Should fail. Wrong type for precondition.
-context Type1::getInteger(): Integer
-pre: 'not a boolean'
-
-endpackage

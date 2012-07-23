@@ -1,7 +1,0 @@
-package package1::package2
-
-/* Should fail. */
-context Type1
-inv: 'true'
-
-endpackage
