@@ -1,7 +1,0 @@
-package package1::package2
-
--- Should fail. False argument type.
-context Type1
-inv: self.doSomething(42)
-
-endpackage

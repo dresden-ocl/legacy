@@ -1,7 +1,0 @@
-package package1::package2
-
--- Should fail. Derives are only valid on Properties.
-context Type1::getInteger(): Integer
-derive: 42
-
-endpackage

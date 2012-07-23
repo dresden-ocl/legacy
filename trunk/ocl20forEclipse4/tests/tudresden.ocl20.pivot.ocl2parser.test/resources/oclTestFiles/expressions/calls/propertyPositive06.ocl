@@ -1,7 +1,0 @@
-package test
-
--- Property calls to features with the same name than iterators should be possible.
-context ClassA
-inv: self._isUnique
-
-endpackage

@@ -1,5 +1,0 @@
-group sql;
-
-check_database_references() ::= <<
-false
->>

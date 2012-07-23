@@ -1,7 +1,0 @@
-package package1::package2
-
--- Should fail. Operation does not exist.
-context Type1
-inv: self.getHinteger() > 0
-
-endpackage

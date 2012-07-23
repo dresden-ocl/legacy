@@ -1,7 +1,0 @@
-package package1::package2
-
--- Operation should be parsed.
-context Type1::aType1: Type1
-derive: self
-  
-endpackage

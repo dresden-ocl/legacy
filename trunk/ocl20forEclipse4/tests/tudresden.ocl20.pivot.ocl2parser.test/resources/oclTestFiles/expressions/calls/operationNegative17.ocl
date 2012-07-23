@@ -1,7 +1,0 @@
-package package1::package2
-
--- Collection Operations should not be accessible using the . notation.
-context Type1
-inv: getInteger().size() > 0
-
-endpackage

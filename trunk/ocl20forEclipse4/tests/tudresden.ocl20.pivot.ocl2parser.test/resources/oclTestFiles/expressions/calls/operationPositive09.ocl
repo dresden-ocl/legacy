@@ -1,7 +1,0 @@
-package test
-
--- Test that the right property is referred (parent defines a property having the same name).
-context ChildClass
-inv: self.sameName
-
-endpackage

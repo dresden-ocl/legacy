@@ -1,7 +1,0 @@
-package package1::package2
-
--- Should fail. Derives are only valid on Properties.
-context Type1
-derive: Type1->allInstances->any(true)
-
-endpackage

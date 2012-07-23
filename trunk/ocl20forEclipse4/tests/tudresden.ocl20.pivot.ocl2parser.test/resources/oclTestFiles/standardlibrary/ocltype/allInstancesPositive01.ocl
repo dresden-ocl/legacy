@@ -1,8 +1,0 @@
-package package1::package2
-
--- Test of special operation allInstances().
-context Type1
-def: testAllInstancesPositive01(): Set(Type1) =
-Type1.allInstances()
-
-endpackage

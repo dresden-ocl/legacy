@@ -1,7 +1,0 @@
-package package1::package2
-
--- Property should be parsed.
-context Type1::anInteger: Integer
-derive: 1
-  
-endpackage
