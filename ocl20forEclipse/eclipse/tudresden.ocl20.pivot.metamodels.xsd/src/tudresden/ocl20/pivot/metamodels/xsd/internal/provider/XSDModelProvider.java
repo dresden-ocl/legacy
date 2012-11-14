@@ -52,6 +52,12 @@ public class XSDModelProvider extends AbstractModelProvider implements
 			throw new ModelAccessException("Invalid URL: " + modelURL, e); //$NON-NLS-1$
 		}
 
+		// Check if the model has already been cached
+		if (this.m_modelCache.get(modelURL) != null) {
+			return this.m_modelCache.get(modelURL);
+		}
+		// no else
+
 		// get the resource
 		resource = getResourceSet().getResource(modelURI, false);
 
@@ -64,6 +70,9 @@ public class XSDModelProvider extends AbstractModelProvider implements
 				new XSDModel(getResourceSet().getResource(modelURI, false),
 						ModelBusPlugin.getMetamodelRegistry().getMetamodel(
 								XSDMetamodelPlugin.ID));
+		
+		// Cache the model
+		this.m_modelCache.put(modelURL, model);
 
 		if (logger.isDebugEnabled()) {
 			logger.debug("getModel() - exit - return value=" + model); //$NON-NLS-1$

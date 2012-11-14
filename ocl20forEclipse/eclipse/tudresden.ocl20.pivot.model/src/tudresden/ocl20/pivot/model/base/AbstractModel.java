@@ -74,7 +74,7 @@ public abstract class AbstractModel implements IModel {
 
 	/** The {@link IMetamodel} of this {@link IModel}. */
 	private IMetamodel metamodel;
-
+	
 	/**
 	 * <p>
 	 * Constructor to be called by subclasses. The <code>displayName</code> is a
