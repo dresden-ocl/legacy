@@ -82,6 +82,12 @@ public class UML2ModelProvider extends AbstractModelProvider implements
 			throw new ModelAccessException("Invalid URL: " + modelURL, e);
 		}
 
+		// Check if the model has already been cached
+		if (this.m_modelCache.get(modelURL) != null) {
+			return this.m_modelCache.get(modelURL);
+		}
+		// no else.
+
 		/* Get the resource of the given URI. */
 		resource = getResourceSet().getResource(modelURI, false);
 
@@ -92,8 +98,12 @@ public class UML2ModelProvider extends AbstractModelProvider implements
 		}
 		// no else.
 
-		result = new UML2Model(resource, ModelBusPlugin.getMetamodelRegistry()
-				.getMetamodel(UML2MetamodelPlugin.ID));
+		result =
+				new UML2Model(resource, ModelBusPlugin.getMetamodelRegistry()
+						.getMetamodel(UML2MetamodelPlugin.ID));
+		
+		// Cache the model
+		this.m_modelCache.put(modelURL, result);
 
 		/* Probably debug the exit of this method. */
 		if (LOGGER.isDebugEnabled()) {
