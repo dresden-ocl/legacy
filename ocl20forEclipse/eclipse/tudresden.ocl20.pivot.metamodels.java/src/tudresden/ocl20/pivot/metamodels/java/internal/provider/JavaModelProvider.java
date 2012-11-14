@@ -49,8 +49,8 @@ public class JavaModelProvider extends AbstractModelProvider implements
 		IModelProvider {
 
 	/** The {@link Logger} for this class. */
-	protected static final Logger LOGGER = JavaMetaModelPlugin
-			.getLogger(JavaModelProvider.class);
+	protected static final Logger LOGGER =
+			JavaMetaModelPlugin.getLogger(JavaModelProvider.class);
 
 	/*
 	 * (non-Javadoc)
@@ -86,12 +86,6 @@ public class JavaModelProvider extends AbstractModelProvider implements
 		}
 		// no else.
 
-		// Check if the model has already been cached.
-		if (this.m_modelCache.get(modelURL.toString()) != null) {
-			return this.m_modelCache.get(modelURL.toString());
-		}
-		// no else.
-
 		IModel result;
 		result = null;
 
@@ -124,9 +118,6 @@ public class JavaModelProvider extends AbstractModelProvider implements
 			throw new ModelAccessException(msg);
 		}
 		// no else.
-
-		// Cache the model
-		this.m_modelCache.put(modelURL.toString(), result);
 
 		/* Probably debug the exit of this method. */
 		if (LOGGER.isDebugEnabled()) {
@@ -339,8 +330,8 @@ public class JavaModelProvider extends AbstractModelProvider implements
 				 * find types from EMF Ecore like EObject.
 				 */
 				aClassLoader =
-						new URLClassLoader(urls.toArray(new URL[0]),
-								ModelPlugin.class.getClassLoader());
+						new URLClassLoader(urls.toArray(new URL[0]), ModelPlugin.class
+								.getClassLoader());
 
 				result = Class.forName(aClassName, true, aClassLoader);
 

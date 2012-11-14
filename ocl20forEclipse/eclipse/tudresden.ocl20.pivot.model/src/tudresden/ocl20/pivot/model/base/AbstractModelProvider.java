@@ -35,8 +35,6 @@ package tudresden.ocl20.pivot.model.base;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -63,12 +61,9 @@ public abstract class AbstractModelProvider implements IModelProvider {
 	private static final Logger LOGGER = Logger
 			.getLogger(AbstractModelProvider.class);
 
-	/** Holds the {@link IModel}s that belong to the {@link URL}. **/
-	protected final Map<String, IModel> m_modelCache =
-			new HashMap<String, IModel>();
-
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see tudresden.ocl20.pivot.modelbus.IModelProvider#getModel(java.io.File)
 	 */
 	public IModel getModel(File modelFile) throws ModelAccessException {
@@ -151,7 +146,6 @@ public abstract class AbstractModelProvider implements IModelProvider {
 	}
 
 	public IModel getModel(Resource resource) {
-
 		throw new UnsupportedOperationException(
 				"This kind of ModelProvider cannot load Ecore Resources.");
 	}
