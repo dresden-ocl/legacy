@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site
+      associateSitesURL="http://dresden-ocl.sourceforge.net/downloads/updatesite/associateSites.xml">
+   <feature url="features/tudresden.ocl20.feature.core_3.0.2.201011100908.jar" id="tudresden.ocl20.feature.core" version="3.0.2.201011100908">
+      <category name="DresdenOCL"/>
+   </feature>
+   <feature url="features/tudresden.ocl20.feature.examples_3.0.2.201011100908.jar" id="tudresden.ocl20.feature.examples" version="3.0.2.201011100908">
+      <category name="DresdenOCLExamples"/>
+   </feature>
+   <feature url="features/tudresden.ocl20.feature.examples.ocl22java_3.0.2.201011100908.jar" id="tudresden.ocl20.feature.examples.ocl22java" version="3.0.2.201011100908">
+      <category name="DresdenOCLExamples"/>
+   </feature>
+   <feature url="features/tudresden.ocl20.feature.facade_3.0.2.201011100908.jar" id="tudresden.ocl20.feature.facade" version="3.0.2.201011100908">
+      <category name="DresdenOCL"/>
+   </feature>
+   <feature url="features/tudresden.ocl20.feature.interpreter_3.0.2.201011100908.jar" id="tudresden.ocl20.feature.interpreter" version="3.0.2.201011100908">
+      <category name="DresdenOCL"/>
+   </feature>
+   <feature url="features/tudresden.ocl20.feature.metamodels_3.0.2.201011100908.jar" id="tudresden.ocl20.feature.metamodels" version="3.0.2.201011100908">
+      <category name="DresdenOCL"/>
+   </feature>
+   <feature url="features/tudresden.ocl20.feature.modelinstances_3.0.2.201011100908.jar" id="tudresden.ocl20.feature.modelinstances" version="3.0.2.201011100908">
+      <category name="DresdenOCL"/>
+   </feature>
+   <feature url="features/tudresden.ocl20.feature.ocl2java_3.0.2.201011100908.jar" id="tudresden.ocl20.feature.ocl2java" version="3.0.2.201011100908">
+      <category name="DresdenOCL"/>
+   </feature>
+   <feature url="features/tudresden.ocl20.feature.ocl2sql_3.0.2.201011100908.jar" id="tudresden.ocl20.feature.ocl2sql" version="3.0.2.201011100908">
+      <category name="DresdenOCL"/>
+   </feature>
+   <feature url="features/tudresden.ocl20.feature.parser_3.0.2.201011100908.jar" id="tudresden.ocl20.feature.parser" version="3.0.2.201011100908">
+      <category name="DresdenOCL"/>
+   </feature>
+   <category-def name="DresdenOCL" label="Dresden OCL (required)">
+      <description>
+         The latest version of Dresden OCL - The Open Source tool for OCL Editing, Parsing, Interpretation and Code Generation. Futher information available at http://dresden-ocl.sourceforge.net/
+      </description>
+   </category-def>
+   <category-def name="DresdenOCLExamples" label="Dresden OCL Examples (optional)">
+      <description>
+         Examples provided with Dresden OCL. Attention: some of the examples require the AspectJ Development Tools (AJDT) as installed. AJDT can be installed via http://download.eclipse.org/tools/ajdt/36/update/
+      </description>
+   </category-def>
+</site>
