@@ -83,8 +83,8 @@ public class UML2ModelProvider extends AbstractModelProvider implements
 		}
 
 		// Check if the model has already been cached
-		if (this.m_modelCache.get(modelURL) != null) {
-			return this.m_modelCache.get(modelURL);
+		if (this.m_modelCache.get(modelURL.toString()) != null) {
+			return this.m_modelCache.get(modelURL.toString());
 		}
 		// no else.
 
@@ -103,7 +103,7 @@ public class UML2ModelProvider extends AbstractModelProvider implements
 						.getMetamodel(UML2MetamodelPlugin.ID));
 		
 		// Cache the model
-		this.m_modelCache.put(modelURL, result);
+		this.m_modelCache.put(modelURL.toString(), result);
 
 		/* Probably debug the exit of this method. */
 		if (LOGGER.isDebugEnabled()) {
