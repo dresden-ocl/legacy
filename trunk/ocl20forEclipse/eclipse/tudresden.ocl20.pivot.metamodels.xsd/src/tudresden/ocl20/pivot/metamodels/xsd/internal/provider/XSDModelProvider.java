@@ -53,8 +53,8 @@ public class XSDModelProvider extends AbstractModelProvider implements
 		}
 
 		// Check if the model has already been cached
-		if (this.m_modelCache.get(modelURL) != null) {
-			return this.m_modelCache.get(modelURL);
+		if (this.m_modelCache.get(modelURL.toString()) != null) {
+			return this.m_modelCache.get(modelURL.toString());
 		}
 		// no else
 
@@ -72,7 +72,7 @@ public class XSDModelProvider extends AbstractModelProvider implements
 								XSDMetamodelPlugin.ID));
 		
 		// Cache the model
-		this.m_modelCache.put(modelURL, model);
+		this.m_modelCache.put(modelURL.toString(), model);
 
 		if (logger.isDebugEnabled()) {
 			logger.debug("getModel() - exit - return value=" + model); //$NON-NLS-1$

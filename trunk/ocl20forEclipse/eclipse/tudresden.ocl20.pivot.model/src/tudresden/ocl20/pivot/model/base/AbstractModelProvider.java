@@ -35,8 +35,8 @@ package tudresden.ocl20.pivot.model.base;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.WeakHashMap;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -63,8 +63,9 @@ public abstract class AbstractModelProvider implements IModelProvider {
 	private static final Logger LOGGER = Logger
 			.getLogger(AbstractModelProvider.class);
 
-	/** Holds the {@link IModel}s that belong to the {@link URI}. **/
-	protected final Map<URL, IModel> m_modelCache = new WeakHashMap<URL, IModel>();
+	/** Holds the {@link IModel}s that belong to the {@link URL}. **/
+	protected final Map<String, IModel> m_modelCache =
+			new HashMap<String, IModel>();
 
 	/*
 	 * (non-Javadoc)
