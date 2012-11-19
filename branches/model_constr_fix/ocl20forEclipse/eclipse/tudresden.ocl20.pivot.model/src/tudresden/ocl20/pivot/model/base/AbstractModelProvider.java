@@ -33,8 +33,11 @@
 package tudresden.ocl20.pivot.model.base;
 
 import java.io.File;
+import java.lang.ref.WeakReference;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -44,6 +47,7 @@ import tudresden.ocl20.pivot.model.IModel;
 import tudresden.ocl20.pivot.model.IModelProvider;
 import tudresden.ocl20.pivot.model.ModelAccessException;
 import tudresden.ocl20.pivot.model.internal.ModelMessages;
+import tudresden.ocl20.pivot.model.util.Tuple2;
 
 /**
  * <p>
@@ -61,9 +65,15 @@ public abstract class AbstractModelProvider implements IModelProvider {
 	private static final Logger LOGGER = Logger
 			.getLogger(AbstractModelProvider.class);
 
+	/**
+	 * This map holds the {@link IModel}s specified by their {@link URL} in string
+	 * representation.
+	 **/
+	protected final Map<String, Tuple2<WeakReference<IModel>, Integer>> m_modelCache =
+			new HashMap<String, Tuple2<WeakReference<IModel>, Integer>>();
+
 	/*
 	 * (non-Javadoc)
-	 * 
 	 * @see tudresden.ocl20.pivot.modelbus.IModelProvider#getModel(java.io.File)
 	 */
 	public IModel getModel(File modelFile) throws ModelAccessException {
@@ -146,7 +156,27 @@ public abstract class AbstractModelProvider implements IModelProvider {
 	}
 
 	public IModel getModel(Resource resource) {
+
 		throw new UnsupportedOperationException(
 				"This kind of ModelProvider cannot load Ecore Resources.");
+	}
+
+	public void releaseModel(final IModel model) throws ModelAccessException {
+
+		for (final Tuple2<WeakReference<IModel>, Integer> t : this.m_modelCache
+				.values()) {
+			if (t.getFirstValue().get() != null) {
+				if (t.getFirstValue().get().equals(model)) {
+					if (t.getSecondValue() > 1) {
+						t.setSecondValue(t.getSecondValue() - 1);
+					}
+					// TODO Lars: This should be removed when the branch is merged into
+					// trunk
+					throw new ModelAccessException(
+							"Cannot release Model which is referenced anymore");
+				}
+				// no else
+			}
+		}
 	}
 }

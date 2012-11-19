@@ -19,6 +19,7 @@ with Dresden OCL2 for Eclipse. If not, see <http://www.gnu.org/licenses/>.
 package tudresden.ocl20.pivot.metamodels.java.internal.model;
 
 import tudresden.ocl20.pivot.model.IModel;
+import tudresden.ocl20.pivot.model.IModelProvider;
 import tudresden.ocl20.pivot.model.ModelAccessException;
 import tudresden.ocl20.pivot.model.base.AbstractModel;
 import tudresden.ocl20.pivot.model.metamodel.IMetamodel;
@@ -52,9 +53,11 @@ public class JavaModel extends AbstractModel implements IModel {
 	 * 
 	 * @param class The {@link Class} containing the model.
 	 */
-	public JavaModel(Class<?> aClass, IMetamodel metamodel) {
+	public JavaModel(Class<?> aClass, IMetamodel metamodel,
+			IModelProvider provider) {
 
-		super((aClass == null) ? "" : aClass.getCanonicalName(), metamodel);
+		super((aClass == null) ? "" : aClass.getCanonicalName(), metamodel,
+				provider);
 
 		if (aClass == null) {
 			throw new IllegalArgumentException(
@@ -78,6 +81,8 @@ public class JavaModel extends AbstractModel implements IModel {
 		this.myRootNamespace = null;
 		/* Reset the adapter factory to clear the cache. */
 		this.myAdapterFactory = new JavaAdapterFactory();
+		
+		super.dispose();
 	}
 
 	/**

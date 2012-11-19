@@ -11,6 +11,7 @@ import org.eclipse.xsd.ecore.XSDEcoreBuilder;
 
 import tudresden.ocl20.pivot.metamodels.ecore.internal.model.EcoreAdapterFactory;
 import tudresden.ocl20.pivot.model.IModel;
+import tudresden.ocl20.pivot.model.IModelProvider;
 import tudresden.ocl20.pivot.model.ModelAccessException;
 import tudresden.ocl20.pivot.model.ModelConstants;
 import tudresden.ocl20.pivot.model.base.AbstractModel;
@@ -41,12 +42,12 @@ public class XSDModel extends AbstractModel implements IModel {
 	 *          the {@link org.eclipse.emf.ecore.resource.Resource} containing the
 	 *          model
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public XSDModel(org.eclipse.emf.ecore.resource.Resource resource,
-			IMetamodel metamodel) {
+			IMetamodel metamodel, IModelProvider provider) {
 
-		super(resource.getURI().toString(), metamodel);
+		super(resource.getURI().toString(), metamodel, provider);
 
 		// initialize
 		this.resource = resource;
@@ -62,6 +63,8 @@ public class XSDModel extends AbstractModel implements IModel {
 		this.resource.unload();
 		/* Reset the root name space to avoid caching. */
 		this.rootNamespace = null;
+		
+		super.dispose();
 	}
 
 	/**
