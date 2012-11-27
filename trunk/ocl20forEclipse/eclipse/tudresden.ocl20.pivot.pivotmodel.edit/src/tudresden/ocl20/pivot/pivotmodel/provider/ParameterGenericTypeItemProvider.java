@@ -66,7 +66,6 @@ public class ParameterGenericTypeItemProvider extends GenericTypeItemProvider
 	 * @generated
 	 */
 	public ParameterGenericTypeItemProvider(AdapterFactory adapterFactory) {
-
 		super(adapterFactory);
 	}
 
@@ -78,7 +77,6 @@ public class ParameterGenericTypeItemProvider extends GenericTypeItemProvider
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
@@ -94,7 +92,6 @@ public class ParameterGenericTypeItemProvider extends GenericTypeItemProvider
 	 * @generated
 	 */
 	protected void addTypeParameterPropertyDescriptor(Object object) {
-
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(
 						((ComposeableAdapterFactory) adapterFactory)
@@ -143,7 +140,6 @@ public class ParameterGenericTypeItemProvider extends GenericTypeItemProvider
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
-
 		updateChildren(notification);
 		super.notifyChanged(notification);
 	}
@@ -158,7 +154,6 @@ public class ParameterGenericTypeItemProvider extends GenericTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
-
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

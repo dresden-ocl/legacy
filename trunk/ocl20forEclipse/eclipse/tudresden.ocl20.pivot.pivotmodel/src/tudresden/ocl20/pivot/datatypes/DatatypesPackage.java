@@ -82,8 +82,8 @@ public interface DatatypesPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	DatatypesPackage eINSTANCE =
-			tudresden.ocl20.pivot.datatypes.impl.DatatypesPackageImpl.init();
+	DatatypesPackage eINSTANCE = tudresden.ocl20.pivot.datatypes.impl.DatatypesPackageImpl
+			.init();
 
 	/**
 	 * The meta object id for the '<em>Boolean</em>' data type.

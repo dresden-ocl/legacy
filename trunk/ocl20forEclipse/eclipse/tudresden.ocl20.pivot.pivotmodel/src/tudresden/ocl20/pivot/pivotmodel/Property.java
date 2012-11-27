@@ -48,6 +48,7 @@ package tudresden.ocl20.pivot.pivotmodel;
  * The following features are supported:
  * <ul>
  *   <li>{@link tudresden.ocl20.pivot.pivotmodel.Property#getOwningType <em>Owning Type</em>}</li>
+ *   <li>{@link tudresden.ocl20.pivot.pivotmodel.Property#isIdentifier <em>Identifier</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,6 +83,34 @@ public interface Property extends Feature, TypedElement, NamedElement,
 	 * @generated
 	 */
 	void setOwningType(Type value);
+
+	/**
+	 * Returns the value of the '<em><b>Identifier</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * <p>
+	 * If the <code>Property</code> is an part of unique identifier of the owning type.
+	 * The default value is false.
+	 * </p>
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Identifier</em>' attribute.
+	 * @see #setIdentifier(boolean)
+	 * @see tudresden.ocl20.pivot.pivotmodel.PivotModelPackage#getProperty_Identifier()
+	 * @model default="false" required="true"
+	 * @generated
+	 */
+	boolean isIdentifier();
+
+	/**
+	 * Sets the value of the '{@link tudresden.ocl20.pivot.pivotmodel.Property#isIdentifier <em>Identifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Identifier</em>' attribute.
+	 * @see #isIdentifier()
+	 * @generated
+	 */
+	void setIdentifier(boolean value);
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->

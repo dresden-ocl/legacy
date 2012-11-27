@@ -69,7 +69,6 @@ public class ExpressionItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	public ExpressionItemProvider(AdapterFactory adapterFactory) {
-
 		super(adapterFactory);
 	}
 
@@ -81,7 +80,6 @@ public class ExpressionItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
@@ -98,7 +96,6 @@ public class ExpressionItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addBodyPropertyDescriptor(Object object) {
-
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(
 						((ComposeableAdapterFactory) adapterFactory)
@@ -107,7 +104,8 @@ public class ExpressionItemProvider extends ItemProviderAdapter implements
 						getString("_UI_Expression_body_feature"), //$NON-NLS-1$
 						getString(
 								"_UI_PropertyDescriptor_description", "_UI_Expression_body_feature", "_UI_Expression_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-						PivotModelPackage.Literals.EXPRESSION__BODY, true, false, false,
+						PivotModelPackage.Literals.EXPRESSION__BODY, true,
+						false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -118,7 +116,6 @@ public class ExpressionItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addLanguagePropertyDescriptor(Object object) {
-
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(
 						((ComposeableAdapterFactory) adapterFactory)
@@ -127,8 +124,9 @@ public class ExpressionItemProvider extends ItemProviderAdapter implements
 						getString("_UI_Expression_language_feature"), //$NON-NLS-1$
 						getString(
 								"_UI_PropertyDescriptor_description", "_UI_Expression_language_feature", "_UI_Expression_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-						PivotModelPackage.Literals.EXPRESSION__LANGUAGE, true, false,
-						false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+						PivotModelPackage.Literals.EXPRESSION__LANGUAGE, true,
+						false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -139,7 +137,6 @@ public class ExpressionItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-
 		return overlayImage(object,
 				getResourceLocator().getImage("full/obj16/Expression")); //$NON-NLS-1$
 	}
@@ -152,7 +149,6 @@ public class ExpressionItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-
 		String label = ((Expression) object).getBody();
 		return label == null || label.length() == 0 ? getString("_UI_Expression_type") : //$NON-NLS-1$
 				getString("_UI_Expression_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
@@ -167,7 +163,6 @@ public class ExpressionItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
-
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Expression.class)) {
@@ -190,7 +185,6 @@ public class ExpressionItemProvider extends ItemProviderAdapter implements
 	@Override
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
-
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -202,7 +196,6 @@ public class ExpressionItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-
 		return PivotModelEditPlugin.INSTANCE;
 	}
 

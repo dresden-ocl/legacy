@@ -87,7 +87,6 @@ public abstract class TypedElementImpl extends NamedElementImpl implements
 	 * @generated
 	 */
 	protected TypedElementImpl() {
-
 		super();
 	}
 
@@ -96,7 +95,6 @@ public abstract class TypedElementImpl extends NamedElementImpl implements
 	 * @generated
 	 */
 	public Type getType() {
-
 		return type;
 	}
 
@@ -105,7 +103,6 @@ public abstract class TypedElementImpl extends NamedElementImpl implements
 	 * @generated
 	 */
 	public void setType(Type newType) {
-
 		Type oldType = type;
 		type = newType;
 		if (eNotificationRequired())
@@ -118,7 +115,6 @@ public abstract class TypedElementImpl extends NamedElementImpl implements
 	 * @generated
 	 */
 	public GenericType getGenericType() {
-
 		return genericType;
 	}
 
@@ -147,14 +143,13 @@ public abstract class TypedElementImpl extends NamedElementImpl implements
 	 */
 	public NotificationChain basicSetGenericType(GenericType newGenericType,
 			NotificationChain msgs) {
-
 		GenericType oldGenericType = genericType;
 		genericType = newGenericType;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification =
-					new ENotificationImpl(this, Notification.SET,
-							PivotModelPackage.TYPED_ELEMENT__GENERIC_TYPE, oldGenericType,
-							newGenericType);
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET,
+					PivotModelPackage.TYPED_ELEMENT__GENERIC_TYPE,
+					oldGenericType, newGenericType);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -192,27 +187,29 @@ public abstract class TypedElementImpl extends NamedElementImpl implements
 	 * @generated
 	 */
 	public void setGenericTypeGen(GenericType newGenericType) {
-
 		if (newGenericType != genericType) {
 			NotificationChain msgs = null;
 			if (genericType != null)
-				msgs =
-						((InternalEObject) genericType)
-								.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-										- PivotModelPackage.TYPED_ELEMENT__GENERIC_TYPE, null, msgs);
+				msgs = ((InternalEObject) genericType)
+						.eInverseRemove(
+								this,
+								EOPPOSITE_FEATURE_BASE
+										- PivotModelPackage.TYPED_ELEMENT__GENERIC_TYPE,
+								null, msgs);
 			if (newGenericType != null)
-				msgs =
-						((InternalEObject) newGenericType)
-								.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-										- PivotModelPackage.TYPED_ELEMENT__GENERIC_TYPE, null, msgs);
+				msgs = ((InternalEObject) newGenericType)
+						.eInverseAdd(
+								this,
+								EOPPOSITE_FEATURE_BASE
+										- PivotModelPackage.TYPED_ELEMENT__GENERIC_TYPE,
+								null, msgs);
 			msgs = basicSetGenericType(newGenericType, msgs);
 			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if (eNotificationRequired())
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					PivotModelPackage.TYPED_ELEMENT__GENERIC_TYPE, newGenericType,
-					newGenericType));
+					PivotModelPackage.TYPED_ELEMENT__GENERIC_TYPE,
+					newGenericType, newGenericType));
 	}
 
 	/**
@@ -221,7 +218,6 @@ public abstract class TypedElementImpl extends NamedElementImpl implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
-
 		return PivotModelPackage.Literals.TYPED_ELEMENT;
 	}
 
@@ -232,7 +228,6 @@ public abstract class TypedElementImpl extends NamedElementImpl implements
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
-
 		switch (featureID) {
 		case PivotModelPackage.TYPED_ELEMENT__GENERIC_TYPE:
 			return basicSetGenericType(null, msgs);
@@ -246,7 +241,6 @@ public abstract class TypedElementImpl extends NamedElementImpl implements
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-
 		switch (featureID) {
 		case PivotModelPackage.TYPED_ELEMENT__TYPE:
 			return getType();
@@ -262,7 +256,6 @@ public abstract class TypedElementImpl extends NamedElementImpl implements
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-
 		switch (featureID) {
 		case PivotModelPackage.TYPED_ELEMENT__TYPE:
 			setType((Type) newValue);
@@ -280,7 +273,6 @@ public abstract class TypedElementImpl extends NamedElementImpl implements
 	 */
 	@Override
 	public void eUnset(int featureID) {
-
 		switch (featureID) {
 		case PivotModelPackage.TYPED_ELEMENT__TYPE:
 			setType((Type) null);
@@ -298,7 +290,6 @@ public abstract class TypedElementImpl extends NamedElementImpl implements
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-
 		switch (featureID) {
 		case PivotModelPackage.TYPED_ELEMENT__TYPE:
 			return type != null;

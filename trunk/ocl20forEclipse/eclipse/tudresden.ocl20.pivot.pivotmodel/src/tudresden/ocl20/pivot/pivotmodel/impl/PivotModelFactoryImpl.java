@@ -39,6 +39,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import tudresden.ocl20.pivot.pivotmodel.*;
 import tudresden.ocl20.pivot.pivotmodel.AssociationProperty;
 import tudresden.ocl20.pivot.pivotmodel.ComplexGenericType;
 import tudresden.ocl20.pivot.pivotmodel.Constraint;
@@ -73,11 +74,9 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public static PivotModelFactory init() {
-
 		try {
-			PivotModelFactory thePivotModelFactory =
-					(PivotModelFactory) EPackage.Registry.INSTANCE
-							.getEFactory("http://www.tu-dresden.de/ocl20/pivot/2007/pivotmodel"); //$NON-NLS-1$ 
+			PivotModelFactory thePivotModelFactory = (PivotModelFactory) EPackage.Registry.INSTANCE
+					.getEFactory("http://www.tu-dresden.de/ocl20/pivot/2007/pivotmodel"); //$NON-NLS-1$ 
 			if (thePivotModelFactory != null) {
 				return thePivotModelFactory;
 			}
@@ -93,7 +92,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public PivotModelFactoryImpl() {
-
 		super();
 	}
 
@@ -103,7 +101,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 */
 	@Override
 	public EObject create(EClass eClass) {
-
 		switch (eClass.getClassifierID()) {
 		case PivotModelPackage.NAMESPACE:
 			return createNamespace();
@@ -147,12 +144,12 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 */
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
-
 		switch (eDataType.getClassifierID()) {
 		case PivotModelPackage.PRIMITIVE_TYPE_KIND:
 			return createPrimitiveTypeKindFromString(eDataType, initialValue);
 		case PivotModelPackage.PARAMETER_DIRECTION_KIND:
-			return createParameterDirectionKindFromString(eDataType, initialValue);
+			return createParameterDirectionKindFromString(eDataType,
+					initialValue);
 		case PivotModelPackage.CONSTRAINT_KIND:
 			return createConstraintKindFromString(eDataType, initialValue);
 		default:
@@ -167,12 +164,12 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
-
 		switch (eDataType.getClassifierID()) {
 		case PivotModelPackage.PRIMITIVE_TYPE_KIND:
 			return convertPrimitiveTypeKindToString(eDataType, instanceValue);
 		case PivotModelPackage.PARAMETER_DIRECTION_KIND:
-			return convertParameterDirectionKindToString(eDataType, instanceValue);
+			return convertParameterDirectionKindToString(eDataType,
+					instanceValue);
 		case PivotModelPackage.CONSTRAINT_KIND:
 			return convertConstraintKindToString(eDataType, instanceValue);
 		default:
@@ -186,7 +183,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public Enumeration createEnumeration() {
-
 		EnumerationImpl enumeration = new EnumerationImpl();
 		return enumeration;
 	}
@@ -196,7 +192,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public Operation createOperation() {
-
 		OperationImpl operation = new OperationImpl();
 		return operation;
 	}
@@ -206,7 +201,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public Namespace createNamespace() {
-
 		NamespaceImpl namespace = new NamespaceImpl();
 		return namespace;
 	}
@@ -216,7 +210,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public Type createType() {
-
 		TypeImpl type = new TypeImpl();
 		return type;
 	}
@@ -226,7 +219,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public Parameter createParameter() {
-
 		ParameterImpl parameter = new ParameterImpl();
 		return parameter;
 	}
@@ -236,7 +228,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public EnumerationLiteral createEnumerationLiteral() {
-
 		EnumerationLiteralImpl enumerationLiteral = new EnumerationLiteralImpl();
 		return enumerationLiteral;
 	}
@@ -246,7 +237,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public Property createProperty() {
-
 		PropertyImpl property = new PropertyImpl();
 		return property;
 	}
@@ -256,7 +246,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public PrimitiveType createPrimitiveType() {
-
 		PrimitiveTypeImpl primitiveType = new PrimitiveTypeImpl();
 		return primitiveType;
 	}
@@ -266,7 +255,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public Constraint createConstraint() {
-
 		ConstraintImpl constraint = new ConstraintImpl();
 		return constraint;
 	}
@@ -276,7 +264,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public Expression createExpression() {
-
 		ExpressionImpl expression = new ExpressionImpl();
 		return expression;
 	}
@@ -287,7 +274,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public AssociationProperty createAssociationProperty() {
-
 		AssociationPropertyImpl associationProperty = new AssociationPropertyImpl();
 		return associationProperty;
 	}
@@ -297,7 +283,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public TypeParameter createTypeParameter() {
-
 		TypeParameterImpl typeParameter = new TypeParameterImpl();
 		return typeParameter;
 	}
@@ -307,7 +292,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public TypeArgument createTypeArgument() {
-
 		TypeArgumentImpl typeArgument = new TypeArgumentImpl();
 		return typeArgument;
 	}
@@ -317,9 +301,7 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public ParameterGenericType createParameterGenericType() {
-
-		ParameterGenericTypeImpl parameterGenericType =
-				new ParameterGenericTypeImpl();
+		ParameterGenericTypeImpl parameterGenericType = new ParameterGenericTypeImpl();
 		return parameterGenericType;
 	}
 
@@ -328,7 +310,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public ComplexGenericType createComplexGenericType() {
-
 		ComplexGenericTypeImpl complexGenericType = new ComplexGenericTypeImpl();
 		return complexGenericType;
 	}
@@ -339,8 +320,8 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 */
 	public ParameterDirectionKind createParameterDirectionKindFromString(
 			EDataType eDataType, String initialValue) {
-
-		ParameterDirectionKind result = ParameterDirectionKind.get(initialValue);
+		ParameterDirectionKind result = ParameterDirectionKind
+				.get(initialValue);
 		if (result == null)
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -354,7 +335,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	@SuppressWarnings("unused")
 	public String convertParameterDirectionKindToString(EDataType eDataType,
 			Object instanceValue) {
-
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -364,7 +344,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 */
 	public ConstraintKind createConstraintKindFromString(EDataType eDataType,
 			String initialValue) {
-
 		ConstraintKind result = ConstraintKind.get(initialValue);
 		if (result == null)
 			throw new IllegalArgumentException(
@@ -379,7 +358,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	@SuppressWarnings("unused")
 	public String convertConstraintKindToString(EDataType eDataType,
 			Object instanceValue) {
-
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -389,7 +367,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 * @generated
 	 */
 	public PivotModelPackage getPivotModelPackage() {
-
 		return (PivotModelPackage) getEPackage();
 	}
 
@@ -399,7 +376,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 */
 	public PrimitiveTypeKind createPrimitiveTypeKindFromString(
 			EDataType eDataType, String initialValue) {
-
 		PrimitiveTypeKind result = PrimitiveTypeKind.get(initialValue);
 		if (result == null)
 			throw new IllegalArgumentException(
@@ -414,7 +390,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	@SuppressWarnings("unused")
 	public String convertPrimitiveTypeKindToString(EDataType eDataType,
 			Object instanceValue) {
-
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -425,7 +400,6 @@ public class PivotModelFactoryImpl extends EFactoryImpl implements
 	 */
 	@Deprecated
 	public static PivotModelPackage getPackage() {
-
 		return PivotModelPackage.eINSTANCE;
 	}
 
