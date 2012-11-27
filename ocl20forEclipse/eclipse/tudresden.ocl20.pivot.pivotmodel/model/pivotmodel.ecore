@@ -347,16 +347,15 @@
       </eAnnotations>
       <eParameters name="p" eType="#//Property"/>
     </eOperations>
+    <eOperations name="isIdentifier" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;p>&#xD;&#xA;If the &lt;code>Property&lt;/code> is an part of unique identifier of the owning type th return value is true&#xD;&#xA;The default value is false.&#xD;&#xA;&lt;/p>"/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="owningType" eType="#//Type"
         transient="true" eOpposite="#//Type/ownedProperty">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="&lt;p>&#xD;&#xA;Specifies the owner of this &lt;code>Property&lt;/code>.&#xD;&#xA;&lt;/p>"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&lt;p>&#xD;&#xA;If the &lt;code>Property&lt;/code> is an part of unique identifier of the owning type.&#xD;&#xA;The default value is false.&#xD;&#xA;&lt;/p>"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

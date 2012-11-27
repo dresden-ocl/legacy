@@ -33,25 +33,24 @@
 package tudresden.ocl20.pivot.pivotmodel;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Property</b></em>'.
- * <!-- end-user-doc -->
- *
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>Property</b></em>'. <!-- end-user-doc -->
+ * 
  * <!-- begin-model-doc -->
  * <p>
- * A <code>Property</code> is a {@link TypedElement} 
- * typed element that represents an attribute of a {@link 
- * Type} or an association to another type.
+ * A <code>Property</code> is a {@link TypedElement} typed element that
+ * represents an attribute of a {@link Type} or an association to another type.
  * </p>
  * <!-- end-model-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link tudresden.ocl20.pivot.pivotmodel.Property#getOwningType <em>Owning Type</em>}</li>
- *   <li>{@link tudresden.ocl20.pivot.pivotmodel.Property#isIdentifier <em>Identifier</em>}</li>
+ * <li>{@link tudresden.ocl20.pivot.pivotmodel.Property#getOwningType <em>Owning
+ * Type</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see tudresden.ocl20.pivot.pivotmodel.PivotModelPackage#getProperty()
  * @model
  * @generated
@@ -60,9 +59,11 @@ public interface Property extends Feature, TypedElement, NamedElement,
 		ConstrainableElement {
 
 	/**
-	 * Returns the value of the '<em><b>Owning Type</b></em>' container reference. It is
-	 * bidirectional and its opposite is '{@link tudresden.ocl20.pivot.pivotmodel.Type#getOwnedProperty <em>Owned Property</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
+	 * Returns the value of the '<em><b>Owning Type</b></em>' container reference.
+	 * It is bidirectional and its opposite is '
+	 * {@link tudresden.ocl20.pivot.pivotmodel.Type#getOwnedProperty
+	 * <em>Owned Property</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
 	 * <p>
 	 * Specifies the owner of this <code>Property</code>.
 	 * </p>
@@ -76,46 +77,36 @@ public interface Property extends Feature, TypedElement, NamedElement,
 	Type getOwningType();
 
 	/**
-	 * Sets the value of the '{@link tudresden.ocl20.pivot.pivotmodel.Property#getOwningType <em>Owning Type</em>}' container reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Owning Type</em>' container reference.
+	 * Sets the value of the '
+	 * {@link tudresden.ocl20.pivot.pivotmodel.Property#getOwningType
+	 * <em>Owning Type</em>}' container reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @param value
+	 *          the new value of the '<em>Owning Type</em>' container reference.
 	 * @see #getOwningType()
 	 * @generated
 	 */
 	void setOwningType(Type value);
 
 	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
 	 * <p>
-	 * If the <code>Property</code> is an part of unique identifier of the owning type.
-	 * The default value is false.
+	 * If the <code>Property</code> is an part of unique identifier of the owning
+	 * type th return value is true The default value is false.
 	 * </p>
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Identifier</em>' attribute.
-	 * @see #setIdentifier(boolean)
-	 * @see tudresden.ocl20.pivot.pivotmodel.PivotModelPackage#getProperty_Identifier()
-	 * @model default="false" required="true"
+	 * 
+	 * @model kind="operation" required="true"
 	 * @generated
 	 */
 	boolean isIdentifier();
 
 	/**
-	 * Sets the value of the '{@link tudresden.ocl20.pivot.pivotmodel.Property#isIdentifier <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' attribute.
-	 * @see #isIdentifier()
-	 * @generated
-	 */
-	void setIdentifier(boolean value);
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
 	 * <p>
-	 * The operation cmpSlots returns true if the compared property has identical name and type.
+	 * The operation cmpSlots returns true if the compared property has identical
+	 * name and type.
 	 * 
 	 * It is specified as follows:
 	 * 
