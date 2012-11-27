@@ -36,6 +36,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
+import tudresden.ocl20.pivot.pivotmodel.*;
 import tudresden.ocl20.pivot.pivotmodel.AssociationProperty;
 import tudresden.ocl20.pivot.pivotmodel.ComplexGenericType;
 import tudresden.ocl20.pivot.pivotmodel.ConstrainableElement;
@@ -89,7 +90,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public PivotModelSwitch() {
-
 		if (modelPackage == null) {
 			modelPackage = PivotModelPackage.eINSTANCE;
 		}
@@ -105,7 +105,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 */
 	@Override
 	protected boolean isSwitchFor(EPackage ePackage) {
-
 		return ePackage == modelPackage;
 	}
 
@@ -118,7 +117,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 */
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
-
 		switch (classifierID) {
 		case PivotModelPackage.NAMED_ELEMENT: {
 			NamedElement namedElement = (NamedElement) theEObject;
@@ -157,8 +155,7 @@ public class PivotModelSwitch<T> extends Switch<T> {
 			return result;
 		}
 		case PivotModelPackage.CONSTRAINABLE_ELEMENT: {
-			ConstrainableElement constrainableElement =
-					(ConstrainableElement) theEObject;
+			ConstrainableElement constrainableElement = (ConstrainableElement) theEObject;
 			T result = caseConstrainableElement(constrainableElement);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -280,8 +277,7 @@ public class PivotModelSwitch<T> extends Switch<T> {
 			return result;
 		}
 		case PivotModelPackage.PARAMETER_GENERIC_TYPE: {
-			ParameterGenericType parameterGenericType =
-					(ParameterGenericType) theEObject;
+			ParameterGenericType parameterGenericType = (ParameterGenericType) theEObject;
 			T result = caseParameterGenericType(parameterGenericType);
 			if (result == null)
 				result = caseGenericType(parameterGenericType);
@@ -339,8 +335,7 @@ public class PivotModelSwitch<T> extends Switch<T> {
 			return result;
 		}
 		case PivotModelPackage.ASSOCIATION_PROPERTY: {
-			AssociationProperty associationProperty =
-					(AssociationProperty) theEObject;
+			AssociationProperty associationProperty = (AssociationProperty) theEObject;
 			T result = caseAssociationProperty(associationProperty);
 			if (result == null)
 				result = caseProperty(associationProperty);
@@ -374,7 +369,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 */
 	@SuppressWarnings("unused")
 	public T caseEnumeration(Enumeration object) {
-
 		return null;
 	}
 
@@ -391,7 +385,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 */
 	@SuppressWarnings("unused")
 	public T caseNamedElement(NamedElement object) {
-
 		return null;
 	}
 
@@ -408,7 +401,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 */
 	@SuppressWarnings("unused")
 	public T caseOperation(Operation object) {
-
 		return null;
 	}
 
@@ -425,7 +417,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 */
 	@SuppressWarnings("unused")
 	public T caseNamespace(Namespace object) {
-
 		return null;
 	}
 
@@ -442,7 +433,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 */
 	@SuppressWarnings("unused")
 	public T caseType(Type object) {
-
 		return null;
 	}
 
@@ -459,7 +449,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 */
 	@SuppressWarnings("unused")
 	public T caseParameter(Parameter object) {
-
 		return null;
 	}
 
@@ -476,7 +465,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 */
 	@SuppressWarnings("unused")
 	public T caseEnumerationLiteral(EnumerationLiteral object) {
-
 		return null;
 	}
 
@@ -493,7 +481,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 */
 	@SuppressWarnings("unused")
 	public T caseProperty(Property object) {
-
 		return null;
 	}
 
@@ -510,7 +497,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 */
 	@SuppressWarnings("unused")
 	public T caseTypedElement(TypedElement object) {
-
 		return null;
 	}
 
@@ -527,7 +513,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 */
 	@SuppressWarnings("unused")
 	public T casePrimitiveType(PrimitiveType object) {
-
 		return null;
 	}
 
@@ -544,7 +529,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 */
 	@SuppressWarnings("unused")
 	public T caseFeature(Feature object) {
-
 		return null;
 	}
 
@@ -561,7 +545,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 */
 	@SuppressWarnings("unused")
 	public T caseConstraint(Constraint object) {
-
 		return null;
 	}
 
@@ -578,7 +561,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 */
 	@SuppressWarnings("unused")
 	public T caseExpression(Expression object) {
-
 		return null;
 	}
 
@@ -594,7 +576,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAssociationProperty(AssociationProperty object) {
-
 		return null;
 	}
 
@@ -611,7 +592,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 */
 	@SuppressWarnings("unused")
 	public T caseConstrainableElement(ConstrainableElement object) {
-
 		return null;
 	}
 
@@ -627,7 +607,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGenericElement(GenericElement object) {
-
 		return null;
 	}
 
@@ -643,7 +622,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTypeParameter(TypeParameter object) {
-
 		return null;
 	}
 
@@ -659,7 +637,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTypeArgument(TypeArgument object) {
-
 		return null;
 	}
 
@@ -675,7 +652,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseParameterGenericType(ParameterGenericType object) {
-
 		return null;
 	}
 
@@ -691,7 +667,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseComplexGenericType(ComplexGenericType object) {
-
 		return null;
 	}
 
@@ -707,7 +682,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGenericType(GenericType object) {
-
 		return null;
 	}
 
@@ -725,7 +699,6 @@ public class PivotModelSwitch<T> extends Switch<T> {
 	@Override
 	@SuppressWarnings("unused")
 	public T defaultCase(EObject object) {
-
 		return null;
 	}
 

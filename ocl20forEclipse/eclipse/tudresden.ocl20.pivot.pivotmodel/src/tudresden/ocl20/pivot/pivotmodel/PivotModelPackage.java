@@ -86,8 +86,8 @@ public interface PivotModelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	PivotModelPackage eINSTANCE =
-			tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl.init();
+	PivotModelPackage eINSTANCE = tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl
+			.init();
 
 	/**
 	 * The meta object id for the '{@link tudresden.ocl20.pivot.pivotmodel.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -902,13 +902,22 @@ public interface PivotModelPackage extends EPackage {
 	int PROPERTY__OWNING_TYPE = FEATURE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__IDENTIFIER = FEATURE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 1;
+	int PROPERTY_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link tudresden.ocl20.pivot.pivotmodel.impl.OperationImpl <em>Operation</em>}' class.
@@ -1650,14 +1659,22 @@ public interface PivotModelPackage extends EPackage {
 	int ASSOCIATION_PROPERTY__OWNING_TYPE = PROPERTY__OWNING_TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSOCIATION_PROPERTY__IDENTIFIER = PROPERTY__IDENTIFIER;
+
+	/**
 	 * The feature id for the '<em><b>Inverse Association Properties</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION_PROPERTY__INVERSE_ASSOCIATION_PROPERTIES =
-			PROPERTY_FEATURE_COUNT + 0;
+	int ASSOCIATION_PROPERTY__INVERSE_ASSOCIATION_PROPERTIES = PROPERTY_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Association Property</em>' class.
@@ -2048,6 +2065,17 @@ public interface PivotModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProperty_OwningType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link tudresden.ocl20.pivot.pivotmodel.Property#isIdentifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Identifier</em>'.
+	 * @see tudresden.ocl20.pivot.pivotmodel.Property#isIdentifier()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EAttribute getProperty_Identifier();
 
 	/**
 	 * Returns the meta object for class '{@link tudresden.ocl20.pivot.pivotmodel.Operation <em>Operation</em>}'.
@@ -2664,7 +2692,8 @@ public interface PivotModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TYPE__GENERIC_SUPER_TYPE = eINSTANCE.getType_GenericSuperType();
+		EReference TYPE__GENERIC_SUPER_TYPE = eINSTANCE
+				.getType_GenericSuperType();
 
 		/**
 		 * The meta object literal for the '{@link tudresden.ocl20.pivot.pivotmodel.impl.PrimitiveTypeImpl <em>Primitive Type</em>}' class.
@@ -2739,6 +2768,14 @@ public interface PivotModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROPERTY__OWNING_TYPE = eINSTANCE.getProperty_OwningType();
+
+		/**
+		 * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY__IDENTIFIER = eINSTANCE.getProperty_Identifier();
 
 		/**
 		 * The meta object literal for the '{@link tudresden.ocl20.pivot.pivotmodel.impl.OperationImpl <em>Operation</em>}' class.
@@ -3009,7 +3046,8 @@ public interface PivotModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EXPRESSION__CONSTRAINT = eINSTANCE.getExpression_Constraint();
+		EReference EXPRESSION__CONSTRAINT = eINSTANCE
+				.getExpression_Constraint();
 
 		/**
 		 * The meta object literal for the '{@link tudresden.ocl20.pivot.pivotmodel.impl.AssociationPropertyImpl <em>Association Property</em>}' class.

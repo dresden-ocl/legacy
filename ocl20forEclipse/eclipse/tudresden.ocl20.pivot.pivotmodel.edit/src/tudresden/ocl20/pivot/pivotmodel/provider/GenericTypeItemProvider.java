@@ -46,6 +46,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
+import tudresden.ocl20.pivot.pivotmodel.GenericType;
 import tudresden.ocl20.pivot.pivotmodel.impl.PivotModelPackageImpl;
 
 /**
@@ -64,7 +65,6 @@ public class GenericTypeItemProvider extends NamedElementItemProvider implements
 	 * @generated
 	 */
 	public GenericTypeItemProvider(AdapterFactory adapterFactory) {
-
 		super(adapterFactory);
 	}
 
@@ -76,7 +76,6 @@ public class GenericTypeItemProvider extends NamedElementItemProvider implements
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
@@ -97,11 +96,13 @@ public class GenericTypeItemProvider extends NamedElementItemProvider implements
 	@Override
 	public Object getImage(Object object) {
 
-		EReference eContainmentFeature = ((EObject) object).eContainmentFeature();
+		EReference eContainmentFeature = ((EObject) object)
+				.eContainmentFeature();
 
 		if (eContainmentFeature == PivotModelPackageImpl.Literals.TYPE__GENERIC_SUPER_TYPE) {
 			return overlayImage(object,
-					getResourceLocator().getImage("full/obj16/GenericSuperType")); //$NON-NLS-1$
+					getResourceLocator()
+							.getImage("full/obj16/GenericSuperType")); //$NON-NLS-1$
 		}
 
 		return overlayImage(object,
@@ -132,7 +133,6 @@ public class GenericTypeItemProvider extends NamedElementItemProvider implements
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
-
 		updateChildren(notification);
 		super.notifyChanged(notification);
 	}
@@ -147,7 +147,6 @@ public class GenericTypeItemProvider extends NamedElementItemProvider implements
 	@Override
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
-
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

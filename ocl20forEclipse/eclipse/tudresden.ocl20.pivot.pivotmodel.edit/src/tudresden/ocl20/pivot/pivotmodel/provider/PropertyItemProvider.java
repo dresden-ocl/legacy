@@ -37,6 +37,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -44,6 +45,9 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import tudresden.ocl20.pivot.pivotmodel.PivotModelPackage;
 import tudresden.ocl20.pivot.pivotmodel.Property;
 
 /**
@@ -63,7 +67,6 @@ public class PropertyItemProvider extends FeatureItemProvider implements
 	 * @generated
 	 */
 	public PropertyItemProvider(AdapterFactory adapterFactory) {
-
 		super(adapterFactory);
 	}
 
@@ -75,12 +78,32 @@ public class PropertyItemProvider extends FeatureItemProvider implements
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addIdentifierPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Identifier feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIdentifierPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_Property_identifier_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_Property_identifier_feature", "_UI_Property_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						PivotModelPackage.Literals.PROPERTY__IDENTIFIER, true,
+						false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -94,15 +117,13 @@ public class PropertyItemProvider extends FeatureItemProvider implements
 		Object result;
 
 		if (object instanceof Property && ((Property) object).isStatic()) {
-			result =
-					overlayImage(object,
-							getResourceLocator().getImage("full/obj16/StaticProperty"));
+			result = overlayImage(object,
+					getResourceLocator().getImage("full/obj16/StaticProperty"));
 		}
 
 		else {
-			result =
-					overlayImage(object,
-							getResourceLocator().getImage("full/obj16/Property"));
+			result = overlayImage(object,
+					getResourceLocator().getImage("full/obj16/Property"));
 		}
 
 		return result;
@@ -120,8 +141,11 @@ public class PropertyItemProvider extends FeatureItemProvider implements
 	 */
 	@Override
 	public String getText(Object object) {
+		String result = super.getText(object);
 
-		return super.getText(object);
+		if (((Property) object).isIdentifier())
+			result += " [identifier]";
+		return result;
 	}
 
 	/**
@@ -133,8 +157,14 @@ public class PropertyItemProvider extends FeatureItemProvider implements
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
-
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Property.class)) {
+		case PivotModelPackage.PROPERTY__IDENTIFIER:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -148,7 +178,6 @@ public class PropertyItemProvider extends FeatureItemProvider implements
 	@Override
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
-
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

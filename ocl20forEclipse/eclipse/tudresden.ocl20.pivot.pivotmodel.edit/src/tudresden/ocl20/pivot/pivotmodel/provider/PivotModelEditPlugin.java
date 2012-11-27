@@ -49,8 +49,7 @@ public final class PivotModelEditPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final PivotModelEditPlugin INSTANCE =
-			new PivotModelEditPlugin();
+	public static final PivotModelEditPlugin INSTANCE = new PivotModelEditPlugin();
 
 	/**
 	 * Keep track of the singleton.
@@ -67,7 +66,6 @@ public final class PivotModelEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public PivotModelEditPlugin() {
-
 		super(new ResourceLocator[] {});
 	}
 
@@ -80,7 +78,6 @@ public final class PivotModelEditPlugin extends EMFPlugin {
 	 */
 	@Override
 	public ResourceLocator getPluginResourceLocator() {
-
 		return plugin;
 	}
 
@@ -92,7 +89,6 @@ public final class PivotModelEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public static Implementation getPlugin() {
-
 		return plugin;
 	}
 
@@ -111,7 +107,6 @@ public final class PivotModelEditPlugin extends EMFPlugin {
 		 * @generated
 		 */
 		public Implementation() {
-
 			super();
 
 			// Remember the static instance.

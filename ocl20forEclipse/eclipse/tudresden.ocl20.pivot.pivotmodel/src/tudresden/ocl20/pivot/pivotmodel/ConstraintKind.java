@@ -263,8 +263,8 @@ public enum ConstraintKind implements Enumerator {
 	 * @generated
 	 */
 	private static final ConstraintKind[] VALUES_ARRAY = new ConstraintKind[] {
-			INVARIANT, DEFINITION, PRECONDITION, POSTCONDITION, INITIAL, DERIVED,
-			BODY, };
+			INVARIANT, DEFINITION, PRECONDITION, POSTCONDITION, INITIAL,
+			DERIVED, BODY, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Constraint Kind</b></em>' enumerators.
@@ -282,7 +282,6 @@ public enum ConstraintKind implements Enumerator {
 	 * @generated
 	 */
 	public static ConstraintKind get(String literal) {
-
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			ConstraintKind result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
@@ -299,7 +298,6 @@ public enum ConstraintKind implements Enumerator {
 	 * @generated
 	 */
 	public static ConstraintKind getByName(String name) {
-
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			ConstraintKind result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
@@ -316,7 +314,6 @@ public enum ConstraintKind implements Enumerator {
 	 * @generated
 	 */
 	public static ConstraintKind get(int value) {
-
 		switch (value) {
 		case INVARIANT_VALUE:
 			return INVARIANT;
@@ -364,7 +361,6 @@ public enum ConstraintKind implements Enumerator {
 	 * @generated
 	 */
 	private ConstraintKind(int value, String name, String literal) {
-
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -376,7 +372,6 @@ public enum ConstraintKind implements Enumerator {
 	 * @generated
 	 */
 	public int getValue() {
-
 		return value;
 	}
 
@@ -386,7 +381,6 @@ public enum ConstraintKind implements Enumerator {
 	 * @generated
 	 */
 	public String getName() {
-
 		return name;
 	}
 
@@ -396,7 +390,6 @@ public enum ConstraintKind implements Enumerator {
 	 * @generated
 	 */
 	public String getLiteral() {
-
 		return literal;
 	}
 
@@ -408,7 +401,6 @@ public enum ConstraintKind implements Enumerator {
 	 */
 	@Override
 	public String toString() {
-
 		return literal;
 	}
 

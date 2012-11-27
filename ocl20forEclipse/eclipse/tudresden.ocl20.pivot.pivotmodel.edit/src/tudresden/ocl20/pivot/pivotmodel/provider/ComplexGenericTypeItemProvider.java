@@ -69,7 +69,6 @@ public class ComplexGenericTypeItemProvider extends GenericTypeItemProvider
 	 * @generated
 	 */
 	public ComplexGenericTypeItemProvider(AdapterFactory adapterFactory) {
-
 		super(adapterFactory);
 	}
 
@@ -81,7 +80,6 @@ public class ComplexGenericTypeItemProvider extends GenericTypeItemProvider
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
@@ -97,7 +95,6 @@ public class ComplexGenericTypeItemProvider extends GenericTypeItemProvider
 	 * @generated
 	 */
 	protected void addUnboundTypePropertyDescriptor(Object object) {
-
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(
 						((ComposeableAdapterFactory) adapterFactory)
@@ -122,7 +119,6 @@ public class ComplexGenericTypeItemProvider extends GenericTypeItemProvider
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(
 			Object object) {
-
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures
@@ -137,7 +133,6 @@ public class ComplexGenericTypeItemProvider extends GenericTypeItemProvider
 	 */
 	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
-
 		// Check the type of the specified child object and return the proper feature to use for
 		// adding (see {@link AddCommand}) it as a child.
 
@@ -175,8 +170,7 @@ public class ComplexGenericTypeItemProvider extends GenericTypeItemProvider
 		Type unboundType = genericType.getUnboundType();
 
 		// the label provider should be a TypeItemProvider, maybe we should check, though
-		TypeItemProvider typeItemProvider =
-				(TypeItemProvider) getLabelProvider(unboundType);
+		TypeItemProvider typeItemProvider = (TypeItemProvider) getLabelProvider(unboundType);
 
 		// get the type name
 		label = new StringBuilder(typeItemProvider.getTypeName(unboundType));
@@ -185,16 +179,16 @@ public class ComplexGenericTypeItemProvider extends GenericTypeItemProvider
 		label.append(typeItemProvider.getTypeParameterListOpeningDelimiter());
 
 		// append the type arguments
-		for (Iterator<TypeArgument> it = genericType.getTypeArgument().iterator(); it
-				.hasNext();) {
+		for (Iterator<TypeArgument> it = genericType.getTypeArgument()
+				.iterator(); it.hasNext();) {
 			TypeArgument typeArg = it.next();
 
 			// append the type or generic type name, or a '?' if nothing bound
-			label
-					.append(typeArg.getType() != null ? typeArg.getType().getName()
-							: (typeArg.getGenericType() != null ? getLabelProvider(
-									typeArg.getGenericType()).getText(typeArg.getGenericType())
-									: '?'));
+			label.append(typeArg.getType() != null ? typeArg.getType()
+					.getName()
+					: (typeArg.getGenericType() != null ? getLabelProvider(
+							typeArg.getGenericType()).getText(
+							typeArg.getGenericType()) : '?'));
 
 			if (it.hasNext()) {
 				label.append(", "); //$NON-NLS-1$
@@ -214,7 +208,6 @@ public class ComplexGenericTypeItemProvider extends GenericTypeItemProvider
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
-
 		updateChildren(notification);
 		super.notifyChanged(notification);
 	}
@@ -229,7 +222,6 @@ public class ComplexGenericTypeItemProvider extends GenericTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
-
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

@@ -37,6 +37,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
+import tudresden.ocl20.pivot.pivotmodel.*;
 import tudresden.ocl20.pivot.pivotmodel.AssociationProperty;
 import tudresden.ocl20.pivot.pivotmodel.ComplexGenericType;
 import tudresden.ocl20.pivot.pivotmodel.ConstrainableElement;
@@ -85,7 +86,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public PivotModelAdapterFactory() {
-
 		if (modelPackage == null) {
 			modelPackage = PivotModelPackage.eINSTANCE;
 		}
@@ -101,7 +101,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public boolean isFactoryForType(Object object) {
-
 		if (object == modelPackage) {
 			return true;
 		}
@@ -117,141 +116,117 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PivotModelSwitch<Adapter> modelSwitch =
-			new PivotModelSwitch<Adapter>() {
+	protected PivotModelSwitch<Adapter> modelSwitch = new PivotModelSwitch<Adapter>() {
+		@Override
+		public Adapter caseNamedElement(NamedElement object) {
+			return createNamedElementAdapter();
+		}
 
-				@Override
-				public Adapter caseNamedElement(NamedElement object) {
+		@Override
+		public Adapter caseTypedElement(TypedElement object) {
+			return createTypedElementAdapter();
+		}
 
-					return createNamedElementAdapter();
-				}
+		@Override
+		public Adapter caseFeature(Feature object) {
+			return createFeatureAdapter();
+		}
 
-				@Override
-				public Adapter caseTypedElement(TypedElement object) {
+		@Override
+		public Adapter caseGenericElement(GenericElement object) {
+			return createGenericElementAdapter();
+		}
 
-					return createTypedElementAdapter();
-				}
+		@Override
+		public Adapter caseConstrainableElement(ConstrainableElement object) {
+			return createConstrainableElementAdapter();
+		}
 
-				@Override
-				public Adapter caseFeature(Feature object) {
+		@Override
+		public Adapter caseNamespace(Namespace object) {
+			return createNamespaceAdapter();
+		}
 
-					return createFeatureAdapter();
-				}
+		@Override
+		public Adapter caseType(Type object) {
+			return createTypeAdapter();
+		}
 
-				@Override
-				public Adapter caseGenericElement(GenericElement object) {
+		@Override
+		public Adapter casePrimitiveType(PrimitiveType object) {
+			return createPrimitiveTypeAdapter();
+		}
 
-					return createGenericElementAdapter();
-				}
+		@Override
+		public Adapter caseEnumeration(Enumeration object) {
+			return createEnumerationAdapter();
+		}
 
-				@Override
-				public Adapter caseConstrainableElement(ConstrainableElement object) {
+		@Override
+		public Adapter caseEnumerationLiteral(EnumerationLiteral object) {
+			return createEnumerationLiteralAdapter();
+		}
 
-					return createConstrainableElementAdapter();
-				}
+		@Override
+		public Adapter caseProperty(Property object) {
+			return createPropertyAdapter();
+		}
 
-				@Override
-				public Adapter caseNamespace(Namespace object) {
+		@Override
+		public Adapter caseOperation(Operation object) {
+			return createOperationAdapter();
+		}
 
-					return createNamespaceAdapter();
-				}
+		@Override
+		public Adapter caseParameter(Parameter object) {
+			return createParameterAdapter();
+		}
 
-				@Override
-				public Adapter caseType(Type object) {
+		@Override
+		public Adapter caseGenericType(GenericType object) {
+			return createGenericTypeAdapter();
+		}
 
-					return createTypeAdapter();
-				}
+		@Override
+		public Adapter caseParameterGenericType(ParameterGenericType object) {
+			return createParameterGenericTypeAdapter();
+		}
 
-				@Override
-				public Adapter casePrimitiveType(PrimitiveType object) {
+		@Override
+		public Adapter caseComplexGenericType(ComplexGenericType object) {
+			return createComplexGenericTypeAdapter();
+		}
 
-					return createPrimitiveTypeAdapter();
-				}
+		@Override
+		public Adapter caseTypeParameter(TypeParameter object) {
+			return createTypeParameterAdapter();
+		}
 
-				@Override
-				public Adapter caseEnumeration(Enumeration object) {
+		@Override
+		public Adapter caseTypeArgument(TypeArgument object) {
+			return createTypeArgumentAdapter();
+		}
 
-					return createEnumerationAdapter();
-				}
+		@Override
+		public Adapter caseConstraint(Constraint object) {
+			return createConstraintAdapter();
+		}
 
-				@Override
-				public Adapter caseEnumerationLiteral(EnumerationLiteral object) {
+		@Override
+		public Adapter caseExpression(Expression object) {
+			return createExpressionAdapter();
+		}
 
-					return createEnumerationLiteralAdapter();
-				}
+		@Override
+		public Adapter caseAssociationProperty(AssociationProperty object) {
+			return createAssociationPropertyAdapter();
+		}
 
-				@Override
-				public Adapter caseProperty(Property object) {
-
-					return createPropertyAdapter();
-				}
-
-				@Override
-				public Adapter caseOperation(Operation object) {
-
-					return createOperationAdapter();
-				}
-
-				@Override
-				public Adapter caseParameter(Parameter object) {
-
-					return createParameterAdapter();
-				}
-
-				@Override
-				public Adapter caseGenericType(GenericType object) {
-
-					return createGenericTypeAdapter();
-				}
-
-				@Override
-				public Adapter caseParameterGenericType(ParameterGenericType object) {
-
-					return createParameterGenericTypeAdapter();
-				}
-
-				@Override
-				public Adapter caseComplexGenericType(ComplexGenericType object) {
-
-					return createComplexGenericTypeAdapter();
-				}
-
-				@Override
-				public Adapter caseTypeParameter(TypeParameter object) {
-
-					return createTypeParameterAdapter();
-				}
-
-				@Override
-				public Adapter caseTypeArgument(TypeArgument object) {
-
-					return createTypeArgumentAdapter();
-				}
-
-				@Override
-				public Adapter caseConstraint(Constraint object) {
-
-					return createConstraintAdapter();
-				}
-
-				@Override
-				public Adapter caseExpression(Expression object) {
-
-					return createExpressionAdapter();
-				}
-
-				@Override
-				public Adapter caseAssociationProperty(AssociationProperty object) {
-
-					return createAssociationPropertyAdapter();
-				}
-
-				@Override
-				public Adapter defaultCase(EObject object) {
-
-					return createEObjectAdapter();
-				}
-			};
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -263,7 +238,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-
 		return modelSwitch.doSwitch((EObject) target);
 	}
 
@@ -278,7 +252,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEnumerationAdapter() {
-
 		return null;
 	}
 
@@ -293,7 +266,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
-
 		return null;
 	}
 
@@ -308,7 +280,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOperationAdapter() {
-
 		return null;
 	}
 
@@ -323,7 +294,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamespaceAdapter() {
-
 		return null;
 	}
 
@@ -338,7 +308,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypeAdapter() {
-
 		return null;
 	}
 
@@ -353,7 +322,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterAdapter() {
-
 		return null;
 	}
 
@@ -368,7 +336,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEnumerationLiteralAdapter() {
-
 		return null;
 	}
 
@@ -383,7 +350,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPropertyAdapter() {
-
 		return null;
 	}
 
@@ -398,7 +364,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypedElementAdapter() {
-
 		return null;
 	}
 
@@ -413,7 +378,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPrimitiveTypeAdapter() {
-
 		return null;
 	}
 
@@ -428,7 +392,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFeatureAdapter() {
-
 		return null;
 	}
 
@@ -443,7 +406,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConstraintAdapter() {
-
 		return null;
 	}
 
@@ -458,7 +420,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createExpressionAdapter() {
-
 		return null;
 	}
 
@@ -473,7 +434,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAssociationPropertyAdapter() {
-
 		return null;
 	}
 
@@ -488,7 +448,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConstrainableElementAdapter() {
-
 		return null;
 	}
 
@@ -503,7 +462,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGenericElementAdapter() {
-
 		return null;
 	}
 
@@ -518,7 +476,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypeParameterAdapter() {
-
 		return null;
 	}
 
@@ -533,7 +490,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypeArgumentAdapter() {
-
 		return null;
 	}
 
@@ -548,7 +504,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterGenericTypeAdapter() {
-
 		return null;
 	}
 
@@ -563,7 +518,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComplexGenericTypeAdapter() {
-
 		return null;
 	}
 
@@ -578,7 +532,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGenericTypeAdapter() {
-
 		return null;
 	}
 
@@ -591,7 +544,6 @@ public class PivotModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEObjectAdapter() {
-
 		return null;
 	}
 

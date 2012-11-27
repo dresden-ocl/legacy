@@ -73,8 +73,7 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ParameterDirectionKind KIND_EDEFAULT =
-			ParameterDirectionKind.IN;
+	protected static final ParameterDirectionKind KIND_EDEFAULT = ParameterDirectionKind.IN;
 
 	/**
 	 * The cached value of the '{@link #getKind() <em>Kind</em>}' attribute.
@@ -90,7 +89,6 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 	 * @generated
 	 */
 	protected ParameterImpl() {
-
 		super();
 	}
 
@@ -100,7 +98,6 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-
 		return PivotModelPackage.Literals.PARAMETER;
 	}
 
@@ -123,7 +120,8 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 				Type operationType = operation.getType();
 
 				if ((operationType == null && newType != null)
-						|| (operationType != null && !operationType.equals(newType))) {
+						|| (operationType != null && !operationType
+								.equals(newType))) {
 					operation.setType(newType);
 				}
 			}
@@ -174,7 +172,6 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 	 * @generated
 	 */
 	public ParameterDirectionKind getKind() {
-
 		return kind;
 	}
 
@@ -183,7 +180,6 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 	 * @generated
 	 */
 	public void setKind(ParameterDirectionKind newKind) {
-
 		ParameterDirectionKind oldKind = kind;
 		kind = newKind == null ? KIND_EDEFAULT : newKind;
 		if (eNotificationRequired())
@@ -196,7 +192,6 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 	 * @generated
 	 */
 	public Operation getOperation() {
-
 		if (eContainerFeatureID() != PivotModelPackage.PARAMETER__OPERATION)
 			return null;
 		return (Operation) eContainer();
@@ -208,10 +203,8 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 	 */
 	public NotificationChain basicSetOperation(Operation newOperation,
 			NotificationChain msgs) {
-
-		msgs =
-				eBasicSetContainer((InternalEObject) newOperation,
-						PivotModelPackage.PARAMETER__OPERATION, msgs);
+		msgs = eBasicSetContainer((InternalEObject) newOperation,
+				PivotModelPackage.PARAMETER__OPERATION, msgs);
 		return msgs;
 	}
 
@@ -220,7 +213,6 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 	 * @generated
 	 */
 	public void setOperation(Operation newOperation) {
-
 		if (newOperation != eInternalContainer()
 				|| (eContainerFeatureID() != PivotModelPackage.PARAMETER__OPERATION && newOperation != null)) {
 			if (EcoreUtil.isAncestor(this, newOperation))
@@ -230,17 +222,16 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newOperation != null)
-				msgs =
-						((InternalEObject) newOperation).eInverseAdd(this,
-								PivotModelPackage.OPERATION__OWNED_PARAMETER, Operation.class,
-								msgs);
+				msgs = ((InternalEObject) newOperation).eInverseAdd(this,
+						PivotModelPackage.OPERATION__OWNED_PARAMETER,
+						Operation.class, msgs);
 			msgs = basicSetOperation(newOperation, msgs);
 			if (msgs != null)
 				msgs.dispatch();
-		}
-		else if (eNotificationRequired())
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					PivotModelPackage.PARAMETER__OPERATION, newOperation, newOperation));
+					PivotModelPackage.PARAMETER__OPERATION, newOperation,
+					newOperation));
 	}
 
 	/**
@@ -292,9 +283,8 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID,
-			NotificationChain msgs) {
-
+	public NotificationChain eInverseAdd(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case PivotModelPackage.PARAMETER__OPERATION:
 			if (eInternalContainer() != null)
@@ -311,7 +301,6 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
-
 		switch (featureID) {
 		case PivotModelPackage.PARAMETER__OPERATION:
 			return basicSetOperation(null, msgs);
@@ -326,11 +315,11 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(
 			NotificationChain msgs) {
-
 		switch (eContainerFeatureID()) {
 		case PivotModelPackage.PARAMETER__OPERATION:
 			return eInternalContainer().eInverseRemove(this,
-					PivotModelPackage.OPERATION__OWNED_PARAMETER, Operation.class, msgs);
+					PivotModelPackage.OPERATION__OWNED_PARAMETER,
+					Operation.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -341,7 +330,6 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-
 		switch (featureID) {
 		case PivotModelPackage.PARAMETER__KIND:
 			return getKind();
@@ -357,7 +345,6 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-
 		switch (featureID) {
 		case PivotModelPackage.PARAMETER__KIND:
 			setKind((ParameterDirectionKind) newValue);
@@ -375,7 +362,6 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 	 */
 	@Override
 	public void eUnset(int featureID) {
-
 		switch (featureID) {
 		case PivotModelPackage.PARAMETER__KIND:
 			setKind(KIND_EDEFAULT);
@@ -393,7 +379,6 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-
 		switch (featureID) {
 		case PivotModelPackage.PARAMETER__KIND:
 			return kind != KIND_EDEFAULT;
@@ -415,7 +400,8 @@ public class ParameterImpl extends TypedElementImpl implements Parameter {
 	public String toString() {
 
 		return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
-				.appendToString(super.toString()).append("kind", kind).toString(); //$NON-NLS-1$
+				.appendToString(super.toString())
+				.append("kind", kind).toString(); //$NON-NLS-1$
 	}
 
 } // ParameterImpl

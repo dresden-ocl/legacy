@@ -68,7 +68,6 @@ public class ParameterItemProvider extends TypedElementItemProvider implements
 	 * @generated
 	 */
 	public ParameterItemProvider(AdapterFactory adapterFactory) {
-
 		super(adapterFactory);
 	}
 
@@ -80,7 +79,6 @@ public class ParameterItemProvider extends TypedElementItemProvider implements
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
@@ -96,7 +94,6 @@ public class ParameterItemProvider extends TypedElementItemProvider implements
 	 * @generated
 	 */
 	protected void addKindPropertyDescriptor(Object object) {
-
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(
 						((ComposeableAdapterFactory) adapterFactory)
@@ -105,7 +102,8 @@ public class ParameterItemProvider extends TypedElementItemProvider implements
 						getString("_UI_Parameter_kind_feature"), //$NON-NLS-1$
 						getString(
 								"_UI_PropertyDescriptor_description", "_UI_Parameter_kind_feature", "_UI_Parameter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-						PivotModelPackage.Literals.PARAMETER__KIND, true, false, false,
+						PivotModelPackage.Literals.PARAMETER__KIND, true,
+						false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -200,7 +198,6 @@ public class ParameterItemProvider extends TypedElementItemProvider implements
 	@Override
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
-
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

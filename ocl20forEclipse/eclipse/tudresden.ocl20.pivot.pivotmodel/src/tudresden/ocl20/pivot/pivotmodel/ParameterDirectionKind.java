@@ -168,8 +168,8 @@ public enum ParameterDirectionKind implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final ParameterDirectionKind[] VALUES_ARRAY =
-			new ParameterDirectionKind[] { IN, OUT, INOUT, RETURN, };
+	private static final ParameterDirectionKind[] VALUES_ARRAY = new ParameterDirectionKind[] {
+			IN, OUT, INOUT, RETURN, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Parameter Direction Kind</b></em>' enumerators.
@@ -187,7 +187,6 @@ public enum ParameterDirectionKind implements Enumerator {
 	 * @generated
 	 */
 	public static ParameterDirectionKind get(String literal) {
-
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			ParameterDirectionKind result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
@@ -204,7 +203,6 @@ public enum ParameterDirectionKind implements Enumerator {
 	 * @generated
 	 */
 	public static ParameterDirectionKind getByName(String name) {
-
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			ParameterDirectionKind result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
@@ -221,7 +219,6 @@ public enum ParameterDirectionKind implements Enumerator {
 	 * @generated
 	 */
 	public static ParameterDirectionKind get(int value) {
-
 		switch (value) {
 		case IN_VALUE:
 			return IN;
@@ -263,7 +260,6 @@ public enum ParameterDirectionKind implements Enumerator {
 	 * @generated
 	 */
 	private ParameterDirectionKind(int value, String name, String literal) {
-
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -275,7 +271,6 @@ public enum ParameterDirectionKind implements Enumerator {
 	 * @generated
 	 */
 	public int getValue() {
-
 		return value;
 	}
 
@@ -285,7 +280,6 @@ public enum ParameterDirectionKind implements Enumerator {
 	 * @generated
 	 */
 	public String getName() {
-
 		return name;
 	}
 
@@ -295,7 +289,6 @@ public enum ParameterDirectionKind implements Enumerator {
 	 * @generated
 	 */
 	public String getLiteral() {
-
 		return literal;
 	}
 
@@ -307,7 +300,6 @@ public enum ParameterDirectionKind implements Enumerator {
 	 */
 	@Override
 	public String toString() {
-
 		return literal;
 	}
 

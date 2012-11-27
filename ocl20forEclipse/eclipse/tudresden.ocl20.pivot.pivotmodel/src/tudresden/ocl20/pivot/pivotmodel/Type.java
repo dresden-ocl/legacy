@@ -321,6 +321,19 @@ public interface Type extends NamedElement, ConstrainableElement,
 	boolean removeOperation(Operation operation);
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * <p>
+	 * Returns all properties which identify this <code>Type</code>. If no identifier property specify than an empty list will be return.
+	 * </p>
+	 * <!-- end-model-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	List<Property> getIDProperties();
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
 	 * <p>
 	 * Returns all properties of this <code>Type</code> and its supertypes.
