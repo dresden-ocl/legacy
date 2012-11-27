@@ -51,12 +51,16 @@ import tudresden.ocl20.pivot.pivotmodel.PivotModelPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link tudresden.ocl20.pivot.pivotmodel.impl.NamedElementImpl#getName <em>Name</em>}</li>
- *   <li>{@link tudresden.ocl20.pivot.pivotmodel.impl.NamedElementImpl#getQualifiedName <em>Qualified Name</em>}</li>
- *   <li>{@link tudresden.ocl20.pivot.pivotmodel.impl.NamedElementImpl#getOwner <em>Owner</em>}</li>
+ * <li>{@link tudresden.ocl20.pivot.pivotmodel.impl.NamedElementImpl#getName
+ * <em>Name</em>}</li>
+ * <li>
+ * {@link tudresden.ocl20.pivot.pivotmodel.impl.NamedElementImpl#getQualifiedName
+ * <em>Qualified Name</em>}</li>
+ * <li>{@link tudresden.ocl20.pivot.pivotmodel.impl.NamedElementImpl#getOwner
+ * <em>Owner</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class NamedElementImpl extends EObjectImpl implements
@@ -85,9 +89,10 @@ public abstract class NamedElementImpl extends EObjectImpl implements
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getQualifiedName() <em>Qualified Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getQualifiedName()
+	 * <em>Qualified Name</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getQualifiedName()
 	 * @generated
 	 * @ordered
@@ -96,34 +101,42 @@ public abstract class NamedElementImpl extends EObjectImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected NamedElementImpl() {
+
 		super();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected EClass eStaticClass() {
+
 		return PivotModelPackage.Literals.NAMED_ELEMENT;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getName() {
+
 		return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
+
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
@@ -247,10 +260,12 @@ public abstract class NamedElementImpl extends EObjectImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+
 		switch (featureID) {
 		case PivotModelPackage.NAMED_ELEMENT__NAME:
 			return getName();
@@ -264,10 +279,12 @@ public abstract class NamedElementImpl extends EObjectImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
+
 		switch (featureID) {
 		case PivotModelPackage.NAMED_ELEMENT__NAME:
 			setName((String) newValue);
@@ -278,10 +295,12 @@ public abstract class NamedElementImpl extends EObjectImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
+
 		switch (featureID) {
 		case PivotModelPackage.NAMED_ELEMENT__NAME:
 			setName(NAME_EDEFAULT);
@@ -292,14 +311,15 @@ public abstract class NamedElementImpl extends EObjectImpl implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
+
 		switch (featureID) {
 		case PivotModelPackage.NAMED_ELEMENT__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case PivotModelPackage.NAMED_ELEMENT__QUALIFIED_NAME:
 			return QUALIFIED_NAME_EDEFAULT == null ? getQualifiedName() != null
 					: !QUALIFIED_NAME_EDEFAULT.equals(getQualifiedName());
@@ -320,8 +340,8 @@ public abstract class NamedElementImpl extends EObjectImpl implements
 	@Override
 	public String toString() {
 
-		return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
-				.append("name", getName()).toString(); //$NON-NLS-1$
+		return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).append(
+				"name", getName()).toString(); //$NON-NLS-1$
 	}
 
 } // NamedElementImpl
