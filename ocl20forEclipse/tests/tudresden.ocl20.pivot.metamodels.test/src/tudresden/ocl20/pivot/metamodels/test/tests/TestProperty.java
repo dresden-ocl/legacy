@@ -17,7 +17,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import org.apache.log4j.Logger;
 import org.eclipse.osgi.util.NLS;
@@ -754,7 +753,7 @@ public class TestProperty {
 			/* The property must have been found by the given name. */
 			assertFalse(
 					msg, nonidentifierProperty.isIdentifier());
-		} else fail("");
+		} 
 		// no else.
 	}
 }
